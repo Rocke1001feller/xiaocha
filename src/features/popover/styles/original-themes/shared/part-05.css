@@ -1,0 +1,500 @@
+.translation .text {
+  display: var(--oow-lexical-panel-text-display);
+  font-weight: var(--oow-lexical-panel-translation-font-weight);
+  font-size: var(--oow-lexical-panel-translation-font-size);
+  letter-spacing: var(--oow-lexical-panel-translation-letter-spacing);
+  color: var(--oow-lexical-panel-text-color);
+  word-break: var(--oow-lexical-panel-text-word-break);
+  white-space: var(--oow-lexical-panel-text-white-space-normal);
+  text-shadow: var(--oow-lexical-panel-text-text-shadow);
+  text-decoration: var(--oow-lexical-panel-text-text-decoration);
+  line-height: var(--oow-lexical-panel-translation-line-height);
+}
+
+/* 根据style-type应用不同的视觉效果 */
+.translation {
+  margin-bottom: var(--oow-lexical-panel-translation-margin-bottom);
+  background: var(--oow-lexical-panel-translation-frame-bg);
+  border: var(--oow-lexical-panel-translation-frame-border);
+  border-radius: var(--oow-lexical-panel-translation-frame-radius);
+  padding: var(--oow-lexical-panel-translation-frame-padding);
+  box-shadow: var(--oow-lexical-panel-translation-glow);
+  background-image: var(--oow-lexical-panel-translation-gradient);
+}
+
+/* subtle样式：仅文字效果，无边框背景 */
+.translation[data-style="subtle"] {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  background-image: none;
+}
+
+/* framed样式：边框背景效果 */
+.translation[data-style="framed"] {
+  background: var(--oow-lexical-panel-translation-frame-bg);
+  border: var(--oow-lexical-panel-translation-frame-border);
+  border-radius: var(--oow-lexical-panel-translation-frame-radius);
+  padding: var(--oow-lexical-panel-translation-frame-padding);
+  box-shadow: var(--oow-lexical-panel-translation-glow);
+}
+
+/* gradient样式：渐变文字效果 */
+.translation[data-style="gradient"] {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  background-image: var(--oow-lexical-panel-translation-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-contextual_analysis {
+  display: var(--oow-lexical-panel-text-display);
+  color: var(--oow-lexical-panel-analysis-color);
+  word-break: var(--oow-lexical-panel-text-word-break);
+  white-space: var(--oow-lexical-panel-text-white-space-normal);
+  overflow: var(--oow-lexical-panel-analysis-overflow);
+  font-style: var(--oow-lexical-panel-analysis-font-style);
+  font-weight: var(--oow-lexical-panel-analysis-font-weight);
+  font-size: var(--oow-lexical-panel-analysis-font-size);
+  line-height: var(--oow-lexical-panel-analysis-line-height);
+  text-shadow: var(--oow-lexical-panel-analysis-text-shadow);
+}
+
+/* 针对实际DOM结构的样式 - contextual-analysis区域内的文本 */
+.contextual-analysis .text {
+  display: var(--oow-lexical-panel-text-display);
+  color: var(--oow-lexical-panel-analysis-color);
+  word-break: var(--oow-lexical-panel-text-word-break);
+  white-space: var(--oow-lexical-panel-text-white-space-normal);
+  overflow: var(--oow-lexical-panel-analysis-overflow);
+  font-style: var(--oow-lexical-panel-analysis-font-style);
+  font-weight: var(--oow-lexical-panel-analysis-font-weight);
+  font-size: var(--oow-lexical-panel-analysis-font-size);
+  line-height: var(--oow-lexical-panel-analysis-line-height);
+  text-shadow: var(--oow-lexical-panel-analysis-text-shadow);
+}
+
+/* 根据style-type应用不同的视觉效果 */
+.contextual-analysis {
+  background: var(--oow-lexical-panel-analysis-frame-bg);
+  border: var(--oow-lexical-panel-analysis-frame-border);
+  border-radius: var(--oow-lexical-panel-analysis-frame-radius);
+  padding: var(--oow-lexical-panel-analysis-frame-padding);
+  box-shadow: var(--oow-lexical-panel-analysis-glow);
+  background-image: var(--oow-lexical-panel-analysis-gradient);
+}
+
+/* subtle样式：仅文字效果，无边框背景 */
+.contextual-analysis[data-style="subtle"] {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  background-image: none;
+}
+
+/* framed样式：边框背景效果 */
+.contextual-analysis[data-style="framed"] {
+  background: var(--oow-lexical-panel-analysis-frame-bg);
+  border: var(--oow-lexical-panel-analysis-frame-border);
+  border-radius: var(--oow-lexical-panel-analysis-frame-radius);
+  padding: var(--oow-lexical-panel-analysis-frame-padding);
+  box-shadow: var(--oow-lexical-panel-analysis-glow);
+}
+
+/* gradient样式：渐变文字效果 */
+.contextual-analysis[data-style="gradient"] {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  background-image: var(--oow-lexical-panel-analysis-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 加载指示器样式 */
+.context-loader {
+  display: var(--oow-lexical-panel-loader-display);
+  padding: var(--oow-lexical-panel-loader-padding);
+}
+
+.context-loader.visible {
+  display: var(--oow-lexical-panel-loader-display-visible);
+}
+
+/* Equalizer 动画样式 */
+.eq {
+  display: var(--oow-lexical-panel-eq-display);
+  grid-auto-flow: var(--oow-lexical-panel-eq-auto-flow);
+  gap: var(--oow-lexical-panel-eq-gap);
+  justify-content: var(--oow-lexical-panel-eq-justify-content);
+  align-items: var(--oow-lexical-panel-eq-align-items);
+  height: var(--oow-lexical-panel-eq-height);
+}
+
+.bar {
+  width: var(--oow-lexical-panel-bar-width);
+  border-radius: var(--oow-lexical-panel-bar-border-radius);
+  background: var(--oow-lexical-panel-bar-bg);
+  box-shadow: var(--oow-lexical-panel-bar-box-shadow);
+  animation: var(--oow-lexical-panel-bar-animation);
+}
+
+.b1 { animation-delay: var(--oow-lexical-panel-bar-1-delay); }
+.b2 { animation-delay: var(--oow-lexical-panel-bar-2-delay); }
+.b3 { animation-delay: var(--oow-lexical-panel-bar-3-delay); }
+.b4 { animation-delay: var(--oow-lexical-panel-bar-4-delay); }
+.b5 { animation-delay: var(--oow-lexical-panel-bar-5-delay); }
+
+/* 动画关键帧 */
+@keyframes oow-eq {
+  0%, 100% {
+    height: var(--oow-lexical-panel-bar-height-start);
+    filter: saturate(var(--oow-lexical-panel-bar-filter-saturate-start));
+  }
+  40% {
+    height: var(--oow-lexical-panel-bar-height-middle);
+    filter: saturate(var(--oow-lexical-panel-bar-filter-saturate-middle));
+  }
+  60% {
+    height: var(--oow-lexical-panel-bar-height-end);
+  }
+}/*
+ * Base Markdown Panel Component
+ * Markdown 面板基类组件 - 提供通用的 Markdown 内容渲染样式
+ * 可被继承的子组件（如 InformationPanel）使用
+ */
+
+/* 基础 Markdown 面板样式 - 设计师主题创作接口 */
+.base-markdown-panel {
+  /* 整体布局 */
+  --oow-base-markdown-panel-bg: transparent;
+  --oow-base-markdown-panel-padding: 0;
+  --oow-base-markdown-panel-margin: 0;
+  --oow-base-markdown-panel-min-height: 50px;
+  --oow-base-markdown-panel-display: block;
+  --oow-base-markdown-panel-font-family: inherit;
+  --oow-base-markdown-panel-line-height: 1.6;
+  --oow-base-markdown-panel-color: inherit;
+  --oow-base-markdown-panel-transition: var(--oow-animation-base, 0.25s);
+
+  /* 内容区域样式 */
+  --oow-base-markdown-panel-content-padding: var(--spacing-3) var(--spacing-4);
+  --oow-base-markdown-panel-content-bg: transparent;
+  --oow-base-markdown-panel-content-border: none;
+  --oow-base-markdown-panel-content-border-radius: 0;
+  --oow-base-markdown-panel-content-max-width: 100%;
+  --oow-base-markdown-panel-content-box-sizing: border-box;
+
+  /* 标题样式 */
+  --oow-base-markdown-panel-heading-weight: 700;
+  --oow-base-markdown-panel-heading-color: var(--text-color);
+  --oow-base-markdown-panel-heading-margin-top: 1em;
+  --oow-base-markdown-panel-heading-margin-bottom: 0.5em;
+  --oow-base-markdown-panel-h1-size: 1.5em;
+  --oow-base-markdown-panel-h2-size: 1.3em;
+  --oow-base-markdown-panel-h3-size: 1.1em;
+  --oow-base-markdown-panel-h4-size: 1em;
+  --oow-base-markdown-panel-h5-size: 0.9em;
+  --oow-base-markdown-panel-h6-size: 0.8em;
+
+  /* 段落样式 */
+  --oow-base-markdown-panel-paragraph-margin-bottom: 0.8em;
+  --oow-base-markdown-panel-paragraph-line-height: 1.6;
+  --oow-base-markdown-panel-paragraph-color: inherit;
+  --oow-base-markdown-panel-paragraph-text-align: left;
+  --oow-base-markdown-panel-paragraph-indent: 0;
+
+  /* 列表样式 */
+  --oow-base-markdown-panel-list-padding-left: 20px;
+  --oow-base-markdown-panel-list-margin-bottom: 1em;
+  --oow-base-markdown-panel-list-item-margin-bottom: 0.4em;
+  --oow-base-markdown-panel-list-item-color: inherit;
+  --oow-base-markdown-panel-list-item-line-height: 1.5;
+
+  /* 代码样式 */
+  --oow-base-markdown-panel-code-bg: rgba(0,0,0,0.1);
+  --oow-base-markdown-panel-code-border-radius: 4px;
+  --oow-base-markdown-panel-code-padding: 2px 4px;
+  --oow-base-markdown-panel-code-font-family: var(--font-family-mono, 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace);
+  --oow-base-markdown-panel-code-color: inherit;
+  --oow-base-markdown-panel-code-font-size: 0.9em;
+  --oow-base-markdown-panel-code-border: none;
+
+  /* 预格式化文本样式 */
+  --oow-base-markdown-panel-pre-bg: rgba(0,0,0,0.1);
+  --oow-base-markdown-panel-pre-border-radius: 6px;
+  --oow-base-markdown-panel-pre-padding: 12px;
+  --oow-base-markdown-panel-pre-white-space: pre-wrap;
+  --oow-base-markdown-panel-pre-word-break: break-all;
+  --oow-base-markdown-panel-pre-font-family: var(--font-family-mono, 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace);
+  --oow-base-markdown-panel-pre-font-size: 0.9em;
+  --oow-base-markdown-panel-pre-line-height: 1.4;
+
+  /* 引用样式 */
+  --oow-base-markdown-panel-blockquote-border-left: 3px solid var(--accent-1);
+  --oow-base-markdown-panel-blockquote-padding-left: 12px;
+  --oow-base-markdown-panel-blockquote-margin-left: 0;
+  --oow-base-markdown-panel-blockquote-margin-right: 0;
+  --oow-base-markdown-panel-blockquote-margin-top: 1em;
+  --oow-base-markdown-panel-blockquote-margin-bottom: 1em;
+  --oow-base-markdown-panel-blockquote-color: var(--muted);
+  --oow-base-markdown-panel-blockquote-font-style: italic;
+  --oow-base-markdown-panel-blockquote-bg: transparent;
+
+  /* 错误消息样式 */
+  --oow-base-markdown-panel-error-color: #ff6b6b;
+  --oow-base-markdown-panel-error-weight: bold;
+  --oow-base-markdown-panel-error-font-size: inherit;
+  --oow-base-markdown-panel-error-margin: 10px 0;
+  --oow-base-markdown-panel-error-padding: 8px 12px;
+  --oow-base-markdown-panel-error-bg: rgba(255,107,107,0.1);
+  --oow-base-markdown-panel-error-border-radius: 4px;
+  --oow-base-markdown-panel-error-border: 1px solid rgba(255,107,107,0.3);
+
+  /* 流式错误指示器样式 */
+  --oow-base-markdown-panel-stream-error-color: #f44336;
+  --oow-base-markdown-panel-stream-error-padding: 5px;
+  --oow-base-markdown-panel-stream-error-margin: 5px 0;
+  --oow-base-markdown-panel-stream-error-border-left: 3px solid #f44336;
+  --oow-base-markdown-panel-stream-error-background: transparent;
+  --oow-base-markdown-panel-stream-error-font-size: 0.9em;
+  --oow-base-markdown-panel-stream-error-font-weight: 500;
+
+  /* 内容结束标记样式 */
+  --oow-base-markdown-panel-end-marker-height: 1px;
+  --oow-base-markdown-panel-end-marker-bg: linear-gradient(to right, transparent, #ccc, transparent);
+  --oow-base-markdown-panel-end-marker-margin: 10px 0;
+  --oow-base-markdown-panel-end-marker-opacity: 0.3;
+  --oow-base-markdown-panel-end-marker-width: 100%;
+  --oow-base-markdown-panel-end-display: block;
+
+  /* 加载状态样式 */
+  --oow-base-markdown-panel-loading-opacity: 0.7;
+  --oow-base-markdown-panel-loading-filter: blur(1px);
+  --oow-base-markdown-panel-loading-pointer-events: none;
+  --oow-base-markdown-panel-loading-transition: opacity 0.3s ease;
+
+  /* 空状态样式 */
+  --oow-base-markdown-panel-empty-text: 'No content available';
+  --oow-base-markdown-panel-empty-color: var(--muted);
+  --oow-base-markdown-panel-empty-font-style: italic;
+  --oow-base-markdown-panel-empty-text-align: center;
+  --oow-base-markdown-panel-empty-padding: 20px;
+  --oow-base-markdown-panel-empty-min-height: 100px;
+  --oow-base-markdown-panel-empty-display: flex;
+  --oow-base-markdown-panel-empty-align-items: center;
+  --oow-base-markdown-panel-empty-justify-content: center;
+
+  /* 链接样式 */
+  --oow-base-markdown-panel-link-color: var(--accent-1);
+  --oow-base-markdown-panel-link-decoration: underline;
+  --oow-base-markdown-panel-link-hover-color: var(--accent-2);
+  --oow-base-markdown-panel-link-hover-decoration: none;
+  --oow-base-markdown-panel-link-transition: color 0.2s ease;
+  --oow-base-markdown-panel-link-visited-color: var(--accent-1);
+
+  /* 强调文本样式 */
+  --oow-base-markdown-panel-strong-weight: bold;
+  --oow-base-markdown-panel-strong-color: inherit;
+  --oow-base-markdown-panel-em-style: italic;
+  --oow-base-markdown-panel-em-color: inherit;
+  --oow-base-markdown-panel-mark-bg: rgba(255,255,0,0.2);
+  --oow-base-markdown-panel-mark-color: inherit;
+  --oow-base-markdown-panel-mark-padding: 1px 2px;
+  --oow-base-markdown-panel-mark-border-radius: 2px;
+
+  /* 分隔线样式 */
+  --oow-base-markdown-panel-hr-height: 1px;
+  --oow-base-markdown-panel-hr-bg: var(--ring);
+  --oow-base-markdown-panel-hr-margin: 2em 0;
+  --oow-base-markdown-panel-hr-opacity: 0.5;
+  --oow-base-markdown-panel-hr-border: none;
+
+  /* 表格样式 */
+  --oow-base-markdown-panel-table-border-collapse: collapse;
+  --oow-base-markdown-panel-table-width: 100%;
+  --oow-base-markdown-panel-table-margin: 1em 0;
+  --oow-base-markdown-panel-table-border: 1px solid var(--ring);
+  --oow-base-markdown-panel-th-bg: rgba(0,0,0,0.05);
+  --oow-base-markdown-panel-th-padding: 8px 12px;
+  --oow-base-markdown-panel-th-text-align: left;
+  --oow-base-markdown-panel-th-font-weight: 600;
+  --oow-base-markdown-panel-td-padding: 8px 12px;
+  --oow-base-markdown-panel-td-border: 1px solid var(--ring);
+  --oow-base-markdown-panel-tr-hover-bg: rgba(0,0,0,0.02);
+
+  /* 图片样式 */
+  --oow-base-markdown-panel-img-max-width: 100%;
+  --oow-base-markdown-panel-img-height: auto;
+  --oow-base-markdown-panel-img-border-radius: 4px;
+  --oow-base-markdown-panel-img-margin: 1em 0;
+  --oow-base-markdown-panel-img-display: block;
+
+  /* 响应式设计 */
+  --oow-base-markdown-panel-mobile-padding: 12px;
+  --oow-base-markdown-panel-mobile-font-size: 0.95em;
+  --oow-base-markdown-panel-tablet-padding: 16px;
+  --oow-base-markdown-panel-tablet-font-size: 1em;
+  --oow-base-markdown-panel-desktop-padding: 20px;
+  --oow-base-markdown-panel-desktop-font-size: 1.05em;
+  --oow-base-markdown-panel-breakpoint-mobile: 480px;
+  --oow-base-markdown-panel-breakpoint-tablet: 768px;
+  --oow-base-markdown-panel-breakpoint-desktop: 1024px;
+
+  /* 深色模式支持 */
+  --oow-base-markdown-panel-dark-code-bg: rgba(255,255,255,0.1);
+  --oow-base-markdown-panel-dark-pre-bg: rgba(255,255,255,0.1);
+  --oow-base-markdown-panel-dark-blockquote-color: #ccc;
+  --oow-base-markdown-panel-dark-hr-bg: rgba(255,255,255,0.2);
+  --oow-base-markdown-panel-dark-th-bg: rgba(255,255,255,0.1);
+  --oow-base-markdown-panel-dark-tr-hover-bg: rgba(255,255,255,0.05);
+
+  /* 可访问性增强 */
+  --oow-base-markdown-panel-focus-outline: 2px solid var(--accent-1);
+  --oow-base-markdown-panel-focus-outline-offset: 2px;
+  --oow-base-markdown-panel-high-contrast-text: #000;
+  --oow-base-markdown-panel-high-contrast-bg: #fff;
+  --oow-base-markdown-panel-screen-reader-only: none;
+  --oow-base-markdown-panel-skip-link-bg: var(--accent-1);
+  --oow-base-markdown-panel-skip-link-color: #fff;
+
+  /* 打印样式 */
+  --oow-base-markdown-panel-print-color: #000;
+  --oow-base-markdown-panel-print-bg: #fff;
+  --oow-base-markdown-panel-print-font-size: 12pt;
+  --oow-base-markdown-panel-print-line-height: 1.4;
+  --oow-base-markdown-panel-print-hide-end-marker: true;
+  --oow-base-markdown-panel-print-hide-stream-error: true;
+
+  /* 性能优化 */
+  --oow-base-markdown-panel-will-change: auto;
+  --oow-base-markdown-panel-transform: none;
+  --oow-base-markdown-panel-backface-visibility: visible;
+  --oow-base-markdown-panel-contain: layout;
+
+  /* 内容分组样式 */
+  --oow-base-markdown-panel-group-margin: 16px 0;
+  --oow-base-markdown-panel-group-padding: 12px;
+  --oow-base-markdown-panel-group-border: 1px solid rgba(0,0,0,0.05);
+  --oow-base-markdown-panel-group-border-radius: 8px;
+  --oow-base-markdown-panel-group-bg: rgba(0,0,0,0.02);
+
+  /* 微交互增强 */
+  --oow-base-markdown-panel-hover-transform: translateY(-1px);
+  --oow-base-markdown-panel-hover-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  --oow-base-markdown-panel-transition-quick: 0.15s ease;
+  --oow-base-markdown-panel-transition-smooth: 0.3s ease;
+
+  /* 无障碍访问 */
+  --oow-base-markdown-panel-role: region;
+  --oow-base-markdown-panel-aria-label: 'Markdown content';
+  --oow-base-markdown-panel-aria-live: polite;
+  --oow-base-markdown-panel-aria-busy: false;
+
+  /* 代码块高亮样式 */
+  --oow-base-markdown-panel-code-block-bg: #282c34;
+  --oow-base-markdown-panel-code-block-color: #abb2bf;
+  --oow-base-markdown-panel-code-block-padding: 16px;
+  --oow-base-markdown-panel-code-block-border-radius: 6px;
+  --oow-base-markdown-panel-code-block-font-family: var(--font-family-mono, 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace);
+  --oow-base-markdown-panel-code-block-font-size: 0.9em;
+  --oow-base-markdown-panel-code-block-line-height: 1.5;
+  --oow-base-markdown-panel-code-block-overflow: auto;
+
+  /* 行内代码高亮 */
+  --oow-base-markdown-panel-code-inline-bg: rgba(0,0,0,0.08);
+  --oow-base-markdown-panel-code-inline-color: #e06c75;
+  --oow-base-markdown-panel-code-inline-padding: 2px 4px;
+  --oow-base-markdown-panel-code-inline-border-radius: 3px;
+  --oow-base-markdown-panel-code-inline-font-size: 0.9em;
+
+  /* 语法高亮颜色 */
+  --oow-base-markdown-panel-syntax-keyword: #c678dd;
+  --oow-base-markdown-panel-syntax-string: #98c379;
+  --oow-base-markdown-panel-syntax-number: #d19a66;
+  --oow-base-markdown-panel-syntax-comment: #5c6370;
+  --oow-base-markdown-panel-syntax-function: #61afef;
+  --oow-base-markdown-panel-syntax-variable: #e06c75;
+  --oow-base-markdown-panel-syntax-class: #e5c07b;
+}
+
+/* 应用变量到基类组件 */
+.base-markdown-panel {
+  background: var(--oow-base-markdown-panel-bg);
+  padding: var(--oow-base-markdown-panel-padding);
+  margin: var(--oow-base-markdown-panel-margin);
+  min-height: var(--oow-base-markdown-panel-min-height);
+  display: var(--oow-base-markdown-panel-display);
+  font-family: var(--oow-base-markdown-panel-font-family);
+  line-height: var(--oow-base-markdown-panel-line-height);
+  color: var(--oow-base-markdown-panel-color);
+  transition: var(--oow-base-markdown-panel-transition);
+  will-change: var(--oow-base-markdown-panel-will-change);
+  transform: var(--oow-base-markdown-panel-transform);
+  backface-visibility: var(--oow-base-markdown-panel-backface-visibility);
+  contain: var(--oow-base-markdown-panel-contain);
+  overflow-wrap: break-word; /* Force long words to wrap */
+  overflow-x: hidden; /* Prevent horizontal scrollbars */
+}
+
+/* 内容区域 */
+.base-markdown-panel .markdown-content {
+  padding: var(--oow-base-markdown-panel-content-padding);
+  background: var(--oow-base-markdown-panel-content-bg);
+  border: var(--oow-base-markdown-panel-content-border);
+  border-radius: var(--oow-base-markdown-panel-content-border-radius);
+  max-width: var(--oow-base-markdown-panel-content-max-width);
+  box-sizing: var(--oow-base-markdown-panel-content-box-sizing);
+}
+
+/* 标题样式 */
+.base-markdown-panel h1,
+.base-markdown-panel h2,
+.base-markdown-panel h3,
+.base-markdown-panel h4,
+.base-markdown-panel h5,
+.base-markdown-panel h6 {
+  font-weight: var(--oow-base-markdown-panel-heading-weight);
+  color: var(--oow-base-markdown-panel-heading-color);
+  margin-top: var(--oow-base-markdown-panel-heading-margin-top);
+  margin-bottom: var(--oow-base-markdown-panel-heading-margin-bottom);
+}
+
+.base-markdown-panel h1 { font-size: var(--oow-base-markdown-panel-h1-size); }
+.base-markdown-panel h2 { font-size: var(--oow-base-markdown-panel-h2-size); }
+.base-markdown-panel h3 { font-size: var(--oow-base-markdown-panel-h3-size); }
+.base-markdown-panel h4 { font-size: var(--oow-base-markdown-panel-h4-size); }
+.base-markdown-panel h5 { font-size: var(--oow-base-markdown-panel-h5-size); }
+.base-markdown-panel h6 { font-size: var(--oow-base-markdown-panel-h6-size); }
+
+/* 段落样式 */
+.base-markdown-panel p {
+  margin-bottom: var(--oow-base-markdown-panel-paragraph-margin-bottom);
+  line-height: var(--oow-base-markdown-panel-paragraph-line-height);
+  color: var(--oow-base-markdown-panel-paragraph-color);
+  text-align: var(--oow-base-markdown-panel-paragraph-text-align);
+  text-indent: var(--oow-base-markdown-panel-paragraph-indent);
+}
+
+/* 列表样式 */
+.base-markdown-panel ul,
+.base-markdown-panel ol {
+  padding-left: var(--oow-base-markdown-panel-list-padding-left);
+  margin-bottom: var(--oow-base-markdown-panel-list-margin-bottom);
+}
+
+.base-markdown-panel li {
+  margin-bottom: var(--oow-base-markdown-panel-list-item-margin-bottom);
+  color: var(--oow-base-markdown-panel-list-item-color);

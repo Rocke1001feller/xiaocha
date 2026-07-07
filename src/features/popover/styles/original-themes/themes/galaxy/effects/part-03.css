@@ -1,0 +1,95 @@
+/* === Galaxy主题专属文字动效关键帧 === */
+
+/* 淡入上升动画 - 模拟星辰升起 */
+@keyframes galaxy-fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 星光闪烁动画 - 模拟星光闪烁 */
+@keyframes galaxy-twinkle {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(192, 132, 252, 0.3);
+  }
+  25% {
+    opacity: 0.8;
+    text-shadow: 0 0 15px rgba(192, 132, 252, 0.5);
+  }
+  50% {
+    opacity: 0.9;
+    text-shadow: 0 0 20px rgba(232, 121, 249, 0.4);
+  }
+  75% {
+    opacity: 0.85;
+    text-shadow: 0 0 12px rgba(244, 114, 182, 0.3);
+  }
+}
+
+/* 脉冲发光动画 - 模拟星云脉动 */
+@keyframes galaxy-glow {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(192, 132, 252, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(192, 132, 252, 0.6), 0 0 25px rgba(232, 121, 249, 0.3);
+  }
+}
+
+/* 星轨流动动画 - 模拟星河流动 */
+@keyframes galaxy-starflow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 打字机效果 - 模拟数据录入 */
+@keyframes galaxy-typewriter {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+/* 边框星光流动 - 模拟星尘流动 */
+@keyframes galaxy-border-flow {
+  0% {
+    border-color: rgba(192, 132, 252, 0.3);
+    box-shadow: -2px 0 8px rgba(192, 132, 252, 0.2);
+  }
+  25% {
+    border-color: rgba(232, 121, 249, 0.4);
+    box-shadow: -2px 0 10px rgba(232, 121, 249, 0.3);
+  }
+  50% {
+    border-color: rgba(244, 114, 182, 0.3);
+    box-shadow: -2px 0 8px rgba(244, 114, 182, 0.2);
+  }
+  75% {
+    border-color: rgba(167, 139, 250, 0.4);
+    box-shadow: -2px 0 10px rgba(167, 139, 250, 0.3);
+  }
+  100% {
+    border-color: rgba(192, 132, 252, 0.3);
+    box-shadow: -2px 0 8px rgba(192, 132, 252, 0.2);
+  }
+}

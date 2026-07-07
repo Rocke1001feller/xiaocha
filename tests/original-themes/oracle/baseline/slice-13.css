@@ -1,0 +1,400 @@
+.oow-popover[data-theme="basic"] .info-panel-content blockquote,
+.oow-popover[data-theme="basic"] .etymology-panel blockquote {
+  margin: var(--oow-highlight-blockquote-margin);
+  padding: var(--oow-highlight-blockquote-padding);
+  border-left: 3px solid var(--oow-info-panel-blockquote-border);
+  background: var(--oow-highlight-blockquote-bg);
+  color: var(--oow-info-panel-blockquote-color);
+  border-radius: 0 3px 3px 0;
+  animation: basic-fade-in 0.7s ease-out forwards;
+  transform: translateZ(0);
+}
+
+/* 简洁分隔线 - 基础分隔效果 */
+.oow-popover[data-theme="basic"] .info-panel-content hr,
+.oow-popover[data-theme="basic"] .etymology-panel hr {
+  border: none;
+  height: var(--oow-highlight-hr-height);
+  background: var(--oow-highlight-hr-bg);
+  margin: var(--oow-highlight-hr-margin);
+  animation: basic-transition 0.8s ease-out forwards;
+  transform: translateZ(0);
+}
+
+/* 入门预格式化文本 - 基础代码展示 */
+.oow-popover[data-theme="basic"] .info-panel-content pre,
+.oow-popover[data-theme="basic"] .etymology-panel pre {
+  background: var(--oow-highlight-pre-bg);
+  border: 1px solid var(--ring);
+  border-radius: var(--oow-highlight-pre-border-radius);
+  padding: var(--oow-highlight-pre-padding);
+  overflow-x: auto;
+  font-family: var(--oow-highlight-pre-font-family);
+  font-size: var(--oow-highlight-pre-font-size);
+  color: var(--text-color);
+  animation: basic-fade-in 0.9s ease-out forwards;
+  transform: translateZ(0);
+}
+
+/* 简约表格 - 基础表格设计 */
+.oow-popover[data-theme="basic"] .info-panel-content table,
+.oow-popover[data-theme="basic"] .etymology-panel table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--oow-highlight-table-margin);
+  border: var(--oow-highlight-table-border);
+  border-radius: 4px;
+  overflow: hidden;
+  animation: basic-transition 1s ease-out forwards;
+  transform: translateZ(0);
+}
+
+.oow-popover[data-theme="basic"] .info-panel-content table th,
+.oow-popover[data-theme="basic"] .etymology-panel table th {
+  background: var(--oow-highlight-table-header-bg);
+  color: var(--oow-highlight-table-header-color);
+  font-weight: var(--oow-highlight-table-header-font-weight);
+  padding: var(--oow-highlight-table-cell-padding);
+  text-align: left;
+  border-bottom: 1px solid var(--accent-1);
+  animation: basic-fade-in 0.8s ease-out forwards;
+}
+
+.oow-popover[data-theme="basic"] .info-panel-content table td,
+.oow-popover[data-theme="basic"] .etymology-panel table td {
+  padding: var(--oow-highlight-table-cell-padding);
+  border-bottom: 1px solid rgba(14, 165, 233, 0.1);
+  color: var(--text-color);
+  animation: basic-slide-in 0.6s ease-out forwards;
+}
+
+.oow-popover[data-theme="basic"] .info-panel-content table tr:hover td,
+.oow-popover[data-theme="basic"] .etymology-panel table tr:hover td {
+  background: rgba(14, 165, 233, 0.05);
+  animation: basic-pulse 1s ease-in-out infinite;
+}
+
+/* 性能优化 - GPU加速 */
+@media (min-width: 768px) {
+  .oow-popover[data-theme="basic"] .info-panel-content *,
+  .oow-popover[data-theme="basic"] .etymology-panel * {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+  }
+}
+
+/* 减少动效 - 无障碍支持 */
+@media (prefers-reduced-motion: reduce) {
+  .oow-popover[data-theme="basic"] .info-panel-content *,
+  .oow-popover[data-theme="basic"] .etymology-panel * {
+    animation: none !important;
+  }
+}/*
+ * Origin of Words - Pro Theme (Free)
+ * 专业主题 - 免费高级主题
+ * 100% original style with ORIGINAL variable names
+ */
+
+/* Theme Variables - CRITICAL: Use original variable names */
+.oow-popover[data-theme="pro"] {
+  --panel-bg: #1f2937;
+  --text-color: #f9fafb;
+  --muted: #9ca3af;
+  --ring: #6b7280;
+  --accent-1: #3b82f6;
+  --accent-2: #10b981;
+  --accent-3: #f59e0b;
+  backdrop-filter: blur(10px);
+  background: var(--panel-bg) !important;
+  border: 1px solid rgba(107, 114, 128, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+  /* Unified Button Styles */
+  --oow-button-bg: var(--accent-1);
+  --oow-button-hover-bg: #2563eb;
+  --oow-button-color: white;
+  --oow-button-hover-color: white;
+  --oow-button-radius: 8px;
+  --oow-button-transition: all 0.3s ease;
+
+  /* Enhanced Markdown Highlight Styles */
+  --oow-highlight-heading-color: var(--text-color);
+  --oow-highlight-heading-font-weight: 600;
+  --oow-highlight-heading-margin-top: 1.3em;
+  --oow-highlight-heading-margin-bottom: 0.7em;
+  --oow-highlight-h1-font-size: 1.6em;
+  --oow-highlight-h2-font-size: 1.35em;
+  --oow-highlight-h3-font-size: 1.2em;
+  --oow-highlight-h4-font-size: 1.1em;
+  --oow-highlight-h5-font-size: 1em;
+  --oow-highlight-h6-font-size: 0.9em;
+  --oow-highlight-strong-color: var(--accent-2);
+  --oow-highlight-strong-font-weight: 700;
+  --oow-highlight-em-color: var(--accent-1);
+  --oow-highlight-em-font-style: italic;
+  --oow-highlight-code-color: var(--accent-3);
+  --oow-highlight-code-bg: rgba(0, 0, 0, 0.2);
+  --oow-highlight-code-border-color: var(--ring);
+  --oow-highlight-link-color: var(--accent-1);
+  --oow-highlight-link-decoration: underline;
+  --oow-highlight-link-decoration-thickness: 2px;
+  --oow-highlight-link-hover-color: var(--accent-2);
+  --oow-highlight-blockquote-margin: 1.3em 0;
+  --oow-highlight-blockquote-padding: 0.8em 1.2em;
+  --oow-highlight-blockquote-border-left: 4px solid var(--accent-1);
+  --oow-highlight-blockquote-color: var(--muted);
+  --oow-highlight-blockquote-bg: rgba(59, 130, 246, 0.1);
+  --oow-highlight-hr-height: 2px;
+  --oow-highlight-hr-bg: var(--accent-1);
+  --oow-highlight-hr-margin: 1.8em 0;
+  --oow-highlight-pre-padding: 1.2em;
+  --oow-highlight-pre-bg: rgba(0, 0, 0, 0.15);
+  --oow-highlight-pre-border-radius: 8px;
+  --oow-highlight-pre-font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  --oow-highlight-pre-font-size: 0.95em;
+  --oow-highlight-table-margin: 1.8em 0;
+  --oow-highlight-table-border: 2px solid var(--accent-1);
+  --oow-highlight-table-cell-padding: 0.6em 0.9em;
+  --oow-highlight-table-header-bg: rgba(59, 130, 246, 0.15);
+  --oow-highlight-table-header-color: var(--text-color);
+  --oow-highlight-table-header-font-weight: 700;
+}
+
+/* === Trigger Button - Pro Theme === */
+.oow-selection-trigger-button[data-theme="pro"] {
+  background: #1f2937; /* Unified dark background from theme */
+  border: 1px solid transparent; /* Use transparent border to prevent size shifts */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  color: #f9fafb; /* Light text/icon color from theme */
+  border-radius: 8px; /* Default shape is a rounded square */
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.oow-selection-trigger-button[data-theme="pro"]:hover {
+  background: #1f2937; /* Keep background unified */
+  border-color: var(--ring); /* Subtle border color on hover for feedback */
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.oow-selection-trigger-button[data-theme="pro"].activated {
+  background: #1f2937; /* Keep background unified */
+  border-radius: 50%; /* Refined: Change shape to a circle */
+  border: 3px dashed #f59e0b; /* Refined: A circular, dashed, high-contrast border */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  color: #f9fafb;
+  transform: scale(1.05);
+}
+
+/* Pro主题的translation和contextual-analysis样式 */
+.oow-popover[data-theme="pro"] .translation[data-style="framed"] {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 6px;
+  padding: 10px 12px;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+}
+
+.oow-popover[data-theme="pro"] .contextual-analysis[data-style="framed"] {
+  background: rgba(156, 163, 175, 0.1);
+  border: 1px solid rgba(156, 163, 175, 0.2);
+  border-radius: 6px;
+  padding: 10px 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.oow-popover[data-theme="pro"] .translation .text {
+  color: #60a5fa;
+  font-weight: 700;
+}
+
+.oow-popover[data-theme="pro"] .contextual-analysis .text {
+  color: #d1d5db;
+  font-weight: 400;
+}
+
+/* Pro主题的Info Panel和Etymology Panel样式 */
+.oow-popover[data-theme="pro"] .info-panel-content,
+.oow-popover[data-theme="pro"] .etymology-panel {
+  /* 专业立体风格：采用深色背景与浅色文字的经典搭配，增强立体感 */
+  --oow-info-panel-heading-color: #f9fafb;
+  --oow-info-panel-heading-weight: 600;
+  --oow-info-panel-heading-margin-top: 1.3em;
+  --oow-info-panel-heading-margin-bottom: 0.7em;
+  --oow-info-panel-paragraph-color: #f9fafb;
+  --oow-info-panel-paragraph-margin-bottom: 0.9em;
+  --oow-info-panel-line-height: 1.6;
+  --oow-info-panel-letter-spacing: 0.01em;
+  --oow-info-panel-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --oow-info-panel-list-color: #f9fafb;
+  --oow-info-panel-blockquote-color: #9ca3af;
+  --oow-info-panel-blockquote-border: #3b82f6;
+  --oow-info-panel-code-color: #f59e0b;
+  --oow-info-panel-code-bg: rgba(0, 0, 0, 0.2);
+  --oow-info-panel-link-color: #3b82f6;
+  --oow-info-panel-link-hover: #10b981;
+}
+
+/* === Pro主题专属专业商务动效关键帧 === */
+
+/* 专业淡入渐显 - 模拟商务演示的渐进式展示 */
+@keyframes pro-fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(2px);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-2px);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+/* 商务滑动进入 - 模拟PPT元素的滑动效果 */
+@keyframes pro-slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+    clip-path: inset(0 100% 0 0);
+  }
+  70% {
+    opacity: 0.9;
+    transform: translateX(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* 专业精确度标尺 - 模拟专业测量工具的精确感 */
+@keyframes pro-precision-ruler {
+  0% {
+    background-position: 0% 0%;
+    box-shadow: inset 0 0 0 0 rgba(59, 130, 246, 0.1);
+  }
+  50% {
+    background-position: 100% 0%;
+    box-shadow: inset 0 0 20px 0 rgba(59, 130, 246, 0.15);
+  }
+  100% {
+    background-position: 0% 0%;
+    box-shadow: inset 0 0 0 0 rgba(59, 130, 246, 0.1);
+  }
+}
+
+/* 商务进度条 - 模拟项目进度的专业感 */
+@keyframes pro-progress-bar {
+  0% {
+    background-size: 0% 100%;
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    background-size: 60% 100%;
+    border-color: rgba(59, 130, 246, 0.6);
+  }
+  100% {
+    background-size: 100% 100%;
+    border-color: rgba(59, 130, 246, 0.8);
+  }
+}
+
+/* 专业数据流 - 模拟商务数据流动 */
+@keyframes pro-data-flow {
+  0% {
+    background-position: -100% 0%;
+    opacity: 0.6;
+  }
+  50% {
+    background-position: 100% 0%;
+    opacity: 1;
+  }
+  100% {
+    background-position: -100% 0%;
+    opacity: 0.6;
+  }
+}
+
+/* 商务强调脉冲 - 模拟商务重点突出 */
+@keyframes pro-emphasis-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px 5px rgba(16, 185, 129, 0.2);
+  }
+}
+
+/* 专业打字机效果 - 模拟专业文档输入 */
+@keyframes pro-typewriter {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    width: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+/* 商务光泽扫过 - 模拟金属质感光泽 */
+@keyframes pro-metallic-sweep {
+  0% {
+    background-position: -200% 0%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    background-position: 200% 0%;
+    opacity: 0;
+  }
+}
+
+/* === Pro主题专属专业商务动效应用 === */
+
+/* 专业淡入渐显 - 标题商务展示 */
+.oow-popover[data-theme="pro"] .info-panel-content h1,
+.oow-popover[data-theme="pro"] .info-panel-content h2,
+.oow-popover[data-theme="pro"] .info-panel-content h3,
+.oow-popover[data-theme="pro"] .info-panel-content h4,
+.oow-popover[data-theme="pro"] .info-panel-content h5,
+.oow-popover[data-theme="pro"] .info-panel-content h6,
+.oow-popover[data-theme="pro"] .etymology-panel h1,
+.oow-popover[data-theme="pro"] .etymology-panel h2,
+.oow-popover[data-theme="pro"] .etymology-panel h3,
+.oow-popover[data-theme="pro"] .etymology-panel h4,
+.oow-popover[data-theme="pro"] .etymology-panel h5,
+.oow-popover[data-theme="pro"] .etymology-panel h6 {
+  animation: pro-fade-in-up 0.8s ease-out forwards;
+  position: relative;
+  color: var(--oow-info-panel-heading-color);
+  font-weight: var(--oow-info-panel-heading-weight);
+  transform: translateZ(0);
+}
+
+.oow-popover[data-theme="pro"] .info-panel-content h1::after,
+.oow-popover[data-theme="pro"] .info-panel-content h2::after,
+.oow-popover[data-theme="pro"] .info-panel-content h3::after,
+.oow-popover[data-theme="pro"] .etymology-panel h1::after,
+.oow-popover[data-theme="pro"] .etymology-panel h2::after,
+.oow-popover[data-theme="pro"] .etymology-panel h3::after {
+  content: '';

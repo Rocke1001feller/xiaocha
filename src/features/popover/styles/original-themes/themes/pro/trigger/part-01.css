@@ -1,0 +1,27 @@
+/* === Trigger Button - Pro Theme === */
+.oow-selection-trigger-button[data-theme="pro"] {
+  background: #1f2937; /* Unified dark background from theme */
+  border: 1px solid transparent; /* Use transparent border to prevent size shifts */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  color: #f9fafb; /* Light text/icon color from theme */
+  border-radius: 8px; /* Default shape is a rounded square */
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.oow-selection-trigger-button[data-theme="pro"]:hover {
+  background: #1f2937; /* Keep background unified */
+  border-color: var(--ring); /* Subtle border color on hover for feedback */
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.oow-selection-trigger-button[data-theme="pro"].activated {
+  background: #1f2937; /* Keep background unified */
+  border-radius: 50%; /* Refined: Change shape to a circle */
+  border: 3px dashed #f59e0b; /* Refined: A circular, dashed, high-contrast border */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  color: #f9fafb;
+  transform: scale(1.05);
+}
+

@@ -1,0 +1,498 @@
+/* === Cyberpunk主题文字动效 - 标题扫描线显示 === */
+
+/* 标题HUD扫描线动画 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content h1,
+.oow-popover[data-theme="cyberpunk"] .info-panel-content h2,
+.oow-popover[data-theme="cyberpunk"] .info-panel-content h3,
+.oow-popover[data-theme="cyberpunk"] .info-panel-content h4,
+.oow-popover[data-theme="cyberpunk"] .info-panel-content h5,
+.oow-popover[data-theme="cyberpunk"] .info-panel-content h6,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel h1,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel h2,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel h3,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel h4,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel h5,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel h6 {
+  animation: cyberpunk-hud-scan 0.8s ease-out forwards, cyberpunk-neon-flicker 3s ease-in-out infinite 1s;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  animation-fill-mode: forwards;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  will-change: clip-path, opacity, text-shadow;
+}
+
+/* 标题扫描线延迟 - 模拟系统扫描序列 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content h1,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel h1 {
+  animation-delay: 0s, 1s;
+}
+
+.oow-popover[data-theme="cyberpunk"] .info-panel-content h2,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel h2 {
+  animation-delay: 0.2s, 1.3s;
+}
+
+.oow-popover[data-theme="cyberpunk"] .info-panel-content h3,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel h3 {
+  animation-delay: 0.4s, 1.6s;
+}
+
+.oow-popover[data-theme="cyberpunk"] .info-panel-content h4,
+.oow-popover[data-theme="cyberpunk"] .info-panel-content h5,
+.oow-popover[data-theme="cyberpunk"] .info-panel-content h6,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel h4,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel h5,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel h6 {
+  animation-delay: 0.6s, 1.9s;
+}
+
+/* 标题全息投影效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content h1::after,
+.oow-popover[data-theme="cyberpunk"] .info-panel-content h2::after,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel h1::after,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel h2::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  animation: cyberpunk-hologram 4s ease-in-out infinite;
+  opacity: 0.3;
+  filter: blur(1px);
+}
+
+/* === Cyberpunk主题文字动效 - 段落数据流和故障艺术 === */
+
+/* 段落数据流进入动画 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content p,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel p {
+  animation: cyberpunk-glitch 0.3s ease-out forwards, cyberpunk-digital-noise 5s ease-in-out infinite 1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  position: relative;
+  overflow: hidden;
+  will-change: transform, filter, opacity;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(67, 97, 238, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 50%;
+}
+
+/* 段落二进制码背景效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content p::before,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel p::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(67, 97, 238, 0.03) 2px,
+      rgba(67, 97, 238, 0.03) 4px
+    );
+  background-size: 100% 8px;
+  animation: cyberpunk-matrix-rain 8s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 段落数据流动画 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content p::after,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel p::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(247, 37, 133, 0.8),
+    rgba(67, 97, 238, 0.8),
+    transparent
+  );
+  animation: cyberpunk-data-flow 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 段落延迟显示 - 模拟数据传输序列 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content p:nth-child(1),
+.oow-popover[data-theme="cyberpunk"] .etymology-panel p:nth-child(1) {
+  animation-delay: 0.3s, 1.5s;
+}
+
+.oow-popover[data-theme="cyberpunk"] .info-panel-content p:nth-child(2),
+.oow-popover[data-theme="cyberpunk"] .etymology-panel p:nth-child(2) {
+  animation-delay: 0.6s, 1.8s;
+}
+
+.oow-popover[data-theme="cyberpunk"] .info-panel-content p:nth-child(3),
+.oow-popover[data-theme="cyberpunk"] .etymology-panel p:nth-child(3) {
+  animation-delay: 0.9s, 2.1s;
+}
+
+.oow-popover[data-theme="cyberpunk"] .info-panel-content p:nth-child(n+4),
+.oow-popover[data-theme="cyberpunk"] .etymology-panel p:nth-child(n+4) {
+  animation-delay: 1.2s, 2.4s;
+}
+
+/* 段落悬停故障效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content p:hover,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel p:hover {
+  animation: cyberpunk-glitch 0.1s ease-in-out infinite;
+  background-position: 0% 50%;
+  transition: background-position 0.3s ease;
+}
+
+/* === Cyberpunk主题文字动效 - 列表终端命令行效果 === */
+
+/* 列表项终端显示动画 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ul li,
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ol li,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ul li,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ol li {
+  animation: cyberpunk-hud-scan 0.4s ease-out forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  position: relative;
+  padding-left: 20px;
+  font-family: 'Courier New', monospace;
+  will-change: clip-path, opacity;
+}
+
+/* 列表项命令行前缀 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ul li::before,
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ol li::before,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ul li::before,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ol li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: var(--accent-2, #4361ee);
+  font-weight: bold;
+  animation: cyberpunk-neon-flicker 2s ease-in-out infinite;
+  animation-delay: calc(var(--item-index, 1) * 0.2s);
+}
+
+/* 有序列表的数字样式 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ol li::before,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ol li::before {
+  content: counter(list-item) '>';
+  color: var(--accent-1, #f72585);
+}
+
+/* 列表项终端光标 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ul li::after,
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ol li::after,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ul li::after,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ol li::after {
+  content: '_';
+  position: absolute;
+  right: 5px;
+  color: var(--accent-3, #4cc9f0);
+  animation: cyberpunk-cursor 1s ease-in-out infinite;
+  opacity: 0;
+}
+
+/* 列表项悬停光标显示 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ul li:hover::after,
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ol li:hover::after,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ul li:hover::after,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ol li:hover::after {
+  opacity: 1;
+}
+
+/* 列表项延迟显示 - 模拟命令行输入序列 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ul li:nth-child(1),
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ol li:nth-child(1),
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ul li:nth-child(1),
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ol li:nth-child(1) {
+  animation-delay: 0.5s;
+  --item-index: 1;
+}
+
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ul li:nth-child(2),
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ol li:nth-child(2),
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ul li:nth-child(2),
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ol li:nth-child(2) {
+  animation-delay: 0.8s;
+  --item-index: 2;
+}
+
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ul li:nth-child(3),
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ol li:nth-child(3),
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ul li:nth-child(3),
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ol li:nth-child(3) {
+  animation-delay: 1.1s;
+  --item-index: 3;
+}
+
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ul li:nth-child(4),
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ol li:nth-child(4),
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ul li:nth-child(4),
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ol li:nth-child(4) {
+  animation-delay: 1.4s;
+  --item-index: 4;
+}
+
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ul li:nth-child(n+5),
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ol li:nth-child(n+5),
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ul li:nth-child(n+5),
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ol li:nth-child(n+5) {
+  animation-delay: 1.7s;
+  --item-index: 5;
+}
+
+/* 列表项悬停故障效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ul li:hover,
+.oow-popover[data-theme="cyberpunk"] .info-panel-content ol li:hover,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ul li:hover,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel ol li:hover {
+  animation: cyberpunk-glitch 0.15s ease-in-out infinite;
+  color: var(--accent-2, #4361ee);
+  background: rgba(67, 97, 238, 0.1);
+  padding-left: 25px;
+  transition: all 0.2s ease;
+}
+
+/* === Cyberpunk主题文字动效 - 霓虹灯管闪烁效果 === */
+
+/* 强调文本霓虹灯管效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content strong,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel strong {
+  animation: cyberpunk-neon-flicker 2.5s ease-in-out infinite;
+  color: var(--accent-1, #f72585);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow:
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor,
+    0 0 40px var(--accent-1, #f72585);
+  will-change: text-shadow, opacity;
+}
+
+/* 强调文本悬停增强霓虹效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content strong:hover,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel strong:hover {
+  animation-duration: 0.8s;
+  text-shadow:
+    0 0 15px currentColor,
+    0 0 30px currentColor,
+    0 0 45px currentColor,
+    0 0 60px var(--accent-1, #f72585),
+    0 0 80px var(--accent-2, #4361ee);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* 斜体文本霓虹管效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content em,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel em {
+  color: var(--accent-3, #4cc9f0);
+  font-style: italic;
+  animation: cyberpunk-neon-flicker 3s ease-in-out infinite;
+  animation-delay: 0.5s;
+  text-shadow:
+    0 0 8px currentColor,
+    0 0 16px currentColor,
+    0 0 24px var(--accent-3, #4cc9f0);
+  will-change: text-shadow, opacity;
+}
+
+/* 斜体文本悬停增强效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content em:hover,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel em:hover {
+  animation-duration: 1.2s;
+  text-shadow:
+    0 0 12px currentColor,
+    0 0 24px currentColor,
+    0 0 36px currentColor,
+    0 0 48px var(--accent-3, #4cc9f0);
+  animation: cyberpunk-glitch 0.2s ease-in-out infinite, cyberpunk-neon-flicker 1.2s ease-in-out infinite;
+}
+
+/* 代码块霓虹效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content code,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel code {
+  color: var(--accent-3, #4cc9f0);
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--accent-3, #4cc9f0);
+  padding: 4px 8px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  animation: cyberpunk-neon-flicker 4s ease-in-out infinite;
+  text-shadow: 0 0 8px currentColor;
+  box-shadow:
+    0 0 10px rgba(76, 201, 240, 0.3),
+    inset 0 0 10px rgba(76, 201, 240, 0.1);
+  will-change: text-shadow, box-shadow;
+}
+
+/* 预格式化代码块终端效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content pre,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel pre {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+  border: 2px solid var(--accent-2, #4361ee);
+  border-radius: 4px;
+  padding: 16px;
+  font-family: 'Courier New', monospace;
+  color: #00ff00;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 0 20px rgba(67, 97, 238, 0.5),
+    inset 0 0 20px rgba(67, 97, 238, 0.2);
+  animation: cyberpunk-electric-flow 6s linear infinite;
+  will-change: box-shadow, background;
+}
+
+/* 代码块扫描线效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content pre::before,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel pre::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-3, #4cc9f0), transparent);
+  animation: cyberpunk-data-flow 2s linear infinite;
+  z-index: 1;
+}
+
+/* === Cyberpunk主题文字动效 - 综合效果 === */
+
+/* 链接电子数据流效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content a,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel a {
+  color: var(--accent-1, #ff006e);
+  text-decoration: none;
+  position: relative;
+  padding: 2px 4px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(247, 37, 133, 0.2) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 50%;
+  transition: all 0.3s ease;
+  animation: cyberpunk-neon-flicker 3s ease-in-out infinite;
+  will-change: background-position, color, text-shadow;
+}
+
+.oow-popover[data-theme="cyberpunk"] .info-panel-content a:hover,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel a:hover {
+  color: var(--accent-2, #4361ee);
+  background-position: 0% 50%;
+  text-shadow: 0 0 15px currentColor;
+  animation: cyberpunk-glitch 0.1s ease-in-out infinite;
+  transform: translateY(-1px);
+}
+
+/* 引用块电路板效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content blockquote,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel blockquote {
+  border-left: 4px solid var(--accent-2, #7209b7);
+  padding-left: 16px;
+  margin: 1.5em 0;
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    rgba(114, 9, 183, 0.1),
+    rgba(67, 97, 238, 0.05)
+  );
+  animation: cyberpunk-electric-flow 8s linear infinite;
+  will-change: border-color, box-shadow;
+}
+
+.oow-popover[data-theme="cyberpunk"] .info-panel-content blockquote:hover,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel blockquote:hover {
+  border-left-width: 6px;
+  padding-left: 20px;
+  animation-duration: 4s;
+  box-shadow:
+    -4px 0 20px rgba(114, 9, 183, 0.4),
+    inset 2px 0 10px rgba(67, 97, 238, 0.2);
+}
+
+/* 表格HUD扫描效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content table,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid var(--accent-2, #4361ee);
+  border-radius: 4px;
+  overflow: hidden;
+  animation: cyberpunk-hud-scan 1s ease-out forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  will-change: opacity, transform;
+}
+
+.oow-popover[data-theme="cyberpunk"] .info-panel-content table th,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel table th {
+  background: linear-gradient(135deg, var(--accent-1, #f72585), var(--accent-2, #4361ee));
+  color: white;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 12px 16px;
+  animation: cyberpunk-neon-flicker 2s ease-in-out infinite;
+}
+
+/* 分割线数字扫描效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content hr,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--accent-1, #f72585) 20%,
+    var(--accent-2, #4361ee) 50%,
+    var(--accent-3, #4cc9f0) 80%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: cyberpunk-data-flow 3s linear infinite;
+  margin: 2em 0;
+  position: relative;
+  will-change: background-position;
+}
+
+.oow-popover[data-theme="cyberpunk"] .info-panel-content hr::after,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel hr::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(247, 37, 133, 0.4),
+    rgba(67, 97, 238, 0.4),
+    transparent
+  );
+  animation: cyberpunk-data-flow 2s linear infinite reverse;
+  filter: blur(2px);
+}
+

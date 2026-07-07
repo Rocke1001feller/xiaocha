@@ -1,0 +1,38 @@
+/* === Trigger Button - Galaxy Theme === */
+.oow-selection-trigger-button[data-theme="galaxy"] {
+  background: radial-gradient(ellipse at top, #1a1640, #080a20);
+  border: none;
+  box-shadow: 0 0 20px rgba(192, 132, 252, 0.5);
+  color: #e0e7ff;
+  border-radius: 2px !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.oow-selection-trigger-button[data-theme="galaxy"]:hover {
+  box-shadow: 0 0 35px rgba(192, 132, 252, 0.7);
+  transform: scale(1.12);
+  transition: all 0.3s ease;
+}
+
+.oow-selection-trigger-button[data-theme="galaxy"].activated {
+  background: transparent;
+  border: 2px dotted #e879f9;
+  padding: 4px;
+  box-shadow: 0 0 45px rgba(192, 132, 252, 0.9), 0 0 15px rgba(232, 121, 249, 0.6);
+  animation: galaxy-activated-pulse 1.5s infinite;
+  transition: all 0.3s ease;
+}
+
+.oow-selection-trigger-button[data-theme="galaxy"].activated::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  background: radial-gradient(ellipse at top, #312e81, #1e1b4b);
+  border-radius: 2px;
+  z-index: -1;
+}
+

@@ -1,0 +1,289 @@
+/* Aurora wave effect */
+.oow-popover[data-theme="aurora"]::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  background: linear-gradient(
+    135deg,
+    transparent 25%,
+    rgba(74, 222, 128, 0.15) 35%,
+    rgba(96, 165, 250, 0.15) 45%,
+    rgba(244, 114, 182, 0.15) 55%,
+    rgba(251, 191, 36, 0.15) 65%,
+    transparent 75%
+  );
+  animation: aurora-wave 12s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+@keyframes aurora-wave {
+  0%, 100% {
+    transform: rotate(0deg) translateY(0) scale(1);
+  }
+  25% {
+    transform: rotate(90deg) translateY(10px) scale(1.05);
+  }
+  50% {
+    transform: rotate(180deg) translateY(20px) scale(1.1);
+  }
+  75% {
+    transform: rotate(270deg) translateY(10px) scale(1.05);
+  }
+}
+
+.oow-popover[data-theme="aurora"] > * {
+  position: relative;
+  z-index: 1;
+}
+
+.oow-popover[data-theme="aurora"] .header-title {
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-4));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  text-shadow: 0 0 15px rgba(167, 139, 250, 0.3);
+  animation: aurora-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-glow {
+  0%, 100% {
+    text-shadow: 0 0 15px rgba(167, 139, 250, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(167, 139, 250, 0.5), 0 0 35px rgba(96, 165, 250, 0.2);
+  }
+}
+
+.oow-popover[data-theme="aurora"] .header-logo {
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  border: 2px solid var(--ring);
+  color: #1a1a2e;
+  font-weight: 900;
+  font-size: 1.1em;
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.4);
+  animation: aurora-pulse 2s infinite;
+}
+
+/* === Aurora主题专属文字动效关键帧 === */
+
+/* 极光流动效果 - 模拟北极光的自然流动 */
+@keyframes aurora-flow {
+  0% {
+    background-position: 0% 50%;
+    opacity: 0.8;
+  }
+  25% {
+    background-position: 25% 25%;
+    opacity: 0.9;
+  }
+  50% {
+    background-position: 50% 75%;
+    opacity: 1;
+  }
+  75% {
+    background-position: 75% 25%;
+    opacity: 0.85;
+  }
+  100% {
+    background-position: 100% 50%;
+    opacity: 0.8;
+  }
+}
+
+/* 极光波纹效果 - 模拟极光的波纹扩散 */
+@keyframes aurora-ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4),
+                0 0 0 0 rgba(96, 165, 250, 0.3);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 20px 10px rgba(74, 222, 128, 0.2),
+                0 0 30px 15px rgba(96, 165, 250, 0.15);
+    opacity: 0.8;
+  }
+  100% {
+    box-shadow: 0 0 30px 20px rgba(74, 222, 128, 0),
+                0 0 40px 30px rgba(96, 165, 250, 0);
+    opacity: 0.6;
+  }
+}
+
+/* 色彩呼吸效果 - 模拟极光的色彩变化 */
+@keyframes aurora-breathe {
+  0%, 100% {
+    filter: hue-rotate(0deg) brightness(1);
+    transform: scale(1);
+  }
+  25% {
+    filter: hue-rotate(60deg) brightness(1.1);
+    transform: scale(1.02);
+  }
+  50% {
+    filter: hue-rotate(120deg) brightness(0.95);
+    transform: scale(0.98);
+  }
+  75% {
+    filter: hue-rotate(180deg) brightness(1.05);
+    transform: scale(1.01);
+  }
+}
+
+/* 星光闪烁效果 - 模拟极光中的星光 */
+@keyframes aurora-shimmer {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 5px currentColor;
+  }
+  20% {
+    opacity: 0.7;
+    text-shadow: 0 0 10px currentColor;
+  }
+  40% {
+    opacity: 0.9;
+    text-shadow: 0 0 8px currentColor;
+  }
+  60% {
+    opacity: 0.8;
+    text-shadow: 0 0 12px currentColor;
+  }
+  80% {
+    opacity: 0.95;
+    text-shadow: 0 0 6px currentColor;
+  }
+}
+
+/* 色彩变换效果 - 模拟极光的渐变变化 */
+@keyframes aurora-gradient-shift {
+  0% {
+    background: linear-gradient(45deg,
+      rgba(74, 222, 128, 0.3),
+      rgba(96, 165, 250, 0.3),
+      rgba(244, 114, 182, 0.3));
+  }
+  25% {
+    background: linear-gradient(45deg,
+      rgba(96, 165, 250, 0.3),
+      rgba(244, 114, 182, 0.3),
+      rgba(251, 191, 36, 0.3));
+  }
+  50% {
+    background: linear-gradient(45deg,
+      rgba(244, 114, 182, 0.3),
+      rgba(251, 191, 36, 0.3),
+      rgba(192, 132, 252, 0.3));
+  }
+  75% {
+    background: linear-gradient(45deg,
+      rgba(251, 191, 36, 0.3),
+      rgba(192, 132, 252, 0.3),
+      rgba(74, 222, 128, 0.3));
+  }
+  100% {
+    background: linear-gradient(45deg,
+      rgba(192, 132, 252, 0.3),
+      rgba(74, 222, 128, 0.3),
+      rgba(96, 165, 250, 0.3));
+  }
+}
+
+/* 光带流动效果 - 模拟极光的光带移动 */
+@keyframes aurora-light-band {
+  0% {
+    background-position: -200% center;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    background-position: 200% center;
+    opacity: 0;
+  }
+}
+
+/* 极光尾迹效果 - 模拟极光的尾迹 */
+@keyframes aurora-trail {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes aurora-pulse {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(167, 139, 250, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(167, 139, 250, 0.6), 0 0 30px rgba(96, 165, 250, 0.3);
+  }
+}
+
+.oow-popover[data-theme="aurora"] .section-title {
+  background: linear-gradient(135deg, var(--accent-2), var(--accent-3), var(--accent-4));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.2);
+}
+
+.oow-popover[data-theme="aurora"] .def-item .pos {
+  color: var(--accent-3);
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(244, 114, 182, 0.2);
+}
+
+.oow-popover[data-theme="aurora"] .def-item .meaning {
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+.oow-popover[data-theme="aurora"] .def-item .example {
+  color: var(--muted);
+  border-left: 3px solid var(--accent-2);
+  padding-left: 12px;
+  background: rgba(96, 165, 250, 0.08);
+  border-radius: 0 4px 4px 0;
+  margin-left: 2px;
+}
+
+.oow-popover[data-theme="aurora"] .eq .bar {
+  background: linear-gradient(180deg, var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-4));
+  box-shadow: 0 2px 15px rgba(167, 139, 250, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  height: 8px;
+}
+
+.oow-popover[data-theme="aurora"] .text-translation {
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-4));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.3);
+}
+

@@ -1,0 +1,400 @@
+.section-content {
+  padding: var(--oow-collapsible-section-content-padding);
+  transition: var(--oow-collapsible-section-content-transition);
+  overflow: var(--oow-collapsible-section-content-overflow);
+  opacity: var(--oow-collapsible-section-content-opacity);
+  box-sizing: var(--oow-collapsible-section-content-box-sizing);
+  max-width: var(--oow-collapsible-section-content-max-width);
+}
+
+/* 折叠状态 */
+.collapsible-section.is-collapsed .section-content {
+  max-height: 0;  /* 保持原始最大高度 */
+  padding-top: 0;  /* 保持原始顶部内边距 */
+  padding-bottom: 0;  /* 保持原始底部内边距 */
+  opacity: 0;  /* 保持原始透明度 */
+  pointer-events: none;  /* 保持原始指针事件 */
+}
+
+.collapsible-section.is-collapsed .section-toggle-btn svg {
+  transform: rotate(var(--oow-collapsible-section-collapsed-toggle-rotation));
+}
+
+/* 展开状态 */
+.collapsible-section.is-expanded .section-content {
+  max-height: var(--oow-collapsible-section-expanded-content-max-height);
+  opacity: var(--oow-collapsible-section-expanded-content-opacity);
+}
+
+.collapsible-section.is-expanded .section-toggle-btn svg {
+  transform: rotate(var(--oow-collapsible-section-expanded-toggle-rotation));
+}/*
+ * Origin of Words - Basic Theme (Free)
+ * 基本主题 - 免费简约主题
+ * 100% original style with ORIGINAL variable names
+ */
+
+/* Theme Variables - CRITICAL: Use original variable names */
+.oow-popover[data-theme="basic"] {
+  --panel-bg: #ffffff;
+  --text-color: #333333;
+  --muted: #666666;
+  --ring: #0ea5e9;
+  --accent-1: #0ea5e9;
+  --accent-2: #22c55e;
+  --accent-3: #fb923c;
+  background: var(--panel-bg) !important;
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  /* Unified Button Styles */
+  --oow-button-bg: var(--accent-1);
+  --oow-button-hover-bg: #0d95d3;
+  --oow-button-color: white;
+  --oow-button-hover-color: white;
+  --oow-button-radius: 6px;
+  --oow-button-transition: all 0.2s ease;
+
+  /* Enhanced Markdown Highlight Styles */
+  --oow-highlight-heading-color: var(--text-color);
+  --oow-highlight-heading-font-weight: 600;
+  --oow-highlight-heading-margin-top: 1.2em;
+  --oow-highlight-heading-margin-bottom: 0.6em;
+  --oow-highlight-h1-font-size: 1.5em;
+  --oow-highlight-h2-font-size: 1.25em;
+  --oow-highlight-h3-font-size: 1.1em;
+  --oow-highlight-h4-font-size: 1em;
+  --oow-highlight-h5-font-size: 0.9em;
+  --oow-highlight-h6-font-size: 0.8em;
+  --oow-highlight-strong-color: var(--accent-2);
+  --oow-highlight-strong-font-weight: 600;
+  --oow-highlight-em-color: var(--accent-1);
+  --oow-highlight-em-font-style: italic;
+  --oow-highlight-code-color: #d6336c;
+  --oow-highlight-code-bg: rgba(0, 0, 0, 0.05);
+  --oow-highlight-code-border-color: var(--ring);
+  --oow-highlight-link-color: var(--accent-1);
+  --oow-highlight-link-decoration: underline;
+  --oow-highlight-link-decoration-thickness: 1px;
+  --oow-highlight-link-hover-color: var(--accent-2);
+  --oow-highlight-blockquote-margin: 1.2em 0;
+  --oow-highlight-blockquote-padding: 0.6em 1em;
+  --oow-highlight-blockquote-border-left: 3px solid var(--accent-1);
+  --oow-highlight-blockquote-color: var(--muted);
+  --oow-highlight-blockquote-bg: rgba(14, 165, 233, 0.05);
+  --oow-highlight-hr-height: 1px;
+  --oow-highlight-hr-bg: var(--accent-1);
+  --oow-highlight-hr-margin: 1.5em 0;
+  --oow-highlight-pre-padding: 1em;
+  --oow-highlight-pre-bg: rgba(0, 0, 0, 0.05);
+  --oow-highlight-pre-border-radius: 6px;
+  --oow-highlight-pre-font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  --oow-highlight-pre-font-size: 0.9em;
+  --oow-highlight-table-margin: 1.5em 0;
+  --oow-highlight-table-border: 1px solid var(--accent-1);
+  --oow-highlight-table-cell-padding: 0.5em 0.75em;
+  --oow-highlight-table-header-bg: rgba(14, 165, 233, 0.1);
+  --oow-highlight-table-header-color: var(--text-color);
+  --oow-highlight-table-header-font-weight: 600;
+}
+
+/* === Trigger Button - Basic Theme === */
+.oow-selection-trigger-button[data-theme="basic"] {
+  background: #0d95d3; /* A darker blue for better contrast */
+  border: 1px solid #0d95d3;
+  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.3);
+  color: white;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.oow-selection-trigger-button[data-theme="basic"]:hover {
+  background: #0d95d3; /* Keep background unified */
+  border-color: #0d95d3; /* Keep border unified on hover */
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4); /* Keep hover glow */
+  transform: translateY(-1px); /* Keep hover transform */
+}
+
+.oow-selection-trigger-button[data-theme="basic"].activated {
+  background: #0d95d3; /* Keep background unified */
+  border: 4px dotted #333333; /* Dark, thick, dotted border for high contrast */
+  box-shadow: 0 2px 10px rgba(51, 51, 51, 0.4); /* Matching dark glow */
+  color: white;
+}
+
+/* Basic主题的translation和contextual-analysis样式 */
+.oow-popover[data-theme="basic"] .translation[data-style="subtle"] {
+  /* subtle样式：保持简洁，仅通过颜色区分 */
+}
+
+.oow-popover[data-theme="basic"] .contextual-analysis[data-style="subtle"] {
+  /* subtle样式：保持简洁，仅通过颜色区分 */
+}
+
+.oow-popover[data-theme="basic"] .translation .text {
+  color: #1e3a8a;
+  font-weight: 700;
+}
+
+.oow-popover[data-theme="basic"] .contextual-analysis .text {
+  color: #4b5563;
+  font-weight: 400;
+}
+
+/* Basic主题的Info Panel和Etymology Panel样式 */
+.oow-popover[data-theme="basic"] .info-panel-content,
+.oow-popover[data-theme="basic"] .etymology-panel {
+  /* 极简纯净风格：保持干净简洁的阅读体验 */
+  --oow-info-panel-heading-color: #1e3a8a;
+  --oow-info-panel-heading-weight: 600;
+  --oow-info-panel-heading-margin-top: 1.2em;
+  --oow-info-panel-heading-margin-bottom: 0.6em;
+  --oow-info-panel-paragraph-color: #333333;
+  --oow-info-panel-paragraph-margin-bottom: 0.9em;
+  --oow-info-panel-line-height: 1.7;
+  --oow-info-panel-letter-spacing: 0.02em;
+  --oow-info-panel-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --oow-info-panel-list-color: #333333;
+  --oow-info-panel-blockquote-color: #666666;
+  --oow-info-panel-blockquote-border: #0ea5e9;
+  --oow-info-panel-code-color: #d6336c;
+  --oow-info-panel-code-bg: rgba(0, 0, 0, 0.05);
+  --oow-info-panel-link-color: #0ea5e9;
+  --oow-info-panel-link-hover: #22c55e;
+}
+
+/* === Basic主题专属简约入门动效关键帧 === */
+
+/* 简约淡入 - 模拟基础元素的简单显现 */
+@keyframes basic-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 入门滑动 - 模拟基础元素的滑动进入 */
+@keyframes basic-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 简洁强调 - 模拟基础的强调效果 */
+@keyframes basic-emphasis {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* 入门渐变 - 模拟基础的色彩渐变 */
+@keyframes basic-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 简约下划线 - 模拟基础的下划线动画 */
+@keyframes basic-underline-grow {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+/* 入门脉冲 - 模拟基础的脉冲效果 */
+@keyframes basic-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* 简洁闪烁 - 模拟基础的闪烁效果 */
+@keyframes basic-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* 入门过渡 - 模拟基础的过渡效果 */
+@keyframes basic-transition {
+  0% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* === Basic主题专属简约入门动效应用 === */
+
+/* 简约淡入 - 标题基础展示 */
+.oow-popover[data-theme="basic"] .info-panel-content h1,
+.oow-popover[data-theme="basic"] .info-panel-content h2,
+.oow-popover[data-theme="basic"] .info-panel-content h3,
+.oow-popover[data-theme="basic"] .info-panel-content h4,
+.oow-popover[data-theme="basic"] .info-panel-content h5,
+.oow-popover[data-theme="basic"] .info-panel-content h6,
+.oow-popover[data-theme="basic"] .etymology-panel h1,
+.oow-popover[data-theme="basic"] .etymology-panel h2,
+.oow-popover[data-theme="basic"] .etymology-panel h3,
+.oow-popover[data-theme="basic"] .etymology-panel h4,
+.oow-popover[data-theme="basic"] .etymology-panel h5,
+.oow-popover[data-theme="basic"] .etymology-panel h6 {
+  animation: basic-fade-in 0.6s ease-out forwards;
+  color: var(--oow-info-panel-heading-color);
+  font-weight: var(--oow-info-panel-heading-weight);
+  position: relative;
+  transform: translateZ(0);
+}
+
+.oow-popover[data-theme="basic"] .info-panel-content h1::after,
+.oow-popover[data-theme="basic"] .info-panel-content h2::after,
+.oow-popover[data-theme="basic"] .info-panel-content h3::after,
+.oow-popover[data-theme="basic"] .etymology-panel h1::after,
+.oow-popover[data-theme="basic"] .etymology-panel h2::after,
+.oow-popover[data-theme="basic"] .etymology-panel h3::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent-1);
+  animation: basic-underline-grow 1s ease-out 0.3s forwards;
+}
+
+/* 入门滑动 - 段落基础展示 */
+.oow-popover[data-theme="basic"] .info-panel-content p,
+.oow-popover[data-theme="basic"] .etymology-panel p {
+  animation: basic-slide-in 0.5s ease-out forwards;
+  color: var(--oow-info-panel-paragraph-color);
+  line-height: var(--oow-info-panel-line-height);
+  transform: translateZ(0);
+}
+
+/* 简洁强调 - 链接基础交互 */
+.oow-popover[data-theme="basic"] .info-panel-content a,
+.oow-popover[data-theme="basic"] .etymology-panel a {
+  color: var(--oow-info-panel-link-color);
+  text-decoration: none;
+  position: relative;
+  transition: all 0.2s ease;
+  animation: basic-pulse 4s ease-in-out infinite;
+  transform: translateZ(0);
+}
+
+.oow-popover[data-theme="basic"] .info-panel-content a::before,
+.oow-popover[data-theme="basic"] .etymology-panel a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--oow-info-panel-link-color);
+  transition: width 0.2s ease;
+}
+
+.oow-popover[data-theme="basic"] .info-panel-content a:hover,
+.oow-popover[data-theme="basic"] .etymology-panel a:hover {
+  color: var(--oow-info-panel-link-hover);
+  animation: basic-emphasis 0.3s ease-in-out infinite;
+}
+
+.oow-popover[data-theme="basic"] .info-panel-content a:hover::before,
+.oow-popover[data-theme="basic"] .etymology-panel a:hover::before {
+  width: 100%;
+}
+
+/* 入门渐变 - 列表项基础展示 */
+.oow-popover[data-theme="basic"] .info-panel-content ul li,
+.oow-popover[data-theme="basic"] .info-panel-content ol li,
+.oow-popover[data-theme="basic"] .etymology-panel ul li,
+.oow-popover[data-theme="basic"] .etymology-panel ol li {
+  animation: basic-slide-in 0.6s ease-out forwards;
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 0.5em;
+  color: var(--oow-info-panel-list-color);
+  transform: translateZ(0);
+}
+
+.oow-popover[data-theme="basic"] .info-panel-content ul li::before,
+.oow-popover[data-theme="basic"] .info-panel-content ol li::before,
+.oow-popover[data-theme="basic"] .etymology-panel ul li::before,
+.oow-popover[data-theme="basic"] .etymology-panel ol li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent-1);
+  font-weight: 700;
+  animation: basic-blink 3s ease-in-out infinite;
+}
+
+/* 简洁强调 - 强调文字 */
+.oow-popover[data-theme="basic"] .info-panel-content strong,
+.oow-popover[data-theme="basic"] .etymology-panel strong {
+  color: var(--accent-2);
+  font-weight: 600;
+  animation: basic-emphasis 2s ease-in-out infinite;
+  transform: translateZ(0);
+}
+
+/* 简约斜体效果 - 斜体文字 */
+.oow-popover[data-theme="basic"] .info-panel-content em,
+.oow-popover[data-theme="basic"] .etymology-panel em {
+  color: var(--accent-1);
+  font-style: italic;
+  animation: basic-fade-in 0.4s ease-out forwards;
+  transform: translateZ(0);
+}
+
+/* 入门代码块 - 基础代码展示 */
+.oow-popover[data-theme="basic"] .info-panel-content code,
+.oow-popover[data-theme="basic"] .etymology-panel code {
+  background: var(--oow-info-panel-code-bg);
+  color: var(--oow-info-panel-code-color);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  animation: basic-fade-in 0.3s ease-out forwards;
+  transform: translateZ(0);
+}
+
+/* 简约引用块 - 基础引用设计 */

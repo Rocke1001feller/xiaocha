@@ -1,0 +1,31 @@
+/* === Trigger Button - Creative Theme === */
+.oow-selection-trigger-button[data-theme="creative"] {
+  background: #2d3748; /* Unified dark background for high contrast */
+  border: 2px solid transparent;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  color: white;
+  border-radius: 10px; /* Keep original default radius */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.oow-selection-trigger-button[data-theme="creative"]:hover {
+  background: #2d3748; /* Keep background unified */
+  border-color: #718096; /* Use muted color for subtle hover feedback */
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px) scale(1.08);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.oow-selection-trigger-button[data-theme="creative"].activated {
+  background: #2d3748; /* Keep background unified */
+  border-radius: 999px; /* Unique pill shape for activation */
+  border: 4px double #9f7aea; /* Unique, high-contrast purple double border */
+  box-shadow: 0 4px 20px rgba(159, 122, 234, 0.4); /* Matching purple glow */
+  color: white;
+  animation: none;
+  transform: none;
+}
+

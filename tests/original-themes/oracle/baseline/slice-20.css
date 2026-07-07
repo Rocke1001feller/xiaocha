@@ -1,0 +1,400 @@
+  100% {
+    opacity: 1;
+    text-shadow:
+      0 0 20px currentColor,
+      0 0 40px currentColor,
+      0 0 60px currentColor;
+    color: #00ff41;
+  }
+}
+
+/* 霓虹故障艺术 - 模拟霓虹灯管的故障闪烁 */
+@keyframes neon-glitch-effect {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 1;
+    filter: hue-rotate(0deg);
+  }
+  10% {
+    transform: translateX(-2px);
+    opacity: 0.8;
+    filter: hue-rotate(90deg);
+  }
+  20% {
+    transform: translateX(2px);
+    opacity: 0.9;
+    filter: hue-rotate(180deg);
+  }
+  30% {
+    transform: translateX(-1px);
+    opacity: 0.85;
+    filter: hue-rotate(270deg);
+  }
+  40% {
+    transform: translateX(1px);
+    opacity: 0.95;
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* 电子脉冲扫描 - 模拟电子扫描线 */
+@keyframes neon-pulse-scan {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(0, 255, 65, 0.2);
+  }
+}
+
+/* 数字雨效果 - 模拟背景数字雨 */
+@keyframes neon-digital-rain {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    background-position: 0% 100%;
+    opacity: 0;
+  }
+}
+
+/* 霓虹光晕扩散 - 模拟霓虹灯管的光晕 */
+@keyframes neon-halo-expand {
+  0% {
+    box-shadow: 0 0 20px currentColor;
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 40px currentColor, 0 0 60px currentColor;
+    opacity: 0.8;
+  }
+  100% {
+    box-shadow: 0 0 30px currentColor, 0 0 50px currentColor;
+    opacity: 0.6;
+  }
+}
+
+.oow-selection-trigger-button[data-theme="neon"] {
+  background: #000000;
+  border: none;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+  color: #00ff41;
+  text-shadow: 0 0 6px rgba(0, 255, 65, 0.3);
+  border-radius: 2px !important;
+  font-weight: 600;
+  transition: var(--oow-button-transition);
+  animation: neon-standby-pulse 2s ease-in-out infinite;
+}
+
+.oow-selection-trigger-button[data-theme="neon"]:hover {
+  background: #00ff41;
+  color: #000;
+  box-shadow: 0 0 25px rgba(0, 255, 65, 0.5);
+  text-shadow: none;
+  transform: scale(1.08);
+  transition: var(--oow-button-transition);
+}
+
+.oow-selection-trigger-button[data-theme="neon"].activated {
+  background: transparent;
+  border: 2px dashed #ff006e;
+  padding: 4px;
+  box-shadow: 0 0 35px rgba(255, 0, 110, 0.6), 0 0 15px rgba(0, 217, 255, 0.4);
+  color: #00ff41;
+  animation: none;
+  transition: var(--oow-button-transition);
+}
+
+.oow-selection-trigger-button[data-theme="neon"].activated::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  background: #00ff41;
+  border-radius: 1px;
+  z-index: -1;
+}
+
+@keyframes neon-standby-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.4), 0 0 8px rgba(0, 255, 65, 0.2);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 255, 65, 0.6), 0 0 12px rgba(0, 255, 65, 0.3);
+    opacity: 0.85;
+  }
+}
+/*
+ * Origin of Words - Cyberpunk Theme (Premium)
+ * 赛博朋克主题 - 付费未来科技主题
+ * 100% original style with ORIGINAL variable names
+ */
+
+/* Theme Variables - CRITICAL: Use original variable names */
+.oow-popover[data-theme="cyberpunk"] {
+  --panel-bg: #0a011a;
+  --text-color: #f72585;
+  --muted: #b5179e;
+  --ring: #7209b7; /* purple */
+  --accent-1: #ff006e; /* hot pink */
+  --accent-2: #4361ee; /* electric blue */
+  --accent-3: #4cc9f0; /* cyan */
+  --accent-4: #9d4edd; /* deep purple */
+  backdrop-filter: blur(20px);
+  background: linear-gradient(135deg, #0a011a, #1a0b2e, #2a0a40) !important;
+  border: 2px solid var(--ring);
+  box-shadow: 0 0 50px rgba(247, 37, 133, 0.5), inset 0 0 40px rgba(114, 9, 183, 0.25);
+
+  /* Enhanced Unified Button Styles */
+  --oow-button-bg: rgba(114, 9, 183, 0.25);
+  --oow-button-hover-bg: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  --oow-button-color: var(--text-color);
+  --oow-button-hover-color: white;
+  --oow-button-radius: 8px;
+  --oow-button-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Enhanced Markdown Highlight Styles */
+  --oow-highlight-heading-color: var(--text-color);
+  --oow-highlight-heading-font-weight: 700;
+  --oow-highlight-heading-margin-top: 1.3em;
+  --oow-highlight-heading-margin-bottom: 0.7em;
+  --oow-highlight-h1-font-size: 1.6em;
+  --oow-highlight-h2-font-size: 1.35em;
+  --oow-highlight-h3-font-size: 1.2em;
+  --oow-highlight-h4-font-size: 1.1em;
+  --oow-highlight-h5-font-size: 1em;
+  --oow-highlight-h6-font-size: 0.9em;
+  --oow-highlight-strong-color: var(--accent-1);
+  --oow-highlight-strong-font-weight: 700;
+  --oow-highlight-em-color: var(--accent-2);
+  --oow-highlight-em-font-style: italic;
+  --oow-highlight-code-color: var(--accent-3);
+  --oow-highlight-code-bg: rgba(0, 0, 0, 0.15);
+  --oow-highlight-code-border-color: var(--ring);
+  --oow-highlight-link-color: var(--accent-1);
+  --oow-highlight-link-decoration: underline;
+  --oow-highlight-link-decoration-thickness: 2px;
+  --oow-highlight-link-hover-color: var(--accent-3);
+  --oow-highlight-blockquote-margin: 1.3em 0;
+  --oow-highlight-blockquote-padding: 0.8em 1.2em;
+  --oow-highlight-blockquote-border-left: 5px solid var(--ring);
+  --oow-highlight-blockquote-color: var(--muted);
+  --oow-highlight-blockquote-bg: rgba(0, 0, 0, 0.1);
+  --oow-highlight-hr-height: 2px;
+  --oow-highlight-hr-bg: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  --oow-highlight-hr-margin: 1.8em 0;
+  --oow-highlight-pre-padding: 1.3em;
+  --oow-highlight-pre-bg: rgba(0, 0, 0, 0.2);
+  --oow-highlight-pre-border-radius: 8px;
+  --oow-highlight-pre-font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  --oow-highlight-pre-font-size: 0.95em;
+  --oow-highlight-table-margin: 1.8em 0;
+  --oow-highlight-table-border: 2px solid var(--ring);
+  --oow-highlight-table-cell-padding: 0.6em 0.9em;
+  --oow-highlight-table-header-bg: rgba(255, 255, 255, 0.1);
+  --oow-highlight-table-header-color: var(--text-color);
+  --oow-highlight-table-header-font-weight: 700;
+}
+
+/* Cyberpunk grid effect */
+.oow-popover[data-theme="cyberpunk"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(rgba(114, 9, 183, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(114, 9, 183, 0.15) 1px, transparent 1px),
+    radial-gradient(circle at 20% 30%, rgba(247, 37, 133, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 80% 70%, rgba(67, 97, 238, 0.1) 2px, transparent 2px);
+  background-size: 25px 25px, 25px 25px, 50px 50px, 50px 50px;
+  background-position: 0 0, 0 0, 25px 25px, 25px 25px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+  animation: cyberpunk-grid 8s linear infinite, cyberpunk-pulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes cyberpunk-grid {
+  from {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+  to {
+    background-position: 25px 25px, 25px 25px, 25px 25px, 25px 25px;
+  }
+}
+
+@keyframes cyberpunk-pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.oow-popover[data-theme="cyberpunk"] > * {
+  position: relative;
+  z-index: 1;
+}
+
+.oow-popover[data-theme="cyberpunk"] .header-title {
+  color: var(--accent-1);
+  text-shadow: 0 0 15px rgba(247, 37, 133, 0.4), 2px 2px 0 var(--accent-2);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 1.2em;
+  animation: cyberpunk-glow 2s infinite alternate;
+}
+
+@keyframes cyberpunk-glow {
+  0%, 100% {
+    text-shadow: 0 0 15px rgba(247, 37, 133, 0.4), 2px 2px 0 var(--accent-2);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(247, 37, 133, 0.6), 0 0 35px rgba(67, 97, 238, 0.3), 2px 2px 0 var(--accent-2);
+  }
+}
+
+.oow-popover[data-theme="cyberpunk"] .header-logo {
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  border: 2px solid var(--ring);
+  color: white;
+  box-shadow: 0 0 25px var(--accent-1), inset 0 0 10px rgba(255, 255, 255, 0.3);
+  font-weight: 800;
+  font-size: 1.1em;
+  border-radius: 6px;
+  animation: cyberpunk-logo-pulse 1.5s infinite;
+}
+
+@keyframes cyberpunk-logo-pulse {
+  0%, 100% {
+    box-shadow: 0 0 25px var(--accent-1), inset 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 35px var(--accent-1), 0 0 45px var(--accent-2), inset 0 0 15px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.oow-popover[data-theme="cyberpunk"] .section-title {
+  color: var(--accent-3);
+  text-shadow: 0 0 12px rgba(76, 201, 240, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 1.1em;
+  background: linear-gradient(90deg, transparent 50%, rgba(76, 201, 240, 0.1) 50%);
+  background-size: 200% 100%;
+  animation: cyberpunk-text-scan 3s linear infinite;
+}
+
+@keyframes cyberpunk-text-scan {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.oow-popover[data-theme="cyberpunk"] .def-item .pos {
+  color: var(--accent-2);
+  text-shadow: 0 0 10px var(--accent-2);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+}
+
+.oow-popover[data-theme="cyberpunk"] .def-item .meaning {
+  color: var(--text-color);
+}
+
+.oow-popover[data-theme="cyberpunk"] .def-item .example {
+  color: var(--muted);
+  border-left: 4px solid var(--accent-2);
+  padding-left: 12px;
+  background: rgba(67, 97, 238, 0.08);
+  border-radius: 0 6px 6px 0;
+  margin-left: 2px;
+}
+
+.oow-popover[data-theme="cyberpunk"] .eq .bar {
+  background: linear-gradient(180deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  box-shadow: 0 0 20px var(--accent-1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  height: 10px;
+  animation: cyberpunk-bar-pulse 2s infinite;
+}
+
+@keyframes cyberpunk-bar-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px var(--accent-1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px var(--accent-1), 0 0 40px var(--accent-2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    height: 12px;
+  }
+}
+
+.oow-popover[data-theme="cyberpunk"] .modal-header {
+  border-bottom: 3px solid var(--ring);
+  background: rgba(114, 9, 183, 0.15);
+}
+
+/* === Trigger Button - Cyberpunk Theme === */
+.oow-selection-trigger-button[data-theme="cyberpunk"] {
+  background: radial-gradient(ellipse at center, rgba(247, 37, 133, 0.8), rgba(247, 37, 133, 0.4), #0a011a);
+  border: none;
+  box-shadow: 0 0 30px rgba(247, 37, 133, 0.8), inset 0 0 20px rgba(247, 37, 133, 0.3);
+  color: white;
+  text-shadow: 0 0 8px rgba(247, 37, 133, 0.6);
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 0;
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  transition: var(--oow-button-transition);
+  animation: cyberpunk-scan 2s linear infinite;
+}
+
+.oow-selection-trigger-button[data-theme="cyberpunk"]:hover {
+  background: radial-gradient(ellipse at center, rgba(247, 37, 133, 0.9), rgba(247, 37, 133, 0.5), #1a0b2e);
+  box-shadow: 0 0 40px rgba(247, 37, 133, 0.9), inset 0 0 25px rgba(247, 37, 133, 0.4);
+  transform: scale(1.08);
+  transition: var(--oow-button-transition);
+}
+
+.oow-selection-trigger-button[data-theme="cyberpunk"].activated {
+  background: transparent;
+  border: 3px ridge #4361ee;
+  padding: 4px;
+  box-shadow: 0 0 45px rgba(67, 97, 238, 0.6), 0 0 25px rgba(247, 37, 133, 0.4);
+  color: #f72585;
+  animation: none;
+  transition: var(--oow-button-transition);
+}
+
+.oow-selection-trigger-button[data-theme="cyberpunk"].activated::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  background: radial-gradient(ellipse at center, rgba(247, 37, 133, 0.9), rgba(247, 37, 133, 0.6), #0a011a);
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  z-index: -1;
+  box-shadow: inset 0 0 15px rgba(247, 37, 133, 0.4);

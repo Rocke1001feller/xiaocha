@@ -1,0 +1,400 @@
+  --accent-4: #fbbf24; /* yellow-500 */
+  --accent-5: #c084fc; /* violet-400 */
+  backdrop-filter: blur(25px);
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460) !important;
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  box-shadow: 0 0 60px rgba(167, 139, 250, 0.4), inset 0 0 50px rgba(147, 197, 253, 0.15);
+
+  /* Unified Button Styles */
+  --oow-button-bg: rgba(167, 139, 250, 0.15);
+  --oow-button-hover-bg: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  --oow-button-color: var(--text-color);
+  --oow-button-hover-color: #1a1a2e;
+  --oow-button-radius: 8px;
+  --oow-button-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Enhanced Markdown Highlight Styles */
+  --oow-highlight-heading-color: var(--text-color);
+  --oow-highlight-heading-font-weight: 600;
+  --oow-highlight-heading-margin-top: 1.2em;
+  --oow-highlight-heading-margin-bottom: 0.6em;
+  --oow-highlight-h1-font-size: 1.6em;
+  --oow-highlight-h2-font-size: 1.35em;
+  --oow-highlight-h3-font-size: 1.2em;
+  --oow-highlight-h4-font-size: 1.1em;
+  --oow-highlight-h5-font-size: 1em;
+  --oow-highlight-h6-font-size: 0.9em;
+  --oow-highlight-strong-color: var(--accent-1);
+  --oow-highlight-strong-font-weight: 700;
+  --oow-highlight-em-color: var(--accent-2);
+  --oow-highlight-em-font-style: italic;
+  --oow-highlight-code-color: var(--accent-3);
+  --oow-highlight-code-bg: rgba(255,255,255,0.08);
+  --oow-highlight-code-border-color: var(--ring);
+  --oow-highlight-link-color: var(--accent-1);
+  --oow-highlight-link-decoration: underline;
+  --oow-highlight-link-decoration-thickness: 2px;
+  --oow-highlight-link-hover-color: var(--accent-4);
+  --oow-highlight-blockquote-margin: 1.2em 0;
+  --oow-highlight-blockquote-padding: 0.8em 1.2em;
+  --oow-highlight-blockquote-border-left: 5px solid var(--ring);
+  --oow-highlight-blockquote-color: var(--muted);
+  --oow-highlight-blockquote-bg: rgba(255,255,255,0.06);
+  --oow-highlight-hr-height: 2px;
+  --oow-highlight-hr-bg: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  --oow-highlight-hr-margin: 1.8em 0;
+  --oow-highlight-pre-padding: 1.2em;
+  --oow-highlight-pre-bg: rgba(0,0,0,0.1);
+  --oow-highlight-pre-border-radius: 8px;
+  --oow-highlight-pre-font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  --oow-highlight-pre-font-size: 0.95em;
+  --oow-highlight-table-margin: 1.8em 0;
+  --oow-highlight-table-border: 2px solid var(--ring);
+  --oow-highlight-table-cell-padding: 0.6em 0.9em;
+  --oow-highlight-table-header-bg: rgba(255,255,255,0.1);
+  --oow-highlight-table-header-color: var(--text-color);
+  --oow-highlight-table-header-font-weight: 700;
+}
+
+/* Aurora wave effect */
+.oow-popover[data-theme="aurora"]::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  background: linear-gradient(
+    135deg,
+    transparent 25%,
+    rgba(74, 222, 128, 0.15) 35%,
+    rgba(96, 165, 250, 0.15) 45%,
+    rgba(244, 114, 182, 0.15) 55%,
+    rgba(251, 191, 36, 0.15) 65%,
+    transparent 75%
+  );
+  animation: aurora-wave 12s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+@keyframes aurora-wave {
+  0%, 100% {
+    transform: rotate(0deg) translateY(0) scale(1);
+  }
+  25% {
+    transform: rotate(90deg) translateY(10px) scale(1.05);
+  }
+  50% {
+    transform: rotate(180deg) translateY(20px) scale(1.1);
+  }
+  75% {
+    transform: rotate(270deg) translateY(10px) scale(1.05);
+  }
+}
+
+.oow-popover[data-theme="aurora"] > * {
+  position: relative;
+  z-index: 1;
+}
+
+.oow-popover[data-theme="aurora"] .header-title {
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-4));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  text-shadow: 0 0 15px rgba(167, 139, 250, 0.3);
+  animation: aurora-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-glow {
+  0%, 100% {
+    text-shadow: 0 0 15px rgba(167, 139, 250, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(167, 139, 250, 0.5), 0 0 35px rgba(96, 165, 250, 0.2);
+  }
+}
+
+.oow-popover[data-theme="aurora"] .header-logo {
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  border: 2px solid var(--ring);
+  color: #1a1a2e;
+  font-weight: 900;
+  font-size: 1.1em;
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.4);
+  animation: aurora-pulse 2s infinite;
+}
+
+/* === Aurora主题专属文字动效关键帧 === */
+
+/* 极光流动效果 - 模拟北极光的自然流动 */
+@keyframes aurora-flow {
+  0% {
+    background-position: 0% 50%;
+    opacity: 0.8;
+  }
+  25% {
+    background-position: 25% 25%;
+    opacity: 0.9;
+  }
+  50% {
+    background-position: 50% 75%;
+    opacity: 1;
+  }
+  75% {
+    background-position: 75% 25%;
+    opacity: 0.85;
+  }
+  100% {
+    background-position: 100% 50%;
+    opacity: 0.8;
+  }
+}
+
+/* 极光波纹效果 - 模拟极光的波纹扩散 */
+@keyframes aurora-ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4),
+                0 0 0 0 rgba(96, 165, 250, 0.3);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 20px 10px rgba(74, 222, 128, 0.2),
+                0 0 30px 15px rgba(96, 165, 250, 0.15);
+    opacity: 0.8;
+  }
+  100% {
+    box-shadow: 0 0 30px 20px rgba(74, 222, 128, 0),
+                0 0 40px 30px rgba(96, 165, 250, 0);
+    opacity: 0.6;
+  }
+}
+
+/* 色彩呼吸效果 - 模拟极光的色彩变化 */
+@keyframes aurora-breathe {
+  0%, 100% {
+    filter: hue-rotate(0deg) brightness(1);
+    transform: scale(1);
+  }
+  25% {
+    filter: hue-rotate(60deg) brightness(1.1);
+    transform: scale(1.02);
+  }
+  50% {
+    filter: hue-rotate(120deg) brightness(0.95);
+    transform: scale(0.98);
+  }
+  75% {
+    filter: hue-rotate(180deg) brightness(1.05);
+    transform: scale(1.01);
+  }
+}
+
+/* 星光闪烁效果 - 模拟极光中的星光 */
+@keyframes aurora-shimmer {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 5px currentColor;
+  }
+  20% {
+    opacity: 0.7;
+    text-shadow: 0 0 10px currentColor;
+  }
+  40% {
+    opacity: 0.9;
+    text-shadow: 0 0 8px currentColor;
+  }
+  60% {
+    opacity: 0.8;
+    text-shadow: 0 0 12px currentColor;
+  }
+  80% {
+    opacity: 0.95;
+    text-shadow: 0 0 6px currentColor;
+  }
+}
+
+/* 色彩变换效果 - 模拟极光的渐变变化 */
+@keyframes aurora-gradient-shift {
+  0% {
+    background: linear-gradient(45deg,
+      rgba(74, 222, 128, 0.3),
+      rgba(96, 165, 250, 0.3),
+      rgba(244, 114, 182, 0.3));
+  }
+  25% {
+    background: linear-gradient(45deg,
+      rgba(96, 165, 250, 0.3),
+      rgba(244, 114, 182, 0.3),
+      rgba(251, 191, 36, 0.3));
+  }
+  50% {
+    background: linear-gradient(45deg,
+      rgba(244, 114, 182, 0.3),
+      rgba(251, 191, 36, 0.3),
+      rgba(192, 132, 252, 0.3));
+  }
+  75% {
+    background: linear-gradient(45deg,
+      rgba(251, 191, 36, 0.3),
+      rgba(192, 132, 252, 0.3),
+      rgba(74, 222, 128, 0.3));
+  }
+  100% {
+    background: linear-gradient(45deg,
+      rgba(192, 132, 252, 0.3),
+      rgba(74, 222, 128, 0.3),
+      rgba(96, 165, 250, 0.3));
+  }
+}
+
+/* 光带流动效果 - 模拟极光的光带移动 */
+@keyframes aurora-light-band {
+  0% {
+    background-position: -200% center;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    background-position: 200% center;
+    opacity: 0;
+  }
+}
+
+/* 极光尾迹效果 - 模拟极光的尾迹 */
+@keyframes aurora-trail {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes aurora-pulse {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(167, 139, 250, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(167, 139, 250, 0.6), 0 0 30px rgba(96, 165, 250, 0.3);
+  }
+}
+
+.oow-popover[data-theme="aurora"] .section-title {
+  background: linear-gradient(135deg, var(--accent-2), var(--accent-3), var(--accent-4));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.2);
+}
+
+.oow-popover[data-theme="aurora"] .def-item .pos {
+  color: var(--accent-3);
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(244, 114, 182, 0.2);
+}
+
+.oow-popover[data-theme="aurora"] .def-item .meaning {
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+.oow-popover[data-theme="aurora"] .def-item .example {
+  color: var(--muted);
+  border-left: 3px solid var(--accent-2);
+  padding-left: 12px;
+  background: rgba(96, 165, 250, 0.08);
+  border-radius: 0 4px 4px 0;
+  margin-left: 2px;
+}
+
+.oow-popover[data-theme="aurora"] .eq .bar {
+  background: linear-gradient(180deg, var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-4));
+  box-shadow: 0 2px 15px rgba(167, 139, 250, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  height: 8px;
+}
+
+.oow-popover[data-theme="aurora"] .text-translation {
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-4));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.3);
+}
+
+/* Aurora主题的translation和contextual-analysis样式 */
+.oow-popover[data-theme="aurora"] .translation[data-style="gradient"] {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  background-image: linear-gradient(135deg, var(--accent-1), var(--accent-4));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.oow-popover[data-theme="aurora"] .contextual-analysis[data-style="framed"] {
+  background: rgba(167, 139, 250, 0.1);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 6px;
+  padding: 10px 12px;
+  box-shadow: 0 2px 8px rgba(167, 139, 250, 0.1);
+}
+
+.oow-popover[data-theme="aurora"] .translation .text {
+  font-weight: 600;
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.3);
+}
+
+.oow-popover[data-theme="aurora"] .contextual-analysis .text {
+  color: #d0e0ff;
+  font-weight: 400;
+}
+
+/* Aurora主题的Info Panel和Etymology Panel样式 */
+.oow-popover[data-theme="aurora"] .info-panel-content,
+.oow-popover[data-theme="aurora"] .etymology-panel {
+  /* 梦幻光效风格：使用渐变文字效果和柔和的发光，营造星空般的阅读体验 */
+  --oow-info-panel-heading-color: #f0f8ff;
+  --oow-info-panel-heading-weight: 600;
+  --oow-info-panel-heading-margin-top: 1.2em;
+  --oow-info-panel-heading-margin-bottom: 0.6em;
+  --oow-info-panel-paragraph-color: #f0f8ff;
+  --oow-info-panel-paragraph-margin-bottom: 0.9em;
+  --oow-info-panel-line-height: 1.6;
+  --oow-info-panel-letter-spacing: 0.01em;
+  --oow-info-panel-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --oow-info-panel-list-color: #f0f8ff;
+  --oow-info-panel-blockquote-color: #d0e0ff;
+  --oow-info-panel-blockquote-border: #a78bfa;
+  --oow-info-panel-code-color: #f472b6;
+  --oow-info-panel-code-bg: rgba(255,255,255,0.08);
+  --oow-info-panel-link-color: #4ade80;
+  --oow-info-panel-link-hover: #fbbf24;
+}
+

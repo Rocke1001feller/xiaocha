@@ -1,0 +1,56 @@
+/* Galaxy主题的translation和contextual-analysis样式 */
+.oow-popover[data-theme="galaxy"] .translation[data-style="gradient"] {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  background-image: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-4));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.oow-popover[data-theme="galaxy"] .contextual-analysis[data-style="gradient"] {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  background-image: linear-gradient(135deg, var(--accent-2), var(--accent-4));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.oow-popover[data-theme="galaxy"] .translation .text {
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(192, 132, 252, 0.4);
+}
+
+.oow-popover[data-theme="galaxy"] .contextual-analysis .text {
+  font-weight: 400;
+}
+
+/* Galaxy主题的Info Panel和Etymology Panel样式 */
+.oow-popover[data-theme="galaxy"] .info-panel-content,
+.oow-popover[data-theme="galaxy"] .etymology-panel {
+  /* 宇宙深邃感：使用星空渐变和银河般的文字效果，营造浩瀚宇宙的阅读氛围 */
+  --oow-info-panel-heading-color: #e0e7ff;
+  --oow-info-panel-heading-weight: 700;
+  --oow-info-panel-heading-margin-top: 1.3em;
+  --oow-info-panel-heading-margin-bottom: 0.7em;
+  --oow-info-panel-paragraph-color: #e0e7ff;
+  --oow-info-panel-paragraph-margin-bottom: 0.9em;
+  --oow-info-panel-line-height: 1.5;
+  --oow-info-panel-letter-spacing: 0.01em;
+  --oow-info-panel-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --oow-info-panel-list-color: #e0e7ff;
+  --oow-info-panel-blockquote-color: #a5b4fc;
+  --oow-info-panel-blockquote-border: #818cf8;
+  --oow-info-panel-code-color: #f472b6;
+  --oow-info-panel-code-bg: rgba(255,255,255,0.08);
+  --oow-info-panel-link-color: #c084fc;
+  --oow-info-panel-link-hover: #e879f9;
+}
+

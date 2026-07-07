@@ -1,0 +1,41 @@
+{
+  "name": "xiaocha",
+  "description": "查单词，用小猹。选中，即懂。闰土插猹，探索知识世界。",
+  "private": true,
+  "version": "1.2.1",
+  "type": "module",
+  "scripts": {
+    "icons:build": "node scripts/build-toolbar-icon.mjs",
+    "dev": "node scripts/dev-dist.mjs",
+    "dev:wxt": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "generate:original-themes": "node scripts/generate-original-themes-artifacts.mjs",
+    "oracle:original-themes:update": "npm run generate:original-themes && node scripts/generate-original-themes-oracle.mjs",
+    "test": "vitest run",
+    "test:original-themes": "vitest run tests/original-themes",
+    "check:lines": "node scripts/check-line-limits.mjs",
+    "prebuild": "npm run icons:build",
+    "build": "wxt build",
+    "prebuild:firefox": "npm run icons:build",
+    "build:firefox": "wxt build -b firefox",
+    "prezip": "npm run icons:build",
+    "zip": "wxt zip",
+    "prezip:firefox": "npm run icons:build",
+    "zip:firefox": "wxt zip -b firefox",
+    "compile": "tsc --noEmit",
+    "postinstall": "wxt prepare"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "advanced-extension-reloader-watch-2": "^2.1.0",
+    "chokidar": "^5.0.0",
+    "jsdom": "^29.0.2",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.4",
+    "wxt": "^0.20.20"
+  },
+  "dependencies": {
+    "streaming-markdown": "^0.2.15"
+  }
+}

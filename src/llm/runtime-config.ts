@@ -1,0 +1,3 @@
+export const REQUEST_TIMEOUT_MS = 30_000;
+
+export const FIRST_CHUNK_TIMEOUT_MS = 2_500;

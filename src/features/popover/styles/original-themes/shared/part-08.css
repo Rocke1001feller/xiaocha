@@ -1,0 +1,500 @@
+  /* Using existing padding from modal.css */
+  margin: 0.8em 0;
+}
+
+.part2-content li {
+  padding-left: 0.5em;
+}
+
+/* Style the bullet points or numbers */
+.part2-content li::marker {
+  color: var(--oow-highlight-marker-color);
+  font-weight: bold;
+}
+/* 组件特定CSS变量 - 设计师创作接口 */
+.pcss3t {
+  /* 基础间距变量 */
+  --oow-tabs-margin: 0;
+  --oow-tabs-max-width: 100%;
+  --oow-tab-padding-y: 8px;
+  --oow-tab-padding-x: 12px;
+  --oow-tab-gap: 16px;
+  --oow-content-padding: 16px;
+
+  /* 字体系统变量 */
+  --oow-tabs-font-family: inherit;
+  --oow-tabs-font-size: 14px;
+  --oow-tabs-line-height: 1.4;
+  --oow-tabs-font-weight-base: 500;
+
+  /* 颜色系统变量 (使用全局主题变量) */
+  --oow-tabs-text-color: var(--text-color);
+  --oow-tabs-text-muted: var(--muted);
+  --oow-tabs-bg: transparent;
+  --oow-tabs-bg-hover: rgba(255, 255, 255, 0.05);
+  --oow-tabs-bg-active: transparent;
+  --oow-tabs-content-bg: var(--panel-bg);
+  --oow-tabs-border-color: var(--ring);
+  --oow-tabs-accent-color: var(--accent-1);
+
+  /* 边框和阴影变量 */
+  --oow-tabs-border-width: 1px;
+  --oow-tabs-active-border-width: 3px;
+  --oow-tabs-border-radius: 8px;
+  --oow-tabs-shadow: none;
+  --oow-tabs-shadow-active: inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+  --oow-tabs-bg-active: rgba(255, 255, 255, 0.02);
+
+  /* 动画和过渡变量 */
+  --oow-tabs-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --oow-tabs-opacity-transition: opacity 0.3s ease;
+  --oow-tabs-transform-transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --oow-tabs-transform-scale: 0.95;
+  --oow-tabs-transform-scale-active: 1;
+
+  /* 焦点和交互变量 */
+  --oow-tabs-focus-outline: 2px solid var(--oow-tabs-accent-color);
+  --oow-tabs-focus-outline-offset: -2px;
+  --oow-tabs-cursor: pointer;
+  --oow-tabs-cursor-active: pointer;
+
+  /* 响应式断点变量 */
+  --oow-tabs-mobile-breakpoint: 600px;
+  --oow-tabs-mobile-font-size: 14px;
+  --oow-tabs-mobile-padding-y: 8px;
+  --oow-tabs-mobile-padding-x: 10px;
+}
+
+/* 基础tabs容器样式 */
+.pcss3t {
+  position: relative;
+  margin: var(--oow-tabs-margin);
+  width: 100%;
+  max-width: var(--oow-tabs-max-width);
+  font-family: var(--oow-tabs-font-family);
+  font-size: var(--oow-tabs-font-size);
+  line-height: var(--oow-tabs-line-height);
+  color: var(--oow-tabs-text-color);
+  text-align: left;
+  border-bottom: var(--oow-tabs-border-width) solid var(--oow-tabs-border-color);
+}
+
+/* 隐藏radio按钮 */
+.pcss3t > input {
+  display: none;
+}
+
+/* 标签按钮样式 */
+.pcss3t > label {
+  display: inline-block;
+  margin: 0 var(--oow-tab-gap) 0 0;
+  padding: var(--oow-tab-padding-y) var(--oow-tab-padding-x);
+  font-size: var(--oow-tabs-font-size-base);
+  font-weight: var(--oow-tabs-font-weight-base);
+  text-align: center;
+  color: var(--oow-tabs-text-muted);
+  background: var(--oow-tabs-bg);
+  border: none;
+  border-bottom: var(--oow-tabs-active-border-width) solid transparent;
+  margin-bottom: calc(-1 * var(--oow-tabs-border-width));
+  border-radius: var(--oow-tabs-border-radius) var(--oow-tabs-border-radius) 0 0;
+  cursor: var(--oow-tabs-cursor);
+  transition: var(--oow-tabs-transition);
+  user-select: none;
+  position: relative;
+  z-index: 1;
+}
+
+.pcss3t > label:hover {
+  color: var(--oow-tabs-text-color);
+  transform: none;
+  box-shadow: none;
+  z-index: 1;
+}
+
+/* 选中状态的标签按钮 */
+.pcss3t > input:checked + label {
+  color: var(--oow-tabs-accent-color);
+  font-weight: 600;
+  background: var(--oow-tabs-bg);
+  border-bottom-color: var(--oow-tabs-accent-color);
+  cursor: var(--oow-tabs-cursor-active);
+  box-shadow: none;
+  transform: none;
+  z-index: 1;
+}
+
+/* 状态指示器 - 使用伪元素创建直观的状态条 */
+.pcss3t > input:checked + label::after {
+  content: '';
+  position: absolute;
+  bottom: calc(-1 * var(--oow-tabs-active-border-width) - 1px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 2px;
+  background: var(--oow-tabs-accent-color);
+  border-radius: 1px;
+  opacity: 0.8;
+  animation: tab-state-indicator 0.3s ease-out;
+}
+
+@keyframes tab-state-indicator {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+  100% {
+    width: 80%;
+    opacity: 0.8;
+  }
+}
+
+/* 内容区域样式 */
+.pcss3t > ul {
+  position: relative;
+  display: block;
+  padding: 0;
+  background: var(--oow-tabs-content-bg);
+  border: none;
+  list-style: none;
+  margin: 0;
+}
+
+/* 内容面板样式 */
+.pcss3t > ul > li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+  padding: 0;
+  opacity: 0;
+  transition: var(--oow-tabs-opacity-transition);
+}
+
+/* 选中状态的内容面板 */
+.pcss3t > .tab-content-first:checked ~ ul > .tab-content-first,
+.pcss3t > .tab-content-2:checked ~ ul > .tab-content-2,
+.pcss3t > .tab-content-3:checked ~ ul > .tab-content-3,
+.pcss3t > .tab-content-last:checked ~ ul > .tab-content-last {
+  display: block;
+  position: relative;
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Typography样式 (使用主题变量) */
+.typography {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.typography h1,
+.typography h2,
+.typography h3,
+.typography h4,
+.typography h5,
+.typography h6 {
+  margin: 0 0 15px 0;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.typography h1 { font-size: 24px; }
+.typography h2 { font-size: 20px; }
+.typography h3 { font-size: 18px; }
+
+.typography p {
+  margin: 0 0 15px 0;
+}
+
+.typography a {
+  color: var(--accent-1);
+  text-decoration: none;
+}
+
+.typography a:hover {
+  text-decoration: underline;
+}
+
+/* 主题化tab设计 - 每个主题都有独特的视觉语言 */
+
+/* Basic主题 - 极简平面风格 */
+.oow-popover[data-theme="basic"] .pcss3t > label {
+  color: #666666;
+}
+
+.oow-popover[data-theme="basic"] .pcss3t > label:hover {
+  color: #333333;
+}
+
+.oow-popover[data-theme="basic"] .pcss3t > input:checked + label {
+  color: #0ea5e9;
+  font-weight: 600;
+}
+
+.oow-popover[data-theme="basic"] .pcss3t > input:checked + label::after {
+  background: linear-gradient(90deg, #0ea5e9, #22c55e);
+  height: 3px;
+}
+
+/* Pro主题 - 专业立体风格 */
+.oow-popover[data-theme="pro"] .pcss3t > label {
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.oow-popover[data-theme="pro"] .pcss3t > label:hover {
+  color: #f9fafb;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 6px 6px 0 0;
+}
+
+.oow-popover[data-theme="pro"] .pcss3t > input:checked + label {
+  color: #3b82f6;
+  font-weight: 600;
+  background: rgba(59, 130, 246, 0.15);
+  border-radius: 6px 6px 0 0;
+}
+
+.oow-popover[data-theme="pro"] .pcss3t > input:checked + label::after {
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  height: 4px;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+/* Creative主题 - 艺术创意风格 */
+.oow-popover[data-theme="creative"] .pcss3t > label {
+  color: #718096;
+  font-style: italic;
+  border: 2px dashed transparent;
+  border-radius: 10px 10px 0 0;
+}
+
+.oow-popover[data-theme="creative"] .pcss3t > label:hover {
+  color: #2d3748;
+  border: 2px dashed #ed8936;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.oow-popover[data-theme="creative"] .pcss3t > input:checked + label {
+  color: #ed8936;
+  font-weight: 700;
+  font-style: normal;
+  background: linear-gradient(135deg, #ed8936, #4299e1, #9f7aea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: 2px solid #ed8936;
+  border-radius: 10px 10px 0 0;
+}
+
+.oow-popover[data-theme="creative"] .pcss3t > input:checked + label::after {
+  background: linear-gradient(90deg, #ed8936, #4299e1, #9f7aea);
+  height: 3px;
+  border-radius: 2px;
+}
+
+/* Aurora主题 - 梦幻光效风格 */
+.oow-popover[data-theme="aurora"] .pcss3t > label {
+  color: #a5b4fc;
+  text-shadow: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.oow-popover[data-theme="aurora"] .pcss3t > label::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 20% 30%, rgba(159, 122, 234, 0.1) 0px, transparent 50px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.oow-popover[data-theme="aurora"] .pcss3t > label:hover::before {
+  opacity: 1;
+}
+
+.oow-popover[data-theme="aurora"] .pcss3t > label:hover {
+  color: #c084fc;
+  text-shadow: 0 0 8px rgba(159, 122, 234, 0.3);
+}
+
+.oow-popover[data-theme="aurora"] .pcss3t > input:checked + label {
+  color: #4ade80;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(74, 222, 128, 0.4);
+  background: linear-gradient(135deg, #4ade80, #60a5fa, #f472b6, #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.oow-popover[data-theme="aurora"] .pcss3t > input:checked + label::after {
+  background: linear-gradient(90deg, #4ade80, #60a5fa, #f472b6, #fbbf24);
+  height: 4px;
+  box-shadow: 0 2px 8px rgba(74, 222, 128, 0.4);
+  animation: aurora-tab-indicator 2s ease-in-out infinite;
+}
+
+@keyframes aurora-tab-indicator {
+  0%, 100% {
+    transform: translateX(-50%) scaleX(0.8);
+    box-shadow: 0 2px 8px rgba(74, 222, 128, 0.4);
+  }
+  50% {
+    transform: translateX(-50%) scaleX(1);
+    box-shadow: 0 2px 12px rgba(74, 222, 128, 0.6);
+  }
+}
+
+/* Cyberpunk主题 - 科技霓虹风格 */
+.oow-popover[data-theme="cyberpunk"] .pcss3t > label {
+  color: #b5179e;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+  background: rgba(114, 9, 183, 0.05);
+  border-radius: 6px 6px 0 0;
+}
+
+.oow-popover[data-theme="cyberpunk"] .pcss3t > label:hover {
+  color: #f72585;
+  background: rgba(114, 9, 183, 0.1);
+  box-shadow: 0 0 10px rgba(247, 37, 133, 0.2);
+  text-shadow: 0 0 5px rgba(247, 37, 133, 0.3);
+}
+
+.oow-popover[data-theme="cyberpunk"] .pcss3t > input:checked + label {
+  color: #ff006e;
+  font-weight: 700;
+  font-family: 'Orbitron', 'Courier New', monospace;
+  letter-spacing: 2px;
+  background: rgba(114, 9, 183, 0.2);
+  border: 1px solid rgba(247, 37, 133, 0.3);
+  border-radius: 6px 6px 0 0;
+  text-shadow: 0 0 8px rgba(247, 37, 133, 0.4);
+  box-shadow: 0 0 15px rgba(247, 37, 133, 0.3);
+}
+
+.oow-popover[data-theme="cyberpunk"] .pcss3t > input:checked + label::after {
+  background: linear-gradient(90deg, #ff006e, #4361ee, #4cc9f0);
+  height: 3px;
+  box-shadow: 0 2px 6px rgba(247, 37, 133, 0.5);
+  animation: cyberpunk-tab-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes cyberpunk-tab-pulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translateX(-50%) scaleX(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scaleX(1.1);
+  }
+}
+
+/* Galaxy主题 - 宇宙深邃风格 */
+.oow-popover[data-theme="galaxy"] .pcss3t > label {
+  color: #a5b4fc;
+  background: rgba(129, 140, 248, 0.05);
+  border-radius: 8px 8px 0 0;
+}
+
+.oow-popover[data-theme="galaxy"] .pcss3t > label:hover {
+  color: #e0e7ff;
+  background: rgba(129, 140, 248, 0.1);
+  text-shadow: 0 0 5px rgba(192, 132, 252, 0.2);
+}
+
+.oow-popover[data-theme="galaxy"] .pcss3t > input:checked + label {
+  color: #c084fc;
+  font-weight: 700;
+  background: linear-gradient(135deg, rgba(192, 132, 252, 0.15), rgba(232, 121, 249, 0.1));
+  border-radius: 8px 8px 0 0;
+  text-shadow: 0 0 10px rgba(192, 132, 252, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.oow-popover[data-theme="galaxy"] .pcss3t > input:checked + label::after {
+  background: linear-gradient(90deg, #c084fc, #e879f9, #f472b6, #a78bfa);
+  height: 4px;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(192, 132, 252, 0.4);
+  animation: galaxy-tab-stardust 3s linear infinite;
+}
+
+/* 添加星星效果 */
+.oow-popover[data-theme="galaxy"] .pcss3t > input:checked + label::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  box-shadow:
+    20px 20px 0 2px white,
+    40px 40px 0 1px white,
+    -20px 30px 0 1px white;
+  animation: galaxy-stars 15s linear infinite;
+}
+
+@keyframes galaxy-tab-stardust {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+  100% {
+    width: 85%;
+    opacity: 0.9;
+  }
+}
+
+/* Neon主题 - 赛博朋克风格 */
+.oow-popover[data-theme="neon"] .pcss3t > label {
+  color: #00cc33;
+  background: rgba(0, 255, 65, 0.05);
+  border: 1px solid rgba(0, 255, 65, 0.1);
+  border-radius: 6px 6px 0 0;
+  text-shadow: none;
+}
+
+.oow-popover[data-theme="neon"] .pcss3t > label:hover {
+  color: #00ff41;
+  background: rgba(0, 255, 65, 0.1);
+  border-color: rgba(0, 255, 65, 0.3);
+  text-shadow: 0 0 6px rgba(0, 255, 65, 0.3);
+  transform: none;
+}
+
+.oow-popover[data-theme="neon"] .pcss3t > input:checked + label {
+  color: #ffbe0b;
+  font-weight: 700;
+  background: linear-gradient(135deg, rgba(255, 190, 11, 0.1), rgba(255, 0, 110, 0.1));
+  border: 2px solid #ffbe0b;
+  border-radius: 6px 6px 0 0;
+  text-shadow: 0 0 10px rgba(255, 190, 11, 0.5), 0 0 20px rgba(255, 0, 110, 0.3);
+  box-shadow: 0 0 20px rgba(255, 190, 11, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.oow-popover[data-theme="neon"] .pcss3t > input:checked + label::after {
+  background: linear-gradient(90deg, #ffbe0b, #ff006e, #00d9ff);
+  height: 4px;
+  border-radius: 2px;
+  box-shadow: 0 2px 10px rgba(255, 190, 11, 0.6);
+  animation: neon-tab-glow 2s ease-in-out infinite;
+}
+
+/* 添加霓虹管效果 */
+.oow-popover[data-theme="neon"] .pcss3t > input:checked + label::before {
+  content: '';
+  position: absolute;

@@ -1,0 +1,64 @@
+/* === Cyberpunk主题性能和体验优化 === */
+
+/* 性能优化 - GPU加速 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* 移动端性能优化 */
+@media (max-width: 768px) {
+  .oow-popover[data-theme="cyberpunk"] .info-panel-content *,
+  .oow-popover[data-theme="cyberpunk"] .etymology-panel * {
+    animation-duration: 0.2s !important;
+    animation-delay: 0s !important;
+  }
+
+  .oow-popover[data-theme="cyberpunk"] .info-panel-content strong,
+  .oow-popover[data-theme="cyberpunk"] .etymology-panel strong,
+  .oow-popover[data-theme="cyberpunk"] .info-panel-content em,
+  .oow-popover[data-theme="cyberpunk"] .etymology-panel em {
+    animation: none !important;
+    text-shadow: 0 0 5px currentColor;
+  }
+}
+
+/* 用户偏好减少动画 */
+@media (prefers-reduced-motion: reduce) {
+  .oow-popover[data-theme="cyberpunk"] .info-panel-content *,
+  .oow-popover[data-theme="cyberpunk"] .etymology-panel * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .oow-popover[data-theme="cyberpunk"] .info-panel-content *:hover,
+  .oow-popover[data-theme="cyberpunk"] .etymology-panel *:hover {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* 错误状态故障艺术 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content .error-message,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel .error-message {
+  color: #ff3860;
+  font-weight: 700;
+  text-transform: uppercase;
+  animation: cyberpunk-glitch 0.2s ease-in-out infinite, cyberpunk-neon-flicker 1.5s ease-in-out infinite;
+  text-shadow: 0 0 10px currentColor;
+}
+
+@keyframes cyberpunk-scan {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.7;
+    filter: brightness(1.2);
+  }
+}
+

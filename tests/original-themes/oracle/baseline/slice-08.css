@@ -1,0 +1,400 @@
+}
+
+.base-markdown-panel[aria-label] {
+  aria-label: var(--oow-base-markdown-panel-aria-label);
+}
+
+.base-markdown-panel[aria-live] {
+  aria-live: var(--oow-base-markdown-panel-aria-live);
+}
+
+.base-markdown-panel[aria-busy="true"] {
+  aria-busy: var(--oow-base-markdown-panel-aria-busy);
+}
+
+/* 代码块高亮样式 */
+.base-markdown-panel pre code {
+  background: var(--oow-base-markdown-panel-code-block-bg);
+  color: var(--oow-base-markdown-panel-code-block-color);
+  padding: var(--oow-base-markdown-panel-code-block-padding);
+  border-radius: var(--oow-base-markdown-panel-code-block-border-radius);
+  font-family: var(--oow-base-markdown-panel-code-block-font-family);
+  font-size: var(--oow-base-markdown-panel-code-block-font-size);
+  line-height: var(--oow-base-markdown-panel-code-block-line-height);
+  overflow: var(--oow-base-markdown-panel-code-block-overflow);
+  display: block;
+}
+
+/* 行内代码样式 */
+.base-markdown-panel :not(pre) > code {
+  background: var(--oow-base-markdown-panel-code-inline-bg);
+  color: var(--oow-base-markdown-panel-code-inline-color);
+  padding: var(--oow-base-markdown-panel-code-inline-padding);
+  border-radius: var(--oow-base-markdown-panel-code-inline-border-radius);
+  font-size: var(--oow-base-markdown-panel-code-inline-font-size);
+}
+
+/* 语法高亮样式 */
+.base-markdown-panel .token.keyword {
+  color: var(--oow-base-markdown-panel-syntax-keyword);
+}
+
+.base-markdown-panel .token.string {
+  color: var(--oow-base-markdown-panel-syntax-string);
+}
+
+.base-markdown-panel .token.number {
+  color: var(--oow-base-markdown-panel-syntax-number);
+}
+
+.base-markdown-panel .token.comment {
+  color: var(--oow-base-markdown-panel-syntax-comment);
+}
+
+.base-markdown-panel .token.function {
+  color: var(--oow-base-markdown-panel-syntax-function);
+}
+
+.base-markdown-panel .token.variable {
+  color: var(--oow-base-markdown-panel-syntax-variable);
+}
+
+.base-markdown-panel .token.class-name {
+  color: var(--oow-base-markdown-panel-syntax-class);
+}
+
+/* 继承组件的样式支持 */
+.information-panel {
+  /* 继承所有基础样式 */
+  /* 可以通过 CSS 变量覆盖特定样式 */
+}
+
+/* 为继承组件提供变量覆盖接口 */
+.information-panel {
+  --oow-base-markdown-panel-aria-label: 'Information content';
+  --oow-base-markdown-panel-empty-text: 'No information available';
+}/*
+ * Etymology Panel Component
+ * 词源面板组件 - 显示词汇词源和历史发展信息
+ */
+
+/* 组件专用变量 - 设计师主题创作接口 */
+.etymology-panel {
+  /* 整体布局 */
+  --oow-etymology-panel-bg: transparent;
+  --oow-etymology-panel-padding: 0;
+  --oow-etymology-panel-margin: 0;
+  --oow-etymology-panel-min-height: 50px;
+  --oow-etymology-panel-display: block;
+  --oow-etymology-panel-font-family: inherit;
+  --oow-etymology-panel-line-height: 1.6;
+  --oow-etymology-panel-color: inherit;
+  --oow-etymology-panel-transition: var(--oow-animation-base, 0.25s);
+
+  /* 内容区域变量 */
+  --oow-etymology-panel-content-padding: 0;
+  --oow-etymology-panel-content-bg: transparent;
+  --oow-etymology-panel-content-border: none;
+  --oow-etymology-panel-content-border-radius: 0;
+  --oow-etymology-panel-content-max-width: 100%;
+  --oow-etymology-panel-content-box-sizing: border-box;
+
+  /* 标题变量 */
+  --oow-etymology-panel-heading-weight: 700;
+  --oow-etymology-panel-heading-color: var(--text-color);
+  --oow-etymology-panel-heading-margin-top: 1em;
+  --oow-etymology-panel-heading-margin-bottom: 0.5em;
+  --oow-etymology-panel-h1-size: 1.5em;
+  --oow-etymology-panel-h2-size: 1.3em;
+  --oow-etymology-panel-h3-size: 1.1em;
+
+  /* 段落变量 */
+  --oow-etymology-panel-paragraph-margin-bottom: 0.8em;
+  --oow-etymology-panel-paragraph-line-height: 1.6;
+  --oow-etymology-panel-paragraph-color: inherit;
+
+  /* 列表变量 */
+  --oow-etymology-panel-list-padding-left: 0;
+  --oow-etymology-panel-list-margin-bottom: 1em;
+  --oow-etymology-panel-list-item-margin-bottom: 0.4em;
+  --oow-etymology-panel-list-item-color: inherit;
+
+  /* 代码变量 */
+  --oow-etymology-panel-code-bg: rgba(0,0,0,0.1);
+  --oow-etymology-panel-code-border-radius: 4px;
+  --oow-etymology-panel-code-padding: 2px 4px;
+  --oow-etymology-panel-code-font-family: monospace;
+  --oow-etymology-panel-code-color: inherit;
+  --oow-etymology-panel-code-font-size: 0.9em;
+
+  /* 预格式化文本变量 */
+  --oow-etymology-panel-pre-bg: rgba(0,0,0,0.1);
+  --oow-etymology-panel-pre-border-radius: 6px;
+  --oow-etymology-panel-pre-padding: 12px;
+  --oow-etymology-panel-pre-white-space: pre-wrap;
+  --oow-etymology-panel-pre-word-break: break-all;
+
+  /* 引用块变量 */
+  --oow-etymology-panel-blockquote-border-left: 3px solid var(--accent-1);
+  --oow-etymology-panel-blockquote-padding-left: 12px;
+  --oow-etymology-panel-blockquote-margin-left: 0;
+  --oow-etymology-panel-blockquote-color: var(--muted);
+  --oow-etymology-panel-blockquote-font-style: normal;
+
+  /* 错误信息变量 */
+  --oow-etymology-panel-error-color: #ff6b6b;
+  --oow-etymology-panel-error-weight: bold;
+  --oow-etymology-panel-error-font-size: inherit;
+  --oow-etymology-panel-error-margin: 10px 0;
+
+  /* 流式错误指示器变量 */
+  --oow-etymology-panel-stream-error-color: #f44336;
+  --oow-etymology-panel-stream-error-padding: 5px;
+  --oow-etymology-panel-stream-error-margin: 5px 0;
+  --oow-etymology-panel-stream-error-border-left: 3px solid #f44336;
+  --oow-etymology-panel-stream-error-background: transparent;
+  --oow-etymology-panel-stream-error-font-size: 0.9em;
+
+  /* 内容结束标记变量 */
+  --oow-etymology-panel-end-marker-height: 1px;
+  --oow-etymology-panel-end-marker-bg: linear-gradient(to right, transparent, #ccc, transparent);
+  --oow-etymology-panel-end-marker-margin: 10px 0;
+  --oow-etymology-panel-end-marker-opacity: 0.3;
+  --oow-etymology-panel-end-marker-width: 100%;
+
+  /* 加载状态变量 */
+  --oow-etymology-panel-loading-opacity: 0.7;
+  --oow-etymology-panel-loading-filter: blur(1px);
+  --oow-etymology-panel-loading-pointer-events: none;
+
+  /* 空状态变量 */
+  --oow-etymology-panel-empty-text: 'No etymology information available';
+  --oow-etymology-panel-empty-color: var(--muted);
+  --oow-etymology-panel-empty-font-style: italic;
+  --oow-etymology-panel-empty-text-align: center;
+  --oow-etymology-panel-empty-padding: 0;
+
+  /* 链接变量 */
+  --oow-etymology-panel-link-color: var(--accent-1);
+  --oow-etymology-panel-link-decoration: underline;
+  --oow-etymology-panel-link-hover-color: var(--accent-2);
+  --oow-etymology-panel-link-hover-decoration: none;
+  --oow-etymology-panel-link-transition: color 0.2s ease;
+
+  /* 强调文本变量 */
+  --oow-etymology-panel-strong-weight: bold;
+  --oow-etymology-panel-strong-color: inherit;
+  --oow-etymology-panel-em-style: italic;
+  --oow-etymology-panel-em-color: inherit;
+
+  /* 水平线变量 */
+  --oow-etymology-panel-hr-height: 1px;
+  --oow-etymology-panel-hr-bg: var(--ring);
+  --oow-etymology-panel-hr-margin: 1em 0;
+  --oow-etymology-panel-hr-opacity: 0.5;
+
+  /* 高亮变量 */
+  --oow-etymology-panel-highlight-bg: var(--accent-2);
+  --oow-etymology-panel-highlight-color: var(--panel-bg);
+  --oow-etymology-panel-highlight-border-radius: 3px;
+  --oow-etymology-panel-highlight-padding: 0px 3px;
+
+  /* 响应式设计变量 */
+  --oow-etymology-panel-mobile-padding: 0;
+  --oow-etymology-panel-mobile-font-size: 0.95em;
+  --oow-etymology-panel-tablet-padding: 0;
+  --oow-etymology-panel-tablet-font-size: 1em;
+  --oow-etymology-panel-desktop-padding: 0;
+  --oow-etymology-panel-desktop-font-size: 1.05em;
+  --oow-etymology-panel-breakpoint-mobile: 480px;
+  --oow-etymology-panel-breakpoint-tablet: 768px;
+  --oow-etymology-panel-breakpoint-desktop: 1024px;
+
+  /* 深色模式支持 */
+  --oow-etymology-panel-dark-code-bg: rgba(255,255,255,0.1);
+  --oow-etymology-panel-dark-pre-bg: rgba(255,255,255,0.1);
+  --oow-etymology-panel-dark-blockquote-color: #ccc;
+  --oow-etymology-panel-dark-hr-bg: rgba(255,255,255,0.2);
+
+  /* 可访问性增强 */
+  --oow-etymology-panel-focus-outline: 2px solid var(--accent-1);
+  --oow-etymology-panel-focus-outline-offset: 2px;
+  --oow-etymology-panel-high-contrast-text: #000;
+  --oow-etymology-panel-high-contrast-bg: #fff;
+  --oow-etymology-panel-screen-reader-only: none;
+
+  /* 打印样式 */
+  --oow-etymology-panel-print-color: #000;
+  --oow-etymology-panel-print-bg: #fff;
+  --oow-etymology-panel-print-font-size: 12pt;
+  --oow-etymology-panel-print-line-height: 1.4;
+  --oow-etymology-panel-print-hide-end-marker: true;
+
+  /* 性能优化 */
+  --oow-etymology-panel-will-change: auto;
+  --oow-etymology-panel-transform: none;
+  --oow-etymology-panel-backface-visibility: visible;
+  --oow-etymology-panel-contain: layout;
+
+  /* 内容分组样式 */
+  --oow-etymology-panel-group-margin: 16px 0;
+  --oow-etymology-panel-group-padding: 12px;
+  --oow-etymology-panel-group-border: 1px solid rgba(0,0,0,0.05);
+  --oow-etymology-panel-group-border-radius: 8px;
+  --oow-etymology-panel-group-bg: rgba(0,0,0,0.02);
+
+  /* 微交互增强 */
+  --oow-etymology-panel-hover-transform: translateY(-1px);
+  --oow-etymology-panel-hover-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  --oow-etymology-panel-transition-quick: 0.15s ease;
+  --oow-etymology-panel-transition-smooth: 0.3s ease;
+
+  /* 无障碍访问 */
+  --oow-etymology-panel-role: region;
+  --oow-etymology-panel-aria-label: 'Etymology content';
+  --oow-etymology-panel-aria-live: polite;
+  --oow-etymology-panel-aria-busy: false;
+}
+
+/* 应用变量到组件 */
+.etymology-panel {
+  background: var(--oow-etymology-panel-bg);
+  padding: var(--oow-etymology-panel-padding);
+  margin: var(--oow-etymology-panel-margin);
+  min-height: var(--oow-etymology-panel-min-height);
+  display: var(--oow-etymology-panel-display);
+  font-family: var(--oow-etymology-panel-font-family);
+  line-height: var(--oow-etymology-panel-line-height);
+  color: var(--oow-etymology-panel-color);
+  transition: var(--oow-etymology-panel-transition);
+  will-change: var(--oow-etymology-panel-will-change);
+  transform: var(--oow-etymology-panel-transform);
+  backface-visibility: var(--oow-etymology-panel-backface-visibility);
+  contain: var(--oow-etymology-panel-contain);
+  /* 继承Info Panel的变量系统 */
+  --oow-info-panel-heading-color: var(--oow-etymology-panel-heading-color);
+  --oow-info-panel-heading-weight: var(--oow-etymology-panel-heading-weight);
+  --oow-info-panel-heading-margin-top: var(--oow-etymology-panel-heading-margin-top);
+  --oow-info-panel-heading-margin-bottom: var(--oow-etymology-panel-heading-margin-bottom);
+  --oow-info-panel-paragraph-color: var(--oow-etymology-panel-paragraph-color);
+  --oow-info-panel-paragraph-margin-bottom: var(--oow-etymology-panel-paragraph-margin-bottom);
+  --oow-info-panel-line-height: var(--oow-etymology-panel-line-height);
+  --oow-info-panel-letter-spacing: 0;
+  --oow-info-panel-font-family: var(--oow-etymology-panel-font-family);
+  --oow-info-panel-list-color: var(--oow-etymology-panel-list-item-color);
+  --oow-info-panel-blockquote-color: var(--oow-etymology-panel-blockquote-color);
+  --oow-info-panel-blockquote-border: var(--oow-etymology-panel-blockquote-border-left);
+  --oow-info-panel-code-color: var(--oow-etymology-panel-code-color);
+  --oow-info-panel-code-bg: var(--oow-etymology-panel-code-bg);
+  --oow-info-panel-link-color: var(--oow-etymology-panel-link-color);
+  --oow-info-panel-link-hover: var(--oow-etymology-panel-link-hover-color);
+}
+
+/* 内容区域 */
+.etymology-panel-content {
+  padding: var(--oow-etymology-panel-content-padding);
+  background: var(--oow-etymology-panel-content-bg);
+  border: var(--oow-etymology-panel-content-border);
+  border-radius: var(--oow-etymology-panel-content-border-radius);
+  max-width: var(--oow-etymology-panel-content-max-width);
+  box-sizing: var(--oow-etymology-panel-content-box-sizing);
+}
+
+/* 标题样式 */
+.etymology-panel h1,
+.etymology-panel h2,
+.etymology-panel h3,
+.etymology-panel h4,
+.etymology-panel h5,
+.etymology-panel h6 {
+  font-weight: var(--oow-etymology-panel-heading-weight);
+  color: var(--oow-etymology-panel-heading-color);
+  margin-top: var(--oow-etymology-panel-heading-margin-top);
+  margin-bottom: var(--oow-etymology-panel-heading-margin-bottom);
+}
+
+.etymology-panel h1 { font-size: var(--oow-etymology-panel-h1-size); }
+.etymology-panel h2 { font-size: var(--oow-etymology-panel-h2-size); }
+.etymology-panel h3 { font-size: var(--oow-etymology-panel-h3-size); }
+
+/* 段落样式 */
+.etymology-panel p {
+  margin-bottom: var(--oow-etymology-panel-paragraph-margin-bottom);
+  line-height: var(--oow-etymology-panel-paragraph-line-height);
+  color: var(--oow-etymology-panel-paragraph-color);
+}
+
+/* 列表样式 */
+.etymology-panel ul,
+.etymology-panel ol {
+  padding-left: var(--oow-etymology-panel-list-padding-left);
+  margin-bottom: var(--oow-etymology-panel-list-margin-bottom);
+}
+
+.etymology-panel li {
+  margin-bottom: var(--oow-etymology-panel-list-item-margin-bottom);
+  color: var(--oow-etymology-panel-list-item-color);
+}
+
+/* 代码样式 */
+.etymology-panel code {
+  background-color: var(--oow-etymology-panel-code-bg);
+  border-radius: var(--oow-etymology-panel-code-border-radius);
+  padding: var(--oow-etymology-panel-code-padding);
+  font-family: var(--oow-etymology-panel-code-font-family);
+  color: var(--oow-etymology-panel-code-color);
+  font-size: var(--oow-etymology-panel-code-font-size);
+}
+
+.etymology-panel pre {
+  background-color: var(--oow-etymology-panel-pre-bg);
+  border-radius: var(--oow-etymology-panel-pre-border-radius);
+  padding: var(--oow-etymology-panel-pre-padding);
+  white-space: var(--oow-etymology-panel-pre-white-space);
+  word-break: var(--oow-etymology-panel-pre-word-break);
+}
+
+/* 引用样式 */
+.etymology-panel blockquote {
+  border-left: var(--oow-etymology-panel-blockquote-border-left);
+  padding-left: var(--oow-etymology-panel-blockquote-padding-left);
+  margin-left: var(--oow-etymology-panel-blockquote-margin-left);
+  color: var(--oow-etymology-panel-blockquote-color);
+  font-style: var(--oow-etymology-panel-blockquote-font-style);
+}
+
+/* 错误消息样式 */
+.etymology-panel .error-message {
+  color: var(--oow-etymology-panel-error-color);
+  font-weight: var(--oow-etymology-panel-error-weight);
+  font-size: var(--oow-etymology-panel-error-font-size);
+  margin: var(--oow-etymology-panel-error-margin);
+}
+
+/* 流式错误指示器样式 */
+.etymology-panel .stream-error-indicator {
+  color: var(--oow-etymology-panel-stream-error-color);
+  padding: var(--oow-etymology-panel-stream-error-padding);
+  margin: var(--oow-etymology-panel-stream-error-margin);
+  border-left: var(--oow-etymology-panel-stream-error-border-left);
+  background: var(--oow-etymology-panel-stream-error-background);
+  font-size: var(--oow-etymology-panel-stream-error-font-size);
+}
+
+/* 内容结束标记样式 */
+.etymology-panel .content-end-marker {
+  height: var(--oow-etymology-panel-end-marker-height);
+  background: var(--oow-etymology-panel-end-marker-bg);
+  margin: var(--oow-etymology-panel-end-marker-margin);
+  opacity: var(--oow-etymology-panel-end-marker-opacity);
+  width: var(--oow-etymology-panel-end-marker-width);
+}
+
+/* 加载状态样式 */
+.etymology-panel.loading {
+  opacity: var(--oow-etymology-panel-loading-opacity);
+  filter: var(--oow-etymology-panel-loading-filter);
+  pointer-events: var(--oow-etymology-panel-loading-pointer-events);
+}
+
+/* 空状态样式 */

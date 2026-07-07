@@ -1,0 +1,400 @@
+/* ===================================================================
+ * 小猹 — Shadow DOM Adapter Preamble
+ * Adapts original Origin-of-Words CSS for Shadow DOM context.
+ * =================================================================== */
+:host {
+  all: initial;
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  pointer-events: none;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.oow-selection-trigger-button {
+  pointer-events: auto;
+}
+
+.oow-popover {
+  pointer-events: auto;
+}
+
+/* ===================================================================
+ * Original: Origin of Words - CSS Variables API
+ * =================================================================== */
+
+:host {
+  /* 选择触发器 (Trigger) */
+  --oow-trigger-size: 10px;
+  --oow-trigger-bg: #5C9E31;
+  --oow-trigger-border: #ffffff;
+  --oow-trigger-hover-bg: #4A7C28;
+  --oow-trigger-active-border: #EA4C89;
+  --oow-trigger-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.oow-popover {
+  /* 
+   * --------------------------------
+   * 1. 核心色板 (Core Palette)
+   * --------------------------------
+   * 定义主题的基础颜色.
+   */
+  --oow-bg: #ffffff;              /* 主背景色 */
+  --oow-text: #111111;            /* 主文字颜色 */
+  --oow-muted: #666666;           /* 辅助/静音文字颜色 */
+  --oow-border: rgba(0,0,0,0.1);  /* 边框颜色 */
+
+  /* 
+   * --------------------------------
+   * 2. 强调色 (Accent Colors)
+   * --------------------------------
+   * 用于按钮、链接、高亮等需要强调的地方.
+   */
+  --oow-accent-primary: #0ea5e9;    /* 主强调色 (如链接、图标) */
+  --oow-accent-secondary: #22c55e;  /* 次强调色 (如高亮背景) */
+  --oow-accent-tertiary: #fb923c;   /* 第三强调色 (如图标渐变) */
+
+  /* 
+   * --------------------------------
+   * 3. 功能色 (Functional Colors)
+   * --------------------------------
+   * 用于表示状态: 成功、警告、错误.
+   */
+  --oow-success: #22c55e;
+  --oow-warning: #f59e0b;
+  --oow-error: #ef4444;
+  --oow-info: #3b82f6;
+
+  /* 
+   * --------------------------------
+   * 4. 字体系统 (Typography)
+   * --------------------------------
+   * 控制所有文本的字体和大小.
+   */
+  --font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-size-xs: 10px;
+  --font-size-sm: 11px;
+  --font-size-base: 12px;
+  --font-size-lg: 13px;
+  --font-size-xl: 14px;
+
+  /* 
+   * --------------------------------
+   * 5. 几何与效果 (Geometry & Effects)
+   * --------------------------------
+   * 控制圆角、阴影等视觉效果.
+   */
+  --radius-sm: 2px;
+  --radius-base: 3px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-full: 50%;
+  --shadow-base: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+  --z-max: 2147483647; /* Max z-index to ensure it's on top of everything */
+
+  /* 
+   * --------------------------------
+   * 6. 组件特定变量 (Component Variables)
+   * --------------------------------
+   * 为特定UI组件提供微调.
+   */
+  
+  /* 模态框 (Modal) */
+  --oow-modal-width: 450px;
+  --oow-modal-max-height: 500px;
+  --oow-modal-border-radius: 14px;
+  --oow-modal-shadow: 0 10px 30px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.06) inset;
+
+  /* 按钮 (Button) */
+  --oow-btn-padding: 2px 4px;
+  --oow-btn-border-radius: var(--radius-md);
+  --oow-btn-font-size: var(--font-size-base);
+
+  /* 代码 (Code) */
+  --oow-code-bg: rgba(0,0,0,0.05);
+  --oow-code-color: #d6336c;
+  --oow-code-border-radius: var(--radius-base);
+  --oow-code-padding: 2px 4px;
+
+  /* 滚动条 (Scrollbar) */
+  --oow-scrollbar-width: 6px;
+  --oow-scrollbar-track-bg: transparent;
+  --oow-scrollbar-thumb-bg: var(--oow-accent-primary);
+  --oow-scrollbar-thumb-radius: var(--radius-sm);
+
+  /* 加载动画 (Loader) */
+  --oow-loader-size: 6px;
+
+  
+  
+  /*
+   * --------------------------------
+   * 7. 高级主题变量 (Advanced Theme Variables)
+   * --------------------------------
+   * 用于创建高级主题效果的额外变量.
+   * 这些变量在默认主题中不使用，专为高级主题创作而设计.
+   */
+
+  /* 渐变效果 (Gradient Effects) */
+  --oow-gradient-primary: linear-gradient(90deg, var(--oow-accent-primary), var(--oow-accent-secondary));
+  --oow-gradient-secondary: linear-gradient(135deg, var(--oow-accent-tertiary), var(--oow-accent-primary));
+  --oow-gradient-rainbow: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+
+  /* 高级阴影 (Advanced Shadows) */
+  --oow-glow-shadow-primary: 0 0 20px rgba(14, 165, 233, 0.4);
+  --oow-glow-shadow-secondary: 0 0 20px rgba(34, 197, 94, 0.4);
+  --oow-neon-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  --oow-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+
+  /* 混合模式 (Blend Modes) */
+  --oow-blend-mode: normal;
+  --oow-bg-blend-mode: normal;
+
+  /* 滤镜效果 (Filter Effects) */
+  --oow-filter-hue-rotate: 0deg;
+  --oow-filter-saturate: 100%;
+  --oow-filter-brightness: 100%;
+  --oow-filter-contrast: 100%;
+
+  /* 材质设计阴影层级 (Material Design Shadow Elevations) */
+  --oow-shadow-elevation-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  --oow-shadow-elevation-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  --oow-shadow-elevation-3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  --oow-shadow-elevation-4: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+  /* 动画时间 (Animation Timing) */
+  --oow-animation-fast: 0.15s;
+  --oow-animation-base: 0.25s;
+  --oow-animation-slow: 0.4s;
+  --oow-animation-slower: 0.6s;
+
+  /* 特殊效果 (Special Effects) */
+  --oow-pattern-dots: radial-gradient(circle, var(--oow-border) 1px, transparent 1px);
+  --oow-pattern-grid: linear-gradient(var(--oow-border) 1px, transparent 1px), linear-gradient(90deg, var(--oow-border) 1px, transparent 1px);
+  --oow-texture-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+
+  /*
+   * --------------------------------
+   * 8. 高亮系统 (Highlight System)
+   * --------------------------------
+   * 控制由Markdown生成的 <strong>, <em>, <code> 等标签的样式
+   * 这是主题中最能体现创意和价值的部分
+   */
+
+  /* Strong / Bold - **text** or __text__ */
+  --oow-highlight-strong-color: var(--oow-accent-secondary);
+  --oow-highlight-strong-font-weight: 800;
+  --oow-highlight-strong-text-shadow: 0 0 8px color-mix(in srgb, var(--oow-accent-secondary) 30%, transparent);
+
+  /* Emphasis / Italic - *text* or _text_ */
+  --oow-highlight-em-color: var(--oow-accent-primary);
+  --oow-highlight-em-font-style: italic;
+
+  /* Inline Code - `code` */
+  --oow-highlight-code-color: var(--oow-code-color);
+  --oow-highlight-code-bg: var(--oow-code-bg);
+  --oow-highlight-code-border-color: var(--oow-border);
+  --oow-highlight-code-font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  --oow-highlight-code-font-size: 0.9em;
+
+  /* Links - [text](url) */
+  --oow-highlight-link-color: var(--oow-accent-primary);
+  --oow-highlight-link-decoration: underline;
+  --oow-highlight-link-decoration-thickness: 1px;
+  --oow-highlight-link-decoration-offset: 3px;
+  --oow-highlight-link-hover-color: var(--oow-text);
+  --oow-highlight-link-hover-bg: color-mix(in srgb, var(--oow-accent-primary) 10%, transparent);
+  --oow-highlight-link-hover-transform: translateY(-1px);
+
+  /* List Markers - bullet points and numbers */
+  --oow-highlight-marker-color: var(--oow-accent-secondary);
+  --oow-highlight-marker-font-weight: bold;
+
+  /* Advanced highlight effects */
+  --oow-highlight-strong-glow: 0 0 20px var(--oow-accent-secondary);
+  --oow-highlight-em-glow: 0 0 15px var(--oow-accent-primary);
+  --oow-highlight-code-glow: 0 0 10px var(--oow-accent-tertiary);
+
+  /* Animation and transitions */
+  --oow-highlight-transition: all var(--oow-animation-base, 0.2s) ease;
+  --oow-highlight-hover-scale: 1.02;
+}
+/*
+ * Origin of Words - Core Layout System
+ * 核心布局系统 - 100% 原始布局，不依赖主题
+ * CRITICAL: Must match original style.css exactly for all themes to work
+ */
+
+/* === Base Popover Structure - Original === */
+.oow-popover {
+  position: fixed;
+  width: 450px;
+  min-height: 32px;
+  max-height: 500px;
+  color: var(--text-color);
+  border: 1px solid var(--ring);
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.06) inset;
+  font: 13px/1.5 var(--font-family);
+  z-index: 2147483647;
+  overflow: hidden;
+  inset: auto;
+  display: flex;
+  flex-direction: column;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0) 10%),
+    var(--panel-bg);
+  backdrop-filter: blur(10px) saturate(120%);
+}
+
+.oow-popover:not(:popover-open) {
+  display: none;
+}
+
+/* === Fake Selection - Original === */
+.oow-fake-selection {
+  position: absolute;
+  background: rgba(0, 123, 255, 0.3);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 2147483646;
+  display: none;
+}
+
+/* === Modal Header - Original === */
+.modal-header {
+  flex: none;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--ring);
+  cursor: grab;
+}
+
+.modal-header.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+  padding: 0 8px 0 8px;
+  padding-right: 12px; /* Reserve space for scrollbar to prevent content from touching it */
+}
+
+/* === Header Elements - Original === */
+.header-logo {
+  inline-size: 34px;
+  block-size: 24px;
+  display: inline-grid;
+  place-items: center;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  border-radius: 6px;
+  color: #0b0b0b;
+  background: linear-gradient(135deg, var(--accent-3), var(--accent-2));
+  box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.header-title {
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(110,231,255,0.2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.action-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+/* === Content Body - Original === */
+.content-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  max-height: calc(500px - 70px);
+  /* Add scrollbar styling to ensure consistent appearance and spacing */
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-1) transparent;
+}
+
+/* Custom scrollbar styling for webkit browsers */
+.content-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.content-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.content-body::-webkit-scrollbar-thumb {
+  background-color: var(--accent-1);
+  border-radius: 4px;
+  border: 1px solid transparent;
+  background-clip: content-box;
+}
+
+.content-body::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-2);
+}
+
+/* 确保每个部分内容可以滚动 */
+.section-content {
+  overflow: visible;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  max-height: none;
+  overflow: visible;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.section {
+  flex: none;
+}
+
+/* Add top margin for the first section (lexical-section) to create visual separation */
+.lexical-section {
+  margin-top: 8px;
+}
+
+/* Add top margin for the details section (etymology panel) to create visual separation */
+.details-section {
+  margin-top: 8px;
+}

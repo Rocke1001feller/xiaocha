@@ -1,0 +1,86 @@
+.scanex-popover {
+  position: fixed;
+  width: min(420px, calc(100vw - 24px));
+  max-height: min(78vh, 720px);
+  pointer-events: auto;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at top right, var(--scanex-glow) 0, transparent 32%),
+    linear-gradient(180deg, var(--scanex-bg), var(--scanex-bg-elevated));
+  color: var(--scanex-text);
+  border: 1px solid var(--scanex-border);
+  box-shadow: 0 28px 80px rgba(12, 12, 18, 0.24);
+  overflow: hidden;
+  backdrop-filter: blur(18px);
+}
+
+.scanex-shell {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+.scanex-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: start;
+  cursor: grab;
+}
+
+.scanex-header[data-dragging='true'] {
+  cursor: grabbing;
+}
+
+.scanex-brand {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.scanex-brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 54px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: var(--scanex-accent-soft);
+  color: var(--scanex-accent-strong);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.scanex-title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.scanex-provider {
+  margin-top: 4px;
+  color: var(--scanex-muted);
+  font-size: 12px;
+}
+
+.scanex-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.scanex-action {
+  border: 0;
+  border-radius: 14px;
+  min-width: 42px;
+  height: 38px;
+  padding: 0 12px;
+  background: var(--scanex-surface-muted);
+  color: var(--scanex-text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+}

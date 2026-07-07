@@ -1,0 +1,632 @@
+{
+  "schemaVersion": 2,
+  "sourceFile": "src/features/popover/styles/original-themes.ts",
+  "sourceGeneratedFile": "src/features/popover/styles/original-themes.generated.ts",
+  "sourceManifestFile": "src/features/popover/styles/original-themes/manifest.json",
+  "sourceSlicesDir": "src/features/popover/styles/original-themes",
+  "sourceOrderFile": "src/features/popover/styles/original-themes/order.txt",
+  "sourceSliceFiles": [
+    "shared/part-01.css",
+    "shared/part-02.css",
+    "shared/part-03.css",
+    "shared/part-04.css",
+    "shared/part-05.css",
+    "shared/part-06.css",
+    "shared/part-07.css",
+    "shared/part-08.css",
+    "shared/part-09.css",
+    "themes/basic/tokens/part-01.css",
+    "themes/basic/trigger/part-01.css",
+    "themes/basic/panels/part-01.css",
+    "themes/basic/effects/part-01.css",
+    "themes/pro/tokens/part-01.css",
+    "themes/pro/trigger/part-01.css",
+    "themes/pro/panels/part-01.css",
+    "themes/pro/effects/part-01.css",
+    "themes/creative/tokens/part-01.css",
+    "themes/creative/trigger/part-01.css",
+    "themes/creative/panels/part-01.css",
+    "themes/creative/effects/part-01.css",
+    "themes/galaxy/tokens/part-01.css",
+    "themes/galaxy/effects/part-01.css",
+    "themes/galaxy/trigger/part-01.css",
+    "themes/galaxy/panels/part-01.css",
+    "themes/galaxy/effects/part-02.css",
+    "themes/galaxy/effects/part-03.css",
+    "themes/neon/tokens/part-01.css",
+    "themes/neon/effects/part-01.css",
+    "themes/neon/panels/part-01.css",
+    "themes/neon/effects/part-02.css",
+    "themes/neon/trigger/part-01.css",
+    "themes/cyberpunk/tokens/part-01.css",
+    "themes/cyberpunk/effects/part-01.css",
+    "themes/cyberpunk/trigger/part-01.css",
+    "themes/cyberpunk/panels/part-01.css",
+    "themes/cyberpunk/effects/part-02.css",
+    "themes/cyberpunk/effects/part-03.css",
+    "themes/cyberpunk/effects/part-04.css",
+    "themes/aurora/tokens/part-01.css",
+    "themes/aurora/effects/part-01.css",
+    "themes/aurora/panels/part-01.css",
+    "themes/aurora/effects/part-02.css",
+    "themes/aurora/trigger/part-01.css"
+  ],
+  "totalLines": 9602,
+  "totalSlices": 25,
+  "maxLinesPerSlice": 400,
+  "fullSha256": "6bbaa2c78166776b3babceb45bcd6f6e5a0d8006336f15fb2666aa21832256c1",
+  "themeSections": [
+    {
+      "id": "basic",
+      "label": "Basic",
+      "startLine": 4432,
+      "endLine": 4892,
+      "lineCount": 461
+    },
+    {
+      "id": "pro",
+      "label": "Pro",
+      "startLine": 4893,
+      "endLine": 5479,
+      "lineCount": 587
+    },
+    {
+      "id": "creative",
+      "label": "Creative",
+      "startLine": 5480,
+      "endLine": 6135,
+      "lineCount": 656
+    },
+    {
+      "id": "galaxy",
+      "label": "Galaxy",
+      "startLine": 6136,
+      "endLine": 7043,
+      "lineCount": 908
+    },
+    {
+      "id": "neon",
+      "label": "Neon",
+      "startLine": 7044,
+      "endLine": 7737,
+      "lineCount": 694
+    },
+    {
+      "id": "cyberpunk",
+      "label": "Cyberpunk",
+      "startLine": 7738,
+      "endLine": 8786,
+      "lineCount": 1049
+    },
+    {
+      "id": "aurora",
+      "label": "Aurora",
+      "startLine": 8787,
+      "endLine": 9602,
+      "lineCount": 816
+    }
+  ],
+  "keyframes": [
+    {
+      "name": "oow-pulse-ring",
+      "line": 484
+    },
+    {
+      "name": "oow-eq",
+      "line": 733
+    },
+    {
+      "name": "oow-fake-selection-pulse",
+      "line": 1022
+    },
+    {
+      "name": "oow-eq",
+      "line": 1543
+    },
+    {
+      "name": "oow-eq",
+      "line": 2161
+    },
+    {
+      "name": "tab-state-indicator",
+      "line": 3642
+    },
+    {
+      "name": "aurora-tab-indicator",
+      "line": 3844
+    },
+    {
+      "name": "cyberpunk-tab-pulse",
+      "line": 3890
+    },
+    {
+      "name": "galaxy-tab-stardust",
+      "line": 3949
+    },
+    {
+      "name": "neon-tab-glow",
+      "line": 4011
+    },
+    {
+      "name": "basic-fade-in",
+      "line": 4570
+    },
+    {
+      "name": "basic-slide-in",
+      "line": 4582
+    },
+    {
+      "name": "basic-emphasis",
+      "line": 4594
+    },
+    {
+      "name": "basic-gradient-shift",
+      "line": 4604
+    },
+    {
+      "name": "basic-underline-grow",
+      "line": 4617
+    },
+    {
+      "name": "basic-pulse",
+      "line": 4632
+    },
+    {
+      "name": "basic-blink",
+      "line": 4642
+    },
+    {
+      "name": "basic-transition",
+      "line": 4652
+    },
+    {
+      "name": "pro-fade-in-up",
+      "line": 5042
+    },
+    {
+      "name": "pro-slide-in-right",
+      "line": 5061
+    },
+    {
+      "name": "pro-precision-ruler",
+      "line": 5079
+    },
+    {
+      "name": "pro-progress-bar",
+      "line": 5095
+    },
+    {
+      "name": "pro-data-flow",
+      "line": 5111
+    },
+    {
+      "name": "pro-emphasis-pulse",
+      "line": 5127
+    },
+    {
+      "name": "pro-typewriter",
+      "line": 5139
+    },
+    {
+      "name": "pro-metallic-sweep",
+      "line": 5158
+    },
+    {
+      "name": "creative-brush-stroke",
+      "line": 5662
+    },
+    {
+      "name": "creative-color-mix",
+      "line": 5680
+    },
+    {
+      "name": "creative-wave-flow",
+      "line": 5704
+    },
+    {
+      "name": "creative-gradient-reveal",
+      "line": 5724
+    },
+    {
+      "name": "creative-handwrite",
+      "line": 5746
+    },
+    {
+      "name": "creative-inspiration-sparkle",
+      "line": 5764
+    },
+    {
+      "name": "creative-gradient-drift",
+      "line": 5792
+    },
+    {
+      "name": "galaxy-stars",
+      "line": 6235
+    },
+    {
+      "name": "galaxy-twinkle",
+      "line": 6244
+    },
+    {
+      "name": "galaxy-title-glow",
+      "line": 6276
+    },
+    {
+      "name": "galaxy-logo-pulse",
+      "line": 6296
+    },
+    {
+      "name": "galaxy-scan",
+      "line": 6315
+    },
+    {
+      "name": "galaxy-bar-pulse",
+      "line": 6353
+    },
+    {
+      "name": "galaxy-spin",
+      "line": 6933
+    },
+    {
+      "name": "galaxy-activated-pulse",
+      "line": 6939
+    },
+    {
+      "name": "galaxy-fadeInUp",
+      "line": 6951
+    },
+    {
+      "name": "galaxy-twinkle",
+      "line": 6963
+    },
+    {
+      "name": "galaxy-glow",
+      "line": 6983
+    },
+    {
+      "name": "galaxy-starflow",
+      "line": 6993
+    },
+    {
+      "name": "galaxy-typewriter",
+      "line": 7006
+    },
+    {
+      "name": "galaxy-border-flow",
+      "line": 7021
+    },
+    {
+      "name": "neon-flicker",
+      "line": 7130
+    },
+    {
+      "name": "neon-pulse",
+      "line": 7139
+    },
+    {
+      "name": "neon-logo-pulse",
+      "line": 7159
+    },
+    {
+      "name": "neon-scan",
+      "line": 7179
+    },
+    {
+      "name": "neon-bar-pulse",
+      "line": 7218
+    },
+    {
+      "name": "neon-tube-flicker",
+      "line": 7543
+    },
+    {
+      "name": "neon-text-illuminate",
+      "line": 7575
+    },
+    {
+      "name": "neon-glitch-effect",
+      "line": 7612
+    },
+    {
+      "name": "neon-pulse-scan",
+      "line": 7641
+    },
+    {
+      "name": "neon-digital-rain",
+      "line": 7651
+    },
+    {
+      "name": "neon-halo-expand",
+      "line": 7669
+    },
+    {
+      "name": "neon-standby-pulse",
+      "line": 7727
+    },
+    {
+      "name": "cyberpunk-grid",
+      "line": 7830
+    },
+    {
+      "name": "cyberpunk-pulse",
+      "line": 7839
+    },
+    {
+      "name": "cyberpunk-glow",
+      "line": 7863
+    },
+    {
+      "name": "cyberpunk-logo-pulse",
+      "line": 7883
+    },
+    {
+      "name": "cyberpunk-text-scan",
+      "line": 7904
+    },
+    {
+      "name": "cyberpunk-bar-pulse",
+      "line": 7943
+    },
+    {
+      "name": "cyberpunk-scan",
+      "line": 8605
+    },
+    {
+      "name": "cyberpunk-glitch",
+      "line": 8619
+    },
+    {
+      "name": "cyberpunk-hud-scan",
+      "line": 8648
+    },
+    {
+      "name": "cyberpunk-neon-flicker",
+      "line": 8664
+    },
+    {
+      "name": "cyberpunk-data-flow",
+      "line": 8688
+    },
+    {
+      "name": "cyberpunk-hologram",
+      "line": 8700
+    },
+    {
+      "name": "cyberpunk-digital-noise",
+      "line": 8724
+    },
+    {
+      "name": "cyberpunk-cursor",
+      "line": 8744
+    },
+    {
+      "name": "cyberpunk-electric-flow",
+      "line": 8754
+    },
+    {
+      "name": "cyberpunk-matrix-rain",
+      "line": 8770
+    },
+    {
+      "name": "aurora-wave",
+      "line": 8882
+    },
+    {
+      "name": "aurora-glow",
+      "line": 8914
+    },
+    {
+      "name": "aurora-flow",
+      "line": 8936
+    },
+    {
+      "name": "aurora-ripple",
+      "line": 8960
+    },
+    {
+      "name": "aurora-breathe",
+      "line": 8979
+    },
+    {
+      "name": "aurora-shimmer",
+      "line": 8999
+    },
+    {
+      "name": "aurora-gradient-shift",
+      "line": 9023
+    },
+    {
+      "name": "aurora-light-band",
+      "line": 9057
+    },
+    {
+      "name": "aurora-trail",
+      "line": 9075
+    },
+    {
+      "name": "aurora-pulse",
+      "line": 9092
+    },
+    {
+      "name": "aurora-button-pulse",
+      "line": 9595
+    }
+  ],
+  "slices": [
+    {
+      "file": "slice-01.css",
+      "startLine": 1,
+      "endLine": 400,
+      "lineCount": 400,
+      "sha256": "94ea9c0be43ac9a9c08354a21aaa97bf7e42235b7802b4ef45fa4cda8cffbb39"
+    },
+    {
+      "file": "slice-02.css",
+      "startLine": 401,
+      "endLine": 800,
+      "lineCount": 400,
+      "sha256": "0447ae662b6c4fde89ca90102fc8a30d7fff2cb430e2d307962d02e6c7709c1a"
+    },
+    {
+      "file": "slice-03.css",
+      "startLine": 801,
+      "endLine": 1200,
+      "lineCount": 400,
+      "sha256": "9b75d2bd5d9cfd0f1c174a01c2f531264de9f3f2c63317bbea40b6ae499760d1"
+    },
+    {
+      "file": "slice-04.css",
+      "startLine": 1201,
+      "endLine": 1600,
+      "lineCount": 400,
+      "sha256": "f70d8b23d3cf0682e8af777cb2d9f63360003ab20849e91b7c57fef940ee72d9"
+    },
+    {
+      "file": "slice-05.css",
+      "startLine": 1601,
+      "endLine": 2000,
+      "lineCount": 400,
+      "sha256": "e2d86fb7ca64cb6cf82666ac331b814531d18e556764b121478df36c68fe0a82"
+    },
+    {
+      "file": "slice-06.css",
+      "startLine": 2001,
+      "endLine": 2400,
+      "lineCount": 400,
+      "sha256": "c39bf94c8fe9e311fe6d7b6f31392ce42656d2a9b1284fb588a54513deb7cd91"
+    },
+    {
+      "file": "slice-07.css",
+      "startLine": 2401,
+      "endLine": 2800,
+      "lineCount": 400,
+      "sha256": "079b39dc1d673e1fd444b83dda867b771f1992ccc6c1af9bc4a2b2acbab20712"
+    },
+    {
+      "file": "slice-08.css",
+      "startLine": 2801,
+      "endLine": 3200,
+      "lineCount": 400,
+      "sha256": "a29f026d494640e958edb0be4cdb4fc6259e75722f081da96ee4e0d2b8fc831e"
+    },
+    {
+      "file": "slice-09.css",
+      "startLine": 3201,
+      "endLine": 3600,
+      "lineCount": 400,
+      "sha256": "7e8dab8e94d86ae19d2e60e13d4d2d9f7bedc1024f448d84b26c379e66388b48"
+    },
+    {
+      "file": "slice-10.css",
+      "startLine": 3601,
+      "endLine": 4000,
+      "lineCount": 400,
+      "sha256": "f0a5da476925f26a7c03559180f318d647e9b15411b371b4de893dd48454f6de"
+    },
+    {
+      "file": "slice-11.css",
+      "startLine": 4001,
+      "endLine": 4400,
+      "lineCount": 400,
+      "sha256": "296342f3e8006174c1a0745d1ddd9c69d1e211107d66351a8378c3653246c97c"
+    },
+    {
+      "file": "slice-12.css",
+      "startLine": 4401,
+      "endLine": 4800,
+      "lineCount": 400,
+      "sha256": "12e6420446c57585f0d917b34119a9a59476a0bf6befb271ca582a19a90b5e5c"
+    },
+    {
+      "file": "slice-13.css",
+      "startLine": 4801,
+      "endLine": 5200,
+      "lineCount": 400,
+      "sha256": "8e1a977cb1518bb4c9f9dc4c8c6e8db095b797cb6dfc9e3196858161b6e51b1c"
+    },
+    {
+      "file": "slice-14.css",
+      "startLine": 5201,
+      "endLine": 5600,
+      "lineCount": 400,
+      "sha256": "b261384ac88c187818d6970cc65c90fbf06b6db9c19c3ec4e52598f829cec81e"
+    },
+    {
+      "file": "slice-15.css",
+      "startLine": 5601,
+      "endLine": 6000,
+      "lineCount": 400,
+      "sha256": "e92f06386b0448a7d79ef609c7600f4b86eab61379fec9e7df29134347cb9093"
+    },
+    {
+      "file": "slice-16.css",
+      "startLine": 6001,
+      "endLine": 6400,
+      "lineCount": 400,
+      "sha256": "07a901186d14434abe9fc365870a9a9445492ed82cfcaa57d6a21800f17bbc17"
+    },
+    {
+      "file": "slice-17.css",
+      "startLine": 6401,
+      "endLine": 6800,
+      "lineCount": 400,
+      "sha256": "ef9f2126ed6a3c1a6722c6be6dd0d7b32e99da3d6132c907d757c64cc7697737"
+    },
+    {
+      "file": "slice-18.css",
+      "startLine": 6801,
+      "endLine": 7200,
+      "lineCount": 400,
+      "sha256": "56c1f4e30807157ebec7db012a0d037c1bedc12806ebc8b86e0540cfbb1d7936"
+    },
+    {
+      "file": "slice-19.css",
+      "startLine": 7201,
+      "endLine": 7600,
+      "lineCount": 400,
+      "sha256": "9fe583b3cad169ecbeb8cd3c72f910d7f7ff1cc2913450bf65e0977123ad1a32"
+    },
+    {
+      "file": "slice-20.css",
+      "startLine": 7601,
+      "endLine": 8000,
+      "lineCount": 400,
+      "sha256": "d068219e71039658ca097dffe0e0c498fd1adb1253cc506eda296065445b1c4f"
+    },
+    {
+      "file": "slice-21.css",
+      "startLine": 8001,
+      "endLine": 8400,
+      "lineCount": 400,
+      "sha256": "659115b0f00e624b5bc0b3dd698236d272159e4bab1977030ae05614aacd84b3"
+    },
+    {
+      "file": "slice-22.css",
+      "startLine": 8401,
+      "endLine": 8800,
+      "lineCount": 400,
+      "sha256": "4e1efdddca8956734961d9353f0f8277389b169fbdcc5905c98c495249196e38"
+    },
+    {
+      "file": "slice-23.css",
+      "startLine": 8801,
+      "endLine": 9200,
+      "lineCount": 400,
+      "sha256": "133eb77971aaf429998e7f36801bafcd252c8e593f25879b0b08b1dcf02156ba"
+    },
+    {
+      "file": "slice-24.css",
+      "startLine": 9201,
+      "endLine": 9600,
+      "lineCount": 400,
+      "sha256": "18f84e66c738c51639c88a369f75c55004031195e8c64ffe4affdcb49745e65b"
+    },
+    {
+      "file": "slice-25.css",
+      "startLine": 9601,
+      "endLine": 9602,
+      "lineCount": 2,
+      "sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+    }
+  ]
+}

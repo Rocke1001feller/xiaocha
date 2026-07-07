@@ -1,0 +1,45 @@
+/* === Trigger Button - Cyberpunk Theme === */
+.oow-selection-trigger-button[data-theme="cyberpunk"] {
+  background: radial-gradient(ellipse at center, rgba(247, 37, 133, 0.8), rgba(247, 37, 133, 0.4), #0a011a);
+  border: none;
+  box-shadow: 0 0 30px rgba(247, 37, 133, 0.8), inset 0 0 20px rgba(247, 37, 133, 0.3);
+  color: white;
+  text-shadow: 0 0 8px rgba(247, 37, 133, 0.6);
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 0;
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  transition: var(--oow-button-transition);
+  animation: cyberpunk-scan 2s linear infinite;
+}
+
+.oow-selection-trigger-button[data-theme="cyberpunk"]:hover {
+  background: radial-gradient(ellipse at center, rgba(247, 37, 133, 0.9), rgba(247, 37, 133, 0.5), #1a0b2e);
+  box-shadow: 0 0 40px rgba(247, 37, 133, 0.9), inset 0 0 25px rgba(247, 37, 133, 0.4);
+  transform: scale(1.08);
+  transition: var(--oow-button-transition);
+}
+
+.oow-selection-trigger-button[data-theme="cyberpunk"].activated {
+  background: transparent;
+  border: 3px ridge #4361ee;
+  padding: 4px;
+  box-shadow: 0 0 45px rgba(67, 97, 238, 0.6), 0 0 25px rgba(247, 37, 133, 0.4);
+  color: #f72585;
+  animation: none;
+  transition: var(--oow-button-transition);
+}
+
+.oow-selection-trigger-button[data-theme="cyberpunk"].activated::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  background: radial-gradient(ellipse at center, rgba(247, 37, 133, 0.9), rgba(247, 37, 133, 0.6), #0a011a);
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  z-index: -1;
+  box-shadow: inset 0 0 15px rgba(247, 37, 133, 0.4);
+}
+

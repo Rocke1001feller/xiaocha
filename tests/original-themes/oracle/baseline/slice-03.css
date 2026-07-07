@@ -1,0 +1,400 @@
+
+/* 主弹窗容器变量 */
+.oow-popover {
+  /* 整体布局样式 */
+  --oow-modal-bg: #ffffff;
+  --oow-modal-color: #333333;
+  --oow-modal-width: 360px;
+  --oow-modal-max-width: 90vw;
+  --oow-modal-max-height: 70vh;
+  --oow-modal-border-radius: 16px;
+  --oow-modal-border: 1px solid rgba(0, 0, 0, 0.1);
+  --oow-modal-z-index: 2147483647;
+
+  /* 定位和间距 */
+  --oow-modal-gap-y: 8px;
+  --oow-modal-margin: 4px;
+  --oow-modal-padding: 0;
+
+  /* 显示状态 */
+  --oow-modal-opacity-show: 1;
+  --oow-modal-opacity-hide: 0;
+  --oow-modal-transform-show: translateY(0) scale(1);
+  --oow-modal-transform-hide: translateY(-10px) scale(0.95);
+
+  /* 拖拽状态样式 */
+  --oow-modal-drag-opacity: 0.9;
+  --oow-modal-drag-cursor: move;
+
+  /* 位置控制变量 */
+  --oow-modal-drag-left: var(--oow-modal-left, auto);
+  --oow-modal-drag-top: var(--oow-modal-top, auto);
+}
+
+/* 内容体样式 */
+.content-body {
+  /* 布局样式 */
+  --oow-content-body-padding: 16px;
+  --oow-content-body-bg: transparent;
+  --oow-content-body-color: inherit;
+  --oow-content-body-gap: 12px;
+  --oow-content-body-display: flex;
+  --oow-content-body-flex-direction: column;
+
+  /* 滚动样式 */
+  --oow-content-body-overflow-y: auto;
+  --oow-content-body-overflow-x: hidden;
+  --oow-content-body-scrollbar-width: thin;
+  --oow-content-body-scrollbar-color: var(--oow-muted) transparent;
+}
+
+/* 伪选择元素样式 */
+.oow-fake-selection {
+  /* 背景和边框 */
+  --oow-fake-selection-bg: rgba(59, 130, 246, 0.2);
+  --oow-fake-selection-border: 2px solid rgba(59, 130, 246, 0.6);
+  --oow-fake-selection-border-radius: 4px;
+
+  /* 定位 */
+  --oow-fake-selection-position: absolute;
+  --oow-fake-selection-z-index: 999999;
+  --oow-fake-selection-pointer-events: none;
+
+  /* 尺寸控制 */
+  --oow-fake-selection-top: auto;
+  --oow-fake-selection-left: auto;
+  --oow-fake-selection-width: auto;
+  --oow-fake-selection-height: auto;
+  --oow-element-display: none;
+
+  /* 动画 */
+  --oow-fake-selection-animation: oow-fake-selection-pulse 2s infinite;
+}
+
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .oow-popover {
+    --oow-modal-width: 95vw;
+    --oow-modal-max-height: 80vh;
+    --oow-modal-border-radius: 12px;
+    --oow-modal-margin: 2px;
+  }
+
+  .content-body {
+    --oow-content-body-padding: 12px;
+    --oow-content-body-gap: 8px;
+  }
+
+}
+
+@media (max-width: 360px) {
+  .oow-popover {
+    --oow-modal-width: 98vw;
+    --oow-modal-border-radius: 8px;
+  }
+
+  .content-body {
+    --oow-content-body-padding: 8px;
+  }
+}
+
+/* 暗色主题适配 */
+@media (prefers-color-scheme: dark) {
+  .oow-popover {
+    --oow-modal-bg: #1f2937;
+    --oow-modal-color: #f3f4f6;
+    --oow-modal-border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+}
+
+/* 高对比度主题 */
+@media (prefers-contrast: high) {
+  .oow-popover {
+    --oow-modal-border: 2px solid #000000;
+  }
+
+  .oow-fake-selection {
+    --oow-fake-selection-border: 3px solid #000000;
+  }
+}
+
+/* 减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .oow-popover {
+  }
+
+  .oow-fake-selection {
+    --oow-fake-selection-animation: none;
+  }
+}
+
+/* 应用变量样式 */
+.oow-popover {
+  background: var(--oow-modal-bg);
+  color: var(--oow-modal-color);
+  width: var(--oow-modal-width);
+  max-width: var(--oow-modal-max-width);
+  max-height: var(--oow-modal-max-height);
+  border-radius: var(--oow-modal-border-radius);
+  border: var(--oow-modal-border);
+  z-index: var(--oow-modal-z-index);
+  padding: var(--oow-modal-padding);
+  position: fixed;
+}
+
+/* 定位状态 */
+.is-positioned {
+  top: var(--oow-modal-top, auto) !important;
+  left: var(--oow-modal-left, auto) !important;
+}
+
+.is-dragging-position {
+  top: var(--oow-modal-drag-left, var(--oow-modal-drag-left-fallback, auto)) !important;
+  left: var(--oow-modal-drag-top, var(--oow-modal-drag-top-fallback, auto)) !important;
+}
+
+.content-body {
+  padding: var(--oow-content-body-padding);
+  background: var(--oow-content-body-bg);
+  color: var(--oow-content-body-color);
+  gap: var(--oow-content-body-gap);
+  display: var(--oow-content-body-display);
+  flex-direction: var(--oow-content-body-flex-direction);
+  overflow-y: var(--oow-content-body-overflow-y);
+  overflow-x: var(--oow-content-body-overflow-x);
+  scrollbar-width: var(--oow-content-body-scrollbar-width);
+  scrollbar-color: var(--oow-content-body-scrollbar-color);
+}
+
+.oow-fake-selection {
+  background: var(--oow-fake-selection-bg);
+  border: var(--oow-fake-selection-border);
+  border-radius: var(--oow-fake-selection-border-radius);
+  position: var(--oow-fake-selection-position);
+  z-index: var(--oow-fake-selection-z-index);
+  pointer-events: var(--oow-fake-selection-pointer-events);
+  animation: var(--oow-fake-selection-animation);
+  top: var(--oow-fake-selection-top);
+  left: var(--oow-fake-selection-left);
+  width: var(--oow-fake-selection-width);
+  height: var(--oow-fake-selection-height);
+  display: var(--oow-element-display);
+}
+
+/* 伪选择元素显示状态 */
+.oow-fake-selection.is-visible {
+  display: block !important;
+}
+
+.oow-fake-selection.is-hidden {
+  display: none !important;
+}
+
+
+/* 显示控制类 */
+.display-block {
+  display: block !important;
+}
+
+.display-block-flex {
+  display: flex !important;
+}
+
+.display-none {
+  display: none !important;
+}
+
+/* 拖拽状态样式 */
+.is-dragging {
+  opacity: var(--oow-modal-drag-opacity) !important;
+  cursor: var(--oow-modal-drag-cursor) !important;
+}
+
+.is-dragging-position {
+  left: var(--oow-modal-drag-left) !important;
+  top: var(--oow-modal-drag-top) !important;
+}
+
+
+/* 动画定义 */
+@keyframes oow-fake-selection-pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}/* ModalHeader 组件样式 - 设计师友好的变量系统 */
+
+/* Modal Header 组件专用变量 - 设计师主题创作接口 */
+.modal-header {
+  /* 头部整体样式 */
+  --oow-header-height: 48px;
+  --oow-header-padding: 12px;
+  --oow-header-border-radius: 14px 14px 0 0;
+  --oow-header-bg: transparent;
+  --oow-header-border: 1px solid var(--ring);
+  --oow-header-display: flex;
+  --oow-header-align-items: center;
+  --oow-header-justify-content: space-between;
+}
+
+/* 头部左侧容器 */
+.header-left {
+  --oow-header-left-display: flex;
+  --oow-header-left-align-items: center;
+  --oow-header-left-gap: 12px;
+}
+
+/* 头部中央容器 */
+.header-center {
+  --oow-header-center-flex: 1;
+  --oow-header-center-display: flex;
+  --oow-header-center-justify-content: center;
+  --oow-header-center-padding: 0 16px;
+}
+
+/* 头部右侧容器 */
+.header-right {
+  --oow-header-right-display: flex;
+  --oow-header-right-align-items: center;
+  --oow-header-right-gap: 8px;
+}
+
+/* Logo 样式 */
+.header-logo {
+  /* Logo 尺寸和布局 */
+  --oow-header-logo-size: 34px;
+  --oow-header-logo-block-size: 24px;
+  --oow-header-logo-display: inline-grid;
+  --oow-header-logo-place-items: center;
+
+  /* Logo 样式 */
+  --oow-header-logo-weight: 800;
+  --oow-header-logo-letter-spacing: 0.5px;
+  --oow-header-logo-border-radius: var(--radius-lg);
+  --oow-header-logo-bg: linear-gradient(135deg, var(--accent-3), var(--accent-2));
+  --oow-header-logo-color: #0b0b0b;
+  --oow-header-logo-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 4px 12px rgba(0,0,0,0.3);
+
+  /* 应用变量 */
+  inline-size: var(--oow-header-logo-size);
+  block-size: var(--oow-header-logo-block-size);
+  display: var(--oow-header-logo-display);
+  place-items: var(--oow-header-logo-place-items);
+  font-weight: var(--oow-header-logo-weight);
+  letter-spacing: var(--oow-header-logo-letter-spacing);
+  border-radius: var(--oow-header-logo-border-radius);
+  box-shadow: var(--oow-header-logo-shadow);
+  background: var(--oow-header-logo-bg);
+  color: var(--oow-header-logo-color);
+}
+
+/* 头部标题样式 */
+.header-title {
+  /* 标题样式 */
+  --oow-header-title-weight: 800;
+  --oow-header-title-size: var(--font-size-xl);
+  --oow-header-title-letter-spacing: 0.2px;
+  --oow-header-title-gradient: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  --oow-header-title-text-shadow: 0 0 20px rgba(110,231,255,0.2);
+
+  /* 应用样式 */
+  font-weight: var(--oow-header-title-weight);
+  font-size: var(--oow-header-title-size);
+  letter-spacing: var(--oow-header-title-letter-spacing);
+
+  /* 渐变效果（可选） */
+  background: var(--oow-header-title-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: var(--oow-header-title-text-shadow);
+
+  /* --- Ellipsis for long text --- */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 操作按钮样式 (统一标准) */
+.action-btn {
+  /* 统一尺寸和外观 */
+  --oow-header-action-size: 28px;
+  --oow-header-action-radius: 6px;
+
+  /* 颜色 (从主题变量继承) */
+  --oow-header-action-bg: var(--oow-button-bg, transparent);
+  --oow-header-action-hover-bg: var(--oow-button-hover-bg, rgba(0,0,0,0.05));
+  --oow-header-action-color: var(--oow-button-color, #333);
+  --oow-header-action-hover-color: var(--oow-button-hover-color, #000);
+
+  /* 交互 */
+  --oow-header-action-transition: background-color 0.2s ease;
+  --oow-header-action-cursor: pointer;
+
+  /* 应用样式 */
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--oow-header-action-size);
+  height: var(--oow-header-action-size);
+  padding: 0;
+  border: none;
+  border-radius: var(--oow-header-action-radius);
+  background-color: var(--oow-header-action-bg);
+  color: var(--oow-header-action-color);
+  cursor: var(--oow-header-action-cursor);
+  transition: var(--oow-header-action-transition);
+}
+
+.action-btn:hover {
+  background-color: var(--oow-header-action-hover-bg);
+  color: var(--oow-header-action-hover-color);
+}
+
+.action-btn:focus-visible {
+  outline: 2px solid var(--oow-header-action-hover-color);
+  outline-offset: 1px;
+}
+
+/* 应用布局样式 */
+.modal-header {
+  height: var(--oow-header-height);
+  padding: var(--oow-header-padding);
+  border-radius: var(--oow-header-border-radius);
+  background: var(--oow-header-bg);
+  border: var(--oow-header-border);
+  display: var(--oow-header-display);
+  align-items: var(--oow-header-align-items);
+  justify-content: var(--oow-header-justify-content);
+}
+
+.header-left {
+  display: var(--oow-header-left-display);
+  align-items: var(--oow-header-left-align-items);
+  gap: var(--oow-header-left-gap);
+}
+
+.header-center {
+  flex: var(--oow-header-center-flex);
+  display: var(--oow-header-center-display);
+  justify-content: var(--oow-header-center-justify-content);
+  padding: var(--oow-header-center-padding);
+  min-width: 0; /* Fix for flexbox overflow */
+}
+
+.header-right {
+  display: var(--oow-header-right-display);
+  align-items: var(--oow-header-right-align-items);
+  gap: var(--oow-header-right-gap);
+}
+
+
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .modal-header {

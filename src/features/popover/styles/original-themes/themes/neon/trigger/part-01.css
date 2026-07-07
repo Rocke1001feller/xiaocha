@@ -1,0 +1,53 @@
+.oow-selection-trigger-button[data-theme="neon"] {
+  background: #000000;
+  border: none;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+  color: #00ff41;
+  text-shadow: 0 0 6px rgba(0, 255, 65, 0.3);
+  border-radius: 2px !important;
+  font-weight: 600;
+  transition: var(--oow-button-transition);
+  animation: neon-standby-pulse 2s ease-in-out infinite;
+}
+
+.oow-selection-trigger-button[data-theme="neon"]:hover {
+  background: #00ff41;
+  color: #000;
+  box-shadow: 0 0 25px rgba(0, 255, 65, 0.5);
+  text-shadow: none;
+  transform: scale(1.08);
+  transition: var(--oow-button-transition);
+}
+
+.oow-selection-trigger-button[data-theme="neon"].activated {
+  background: transparent;
+  border: 2px dashed #ff006e;
+  padding: 4px;
+  box-shadow: 0 0 35px rgba(255, 0, 110, 0.6), 0 0 15px rgba(0, 217, 255, 0.4);
+  color: #00ff41;
+  animation: none;
+  transition: var(--oow-button-transition);
+}
+
+.oow-selection-trigger-button[data-theme="neon"].activated::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  background: #00ff41;
+  border-radius: 1px;
+  z-index: -1;
+}
+
+@keyframes neon-standby-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.4), 0 0 8px rgba(0, 255, 65, 0.2);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 255, 65, 0.6), 0 0 12px rgba(0, 255, 65, 0.3);
+    opacity: 0.85;
+  }
+}

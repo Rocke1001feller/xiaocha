@@ -1,0 +1,400 @@
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(192, 132, 252, 0.3);
+  animation: galaxy-fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  transition: all 0.3s ease;
+  will-change: opacity, transform, box-shadow;
+}
+
+/* 图片悬停星光效果 */
+.oow-popover[data-theme="galaxy"] .info-panel-content img:hover,
+.oow-popover[data-theme="galaxy"] .etymology-panel img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 30px rgba(192, 132, 252, 0.5);
+  animation: galaxy-glow 2s ease-in-out infinite;
+}
+
+/* 高亮文本动画 */
+.oow-popover[data-theme="galaxy"] .info-panel-content .highlight,
+.oow-popover[data-theme="galaxy"] .etymology-panel .highlight {
+  background: linear-gradient(90deg,
+    rgba(192, 132, 252, 0.2),
+    rgba(232, 121, 249, 0.3),
+    rgba(192, 132, 252, 0.2));
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  padding: 2px 6px;
+  border-radius: 4px;
+  animation: galaxy-starflow 3s ease-in-out infinite;
+  color: var(--accent-1);
+  font-weight: 600;
+  will-change: background-position;
+}
+
+/* === Galaxy主题动画性能优化和主题一致性 === */
+
+/* 动画性能优化 - 为父容器添加GPU加速 */
+.oow-popover[data-theme="galaxy"] .info-panel-content,
+.oow-popover[data-theme="galaxy"] .etymology-panel {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* 减少动画复杂度 - 优化移动设备性能 */
+@media (max-width: 768px) {
+  .oow-popover[data-theme="galaxy"] .info-panel-content *,
+  .oow-popover[data-theme="galaxy"] .etymology-panel * {
+    animation-duration: 0.3s !important;
+    animation-delay: 0s !important;
+  }
+
+  .oow-popover[data-theme="galaxy"] .info-panel-content strong,
+  .oow-popover[data-theme="galaxy"] .etymology-panel strong,
+  .oow-popover[data-theme="galaxy"] .info-panel-content em,
+  .oow-popover[data-theme="galaxy"] .etymology-panel em {
+    animation: none !important;
+  }
+}
+
+/* 用户偏好减少动画时的适配 */
+@media (prefers-reduced-motion: reduce) {
+  .oow-popover[data-theme="galaxy"] .info-panel-content *,
+  .oow-popover[data-theme="galaxy"] .etymology-panel * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .oow-popover[data-theme="galaxy"] .info-panel-content *:hover,
+  .oow-popover[data-theme="galaxy"] .etymology-panel *:hover {
+    transform: none !important;
+    text-shadow: none !important;
+  }
+}
+
+/* 主题一致性优化 - 统一动画节奏 */
+.oow-popover[data-theme="galaxy"] .info-panel-content *,
+.oow-popover[data-theme="galaxy"] .etymology-panel * {
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* 确保所有动画元素都有合适的延迟层次 */
+.oow-popover[data-theme="galaxy"] .info-panel-content {
+  animation-delay: 0s;
+}
+
+/* 防止内容重叠 - 确保动画完成后元素正确显示 */
+.oow-popover[data-theme="galaxy"] .info-panel-content *:not(:hover),
+.oow-popover[data-theme="galaxy"] .etymology-panel *:not(:hover) {
+  z-index: auto;
+}
+
+/* 优化动画结束状态 - 确保可读性 */
+.oow-popover[data-theme="galaxy"] .info-panel-content *,
+.oow-popover[data-theme="galaxy"] .etymology-panel * {
+  animation-fill-mode: both;
+}
+
+/* 主题色彩一致性 - 确保所有动画使用Galaxy配色 */
+.oow-popover[data-theme="galaxy"] .info-panel-content *,
+.oow-popover[data-theme="galaxy"] .etymology-panel * {
+  --galaxy-primary: rgba(192, 132, 252, 1);
+  --galaxy-secondary: rgba(232, 121, 249, 1);
+  --galaxy-tertiary: rgba(244, 114, 182, 1);
+  --galaxy-quaternary: rgba(167, 139, 250, 1);
+}
+
+/* 错误状态动画 - 保持主题一致性 */
+.oow-popover[data-theme="galaxy"] .info-panel-content .error-message,
+.oow-popover[data-theme="galaxy"] .etymology-panel .error-message {
+  color: #ff6b6b;
+  animation: galaxy-glow 2s ease-in-out infinite;
+  text-shadow: 0 0 8px rgba(255, 107, 107, 0.3);
+}
+
+/* 加载状态动画 - Galaxy风格的加载提示 */
+.oow-popover[data-theme="galaxy"] .info-panel-content.loading::after,
+.oow-popover[data-theme="galaxy"] .etymology-panel.loading::after {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--galaxy-primary);
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: galaxy-spin 1s linear infinite;
+  margin-left: 8px;
+}
+
+@keyframes galaxy-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes galaxy-activated-pulse {
+  0%, 100% {
+    box-shadow: 0 0 45px rgba(192, 132, 252, 0.9);
+  }
+  50% {
+    box-shadow: 0 0 55px rgba(192, 132, 252, 1.0), 0 0 65px rgba(232, 121, 249, 0.6);
+  }
+}
+
+/* === Galaxy主题专属文字动效关键帧 === */
+
+/* 淡入上升动画 - 模拟星辰升起 */
+@keyframes galaxy-fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 星光闪烁动画 - 模拟星光闪烁 */
+@keyframes galaxy-twinkle {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(192, 132, 252, 0.3);
+  }
+  25% {
+    opacity: 0.8;
+    text-shadow: 0 0 15px rgba(192, 132, 252, 0.5);
+  }
+  50% {
+    opacity: 0.9;
+    text-shadow: 0 0 20px rgba(232, 121, 249, 0.4);
+  }
+  75% {
+    opacity: 0.85;
+    text-shadow: 0 0 12px rgba(244, 114, 182, 0.3);
+  }
+}
+
+/* 脉冲发光动画 - 模拟星云脉动 */
+@keyframes galaxy-glow {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(192, 132, 252, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(192, 132, 252, 0.6), 0 0 25px rgba(232, 121, 249, 0.3);
+  }
+}
+
+/* 星轨流动动画 - 模拟星河流动 */
+@keyframes galaxy-starflow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 打字机效果 - 模拟数据录入 */
+@keyframes galaxy-typewriter {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+/* 边框星光流动 - 模拟星尘流动 */
+@keyframes galaxy-border-flow {
+  0% {
+    border-color: rgba(192, 132, 252, 0.3);
+    box-shadow: -2px 0 8px rgba(192, 132, 252, 0.2);
+  }
+  25% {
+    border-color: rgba(232, 121, 249, 0.4);
+    box-shadow: -2px 0 10px rgba(232, 121, 249, 0.3);
+  }
+  50% {
+    border-color: rgba(244, 114, 182, 0.3);
+    box-shadow: -2px 0 8px rgba(244, 114, 182, 0.2);
+  }
+  75% {
+    border-color: rgba(167, 139, 250, 0.4);
+    box-shadow: -2px 0 10px rgba(167, 139, 250, 0.3);
+  }
+  100% {
+    border-color: rgba(192, 132, 252, 0.3);
+    box-shadow: -2px 0 8px rgba(192, 132, 252, 0.2);
+  }
+}
+/*
+ * Origin of Words - Neon Theme (Premium)
+ * 霓虹主题 - 付费赛博霓虹主题
+ * 100% original style with ORIGINAL variable names
+ */
+
+/* Theme Variables - CRITICAL: Use original variable names */
+.oow-popover[data-theme="neon"] {
+  --panel-bg: #000000;
+  --text-color: #00ff41;
+  --muted: #00cc33;
+  --ring: #00ff41; /* bright green */
+  --accent-1: #ff006e; /* hot pink */
+  --accent-2: #00d9ff; /* cyan */
+  --accent-3: #ffbe0b; /* electric yellow */
+  --accent-4: #9d4edd; /* deep purple */
+  backdrop-filter: blur(15px);
+  background: #000000 !important;
+  border: 2px solid var(--ring);
+  box-shadow: 0 0 40px var(--ring), inset 0 0 30px rgba(0, 255, 65, 0.15);
+
+  /* Enhanced Unified Button Styles */
+  --oow-button-bg: rgba(0, 255, 65, 0.2);
+  --oow-button-hover-bg: var(--ring);
+  --oow-button-color: var(--text-color);
+  --oow-button-hover-color: #000;
+  --oow-button-radius: 8px;
+  --oow-button-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Enhanced Markdown Highlight Styles */
+  --oow-highlight-heading-color: var(--text-color);
+  --oow-highlight-heading-font-weight: 700;
+  --oow-highlight-heading-margin-top: 1.3em;
+  --oow-highlight-heading-margin-bottom: 0.7em;
+  --oow-highlight-h1-font-size: 1.6em;
+  --oow-highlight-h2-font-size: 1.35em;
+  --oow-highlight-h3-font-size: 1.2em;
+  --oow-highlight-h4-font-size: 1.1em;
+  --oow-highlight-h5-font-size: 1em;
+  --oow-highlight-h6-font-size: 0.9em;
+  --oow-highlight-strong-color: var(--accent-1);
+  --oow-highlight-strong-font-weight: 700;
+  --oow-highlight-em-color: var(--accent-2);
+  --oow-highlight-em-font-style: italic;
+  --oow-highlight-code-color: var(--accent-3);
+  --oow-highlight-code-bg: rgba(0, 0, 0, 0.1);
+  --oow-highlight-code-border-color: var(--ring);
+  --oow-highlight-link-color: var(--accent-1);
+  --oow-highlight-link-decoration: underline;
+  --oow-highlight-link-decoration-thickness: 2px;
+  --oow-highlight-link-hover-color: var(--accent-2);
+  --oow-highlight-blockquote-margin: 1.3em 0;
+  --oow-highlight-blockquote-padding: 0.8em 1.2em;
+  --oow-highlight-blockquote-border-left: 5px solid var(--ring);
+  --oow-highlight-blockquote-color: var(--muted);
+  --oow-highlight-blockquote-bg: rgba(0, 0, 0, 0.1);
+  --oow-highlight-hr-height: 2px;
+  --oow-highlight-hr-bg: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  --oow-highlight-hr-margin: 1.8em 0;
+  --oow-highlight-pre-padding: 1.3em;
+  --oow-highlight-pre-bg: rgba(0, 0, 0, 0.15);
+  --oow-highlight-pre-border-radius: 8px;
+  --oow-highlight-pre-font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  --oow-highlight-pre-font-size: 0.95em;
+  --oow-highlight-table-margin: 1.8em 0;
+  --oow-highlight-table-border: 2px solid var(--ring);
+  --oow-highlight-table-cell-padding: 0.6em 0.9em;
+  --oow-highlight-table-header-bg: rgba(255,255,255,0.1);
+  --oow-highlight-table-header-color: var(--text-color);
+  --oow-highlight-table-header-font-weight: 700;
+
+  /* Enhanced Collapsible Section 变量 */
+  --oow-collapsible-section-title-color: var(--accent-2);
+  --oow-collapsible-section-phonetic-color: var(--muted);
+  --oow-collapsible-section-speaker-hover-color: var(--accent-1);
+  --oow-collapsible-section-toggle-hover-color: var(--accent-2);
+}
+
+.oow-popover[data-theme="neon"] .header-title {
+  color: var(--accent-1);
+  text-shadow: 0 0 12px rgba(255, 0, 110, 0.5), 0 0 20px rgba(255, 0, 110, 0.3);
+  font-weight: 800;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+  animation: neon-flicker 1.5s infinite alternate, neon-pulse 3s ease-in-out infinite;
+}
+
+@keyframes neon-flicker {
+  0%, 100% {
+    text-shadow: 0 0 12px rgba(255, 0, 110, 0.5), 0 0 20px rgba(255, 0, 110, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 8px rgba(255, 0, 110, 0.3), 0 0 12px rgba(255, 0, 110, 0.2);
+  }
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow: 0 0 12px rgba(255, 0, 110, 0.5), 0 0 20px rgba(255, 0, 110, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 18px rgba(255, 0, 110, 0.7), 0 0 28px rgba(255, 0, 110, 0.4), 0 0 35px rgba(0, 217, 255, 0.2);
+  }
+}
+
+.oow-popover[data-theme="neon"] .header-logo {
+  background: var(--ring);
+  border: 2px solid var(--accent-2);
+  color: #000;
+  box-shadow: 0 0 20px var(--ring), inset 0 0 10px rgba(0, 0, 0, 0.5);
+  font-weight: 900;
+  font-size: 1.1em;
+  border-radius: 6px;
+  animation: neon-logo-pulse 2s infinite;
+}
+
+@keyframes neon-logo-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px var(--ring), inset 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px var(--ring), 0 0 40px var(--accent-2), inset 0 0 15px rgba(0, 0, 0, 0.7);
+  }
+}
+
+.oow-popover[data-theme="neon"] .section-title {
+  color: var(--accent-2);
+  text-shadow: 0 0 12px rgba(0, 217, 255, 0.4);
+  font-weight: 700;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, transparent 60%, rgba(0, 217, 255, 0.1) 60%);
+  background-size: 200% 100%;
+  animation: neon-scan 2.5s linear infinite;
+}
+
+@keyframes neon-scan {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.oow-popover[data-theme="neon"] .def-item .pos {
+  color: var(--accent-1);
+  text-shadow: 0 0 10px var(--accent-1);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+}
+
+.oow-popover[data-theme="neon"] .def-item .meaning {
+  color: var(--text-color);
+}
+

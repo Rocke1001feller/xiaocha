@@ -1,0 +1,41 @@
+/* Basic主题的translation和contextual-analysis样式 */
+.oow-popover[data-theme="basic"] .translation[data-style="subtle"] {
+  /* subtle样式：保持简洁，仅通过颜色区分 */
+}
+
+.oow-popover[data-theme="basic"] .contextual-analysis[data-style="subtle"] {
+  /* subtle样式：保持简洁，仅通过颜色区分 */
+}
+
+.oow-popover[data-theme="basic"] .translation .text {
+  color: #1e3a8a;
+  font-weight: 700;
+}
+
+.oow-popover[data-theme="basic"] .contextual-analysis .text {
+  color: #4b5563;
+  font-weight: 400;
+}
+
+/* Basic主题的Info Panel和Etymology Panel样式 */
+.oow-popover[data-theme="basic"] .info-panel-content,
+.oow-popover[data-theme="basic"] .etymology-panel {
+  /* 极简纯净风格：保持干净简洁的阅读体验 */
+  --oow-info-panel-heading-color: #1e3a8a;
+  --oow-info-panel-heading-weight: 600;
+  --oow-info-panel-heading-margin-top: 1.2em;
+  --oow-info-panel-heading-margin-bottom: 0.6em;
+  --oow-info-panel-paragraph-color: #333333;
+  --oow-info-panel-paragraph-margin-bottom: 0.9em;
+  --oow-info-panel-line-height: 1.7;
+  --oow-info-panel-letter-spacing: 0.02em;
+  --oow-info-panel-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --oow-info-panel-list-color: #333333;
+  --oow-info-panel-blockquote-color: #666666;
+  --oow-info-panel-blockquote-border: #0ea5e9;
+  --oow-info-panel-code-color: #d6336c;
+  --oow-info-panel-code-bg: rgba(0, 0, 0, 0.05);
+  --oow-info-panel-link-color: #0ea5e9;
+  --oow-info-panel-link-hover: #22c55e;
+}
+

@@ -1,0 +1,431 @@
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, rgba(255, 190, 11, 0.05), rgba(255, 0, 110, 0.05));
+  border: 1px solid rgba(255, 190, 11, 0.2);
+  border-radius: 8px 8px 0 0;
+  z-index: -1;
+}
+
+@keyframes neon-tab-glow {
+  0%, 100% {
+    box-shadow: 0 2px 10px rgba(255, 190, 11, 0.6);
+  }
+  50% {
+    box-shadow: 0 2px 15px rgba(255, 190, 11, 0.8);
+  }
+}
+
+.pcss3t-effect-scale > .tab-content-first:checked ~ ul > .tab-content-first,
+.pcss3t-effect-scale > .tab-content-2:checked ~ ul > .tab-content-2,
+.pcss3t-effect-scale > .tab-content-3:checked ~ ul > .tab-content-3,
+.pcss3t-effect-scale > .tab-content-last:checked ~ ul > .tab-content-last {
+  transform: scale(var(--oow-tabs-transform-scale-active));
+}
+
+/* Theme-1样式 - 继承blue-print设计 */
+.pcss3t-theme-1 > label {
+  background: linear-gradient(to bottom, var(--oow-tabs-gradient-bg-start), var(--oow-tabs-gradient-bg-end));
+  border-color: var(--oow-tabs-border-color);
+  color: var(--oow-tabs-text-muted);
+}
+
+.pcss3t-theme-1 > label:hover {
+  background: linear-gradient(to bottom, var(--oow-tabs-gradient-bg-hover-start), var(--oow-tabs-gradient-bg-hover-end));
+  color: var(--oow-tabs-text-color);
+}
+
+.pcss3t-theme-1 > input:checked + label {
+  background: linear-gradient(to bottom, var(--oow-tabs-gradient-bg-active-start), var(--oow-tabs-gradient-bg-active-end));
+  color: var(--oow-tabs-text-color);
+  border-color: var(--oow-tabs-border-color);
+}
+
+.pcss3t-theme-1 > ul {
+  background: var(--oow-tabs-content-bg);
+  border-color: var(--oow-tabs-border-color);
+  box-shadow: var(--oow-tabs-shadow);
+}
+
+/* 响应式设计 */
+@media (max-width: var(--oow-tabs-mobile-breakpoint)) {
+  .pcss3t {
+    font-size: var(--oow-tabs-mobile-font-size);
+  }
+
+  .pcss3t > label {
+    padding: var(--oow-tabs-mobile-padding-y) var(--oow-tabs-mobile-padding-x);
+    font-size: var(--oow-tabs-mobile-font-size-base);
+  }
+
+  .pcss3t > ul {
+    padding: var(--oow-tabs-mobile-padding-y) var(--oow-tabs-mobile-padding-x);
+  }
+
+  .pcss3t > ul > li {
+    padding: var(--oow-tabs-mobile-padding-y) var(--oow-tabs-mobile-padding-x);
+  }
+}
+
+/* 无障碍访问增强 */
+.pcss3t > label:focus {
+  outline: var(--oow-tabs-focus-outline);
+  outline-offset: var(--oow-tabs-focus-outline-offset);
+}
+
+/* 减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .pcss3t > label,
+  .pcss3t > ul > li,
+  .pcss3t-effect-scale > ul > li {
+    transition: none;
+  }
+
+  .pcss3t-effect-scale > ul > li {
+    transform: none;
+  }
+}
+
+/*
+ * ===============================================
+ * 设计师主题创作指南
+ * ===============================================
+ *
+ * 1. 创建新主题: 只需覆盖CSS变量即可
+ * 2. 支持的定制维度: 8大类 50+ 变量
+ * 3. 示例主题创建:
+ *
+ * .oow-popover[data-theme="ocean"] .pcss3t {
+ *   --oow-tabs-text-color: #0066cc;
+ *   --oow-tabs-accent-color: #00aaff;
+ *   --oow-tabs-bg: linear-gradient(135deg, #e6f3ff, #cce7ff);
+ *   --oow-tabs-shadow: 0 4px 20px rgba(0, 102, 204, 0.2);
+ *   --oow-tabs-border-radius: 8px;
+ * }
+ *
+ * 4. 无障碍访问支持:
+ *    - 键盘导航:focus样式可通过变量定制
+ *    - 高对比度模式支持
+ *    - 减少动画偏好支持
+ *
+ * 5. 响应式设计:
+ *    - 移动端断点可通过变量调整
+ *    - 触摸友好的间距和大小
+ *//*
+ * Tooltip Component Styles
+ * 简洁优雅的tooltip样式，跟随主题变化
+ */
+
+/* Tooltip基础样式 - 使用CSS变量实现主题适配 */
+.oow-tooltip {
+  --tooltip-bg: rgba(0, 0, 0, 0.85);
+  --tooltip-color: white;
+  --tooltip-border: transparent;
+  --tooltip-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  position: absolute;
+  background: var(--tooltip-bg);
+  color: var(--tooltip-color);
+  border: 1px solid var(--tooltip-border);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  box-shadow: var(--tooltip-shadow);
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Tooltip显示状态 */
+.oow-tooltip.visible {
+  opacity: 1;
+}
+
+/* Tooltip箭头指示器 */
+.oow-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: var(--tooltip-bg);
+  border: 1px solid var(--tooltip-border);
+  z-index: -1;
+}
+
+/* 主题适配的tooltip样式 */
+.oow-popover[data-theme="basic"] .oow-tooltip {
+  --tooltip-bg: rgba(14, 165, 233, 0.9);
+  --tooltip-color: white;
+  --tooltip-border: rgba(14, 165, 233, 0.3);
+  --tooltip-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+}
+
+.oow-popover[data-theme="pro"] .oow-tooltip {
+  --tooltip-bg: rgba(31, 41, 55, 0.95);
+  --tooltip-color: rgba(249, 250, 251, 0.95);
+  --tooltip-border: rgba(107, 114, 128, 0.4);
+  --tooltip-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.oow-popover[data-theme="creative"] .oow-tooltip {
+  --tooltip-bg: rgba(237, 137, 54, 0.9);
+  --tooltip-color: white;
+  --tooltip-border: rgba(237, 137, 54, 0.5);
+  --tooltip-shadow: 0 4px 16px rgba(237, 137, 54, 0.3);
+}
+
+.oow-popover[data-theme="aurora"] .oow-tooltip {
+  --tooltip-bg: rgba(26, 26, 46, 0.95);
+  --tooltip-color: rgba(240, 248, 255, 0.95);
+  --tooltip-border: rgba(167, 139, 250, 0.4);
+  --tooltip-shadow: 0 4px 16px rgba(167, 139, 250, 0.3);
+}
+
+.oow-popover[data-theme="cyberpunk"] .oow-tooltip {
+  --tooltip-bg: rgba(10, 1, 26, 0.95);
+  --tooltip-color: rgba(247, 37, 133, 0.9);
+  --tooltip-border: rgba(114, 9, 183, 0.5);
+  --tooltip-shadow: 0 4px 16px rgba(247, 37, 133, 0.4);
+}
+
+.oow-popover[data-theme="galaxy"] .oow-tooltip {
+  --tooltip-bg: rgba(8, 10, 32, 0.95);
+  --tooltip-color: rgba(224, 231, 255, 0.95);
+  --tooltip-border: rgba(129, 140, 248, 0.4);
+  --tooltip-shadow: 0 4px 16px rgba(192, 132, 252, 0.3);
+}
+
+.oow-popover[data-theme="neon"] .oow-tooltip {
+  --tooltip-bg: rgba(0, 0, 0, 0.95);
+  --tooltip-color: rgba(0, 255, 65, 0.95);
+  --tooltip-border: rgba(0, 255, 65, 0.6);
+  --tooltip-shadow: 0 4px 16px rgba(0, 255, 65, 0.4);
+}/*
+ * Collapsible Section Component
+ * 可折叠内容区域组件
+ */
+
+/* 组件专用变量 - 设计师主题创作接口 */
+.collapsible-section {
+  /* 整体布局 */
+  --oow-collapsible-section-padding: var(--spacing-3);
+  --oow-collapsible-section-border-radius: var(--radius-md);
+  --oow-collapsible-section-gap: var(--spacing-2);
+  --oow-collapsible-section-transition: var(--oow-animation-base, 0.25s);
+
+  /* 头部样式 */
+  --oow-collapsible-section-header-padding: var(--spacing-2) var(--spacing-4);
+  --oow-collapsible-section-header-gap: var(--spacing-2);
+  --oow-collapsible-section-header-bg: transparent;
+  --oow-collapsible-section-header-border: none;
+  --oow-collapsible-section-header-border-radius: 0;
+
+  /* 标题样式 */
+  --oow-collapsible-section-title-size: 1.2em;  /* 保持原始大小 */
+  --oow-collapsible-section-title-weight: 700;  /* 保持原始字重 */
+  --oow-collapsible-section-title-color: var(--text-color);  /* 保持原始颜色 */
+  --oow-collapsible-section-title-letter-spacing: normal;
+  --oow-collapsible-section-title-text-shadow: 0 1px 0 rgba(0,0,0,0.4);  /* 保持原始阴影 */
+
+  /* 音标样式 */
+  --oow-collapsible-section-phonetic-size: 1.2em;  /* 保持原始大小 */
+  --oow-collapsible-section-phonetic-color: #555;  /* 保持原始颜色 */
+  --oow-collapsible-section-phonetic-margin-left: var(--spacing-1);
+
+  /* 发音按钮样式 */
+  --oow-collapsible-section-speaker-font-size: 16px;  /* 保持原始字体大小 */
+  --oow-collapsible-section-speaker-bg: none;  /* 保持原始背景 */
+  --oow-collapsible-section-speaker-border: none;  /* 保持原始边框 */
+  --oow-collapsible-section-speaker-cursor: pointer;  /* 保持原始鼠标样式 */
+  --oow-collapsible-section-speaker-padding: 0;  /* 保持原始内边距 */
+
+  /* 切换按钮样式 */
+  --oow-collapsible-section-toggle-size: 24px;
+  --oow-collapsible-section-toggle-color: var(--oow-muted);
+  --oow-collapsible-section-toggle-hover-color: var(--oow-accent-primary);
+  --oow-collapsible-section-toggle-padding: var(--spacing-1);
+  --oow-collapsible-section-toggle-border-radius: var(--radius-sm);
+  --oow-collapsible-section-toggle-bg: transparent;
+  --oow-collapsible-section-toggle-hover-bg: var(--oow-bg-secondary);
+  --oow-collapsible-section-toggle-transition: var(--oow-animation-fast, 0.15s);
+  --oow-collapsible-section-toggle-icon-size: 12px;
+
+  /* 内容区域样式 */
+  --oow-collapsible-section-content-padding: var(--spacing-3) var(--spacing-4);  /* 保持原始内边距 */
+  --oow-collapsible-section-content-transition: opacity var(--oow-animation-base, 0.25s) ease-out;  /* 保持原始过渡 */
+  --oow-collapsible-section-content-overflow: visible;  /* 保持原始溢出设置 */
+  --oow-collapsible-section-content-opacity: 1;  /* 保持原始透明度 */
+  --oow-collapsible-section-content-box-sizing: border-box;  /* 保持原始盒模型 */
+  --oow-collapsible-section-content-max-width: 100%;  /* 保持原始最大宽度 */
+
+  /* 折叠状态样式 */
+  --oow-collapsible-section-collapsed-content-max-height: 0;
+  --oow-collapsible-section-collapsed-content-opacity: 0;
+  --oow-collapsible-section-collapsed-toggle-rotation: -90deg;
+
+  /* 展开状态样式 */
+  --oow-collapsible-section-expanded-content-max-height: var(--oow-collapsible-section-content-max-height);
+  --oow-collapsible-section-expanded-content-opacity: 1;
+  --oow-collapsible-section-expanded-toggle-rotation: 0deg;
+
+  /* 布局对齐方式 */
+  --oow-collapsible-section-header-justify-content: space-between;
+  --oow-collapsible-section-header-align-items: center;
+  --oow-collapsible-section-header-left-align-items: center;
+  --oow-collapsible-section-header-right-align-items: center;
+
+  /* 动画缓动函数 */
+  --oow-collapsible-section-transition-easing: ease-in-out;
+  --oow-collapsible-section-toggle-transition-easing: ease-in-out;  /* 保持原始缓动函数 */
+
+  /* SVG 图标定制 */
+  --oow-collapsible-section-toggle-svg-width: 12;
+  --oow-collapsible-section-toggle-svg-height: 12;
+  --oow-collapsible-section-toggle-svg-viewbox: 0 0 12 12;
+  --oow-collapsible-section-toggle-svg-path: 'M3 4.5L6 7.5L9 4.5';
+  --oow-collapsible-section-toggle-svg-stroke-width: 1.5;
+  --oow-collapsible-section-toggle-svg-stroke-linecap: round;
+  --oow-collapsible-section-toggle-svg-stroke-linejoin: round;
+
+  /* 交互细节 */
+  --oow-collapsible-section-pointer-events-collapsed: none;
+  --oow-collapsible-section-pointer-events-expanded: auto;
+
+  /* 可访问性 */
+  --oow-collapsible-section-aria-label-toggle: 'Toggle section';
+  --oow-collapsible-section-aria-label-speaker: 'Pronounce';
+
+  /* 初始状态 */
+  --oow-collapsible-section-initial-state: expanded; /* expanded | collapsed */
+
+  /* 按钮行为 */
+  --oow-collapsible-section-toggle-stop-propagation: true;
+}
+
+/* 应用变量到组件 */
+.collapsible-section {
+  padding: var(--oow-collapsible-section-padding);
+  border-radius: var(--oow-collapsible-section-border-radius);
+  gap: var(--oow-collapsible-section-gap);
+  transition: var(--oow-collapsible-section-transition);
+}
+
+/* 头部样式 */
+.section-header {
+  padding: var(--oow-collapsible-section-header-padding);
+  display: flex;
+  align-items: var(--oow-collapsible-section-header-align-items);
+  justify-content: var(--oow-collapsible-section-header-justify-content);
+  gap: var(--oow-collapsible-section-header-gap);
+  background: var(--oow-collapsible-section-header-bg);
+  border: var(--oow-collapsible-section-header-border);
+  border-radius: var(--oow-collapsible-section-header-border-radius);
+}
+
+.header-left {
+  display: flex;
+  align-items: var(--oow-collapsible-section-header-left-align-items);
+  gap: var(--oow-collapsible-section-header-gap);
+}
+
+.header-right {
+  display: flex;
+  align-items: var(--oow-collapsible-section-header-right-align-items);
+  gap: var(--oow-collapsible-section-header-gap);
+}
+
+/* 标题样式 */
+.section-title {
+  font-size: var(--oow-collapsible-section-title-size);
+  font-weight: var(--oow-collapsible-section-title-weight);
+  color: var(--oow-collapsible-section-title-color);
+  letter-spacing: var(--oow-collapsible-section-title-letter-spacing);
+  text-shadow: var(--oow-collapsible-section-title-text-shadow);
+}
+
+/* 音标样式 */
+.section-phonetic {
+  font-size: var(--oow-collapsible-section-phonetic-size);
+  color: var(--oow-collapsible-section-phonetic-color);
+  margin-left: var(--oow-collapsible-section-phonetic-margin-left);
+}
+
+/* 发音按钮样式 */
+.speaker-btn {
+  background: var(--oow-collapsible-section-speaker-bg);
+  border: var(--oow-collapsible-section-speaker-border);
+  cursor: var(--oow-collapsible-section-speaker-cursor);
+  font-size: var(--oow-collapsible-section-speaker-font-size);
+  padding: var(--oow-collapsible-section-speaker-padding);
+}
+
+/* 切换按钮样式 */
+.section-toggle-btn {
+  width: var(--oow-collapsible-section-toggle-size);
+  height: var(--oow-collapsible-section-toggle-size);
+  color: var(--oow-collapsible-section-toggle-color);
+  padding: var(--oow-collapsible-section-toggle-padding);
+  border-radius: var(--oow-collapsible-section-toggle-border-radius);
+  background: var(--oow-collapsible-section-toggle-bg);
+  border: none;
+  cursor: pointer;
+  transition: var(--oow-collapsible-section-toggle-transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-toggle-btn:hover {
+  color: var(--oow-collapsible-section-toggle-hover-color);
+  background: var(--oow-collapsible-section-toggle-hover-bg);
+}
+
+.section-toggle-btn svg {
+  width: var(--oow-collapsible-section-toggle-icon-size);
+  height: var(--oow-collapsible-section-toggle-icon-size);
+  transition: transform 0.2s ease-in-out;  /* 保持原始动画设置 */
+}
+
+/* 内容区域样式 */
+.section-content {
+  padding: var(--oow-collapsible-section-content-padding);
+  transition: var(--oow-collapsible-section-content-transition);
+  overflow: var(--oow-collapsible-section-content-overflow);
+  opacity: var(--oow-collapsible-section-content-opacity);
+  box-sizing: var(--oow-collapsible-section-content-box-sizing);
+  max-width: var(--oow-collapsible-section-content-max-width);
+}
+
+/* 折叠状态 */
+.collapsible-section.is-collapsed .section-content {
+  max-height: 0;  /* 保持原始最大高度 */
+  padding-top: 0;  /* 保持原始顶部内边距 */
+  padding-bottom: 0;  /* 保持原始底部内边距 */
+  opacity: 0;  /* 保持原始透明度 */
+  pointer-events: none;  /* 保持原始指针事件 */
+}
+
+.collapsible-section.is-collapsed .section-toggle-btn svg {
+  transform: rotate(var(--oow-collapsible-section-collapsed-toggle-rotation));
+}
+
+/* 展开状态 */
+.collapsible-section.is-expanded .section-content {
+  max-height: var(--oow-collapsible-section-expanded-content-max-height);
+  opacity: var(--oow-collapsible-section-expanded-content-opacity);
+}
+
+.collapsible-section.is-expanded .section-toggle-btn svg {
+  transform: rotate(var(--oow-collapsible-section-expanded-toggle-rotation));
+}

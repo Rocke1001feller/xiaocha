@@ -1,0 +1,16 @@
+.scanex-popover[data-theme='cyberpunk'] {
+  --scanex-bg: #15111f;
+  --scanex-bg-elevated: #251227;
+  --scanex-surface: rgba(35, 18, 39, 0.92);
+  --scanex-surface-muted: rgba(255, 90, 173, 0.1);
+  --scanex-text: #fff4f9;
+  --scanex-muted: #dca8bb;
+  --scanex-accent: #ff5aad;
+  --scanex-accent-strong: #ffd65f;
+  --scanex-accent-soft: rgba(255, 90, 173, 0.16);
+  --scanex-border: rgba(255, 90, 173, 0.24);
+  --scanex-border-soft: rgba(255, 90, 173, 0.14);
+  --scanex-trigger-text: #220610;
+  --scanex-danger: #ff9090;
+  --scanex-glow: rgba(255, 90, 173, 0.36);
+}

@@ -1,0 +1,500 @@
+
+/* === Section Title & Controls - Original === */
+.section-title {
+  font-weight: 700;
+  font-size: 1.2em;
+  color: var(--text-color);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+}
+
+.section-phonetic {
+  color: #555;
+  font-size: 1.2em;
+}
+
+.speaker-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+}
+
+/* === Section Content Collapse - Original === */
+.section-content {
+  padding: var(--spacing-3) var(--spacing-4);
+  transition: opacity var(--oow-animation-base, 0.25s) ease-out;
+  overflow: visible; /* FIX: Allow content to overflow so parent can scroll it */
+  opacity: 1;
+  /* Ensure content doesn't touch scrollbar */
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.section.is-collapsed .section-content,
+.collapsible-section.is-collapsed .section-content {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
+  pointer-events: none; /* Prevent transparent content from blocking clicks to header buttons */
+}
+
+/* === Modal Footer - Original === */
+.modal-footer {
+  flex: none;
+  padding: 8px 12px;
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+}
+
+.footer-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.footer-btn {
+  padding: 4px 8px;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+
+/* === PART-1 Content - Original === */
+.part1-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.defs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.def-item {
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* POS and Meaning container - horizontal layout */
+.pos-meaning {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.def-item .pos {
+  font-weight: 600;
+  color: #005a9e;
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+.def-item .meaning {
+  color: #333;
+}
+
+.def-item .example {
+  color: #555;
+  margin-top: 0;
+  padding-left: 12px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+/* === Highlight Style - Original === */
+.highlight {
+  background-color: var(--accent-2);
+  color: var(--panel-bg);
+  border-radius: 3px;
+  padding: 0px 3px;
+}
+
+
+/* === Part1 Context with Scrolling - Original === */
+.part1-context {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  padding: 14px 14px 14px 14px; /* Remove right padding to make text touch border */
+  border-radius: 10px;
+  border: 1px solid var(--ring);
+  min-height: 32px;
+  margin-bottom: 10px;
+  margin-right: 8px; /* Additional margin to ensure no content touches scrollbar */
+  max-height: 320px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-1) transparent;
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+.part1-content {
+  word-break: break-word;
+}
+
+.part1-context::-webkit-scrollbar {
+  width: 6px;
+}
+
+.part1-context::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.part1-context::-webkit-scrollbar-thumb {
+  background-color: var(--accent-1);
+  border-radius: 3px;
+}
+
+.part1-context:has(.context-loader.visible),
+.part1-context:has(.translation .text:not(:empty)),
+.part1-context:has(.contextual-analysis .text:not(:empty)) {
+  min-height: 32px;
+}
+
+.part1-context .text {
+  white-space: pre-wrap;
+}
+
+.translation {
+  margin-bottom: 8px;
+}
+
+.text-translation {
+  display: inline-block; /* Fix multi-line display issue */
+  font-weight: 800;
+  font-size: 1.2em;
+  letter-spacing: 0.2px;
+  color: var(--text-color);
+  word-break: break-word;
+  white-space: normal;
+}
+
+.text-contextual_analysis {
+  display: inline-block; /* Fix multi-line display issue */
+  color: var(--muted);
+  word-break: break-word;
+  white-space: normal;
+  overflow: visible;
+}
+
+
+/* === Equalizer Loader - Original === */
+.part1-content .part1-context {
+  position: relative;
+}
+
+.part1-content .context-loader {
+  display: none;
+  padding: 8px 0 6px 0;
+}
+
+.part1-content .context-loader.visible {
+  display: block;
+}
+
+.eq {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 6px;
+  justify-content: center;
+  align-items: end;
+  height: 26px;
+}
+
+.eq .bar {
+  width: 6px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, var(--accent-1), var(--accent-2));
+  box-shadow: 0 2px 10px rgba(176,114,255,0.5);
+  animation: oow-eq 0.9s ease-in-out infinite;
+}
+
+.eq .b1 { animation-delay: 0s; }
+.eq .b2 { animation-delay: 0.1s; }
+.eq .b3 { animation-delay: 0.2s; }
+.eq .b4 { animation-delay: 0.3s; }
+.eq .b5 { animation-delay: 0.4s; }
+
+@keyframes oow-eq {
+  0%, 100% {
+    height: 6px;
+    filter: saturate(120%);
+  }
+  40% {
+    height: 22px;
+    filter: saturate(160%);
+  }
+  60% {
+    height: 12px;
+  }
+}
+
+/* === Part2 Section Overflow Fix - Original === */
+.part2-section .section-content {
+  overflow: visible !important;
+  max-height: none !important;
+}
+
+.info-panel-content {
+  overflow: visible !important;
+  word-break: break-word !important;
+}
+/*
+ * Origin of Words - Selection Trigger Component Styles
+ * 选择触发按钮组件样式
+ */
+
+.oow-selection-trigger-button {
+  box-sizing: border-box; /* 让边框在width/height之内，确保总尺寸精确 */
+  cursor: pointer;
+  position: absolute;
+  width: var(--oow-trigger-size, 10px);
+  height: var(--oow-trigger-size, 10px);
+  border-radius: var(--radius-full, 50%);
+  border: 1px solid var(--oow-trigger-border, #ffffff);
+  background: var(--oow-trigger-bg, #5c9e31);
+  box-shadow: var(--oow-trigger-shadow, 0 2px 6px rgba(0, 0, 0, 0.15));
+  transition: transform var(--oow-animation-fast, 0.15s) cubic-bezier(0.25, 0.1, 0.25, 1);
+  z-index: var(--z-max, 2147483647);
+  display: none;
+
+  /* 位置偏移变量 */
+  --oow-trigger-offset-x: 2px;
+  --oow-trigger-offset-y: -12px;
+}
+
+.oow-selection-trigger-button:hover {
+  transform: scale(1.2);
+}
+
+.oow-selection-trigger-button.activated {
+  width: 12px;
+  height: 12px;
+  background: var(--oow-trigger-hover-bg, #4a7c28);
+  transform: scale(1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2), 0 0 0 1px var(--oow-trigger-active-border, #ea4c89);
+}
+
+/* 显示/隐藏状态控制 */
+.oow-selection-trigger-button.visible {
+  display: block;
+}
+
+.oow-selection-trigger-button.hidden {
+  display: none;
+}/* ModalView 组件样式 - 设计师友好的变量系统 */
+
+/* 主弹窗容器变量 */
+.oow-popover {
+  /* 整体布局样式 */
+  --oow-modal-bg: #ffffff;
+  --oow-modal-color: #333333;
+  --oow-modal-width: 360px;
+  --oow-modal-max-width: 90vw;
+  --oow-modal-max-height: 70vh;
+  --oow-modal-border-radius: 16px;
+  --oow-modal-border: 1px solid rgba(0, 0, 0, 0.1);
+  --oow-modal-z-index: 2147483647;
+
+  /* 定位和间距 */
+  --oow-modal-gap-y: 8px;
+  --oow-modal-margin: 4px;
+  --oow-modal-padding: 0;
+
+  /* 显示状态 */
+  --oow-modal-opacity-show: 1;
+  --oow-modal-opacity-hide: 0;
+  --oow-modal-transform-show: translateY(0) scale(1);
+  --oow-modal-transform-hide: translateY(-10px) scale(0.95);
+
+  /* 拖拽状态样式 */
+  --oow-modal-drag-opacity: 0.9;
+  --oow-modal-drag-cursor: move;
+
+  /* 位置控制变量 */
+  --oow-modal-drag-left: var(--oow-modal-left, auto);
+  --oow-modal-drag-top: var(--oow-modal-top, auto);
+}
+
+/* 内容体样式 */
+.content-body {
+  /* 布局样式 */
+  --oow-content-body-padding: 16px;
+  --oow-content-body-bg: transparent;
+  --oow-content-body-color: inherit;
+  --oow-content-body-gap: 12px;
+  --oow-content-body-display: flex;
+  --oow-content-body-flex-direction: column;
+
+  /* 滚动样式 */
+  --oow-content-body-overflow-y: auto;
+  --oow-content-body-overflow-x: hidden;
+  --oow-content-body-scrollbar-width: thin;
+  --oow-content-body-scrollbar-color: var(--oow-muted) transparent;
+}
+
+/* 伪选择元素样式 */
+.oow-fake-selection {
+  /* 背景和边框 */
+  --oow-fake-selection-bg: rgba(59, 130, 246, 0.2);
+  --oow-fake-selection-border: 2px solid rgba(59, 130, 246, 0.6);
+  --oow-fake-selection-border-radius: 4px;
+
+  /* 定位 */
+  --oow-fake-selection-position: absolute;
+  --oow-fake-selection-z-index: 999999;
+  --oow-fake-selection-pointer-events: none;
+
+  /* 尺寸控制 */
+  --oow-fake-selection-top: auto;
+  --oow-fake-selection-left: auto;
+  --oow-fake-selection-width: auto;
+  --oow-fake-selection-height: auto;
+  --oow-element-display: none;
+
+  /* 动画 */
+  --oow-fake-selection-animation: oow-fake-selection-pulse 2s infinite;
+}
+
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .oow-popover {
+    --oow-modal-width: 95vw;
+    --oow-modal-max-height: 80vh;
+    --oow-modal-border-radius: 12px;
+    --oow-modal-margin: 2px;
+  }
+
+  .content-body {
+    --oow-content-body-padding: 12px;
+    --oow-content-body-gap: 8px;
+  }
+
+}
+
+@media (max-width: 360px) {
+  .oow-popover {
+    --oow-modal-width: 98vw;
+    --oow-modal-border-radius: 8px;
+  }
+
+  .content-body {
+    --oow-content-body-padding: 8px;
+  }
+}
+
+/* 暗色主题适配 */
+@media (prefers-color-scheme: dark) {
+  .oow-popover {
+    --oow-modal-bg: #1f2937;
+    --oow-modal-color: #f3f4f6;
+    --oow-modal-border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+}
+
+/* 高对比度主题 */
+@media (prefers-contrast: high) {
+  .oow-popover {
+    --oow-modal-border: 2px solid #000000;
+  }
+
+  .oow-fake-selection {
+    --oow-fake-selection-border: 3px solid #000000;
+  }
+}
+
+/* 减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .oow-popover {
+  }
+
+  .oow-fake-selection {
+    --oow-fake-selection-animation: none;
+  }
+}
+
+/* 应用变量样式 */
+.oow-popover {
+  background: var(--oow-modal-bg);
+  color: var(--oow-modal-color);
+  width: var(--oow-modal-width);
+  max-width: var(--oow-modal-max-width);
+  max-height: var(--oow-modal-max-height);
+  border-radius: var(--oow-modal-border-radius);
+  border: var(--oow-modal-border);
+  z-index: var(--oow-modal-z-index);
+  padding: var(--oow-modal-padding);
+  position: fixed;
+}
+
+/* 定位状态 */
+.is-positioned {
+  top: var(--oow-modal-top, auto) !important;
+  left: var(--oow-modal-left, auto) !important;
+}
+
+.is-dragging-position {
+  top: var(--oow-modal-drag-left, var(--oow-modal-drag-left-fallback, auto)) !important;
+  left: var(--oow-modal-drag-top, var(--oow-modal-drag-top-fallback, auto)) !important;
+}
+
+.content-body {
+  padding: var(--oow-content-body-padding);
+  background: var(--oow-content-body-bg);
+  color: var(--oow-content-body-color);
+  gap: var(--oow-content-body-gap);
+  display: var(--oow-content-body-display);
+  flex-direction: var(--oow-content-body-flex-direction);
+  overflow-y: var(--oow-content-body-overflow-y);
+  overflow-x: var(--oow-content-body-overflow-x);
+  scrollbar-width: var(--oow-content-body-scrollbar-width);
+  scrollbar-color: var(--oow-content-body-scrollbar-color);
+}
+
+.oow-fake-selection {
+  background: var(--oow-fake-selection-bg);
+  border: var(--oow-fake-selection-border);
+  border-radius: var(--oow-fake-selection-border-radius);
+  position: var(--oow-fake-selection-position);
+  z-index: var(--oow-fake-selection-z-index);
+  pointer-events: var(--oow-fake-selection-pointer-events);
+  animation: var(--oow-fake-selection-animation);
+  top: var(--oow-fake-selection-top);
+  left: var(--oow-fake-selection-left);
+  width: var(--oow-fake-selection-width);
+  height: var(--oow-fake-selection-height);
+  display: var(--oow-element-display);
+}
+
+/* 伪选择元素显示状态 */
+.oow-fake-selection.is-visible {
+  display: block !important;
+}
+
+.oow-fake-selection.is-hidden {
+  display: none !important;
+}
+
+
+/* 显示控制类 */
+.display-block {
+  display: block !important;
+}
+

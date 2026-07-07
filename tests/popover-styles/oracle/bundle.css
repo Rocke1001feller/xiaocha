@@ -1,0 +1,449 @@
+:host {
+  all: initial;
+}
+
+.scanex-root {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  pointer-events: none;
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+  color: var(--scanex-text);
+}
+
+.scanex-trigger {
+  position: fixed;
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateY(6px) scale(0.92);
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+
+.scanex-trigger[data-visible='true'] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.scanex-trigger-button {
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--scanex-accent), var(--scanex-accent-strong));
+  color: var(--scanex-trigger-text);
+  box-shadow: 0 16px 28px rgba(10, 10, 10, 0.18);
+  cursor: pointer;
+  font: inherit;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.scanex-popover {
+  position: fixed;
+  width: min(420px, calc(100vw - 24px));
+  max-height: min(78vh, 720px);
+  pointer-events: auto;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at top right, var(--scanex-glow) 0, transparent 32%),
+    linear-gradient(180deg, var(--scanex-bg), var(--scanex-bg-elevated));
+  color: var(--scanex-text);
+  border: 1px solid var(--scanex-border);
+  box-shadow: 0 28px 80px rgba(12, 12, 18, 0.24);
+  overflow: hidden;
+  backdrop-filter: blur(18px);
+}
+
+.scanex-shell {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+.scanex-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: start;
+  cursor: grab;
+}
+
+.scanex-header[data-dragging='true'] {
+  cursor: grabbing;
+}
+
+.scanex-brand {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.scanex-brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 54px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: var(--scanex-accent-soft);
+  color: var(--scanex-accent-strong);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.scanex-title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.scanex-provider {
+  margin-top: 4px;
+  color: var(--scanex-muted);
+  font-size: 12px;
+}
+
+.scanex-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.scanex-action {
+  border: 0;
+  border-radius: 14px;
+  min-width: 42px;
+  height: 38px;
+  padding: 0 12px;
+  background: var(--scanex-surface-muted);
+  color: var(--scanex-text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.scanex-lexical {
+  border-radius: 20px;
+  border: 1px solid var(--scanex-border-soft);
+  background: var(--scanex-surface);
+  overflow: hidden;
+}
+
+.scanex-lexical-toggle {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.scanex-lexical-body {
+  display: grid;
+  gap: 12px;
+  padding: 0 16px 16px;
+}
+
+.scanex-lexical[data-collapsed='true'] .scanex-lexical-body {
+  display: none;
+}
+
+.scanex-status,
+.scanex-error {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.scanex-status {
+  color: var(--scanex-muted);
+}
+
+.scanex-error {
+  color: var(--scanex-danger);
+}
+
+.scanex-phonetic {
+  color: var(--scanex-accent-strong);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.scanex-card {
+  border-radius: 16px;
+  background: var(--scanex-surface-muted);
+  padding: 12px 14px;
+}
+
+.scanex-card-label {
+  color: var(--scanex-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.scanex-card-body {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.scanex-definitions {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+}
+
+.scanex-definition {
+  border-radius: 16px;
+  background: var(--scanex-surface-muted);
+  padding: 12px 14px;
+}
+
+.scanex-definition-head {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.scanex-definition-pos {
+  color: var(--scanex-accent-strong);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.scanex-definition-example {
+  margin-top: 10px;
+  display: grid;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--scanex-muted);
+}
+
+.scanex-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.scanex-tab {
+  border: 0;
+  border-radius: 16px;
+  height: 42px;
+  background: var(--scanex-surface-muted);
+  color: var(--scanex-muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.scanex-tab[data-active='true'] {
+  background: var(--scanex-accent-soft);
+  color: var(--scanex-accent-strong);
+}
+
+.scanex-panel {
+  border-radius: 20px;
+  border: 1px solid var(--scanex-border-soft);
+  background: var(--scanex-surface);
+  padding: 16px;
+  overflow: auto;
+}
+
+.scanex-panel[hidden] {
+  display: none;
+}
+
+.scanex-markdown {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.scanex-markdown :is(h1, h2, h3, h4) {
+  margin: 0.8em 0 0.35em;
+  font-size: 1em;
+}
+
+.scanex-markdown :is(p, ul, ol, blockquote) {
+  margin: 0.45em 0;
+}
+
+.scanex-markdown ul,
+.scanex-markdown ol {
+  padding-left: 1.1em;
+}
+
+.scanex-markdown blockquote {
+  border-left: 3px solid var(--scanex-accent);
+  padding-left: 0.8em;
+  color: var(--scanex-muted);
+}
+
+.scanex-markdown code {
+  padding: 0.15em 0.35em;
+  border-radius: 8px;
+  background: var(--scanex-surface-muted);
+  font-family: "SF Mono", "Geist Mono", monospace;
+  font-size: 0.92em;
+}
+
+.scanex-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--scanex-muted);
+  font-size: 12px;
+}
+
+.scanex-theme-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: var(--scanex-accent-soft);
+  color: var(--scanex-accent-strong);
+  font-weight: 700;
+}
+
+.scanex-popover[data-theme='basic'] {
+  --scanex-bg: #f3eadb;
+  --scanex-bg-elevated: #fffdf6;
+  --scanex-surface: rgba(255, 252, 245, 0.82);
+  --scanex-surface-muted: rgba(122, 92, 46, 0.08);
+  --scanex-text: #231a12;
+  --scanex-muted: #776451;
+  --scanex-accent: #d58539;
+  --scanex-accent-strong: #9b4c00;
+  --scanex-accent-soft: rgba(213, 133, 57, 0.16);
+  --scanex-border: rgba(126, 91, 44, 0.24);
+  --scanex-border-soft: rgba(126, 91, 44, 0.12);
+  --scanex-trigger-text: #fff8ef;
+  --scanex-danger: #b03a2e;
+  --scanex-glow: rgba(238, 182, 119, 0.32);
+}
+
+.scanex-popover[data-theme='pro'] {
+  --scanex-bg: #121619;
+  --scanex-bg-elevated: #1a2026;
+  --scanex-surface: rgba(25, 31, 38, 0.9);
+  --scanex-surface-muted: rgba(124, 146, 175, 0.1);
+  --scanex-text: #f2f6fa;
+  --scanex-muted: #9aabbc;
+  --scanex-accent: #76b6ff;
+  --scanex-accent-strong: #d8ebff;
+  --scanex-accent-soft: rgba(118, 182, 255, 0.18);
+  --scanex-border: rgba(142, 174, 205, 0.2);
+  --scanex-border-soft: rgba(142, 174, 205, 0.12);
+  --scanex-trigger-text: #061321;
+  --scanex-danger: #ff9387;
+  --scanex-glow: rgba(54, 95, 172, 0.28);
+}
+
+.scanex-popover[data-theme='creative'] {
+  --scanex-bg: #fff1db;
+  --scanex-bg-elevated: #ffe0df;
+  --scanex-surface: rgba(255, 250, 244, 0.88);
+  --scanex-surface-muted: rgba(176, 73, 94, 0.1);
+  --scanex-text: #351721;
+  --scanex-muted: #80545f;
+  --scanex-accent: #ff7b54;
+  --scanex-accent-strong: #8c2555;
+  --scanex-accent-soft: rgba(255, 123, 84, 0.17);
+  --scanex-border: rgba(173, 95, 112, 0.24);
+  --scanex-border-soft: rgba(173, 95, 112, 0.13);
+  --scanex-trigger-text: #fff4ef;
+  --scanex-danger: #c33a30;
+  --scanex-glow: rgba(255, 162, 124, 0.36);
+}
+
+.scanex-popover[data-theme='galaxy'] {
+  --scanex-bg: #0f1230;
+  --scanex-bg-elevated: #1d1453;
+  --scanex-surface: rgba(22, 24, 69, 0.9);
+  --scanex-surface-muted: rgba(165, 146, 255, 0.14);
+  --scanex-text: #f5f3ff;
+  --scanex-muted: #b7abf2;
+  --scanex-accent: #9b8bff;
+  --scanex-accent-strong: #f5ebff;
+  --scanex-accent-soft: rgba(155, 139, 255, 0.2);
+  --scanex-border: rgba(165, 146, 255, 0.24);
+  --scanex-border-soft: rgba(165, 146, 255, 0.12);
+  --scanex-trigger-text: #0f1230;
+  --scanex-danger: #ff97d6;
+  --scanex-glow: rgba(124, 110, 255, 0.42);
+}
+
+.scanex-popover[data-theme='neon'] {
+  --scanex-bg: #050705;
+  --scanex-bg-elevated: #0a100b;
+  --scanex-surface: rgba(8, 16, 9, 0.92);
+  --scanex-surface-muted: rgba(0, 255, 133, 0.1);
+  --scanex-text: #e8ffe8;
+  --scanex-muted: #89c997;
+  --scanex-accent: #00ff85;
+  --scanex-accent-strong: #d7ffe7;
+  --scanex-accent-soft: rgba(0, 255, 133, 0.18);
+  --scanex-border: rgba(0, 255, 133, 0.22);
+  --scanex-border-soft: rgba(0, 255, 133, 0.12);
+  --scanex-trigger-text: #021a0a;
+  --scanex-danger: #ff7c96;
+  --scanex-glow: rgba(0, 255, 133, 0.34);
+}
+
+.scanex-popover[data-theme='cyberpunk'] {
+  --scanex-bg: #15111f;
+  --scanex-bg-elevated: #251227;
+  --scanex-surface: rgba(35, 18, 39, 0.92);
+  --scanex-surface-muted: rgba(255, 90, 173, 0.1);
+  --scanex-text: #fff4f9;
+  --scanex-muted: #dca8bb;
+  --scanex-accent: #ff5aad;
+  --scanex-accent-strong: #ffd65f;
+  --scanex-accent-soft: rgba(255, 90, 173, 0.16);
+  --scanex-border: rgba(255, 90, 173, 0.24);
+  --scanex-border-soft: rgba(255, 90, 173, 0.14);
+  --scanex-trigger-text: #220610;
+  --scanex-danger: #ff9090;
+  --scanex-glow: rgba(255, 90, 173, 0.36);
+}
+
+.scanex-popover[data-theme='aurora'] {
+  --scanex-bg: #eff9f5;
+  --scanex-bg-elevated: #d8f2ff;
+  --scanex-surface: rgba(252, 255, 255, 0.88);
+  --scanex-surface-muted: rgba(65, 155, 176, 0.08);
+  --scanex-text: #12303b;
+  --scanex-muted: #52767d;
+  --scanex-accent: #3fc2b6;
+  --scanex-accent-strong: #12657a;
+  --scanex-accent-soft: rgba(63, 194, 182, 0.18);
+  --scanex-border: rgba(65, 155, 176, 0.22);
+  --scanex-border-soft: rgba(65, 155, 176, 0.1);
+  --scanex-trigger-text: #f4fffe;
+  --scanex-danger: #c0564f;
+  --scanex-glow: rgba(111, 214, 228, 0.36);
+}
+
+@media (max-width: 640px) {
+  .scanex-popover {
+    width: calc(100vw - 16px);
+    max-height: 72vh;
+  }
+
+  .scanex-shell {
+    padding: 12px;
+  }
+}

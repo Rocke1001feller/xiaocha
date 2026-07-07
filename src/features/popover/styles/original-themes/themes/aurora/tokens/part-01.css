@@ -1,0 +1,73 @@
+/*
+ * Origin of Words - Aurora Theme (Premium)
+ * 极光主题 - 付费梦幻极光主题
+ * 100% original style with ORIGINAL variable names
+ */
+
+/* Theme Variables - CRITICAL: Use original variable names */
+.oow-popover[data-theme="aurora"] {
+  --panel-bg: #1a1a2e;
+  --text-color: #f0f8ff;
+  --muted: #d0e0ff;
+  --ring: #a78bfa; /* violet-400 */
+  --accent-1: #4ade80; /* green-400 */
+  --accent-2: #60a5fa; /* blue-400 */
+  --accent-3: #f472b6; /* pink-400 */
+  --accent-4: #fbbf24; /* yellow-500 */
+  --accent-5: #c084fc; /* violet-400 */
+  backdrop-filter: blur(25px);
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460) !important;
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  box-shadow: 0 0 60px rgba(167, 139, 250, 0.4), inset 0 0 50px rgba(147, 197, 253, 0.15);
+
+  /* Unified Button Styles */
+  --oow-button-bg: rgba(167, 139, 250, 0.15);
+  --oow-button-hover-bg: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  --oow-button-color: var(--text-color);
+  --oow-button-hover-color: #1a1a2e;
+  --oow-button-radius: 8px;
+  --oow-button-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Enhanced Markdown Highlight Styles */
+  --oow-highlight-heading-color: var(--text-color);
+  --oow-highlight-heading-font-weight: 600;
+  --oow-highlight-heading-margin-top: 1.2em;
+  --oow-highlight-heading-margin-bottom: 0.6em;
+  --oow-highlight-h1-font-size: 1.6em;
+  --oow-highlight-h2-font-size: 1.35em;
+  --oow-highlight-h3-font-size: 1.2em;
+  --oow-highlight-h4-font-size: 1.1em;
+  --oow-highlight-h5-font-size: 1em;
+  --oow-highlight-h6-font-size: 0.9em;
+  --oow-highlight-strong-color: var(--accent-1);
+  --oow-highlight-strong-font-weight: 700;
+  --oow-highlight-em-color: var(--accent-2);
+  --oow-highlight-em-font-style: italic;
+  --oow-highlight-code-color: var(--accent-3);
+  --oow-highlight-code-bg: rgba(255,255,255,0.08);
+  --oow-highlight-code-border-color: var(--ring);
+  --oow-highlight-link-color: var(--accent-1);
+  --oow-highlight-link-decoration: underline;
+  --oow-highlight-link-decoration-thickness: 2px;
+  --oow-highlight-link-hover-color: var(--accent-4);
+  --oow-highlight-blockquote-margin: 1.2em 0;
+  --oow-highlight-blockquote-padding: 0.8em 1.2em;
+  --oow-highlight-blockquote-border-left: 5px solid var(--ring);
+  --oow-highlight-blockquote-color: var(--muted);
+  --oow-highlight-blockquote-bg: rgba(255,255,255,0.06);
+  --oow-highlight-hr-height: 2px;
+  --oow-highlight-hr-bg: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  --oow-highlight-hr-margin: 1.8em 0;
+  --oow-highlight-pre-padding: 1.2em;
+  --oow-highlight-pre-bg: rgba(0,0,0,0.1);
+  --oow-highlight-pre-border-radius: 8px;
+  --oow-highlight-pre-font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  --oow-highlight-pre-font-size: 0.95em;
+  --oow-highlight-table-margin: 1.8em 0;
+  --oow-highlight-table-border: 2px solid var(--ring);
+  --oow-highlight-table-cell-padding: 0.6em 0.9em;
+  --oow-highlight-table-header-bg: rgba(255,255,255,0.1);
+  --oow-highlight-table-header-color: var(--text-color);
+  --oow-highlight-table-header-font-weight: 700;
+}
+

@@ -1,0 +1,51 @@
+/* Cyberpunk主题的translation和contextual-analysis样式 */
+.oow-popover[data-theme="cyberpunk"] .translation[data-style="framed"] {
+  background: rgba(114, 9, 183, 0.15);
+  border: 1px solid rgba(247, 37, 133, 0.3);
+  border-radius: 6px;
+  padding: 10px 12px;
+  box-shadow: 0 2px 8px rgba(247, 37, 133, 0.2);
+}
+
+.oow-popover[data-theme="cyberpunk"] .contextual-analysis[data-style="framed"] {
+  background: rgba(114, 9, 183, 0.15);
+  border: 1px solid rgba(114, 9, 183, 0.3);
+  border-radius: 6px;
+  padding: 10px 12px;
+  box-shadow: 0 2px 8px rgba(114, 9, 183, 0.2);
+}
+
+.oow-popover[data-theme="cyberpunk"] .translation .text {
+  color: #f72585;
+  font-weight: 700;
+  text-shadow: 0 0 4px rgba(247, 37, 133, 0.3);
+}
+
+.oow-popover[data-theme="cyberpunk"] .contextual-analysis .text {
+  color: #d946ef;
+  font-weight: 400;
+  text-shadow: 0 0 4px rgba(217, 70, 239, 0.3);
+}
+
+/* Cyberpunk主题的Info Panel和Etymology Panel样式 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel {
+  /* 科技霓虹感：采用赛博朋克风格的发光文字和未来感字体，增强科技氛围 */
+  --oow-info-panel-heading-color: #f72585;
+  --oow-info-panel-heading-weight: 700;
+  --oow-info-panel-heading-margin-top: 1.3em;
+  --oow-info-panel-heading-margin-bottom: 0.7em;
+  --oow-info-panel-paragraph-color: #f72585;
+  --oow-info-panel-paragraph-margin-bottom: 0.9em;
+  --oow-info-panel-line-height: 1.5;
+  --oow-info-panel-letter-spacing: 0.02em;
+  --oow-info-panel-font-family: 'Orbitron', 'Courier New', 'Segoe UI', monospace, sans-serif;
+  --oow-info-panel-list-color: #f72585;
+  --oow-info-panel-blockquote-color: #b5179e;
+  --oow-info-panel-blockquote-border: #7209b7;
+  --oow-info-panel-code-color: #4cc9f0;
+  --oow-info-panel-code-bg: rgba(0, 0, 0, 0.15);
+  --oow-info-panel-link-color: #ff006e;
+  --oow-info-panel-link-hover: #4361ee;
+}
+

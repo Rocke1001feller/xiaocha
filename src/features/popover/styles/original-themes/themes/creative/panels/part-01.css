@@ -1,0 +1,57 @@
+/* Creative主题的translation和contextual-analysis样式 */
+.oow-popover[data-theme="creative"] .translation[data-style="gradient"] {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  background-image: linear-gradient(135deg, #ed8936, #4299e1, #9f7aea);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.oow-popover[data-theme="creative"] .contextual-analysis[data-style="gradient"] {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  background-image: linear-gradient(135deg, #4299e1, #9f7aea);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.oow-popover[data-theme="creative"] .translation .text {
+  color: #2d3748;
+  font-weight: 700;
+}
+
+.oow-popover[data-theme="creative"] .contextual-analysis .text {
+  color: #4a5568;
+  font-weight: 400;
+}
+
+/* Creative主题的Info Panel和Etymology Panel样式 */
+.oow-popover[data-theme="creative"] .info-panel-content,
+.oow-popover[data-theme="creative"] .etymology-panel {
+  /* 艺术创意风格：使用手写体风格的标题字体，艺术化的排版 */
+  --oow-info-panel-heading-color: #2d3748;
+  --oow-info-panel-heading-weight: 700;
+  --oow-info-panel-heading-margin-top: 1.4em;
+  --oow-info-panel-heading-margin-bottom: 0.8em;
+  --oow-info-panel-paragraph-color: #2d3748;
+  --oow-info-panel-paragraph-margin-bottom: 1em;
+  --oow-info-panel-line-height: 1.65;
+  --oow-info-panel-letter-spacing: 0.02em;
+  --oow-info-panel-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --oow-info-panel-list-color: #2d3748;
+  --oow-info-panel-blockquote-color: #718096;
+  --oow-info-panel-blockquote-border: #ed8936;
+  --oow-info-panel-code-color: #e53e3e;
+  --oow-info-panel-code-bg: rgba(255, 255, 255, 0.8);
+  --oow-info-panel-link-color: #ed8936;
+  --oow-info-panel-link-hover: #4299e1;
+}
+

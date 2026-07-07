@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "shared": [
+    "part-01.css",
+    "part-02.css",
+    "part-03.css",
+    "part-04.css",
+    "part-05.css",
+    "part-06.css",
+    "part-07.css",
+    "part-08.css",
+    "part-09.css"
+  ],
+  "themes": [
+    {
+      "id": "basic",
+      "sequence": [
+        {
+          "category": "tokens",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "trigger",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "panels",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "effects",
+          "parts": ["part-01.css"]
+        }
+      ]
+    },
+    {
+      "id": "pro",
+      "sequence": [
+        {
+          "category": "tokens",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "trigger",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "panels",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "effects",
+          "parts": ["part-01.css"]
+        }
+      ]
+    },
+    {
+      "id": "creative",
+      "sequence": [
+        {
+          "category": "tokens",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "trigger",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "panels",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "effects",
+          "parts": ["part-01.css"]
+        }
+      ]
+    },
+    {
+      "id": "galaxy",
+      "sequence": [
+        {
+          "category": "tokens",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "effects",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "trigger",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "panels",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "effects",
+          "parts": ["part-02.css", "part-03.css"]
+        }
+      ]
+    },
+    {
+      "id": "neon",
+      "sequence": [
+        {
+          "category": "tokens",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "effects",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "panels",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "effects",
+          "parts": ["part-02.css"]
+        },
+        {
+          "category": "trigger",
+          "parts": ["part-01.css"]
+        }
+      ]
+    },
+    {
+      "id": "cyberpunk",
+      "sequence": [
+        {
+          "category": "tokens",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "effects",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "trigger",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "panels",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "effects",
+          "parts": ["part-02.css", "part-03.css", "part-04.css"]
+        }
+      ]
+    },
+    {
+      "id": "aurora",
+      "sequence": [
+        {
+          "category": "tokens",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "effects",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "panels",
+          "parts": ["part-01.css"]
+        },
+        {
+          "category": "effects",
+          "parts": ["part-02.css"]
+        },
+        {
+          "category": "trigger",
+          "parts": ["part-01.css"]
+        }
+      ]
+    }
+  ]
+}

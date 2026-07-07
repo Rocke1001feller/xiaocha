@@ -1,0 +1,400 @@
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.section-header {
+  padding: var(--spacing-2) var(--spacing-4) var(--spacing-2) var(--spacing-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* This will push left and right content to the edges */
+  gap: var(--spacing-2);
+}
+
+.part2-section .section-header {
+  padding-top: 0;
+  padding-bottom: var(--spacing-1);
+}
+
+.header-left-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.header-right-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-left: auto; /* This pushes the button to the far right */
+  padding-right: 12px; /* Reserve space for scrollbar to prevent content from touching it */
+}
+
+.header-right-content:empty {
+  display: none;
+}
+
+/* === Section Toggle Button - Original === */
+.section-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-1);
+  transition: transform 0.2s ease-in-out, background-color 0.2s, color 0.2s;
+}
+
+.section-toggle-btn:hover {
+  background-color: var(--accent-1);
+  color: var(--pro-bg);
+  transform: scale(1.1);
+}
+
+.section-toggle-btn svg {
+  transition: transform 0.2s ease-in-out;
+}
+
+.section.is-collapsed .section-toggle-btn svg,
+.collapsible-section.is-collapsed .section-toggle-btn svg {
+  transform: rotate(-90deg);
+}
+
+/* === Attention Pulse Animation - Original === */
+.section-toggle-btn.attention-pulse {
+  position: relative;
+  z-index: 0;
+}
+
+.section-toggle-btn.attention-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  border: 2px solid var(--accent-1);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-1) 60%, transparent);
+  animation: oow-pulse-ring 1s ease-out infinite;
+}
+
+@keyframes oow-pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-1) 60%, transparent);
+  }
+  70% {
+    transform: scale(1.25);
+    opacity: 0;
+    box-shadow: 0 0 0 10px color-mix(in srgb, var(--accent-1) 0%, transparent);
+  }
+  100% {
+    transform: scale(1.25);
+    opacity: 0;
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-1) 0%, transparent);
+  }
+}
+
+/* === Section Title & Controls - Original === */
+.section-title {
+  font-weight: 700;
+  font-size: 1.2em;
+  color: var(--text-color);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+}
+
+.section-phonetic {
+  color: #555;
+  font-size: 1.2em;
+}
+
+.speaker-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+}
+
+/* === Section Content Collapse - Original === */
+.section-content {
+  padding: var(--spacing-3) var(--spacing-4);
+  transition: opacity var(--oow-animation-base, 0.25s) ease-out;
+  overflow: visible; /* FIX: Allow content to overflow so parent can scroll it */
+  opacity: 1;
+  /* Ensure content doesn't touch scrollbar */
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.section.is-collapsed .section-content,
+.collapsible-section.is-collapsed .section-content {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
+  pointer-events: none; /* Prevent transparent content from blocking clicks to header buttons */
+}
+
+/* === Modal Footer - Original === */
+.modal-footer {
+  flex: none;
+  padding: 8px 12px;
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+}
+
+.footer-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.footer-btn {
+  padding: 4px 8px;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+
+/* === PART-1 Content - Original === */
+.part1-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.defs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.def-item {
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* POS and Meaning container - horizontal layout */
+.pos-meaning {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.def-item .pos {
+  font-weight: 600;
+  color: #005a9e;
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+.def-item .meaning {
+  color: #333;
+}
+
+.def-item .example {
+  color: #555;
+  margin-top: 0;
+  padding-left: 12px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+/* === Highlight Style - Original === */
+.highlight {
+  background-color: var(--accent-2);
+  color: var(--panel-bg);
+  border-radius: 3px;
+  padding: 0px 3px;
+}
+
+
+/* === Part1 Context with Scrolling - Original === */
+.part1-context {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  padding: 14px 14px 14px 14px; /* Remove right padding to make text touch border */
+  border-radius: 10px;
+  border: 1px solid var(--ring);
+  min-height: 32px;
+  margin-bottom: 10px;
+  margin-right: 8px; /* Additional margin to ensure no content touches scrollbar */
+  max-height: 320px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-1) transparent;
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+.part1-content {
+  word-break: break-word;
+}
+
+.part1-context::-webkit-scrollbar {
+  width: 6px;
+}
+
+.part1-context::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.part1-context::-webkit-scrollbar-thumb {
+  background-color: var(--accent-1);
+  border-radius: 3px;
+}
+
+.part1-context:has(.context-loader.visible),
+.part1-context:has(.translation .text:not(:empty)),
+.part1-context:has(.contextual-analysis .text:not(:empty)) {
+  min-height: 32px;
+}
+
+.part1-context .text {
+  white-space: pre-wrap;
+}
+
+.translation {
+  margin-bottom: 8px;
+}
+
+.text-translation {
+  display: inline-block; /* Fix multi-line display issue */
+  font-weight: 800;
+  font-size: 1.2em;
+  letter-spacing: 0.2px;
+  color: var(--text-color);
+  word-break: break-word;
+  white-space: normal;
+}
+
+.text-contextual_analysis {
+  display: inline-block; /* Fix multi-line display issue */
+  color: var(--muted);
+  word-break: break-word;
+  white-space: normal;
+  overflow: visible;
+}
+
+
+/* === Equalizer Loader - Original === */
+.part1-content .part1-context {
+  position: relative;
+}
+
+.part1-content .context-loader {
+  display: none;
+  padding: 8px 0 6px 0;
+}
+
+.part1-content .context-loader.visible {
+  display: block;
+}
+
+.eq {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 6px;
+  justify-content: center;
+  align-items: end;
+  height: 26px;
+}
+
+.eq .bar {
+  width: 6px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, var(--accent-1), var(--accent-2));
+  box-shadow: 0 2px 10px rgba(176,114,255,0.5);
+  animation: oow-eq 0.9s ease-in-out infinite;
+}
+
+.eq .b1 { animation-delay: 0s; }
+.eq .b2 { animation-delay: 0.1s; }
+.eq .b3 { animation-delay: 0.2s; }
+.eq .b4 { animation-delay: 0.3s; }
+.eq .b5 { animation-delay: 0.4s; }
+
+@keyframes oow-eq {
+  0%, 100% {
+    height: 6px;
+    filter: saturate(120%);
+  }
+  40% {
+    height: 22px;
+    filter: saturate(160%);
+  }
+  60% {
+    height: 12px;
+  }
+}
+
+/* === Part2 Section Overflow Fix - Original === */
+.part2-section .section-content {
+  overflow: visible !important;
+  max-height: none !important;
+}
+
+.info-panel-content {
+  overflow: visible !important;
+  word-break: break-word !important;
+}
+/*
+ * Origin of Words - Selection Trigger Component Styles
+ * 选择触发按钮组件样式
+ */
+
+.oow-selection-trigger-button {
+  box-sizing: border-box; /* 让边框在width/height之内，确保总尺寸精确 */
+  cursor: pointer;
+  position: absolute;
+  width: var(--oow-trigger-size, 10px);
+  height: var(--oow-trigger-size, 10px);
+  border-radius: var(--radius-full, 50%);
+  border: 1px solid var(--oow-trigger-border, #ffffff);
+  background: var(--oow-trigger-bg, #5c9e31);
+  box-shadow: var(--oow-trigger-shadow, 0 2px 6px rgba(0, 0, 0, 0.15));
+  transition: transform var(--oow-animation-fast, 0.15s) cubic-bezier(0.25, 0.1, 0.25, 1);
+  z-index: var(--z-max, 2147483647);
+  display: none;
+
+  /* 位置偏移变量 */
+  --oow-trigger-offset-x: 2px;
+  --oow-trigger-offset-y: -12px;
+}
+
+.oow-selection-trigger-button:hover {
+  transform: scale(1.2);
+}
+
+.oow-selection-trigger-button.activated {
+  width: 12px;
+  height: 12px;
+  background: var(--oow-trigger-hover-bg, #4a7c28);
+  transform: scale(1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2), 0 0 0 1px var(--oow-trigger-active-border, #ea4c89);
+}
+
+/* 显示/隐藏状态控制 */
+.oow-selection-trigger-button.visible {
+  display: block;
+}
+
+.oow-selection-trigger-button.hidden {
+  display: none;
+}/* ModalView 组件样式 - 设计师友好的变量系统 */

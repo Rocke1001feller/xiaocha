@@ -1,0 +1,500 @@
+  line-height: var(--oow-base-markdown-panel-list-item-line-height);
+}
+
+/* 代码样式 */
+.base-markdown-panel code {
+  background-color: var(--oow-base-markdown-panel-code-bg);
+  border-radius: var(--oow-base-markdown-panel-code-border-radius);
+  padding: var(--oow-base-markdown-panel-code-padding);
+  font-family: var(--oow-base-markdown-panel-code-font-family);
+  color: var(--oow-base-markdown-panel-code-color);
+  font-size: var(--oow-base-markdown-panel-code-font-size);
+  border: var(--oow-base-markdown-panel-code-border);
+}
+
+.base-markdown-panel pre {
+  background-color: var(--oow-base-markdown-panel-pre-bg);
+  border-radius: var(--oow-base-markdown-panel-pre-border-radius);
+  padding: var(--oow-base-markdown-panel-pre-padding);
+  white-space: var(--oow-base-markdown-panel-pre-white-space);
+  word-break: var(--oow-base-markdown-panel-pre-word-break);
+  font-family: var(--oow-base-markdown-panel-pre-font-family);
+  font-size: var(--oow-base-markdown-panel-pre-font-size);
+  line-height: var(--oow-base-markdown-panel-pre-line-height);
+}
+
+/* 引用样式 */
+.base-markdown-panel blockquote {
+  border-left: var(--oow-base-markdown-panel-blockquote-border-left);
+  padding-left: var(--oow-base-markdown-panel-blockquote-padding-left);
+  margin-left: var(--oow-base-markdown-panel-blockquote-margin-left);
+  margin-right: var(--oow-base-markdown-panel-blockquote-margin-right);
+  margin-top: var(--oow-base-markdown-panel-blockquote-margin-top);
+  margin-bottom: var(--oow-base-markdown-panel-blockquote-margin-bottom);
+  color: var(--oow-base-markdown-panel-blockquote-color);
+  font-style: var(--oow-base-markdown-panel-blockquote-font-style);
+  background: var(--oow-base-markdown-panel-blockquote-bg);
+}
+
+/* 错误消息样式 */
+.base-markdown-panel .error-message {
+  color: var(--oow-base-markdown-panel-error-color);
+  font-weight: var(--oow-base-markdown-panel-error-weight);
+  font-size: var(--oow-base-markdown-panel-error-font-size);
+  margin: var(--oow-base-markdown-panel-error-margin);
+  padding: var(--oow-base-markdown-panel-error-padding);
+  background: var(--oow-base-markdown-panel-error-bg);
+  border-radius: var(--oow-base-markdown-panel-error-border-radius);
+  border: var(--oow-base-markdown-panel-error-border);
+}
+
+/* 流式错误指示器样式 */
+.base-markdown-panel .stream-error-indicator {
+  color: var(--oow-base-markdown-panel-stream-error-color);
+  padding: var(--oow-base-markdown-panel-stream-error-padding);
+  margin: var(--oow-base-markdown-panel-stream-error-margin);
+  border-left: var(--oow-base-markdown-panel-stream-error-border-left);
+  background: var(--oow-base-markdown-panel-stream-error-background);
+  font-size: var(--oow-base-markdown-panel-stream-error-font-size);
+  font-weight: var(--oow-base-markdown-panel-stream-error-font-weight);
+}
+
+/* 内容结束标记样式 */
+.base-markdown-panel .content-end-marker {
+  height: var(--oow-base-markdown-panel-end-marker-height);
+  background: var(--oow-base-markdown-panel-end-marker-bg);
+  margin: var(--oow-base-markdown-panel-end-marker-margin);
+  opacity: var(--oow-base-markdown-panel-end-marker-opacity);
+  width: var(--oow-base-markdown-panel-end-marker-width);
+  display: var(--oow-base-markdown-panel-end-display);
+}
+
+/* 加载状态样式 */
+.base-markdown-panel.loading {
+  opacity: var(--oow-base-markdown-panel-loading-opacity);
+  filter: var(--oow-base-markdown-panel-loading-filter);
+  pointer-events: var(--oow-base-markdown-panel-loading-pointer-events);
+  transition: var(--oow-base-markdown-panel-loading-transition);
+}
+
+/* 空状态样式 */
+.base-markdown-panel.empty {
+  display: var(--oow-base-markdown-panel-empty-display);
+  align-items: var(--oow-base-markdown-panel-empty-align-items);
+  justify-content: var(--oow-base-markdown-panel-empty-justify-content);
+  min-height: var(--oow-base-markdown-panel-empty-min-height);
+}
+
+.base-markdown-panel.empty::before {
+  content: var(--oow-base-markdown-panel-empty-text);
+  color: var(--oow-base-markdown-panel-empty-color);
+  font-style: var(--oow-base-markdown-panel-empty-font-style);
+  text-align: var(--oow-base-markdown-panel-empty-text-align);
+  padding: var(--oow-base-markdown-panel-empty-padding);
+}
+
+/* 链接样式 */
+.base-markdown-panel a {
+  color: var(--oow-base-markdown-panel-link-color);
+  text-decoration: var(--oow-base-markdown-panel-link-decoration);
+  transition: var(--oow-base-markdown-panel-link-transition);
+}
+
+.base-markdown-panel a:hover {
+  color: var(--oow-base-markdown-panel-link-hover-color);
+  text-decoration: var(--oow-base-markdown-panel-link-hover-decoration);
+}
+
+.base-markdown-panel a:visited {
+  color: var(--oow-base-markdown-panel-link-visited-color);
+}
+
+/* 强调文本样式 */
+.base-markdown-panel strong {
+  font-weight: var(--oow-base-markdown-panel-strong-weight);
+  color: var(--oow-base-markdown-panel-strong-color);
+}
+
+.base-markdown-panel em {
+  font-style: var(--oow-base-markdown-panel-em-style);
+  color: var(--oow-base-markdown-panel-em-color);
+}
+
+.base-markdown-panel mark {
+  background: var(--oow-base-markdown-panel-mark-bg);
+  color: var(--oow-base-markdown-panel-mark-color);
+  padding: var(--oow-base-markdown-panel-mark-padding);
+  border-radius: var(--oow-base-markdown-panel-mark-border-radius);
+}
+
+/* 分隔线样式 */
+.base-markdown-panel hr {
+  height: var(--oow-base-markdown-panel-hr-height);
+  background: var(--oow-base-markdown-panel-hr-bg);
+  margin: var(--oow-base-markdown-panel-hr-margin);
+  opacity: var(--oow-base-markdown-panel-hr-opacity);
+  border: var(--oow-base-markdown-panel-hr-border);
+}
+
+/* 表格样式 */
+.base-markdown-panel table {
+  border-collapse: var(--oow-base-markdown-panel-table-border-collapse);
+  width: var(--oow-base-markdown-panel-table-width);
+  margin: var(--oow-base-markdown-panel-table-margin);
+  border: var(--oow-base-markdown-panel-table-border);
+}
+
+.base-markdown-panel th {
+  background: var(--oow-base-markdown-panel-th-bg);
+  padding: var(--oow-base-markdown-panel-th-padding);
+  text-align: var(--oow-base-markdown-panel-th-text-align);
+  font-weight: var(--oow-base-markdown-panel-th-font-weight);
+}
+
+.base-markdown-panel td {
+  padding: var(--oow-base-markdown-panel-td-padding);
+  border: var(--oow-base-markdown-panel-td-border);
+}
+
+.base-markdown-panel tr:hover {
+  background: var(--oow-base-markdown-panel-tr-hover-bg);
+}
+
+/* 图片样式 */
+.base-markdown-panel img {
+  max-width: var(--oow-base-markdown-panel-img-max-width);
+  height: var(--oow-base-markdown-panel-img-height);
+  border-radius: var(--oow-base-markdown-panel-img-border-radius);
+  margin: var(--oow-base-markdown-panel-img-margin);
+  display: var(--oow-base-markdown-panel-img-display);
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .base-markdown-panel {
+    padding: var(--oow-base-markdown-panel-mobile-padding);
+    font-size: var(--oow-base-markdown-panel-mobile-font-size);
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .base-markdown-panel {
+    padding: var(--oow-base-markdown-panel-tablet-padding);
+    font-size: var(--oow-base-markdown-panel-tablet-font-size);
+  }
+}
+
+@media (min-width: 769px) {
+  .base-markdown-panel {
+    padding: var(--oow-base-markdown-panel-desktop-padding);
+    font-size: var(--oow-base-markdown-panel-desktop-font-size);
+  }
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+  .base-markdown-panel code {
+    background-color: var(--oow-base-markdown-panel-dark-code-bg, rgba(255,255,255,0.1));
+  }
+
+  .base-markdown-panel pre {
+    background-color: var(--oow-base-markdown-panel-dark-pre-bg, rgba(255,255,255,0.1));
+  }
+
+  .base-markdown-panel blockquote {
+    color: var(--oow-base-markdown-panel-dark-blockquote-color, #ccc);
+  }
+
+  .base-markdown-panel hr {
+    background: var(--oow-base-markdown-panel-dark-hr-bg, rgba(255,255,255,0.2));
+  }
+
+  .base-markdown-panel th {
+    background: var(--oow-base-markdown-panel-dark-th-bg, rgba(255,255,255,0.1));
+  }
+
+  .base-markdown-panel tr:hover {
+    background: var(--oow-base-markdown-panel-dark-tr-hover-bg, rgba(255,255,255,0.05));
+  }
+}
+
+/* 可访问性增强 */
+.base-markdown-panel:focus {
+  outline: var(--oow-base-markdown-panel-focus-outline);
+  outline-offset: var(--oow-base-markdown-panel-focus-outline-offset);
+}
+
+@media (prefers-contrast: high) {
+  .base-markdown-panel {
+    color: var(--oow-base-markdown-panel-high-contrast-text);
+    background: var(--oow-base-markdown-panel-high-contrast-bg);
+  }
+}
+
+.base-markdown-panel .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  display: var(--oow-base-markdown-panel-screen-reader-only);
+}
+
+/* 跳过链接样式 */
+.base-markdown-panel .skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--oow-base-markdown-panel-skip-link-bg);
+  color: var(--oow-base-markdown-panel-skip-link-color);
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.base-markdown-panel .skip-link:focus {
+  top: 6px;
+}
+
+/* 打印样式 */
+@media print {
+  .base-markdown-panel {
+    color: var(--oow-base-markdown-panel-print-color);
+    background: var(--oow-base-markdown-panel-print-bg);
+    font-size: var(--oow-base-markdown-panel-print-font-size);
+    line-height: var(--oow-base-markdown-panel-print-line-height);
+  }
+
+  .base-markdown-panel .content-end-marker {
+    display: var(--oow-base-markdown-panel-print-hide-end-marker, none);
+  }
+
+  .base-markdown-panel .stream-error-indicator {
+    display: var(--oow-base-markdown-panel-print-hide-stream-error, none);
+  }
+}
+
+/* 微交互增强 */
+.base-markdown-panel:hover {
+  transform: var(--oow-base-markdown-panel-hover-transform);
+  box-shadow: var(--oow-base-markdown-panel-hover-shadow);
+  transition: var(--oow-base-markdown-panel-transition-smooth);
+}
+
+/* 内容分组样式 */
+.base-markdown-panel .content-group {
+  margin: var(--oow-base-markdown-panel-group-margin);
+  padding: var(--oow-base-markdown-panel-group-padding);
+  border: var(--oow-base-markdown-panel-group-border);
+  border-radius: var(--oow-base-markdown-panel-group-border-radius);
+  background: var(--oow-base-markdown-panel-group-bg);
+}
+
+/* 无障碍访问属性 */
+.base-markdown-panel[role="region"] {
+  role: var(--oow-base-markdown-panel-role);
+}
+
+.base-markdown-panel[aria-label] {
+  aria-label: var(--oow-base-markdown-panel-aria-label);
+}
+
+.base-markdown-panel[aria-live] {
+  aria-live: var(--oow-base-markdown-panel-aria-live);
+}
+
+.base-markdown-panel[aria-busy="true"] {
+  aria-busy: var(--oow-base-markdown-panel-aria-busy);
+}
+
+/* 代码块高亮样式 */
+.base-markdown-panel pre code {
+  background: var(--oow-base-markdown-panel-code-block-bg);
+  color: var(--oow-base-markdown-panel-code-block-color);
+  padding: var(--oow-base-markdown-panel-code-block-padding);
+  border-radius: var(--oow-base-markdown-panel-code-block-border-radius);
+  font-family: var(--oow-base-markdown-panel-code-block-font-family);
+  font-size: var(--oow-base-markdown-panel-code-block-font-size);
+  line-height: var(--oow-base-markdown-panel-code-block-line-height);
+  overflow: var(--oow-base-markdown-panel-code-block-overflow);
+  display: block;
+}
+
+/* 行内代码样式 */
+.base-markdown-panel :not(pre) > code {
+  background: var(--oow-base-markdown-panel-code-inline-bg);
+  color: var(--oow-base-markdown-panel-code-inline-color);
+  padding: var(--oow-base-markdown-panel-code-inline-padding);
+  border-radius: var(--oow-base-markdown-panel-code-inline-border-radius);
+  font-size: var(--oow-base-markdown-panel-code-inline-font-size);
+}
+
+/* 语法高亮样式 */
+.base-markdown-panel .token.keyword {
+  color: var(--oow-base-markdown-panel-syntax-keyword);
+}
+
+.base-markdown-panel .token.string {
+  color: var(--oow-base-markdown-panel-syntax-string);
+}
+
+.base-markdown-panel .token.number {
+  color: var(--oow-base-markdown-panel-syntax-number);
+}
+
+.base-markdown-panel .token.comment {
+  color: var(--oow-base-markdown-panel-syntax-comment);
+}
+
+.base-markdown-panel .token.function {
+  color: var(--oow-base-markdown-panel-syntax-function);
+}
+
+.base-markdown-panel .token.variable {
+  color: var(--oow-base-markdown-panel-syntax-variable);
+}
+
+.base-markdown-panel .token.class-name {
+  color: var(--oow-base-markdown-panel-syntax-class);
+}
+
+/* 继承组件的样式支持 */
+.information-panel {
+  /* 继承所有基础样式 */
+  /* 可以通过 CSS 变量覆盖特定样式 */
+}
+
+/* 为继承组件提供变量覆盖接口 */
+.information-panel {
+  --oow-base-markdown-panel-aria-label: 'Information content';
+  --oow-base-markdown-panel-empty-text: 'No information available';
+}/*
+ * Etymology Panel Component
+ * 词源面板组件 - 显示词汇词源和历史发展信息
+ */
+
+/* 组件专用变量 - 设计师主题创作接口 */
+.etymology-panel {
+  /* 整体布局 */
+  --oow-etymology-panel-bg: transparent;
+  --oow-etymology-panel-padding: 0;
+  --oow-etymology-panel-margin: 0;
+  --oow-etymology-panel-min-height: 50px;
+  --oow-etymology-panel-display: block;
+  --oow-etymology-panel-font-family: inherit;
+  --oow-etymology-panel-line-height: 1.6;
+  --oow-etymology-panel-color: inherit;
+  --oow-etymology-panel-transition: var(--oow-animation-base, 0.25s);
+
+  /* 内容区域变量 */
+  --oow-etymology-panel-content-padding: 0;
+  --oow-etymology-panel-content-bg: transparent;
+  --oow-etymology-panel-content-border: none;
+  --oow-etymology-panel-content-border-radius: 0;
+  --oow-etymology-panel-content-max-width: 100%;
+  --oow-etymology-panel-content-box-sizing: border-box;
+
+  /* 标题变量 */
+  --oow-etymology-panel-heading-weight: 700;
+  --oow-etymology-panel-heading-color: var(--text-color);
+  --oow-etymology-panel-heading-margin-top: 1em;
+  --oow-etymology-panel-heading-margin-bottom: 0.5em;
+  --oow-etymology-panel-h1-size: 1.5em;
+  --oow-etymology-panel-h2-size: 1.3em;
+  --oow-etymology-panel-h3-size: 1.1em;
+
+  /* 段落变量 */
+  --oow-etymology-panel-paragraph-margin-bottom: 0.8em;
+  --oow-etymology-panel-paragraph-line-height: 1.6;
+  --oow-etymology-panel-paragraph-color: inherit;
+
+  /* 列表变量 */
+  --oow-etymology-panel-list-padding-left: 0;
+  --oow-etymology-panel-list-margin-bottom: 1em;
+  --oow-etymology-panel-list-item-margin-bottom: 0.4em;
+  --oow-etymology-panel-list-item-color: inherit;
+
+  /* 代码变量 */
+  --oow-etymology-panel-code-bg: rgba(0,0,0,0.1);
+  --oow-etymology-panel-code-border-radius: 4px;
+  --oow-etymology-panel-code-padding: 2px 4px;
+  --oow-etymology-panel-code-font-family: monospace;
+  --oow-etymology-panel-code-color: inherit;
+  --oow-etymology-panel-code-font-size: 0.9em;
+
+  /* 预格式化文本变量 */
+  --oow-etymology-panel-pre-bg: rgba(0,0,0,0.1);
+  --oow-etymology-panel-pre-border-radius: 6px;
+  --oow-etymology-panel-pre-padding: 12px;
+  --oow-etymology-panel-pre-white-space: pre-wrap;
+  --oow-etymology-panel-pre-word-break: break-all;
+
+  /* 引用块变量 */
+  --oow-etymology-panel-blockquote-border-left: 3px solid var(--accent-1);
+  --oow-etymology-panel-blockquote-padding-left: 12px;
+  --oow-etymology-panel-blockquote-margin-left: 0;
+  --oow-etymology-panel-blockquote-color: var(--muted);
+  --oow-etymology-panel-blockquote-font-style: normal;
+
+  /* 错误信息变量 */
+  --oow-etymology-panel-error-color: #ff6b6b;
+  --oow-etymology-panel-error-weight: bold;
+  --oow-etymology-panel-error-font-size: inherit;
+  --oow-etymology-panel-error-margin: 10px 0;
+
+  /* 流式错误指示器变量 */
+  --oow-etymology-panel-stream-error-color: #f44336;
+  --oow-etymology-panel-stream-error-padding: 5px;
+  --oow-etymology-panel-stream-error-margin: 5px 0;
+  --oow-etymology-panel-stream-error-border-left: 3px solid #f44336;
+  --oow-etymology-panel-stream-error-background: transparent;
+  --oow-etymology-panel-stream-error-font-size: 0.9em;
+
+  /* 内容结束标记变量 */
+  --oow-etymology-panel-end-marker-height: 1px;
+  --oow-etymology-panel-end-marker-bg: linear-gradient(to right, transparent, #ccc, transparent);
+  --oow-etymology-panel-end-marker-margin: 10px 0;
+  --oow-etymology-panel-end-marker-opacity: 0.3;
+  --oow-etymology-panel-end-marker-width: 100%;
+
+  /* 加载状态变量 */
+  --oow-etymology-panel-loading-opacity: 0.7;
+  --oow-etymology-panel-loading-filter: blur(1px);
+  --oow-etymology-panel-loading-pointer-events: none;
+
+  /* 空状态变量 */
+  --oow-etymology-panel-empty-text: 'No etymology information available';
+  --oow-etymology-panel-empty-color: var(--muted);
+  --oow-etymology-panel-empty-font-style: italic;
+  --oow-etymology-panel-empty-text-align: center;
+  --oow-etymology-panel-empty-padding: 0;
+
+  /* 链接变量 */
+  --oow-etymology-panel-link-color: var(--accent-1);
+  --oow-etymology-panel-link-decoration: underline;
+  --oow-etymology-panel-link-hover-color: var(--accent-2);
+  --oow-etymology-panel-link-hover-decoration: none;
+  --oow-etymology-panel-link-transition: color 0.2s ease;
+
+  /* 强调文本变量 */
+  --oow-etymology-panel-strong-weight: bold;
+  --oow-etymology-panel-strong-color: inherit;
+  --oow-etymology-panel-em-style: italic;
+  --oow-etymology-panel-em-color: inherit;
+
+  /* 水平线变量 */
+  --oow-etymology-panel-hr-height: 1px;
+  --oow-etymology-panel-hr-bg: var(--ring);
+  --oow-etymology-panel-hr-margin: 1em 0;
+  --oow-etymology-panel-hr-opacity: 0.5;
+
+  /* 高亮变量 */
+  --oow-etymology-panel-highlight-bg: var(--accent-2);
+  --oow-etymology-panel-highlight-color: var(--panel-bg);
+  --oow-etymology-panel-highlight-border-radius: 3px;
+  --oow-etymology-panel-highlight-padding: 0px 3px;

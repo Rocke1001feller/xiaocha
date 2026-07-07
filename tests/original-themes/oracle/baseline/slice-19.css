@@ -1,0 +1,400 @@
+.oow-popover[data-theme="neon"] .def-item .example {
+  color: var(--muted);
+  border-left: 3px solid var(--accent-2);
+  padding-left: 12px;
+  background: rgba(0, 217, 255, 0.06);
+  border-radius: 0 4px 4px 0;
+  margin-left: 2px;
+}
+
+.oow-popover[data-theme="neon"] .eq .bar {
+  background: linear-gradient(180deg, var(--accent-1), var(--accent-2));
+  box-shadow: 0 0 20px var(--accent-1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  height: 10px;
+  animation: neon-bar-pulse 2s infinite;
+}
+
+@keyframes neon-bar-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px var(--accent-1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px var(--accent-1), 0 0 40px var(--accent-2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    height: 12px;
+  }
+}
+
+/* Enhanced Neon glow effect for text */
+.oow-popover[data-theme="neon"] .translation[data-style="gradient"] {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  background-image: linear-gradient(135deg, var(--accent-3), var(--accent-1), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.oow-popover[data-theme="neon"] .contextual-analysis[data-style="gradient"] {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  background-image: linear-gradient(135deg, #00cc33, #00d9ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.oow-popover[data-theme="neon"] .text-translation {
+  font-weight: 700;
+  animation: neon-text-glow 2.5s ease-in-out infinite;
+}
+
+.oow-popover[data-theme="neon"] .translation .text {
+  animation: neon-text-glow 2.5s ease-in-out infinite;
+}
+
+.oow-popover[data-theme="neon"] .contextual-analysis .text {
+  font-weight: 400;
+}
+
+/* Neon主题的Info Panel和Etymology Panel样式 */
+.oow-popover[data-theme="neon"] .info-panel-content,
+.oow-popover[data-theme="neon"] .etymology-panel {
+  /* 霓虹炫彩感：采用霓虹灯管般的文字效果，强化赛博朋克的视觉冲击力 */
+  --oow-info-panel-heading-color: #00ff41;
+  --oow-info-panel-heading-weight: 700;
+  --oow-info-panel-heading-margin-top: 1.3em;
+  --oow-info-panel-heading-margin-bottom: 0.7em;
+  --oow-info-panel-paragraph-color: #00ff41;
+  --oow-info-panel-paragraph-margin-bottom: 0.9em;
+  --oow-info-panel-line-height: 1.5;
+  --oow-info-panel-letter-spacing: 0.02em;
+  --oow-info-panel-font-family: 'Orbitron', 'Courier New', 'Segoe UI', monospace, sans-serif;
+  --oow-info-panel-list-color: #00ff41;
+  --oow-info-panel-blockquote-color: #00cc33;
+  --oow-info-panel-blockquote-border: #00ff41;
+  --oow-info-panel-code-color: #ffbe0b;
+  --oow-info-panel-code-bg: rgba(0, 0, 0, 0.1);
+  --oow-info-panel-link-color: #ff006e;
+  --oow-info-panel-link-hover: #00d9ff;
+}
+
+/* === Neon主题专属文字动效应用 === */
+
+/* 霓虹灯管效果 - 标题闪烁 */
+.oow-popover[data-theme="neon"] .info-panel-content h1,
+.oow-popover[data-theme="neon"] .info-panel-content h2,
+.oow-popover[data-theme="neon"] .info-panel-content h3,
+.oow-popover[data-theme="neon"] .info-panel-content h4,
+.oow-popover[data-theme="neon"] .info-panel-content h5,
+.oow-popover[data-theme="neon"] .info-panel-content h6,
+.oow-popover[data-theme="neon"] .etymology-panel h1,
+.oow-popover[data-theme="neon"] .etymology-panel h2,
+.oow-popover[data-theme="neon"] .etymology-panel h3,
+.oow-popover[data-theme="neon"] .etymology-panel h4,
+.oow-popover[data-theme="neon"] .etymology-panel h5,
+.oow-popover[data-theme="neon"] .etymology-panel h6 {
+  animation: neon-tube-flicker 3s infinite;
+  text-shadow:
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor,
+    0 0 40px currentColor;
+  transform: translateZ(0);
+}
+
+/* 电码文字效果 - 段落逐字点亮 */
+.oow-popover[data-theme="neon"] .info-panel-content p,
+.oow-popover[data-theme="neon"] .etymology-panel p {
+  animation: neon-text-illuminate 2s ease-out forwards;
+  transform: translateZ(0);
+}
+
+/* 霓虹故障艺术 - 链接悬停故障效果 */
+.oow-popover[data-theme="neon"] .info-panel-content a,
+.oow-popover[data-theme="neon"] .etymology-panel a {
+  color: var(--oow-info-panel-link-color);
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  animation: neon-tube-flicker 4s infinite;
+}
+
+.oow-popover[data-theme="neon"] .info-panel-content a:hover,
+.oow-popover[data-theme="neon"] .etymology-panel a:hover {
+  color: var(--oow-info-panel-link-hover);
+  animation: neon-glitch-effect 0.3s infinite;
+  text-shadow:
+    0 0 15px currentColor,
+    0 0 25px currentColor,
+    0 0 35px currentColor;
+}
+
+/* 电子脉冲扫描 - 列表项扫描效果 */
+.oow-popover[data-theme="neon"] .info-panel-content ul li,
+.oow-popover[data-theme="neon"] .info-panel-content ol li,
+.oow-popover[data-theme="neon"] .etymology-panel ul li,
+.oow-popover[data-theme="neon"] .etymology-panel ol li {
+  animation: neon-pulse-scan 2.5s infinite;
+  position: relative;
+  transform: translateZ(0);
+}
+
+.oow-popover[data-theme="neon"] .info-panel-content ul li::before,
+.oow-popover[data-theme="neon"] .info-panel-content ol li::before,
+.oow-popover[data-theme="neon"] .etymology-panel ul li::before,
+.oow-popover[data-theme="neon"] .etymology-panel ol li::before {
+  content: '▶';
+  color: var(--accent-1);
+  margin-right: 8px;
+  animation: neon-tube-flicker 2s infinite;
+  text-shadow: 0 0 10px var(--accent-1);
+}
+
+/* 霓虹光晕扩散 - 强调文字 */
+.oow-popover[data-theme="neon"] .info-panel-content strong,
+.oow-popover[data-theme="neon"] .etymology-panel strong {
+  color: var(--accent-1);
+  font-weight: 700;
+  animation: neon-halo-expand 2s ease-in-out infinite;
+  text-shadow:
+    0 0 15px currentColor,
+    0 0 25px currentColor,
+    0 0 35px currentColor;
+  transform: translateZ(0);
+}
+
+/* 斜体霓虹效果 */
+.oow-popover[data-theme="neon"] .info-panel-content em,
+.oow-popover[data-theme="neon"] .etymology-panel em {
+  color: var(--accent-2);
+  font-style: italic;
+  animation: neon-tube-flicker 3.5s infinite;
+  text-shadow:
+    0 0 12px currentColor,
+    0 0 20px currentColor,
+    0 0 28px currentColor;
+  transform: translateZ(0);
+}
+
+/* 代码块霓虹灯效果 */
+.oow-popover[data-theme="neon"] .info-panel-content code,
+.oow-popover[data-theme="neon"] .etymology-panel code {
+  color: var(--oow-info-panel-code-color);
+  background: var(--oow-info-panel-code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  border: 1px solid var(--accent-2);
+  animation: neon-text-illuminate 1.5s ease-out forwards;
+  text-shadow: 0 0 8px currentColor;
+  transform: translateZ(0);
+}
+
+/* 引用块霓虹边框 */
+.oow-popover[data-theme="neon"] .info-panel-content blockquote,
+.oow-popover[data-theme="neon"] .etymology-panel blockquote {
+  margin: var(--oow-highlight-blockquote-margin);
+  padding: var(--oow-highlight-blockquote-padding);
+  border-left: 5px solid var(--oow-info-panel-blockquote-border);
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--oow-info-panel-blockquote-color);
+  border-radius: 0 8px 8px 0;
+  position: relative;
+  animation: neon-halo-expand 3s ease-in-out infinite;
+}
+
+.oow-popover[data-theme="neon"] .info-panel-content blockquote::before,
+.oow-popover[data-theme="neon"] .etymology-panel blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  color: var(--accent-1);
+  font-size: 3em;
+  opacity: 0.3;
+  animation: neon-tube-flicker 4s infinite;
+  text-shadow: 0 0 15px var(--accent-1);
+}
+
+/* 分隔线霓虹渐变 */
+.oow-popover[data-theme="neon"] .info-panel-content hr,
+.oow-popover[data-theme="neon"] .etymology-panel hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--accent-1) 20%,
+    var(--accent-2) 50%,
+    var(--accent-3) 80%,
+    transparent 100%);
+  margin: 2em 0;
+  animation: neon-halo-expand 2s ease-in-out infinite;
+}
+
+/* 预格式化文本数字雨背景 */
+.oow-popover[data-theme="neon"] .info-panel-content pre,
+.oow-popover[data-theme="neon"] .etymology-panel pre {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 65, 0.03) 2px,
+      rgba(0, 255, 65, 0.03) 4px
+    ),
+    var(--oow-highlight-pre-bg);
+  border: 2px solid var(--ring);
+  border-radius: var(--oow-highlight-pre-border-radius);
+  padding: var(--oow-highlight-pre-padding);
+  overflow-x: auto;
+  font-family: var(--oow-highlight-pre-font-family);
+  font-size: var(--oow-highlight-pre-font-size);
+  color: var(--text-color);
+  animation: neon-digital-rain 10s linear infinite;
+  position: relative;
+}
+
+.oow-popover[data-theme="neon"] .info-panel-content pre::before,
+.oow-popover[data-theme="neon"] .etymology-panel pre::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 50px,
+      rgba(0, 217, 255, 0.05) 50px,
+      rgba(0, 217, 255, 0.05) 100px
+    );
+  pointer-events: none;
+  animation: neon-pulse-scan 3s linear infinite;
+}
+
+/* 表格霓虹边框 */
+.oow-popover[data-theme="neon"] .info-panel-content table,
+.oow-popover[data-theme="neon"] .etymology-panel table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--oow-highlight-table-margin);
+  border: 2px solid var(--ring);
+  border-radius: 8px;
+  overflow: hidden;
+  animation: neon-halo-expand 4s ease-in-out infinite;
+}
+
+.oow-popover[data-theme="neon"] .info-panel-content table th,
+.oow-popover[data-theme="neon"] .etymology-panel table th {
+  background: var(--oow-highlight-table-header-bg);
+  color: var(--oow-highlight-table-header-color);
+  font-weight: var(--oow-highlight-table-header-font-weight);
+  padding: var(--oow-highlight-table-cell-padding);
+  text-align: left;
+  border-bottom: 2px solid var(--ring);
+  animation: neon-tube-flicker 3s infinite;
+  text-shadow: 0 0 10px var(--text-color);
+}
+
+.oow-popover[data-theme="neon"] .info-panel-content table td,
+.oow-popover[data-theme="neon"] .etymology-panel table td {
+  padding: var(--oow-highlight-table-cell-padding);
+  border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+  color: var(--text-color);
+  animation: neon-text-illuminate 1s ease-out forwards;
+}
+
+.oow-popover[data-theme="neon"] .info-panel-content table tr:hover td,
+.oow-popover[data-theme="neon"] .etymology-panel table tr:hover td {
+  background: rgba(0, 255, 65, 0.1);
+  animation: neon-glitch-effect 0.5s infinite;
+}
+
+/* 性能优化 - GPU加速 */
+@media (min-width: 768px) {
+  .oow-popover[data-theme="neon"] .info-panel-content *,
+  .oow-popover[data-theme="neon"] .etymology-panel * {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+  }
+}
+
+/* 减少动效 - 无障碍支持 */
+@media (prefers-reduced-motion: reduce) {
+  .oow-popover[data-theme="neon"] .info-panel-content *,
+  .oow-popover[data-theme="neon"] .etymology-panel * {
+    animation: none !important;
+    text-shadow: none !important;
+  }
+}
+
+/* === Neon主题专属文字动效关键帧 === */
+
+/* 霓虹灯管闪烁 - 模拟城市霓虹灯管的间歇闪烁 */
+@keyframes neon-tube-flicker {
+  0%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 30px currentColor;
+  }
+  5% {
+    opacity: 0.7;
+    text-shadow:
+      0 0 5px currentColor;
+  }
+  10% {
+    opacity: 1;
+    text-shadow:
+      0 0 15px currentColor,
+      0 0 35px currentColor;
+  }
+  15% {
+    opacity: 0.8;
+    text-shadow:
+      0 0 8px currentColor;
+  }
+  20% {
+    opacity: 0.9;
+    text-shadow:
+      0 0 12px currentColor;
+  }
+}
+
+/* 电码文字效果 - 模拟老式霓虹灯管的逐渐点亮 */
+@keyframes neon-text-illuminate {
+  0% {
+    opacity: 0;
+    text-shadow: none;
+    color: rgba(0, 255, 65, 0);
+  }
+  20% {
+    opacity: 0.3;
+    text-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+    color: rgba(0, 255, 65, 0.3);
+  }
+  40% {
+    opacity: 0.6;
+    text-shadow: 0 0 25px rgba(0, 255, 65, 0.5);
+    color: rgba(0, 255, 65, 0.6);
+  }
+  60% {
+    opacity: 0.8;
+    text-shadow: 0 0 30px rgba(0, 255, 65, 0.7);
+    color: rgba(0, 255, 65, 0.8);
+  }
+  80% {
+    opacity: 0.95;
+    text-shadow: 0 0 35px rgba(0, 255, 65, 0.8);
+    color: rgba(0, 255, 65, 0.9);
+  }

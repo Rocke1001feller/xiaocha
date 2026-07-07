@@ -1,0 +1,16 @@
+.scanex-popover[data-theme='galaxy'] {
+  --scanex-bg: #0f1230;
+  --scanex-bg-elevated: #1d1453;
+  --scanex-surface: rgba(22, 24, 69, 0.9);
+  --scanex-surface-muted: rgba(165, 146, 255, 0.14);
+  --scanex-text: #f5f3ff;
+  --scanex-muted: #b7abf2;
+  --scanex-accent: #9b8bff;
+  --scanex-accent-strong: #f5ebff;
+  --scanex-accent-soft: rgba(155, 139, 255, 0.2);
+  --scanex-border: rgba(165, 146, 255, 0.24);
+  --scanex-border-soft: rgba(165, 146, 255, 0.12);
+  --scanex-trigger-text: #0f1230;
+  --scanex-danger: #ff97d6;
+  --scanex-glow: rgba(124, 110, 255, 0.42);
+}

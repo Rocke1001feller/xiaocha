@@ -1,0 +1,49 @@
+/* Pro主题的translation和contextual-analysis样式 */
+.oow-popover[data-theme="pro"] .translation[data-style="framed"] {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 6px;
+  padding: 10px 12px;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+}
+
+.oow-popover[data-theme="pro"] .contextual-analysis[data-style="framed"] {
+  background: rgba(156, 163, 175, 0.1);
+  border: 1px solid rgba(156, 163, 175, 0.2);
+  border-radius: 6px;
+  padding: 10px 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.oow-popover[data-theme="pro"] .translation .text {
+  color: #60a5fa;
+  font-weight: 700;
+}
+
+.oow-popover[data-theme="pro"] .contextual-analysis .text {
+  color: #d1d5db;
+  font-weight: 400;
+}
+
+/* Pro主题的Info Panel和Etymology Panel样式 */
+.oow-popover[data-theme="pro"] .info-panel-content,
+.oow-popover[data-theme="pro"] .etymology-panel {
+  /* 专业立体风格：采用深色背景与浅色文字的经典搭配，增强立体感 */
+  --oow-info-panel-heading-color: #f9fafb;
+  --oow-info-panel-heading-weight: 600;
+  --oow-info-panel-heading-margin-top: 1.3em;
+  --oow-info-panel-heading-margin-bottom: 0.7em;
+  --oow-info-panel-paragraph-color: #f9fafb;
+  --oow-info-panel-paragraph-margin-bottom: 0.9em;
+  --oow-info-panel-line-height: 1.6;
+  --oow-info-panel-letter-spacing: 0.01em;
+  --oow-info-panel-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --oow-info-panel-list-color: #f9fafb;
+  --oow-info-panel-blockquote-color: #9ca3af;
+  --oow-info-panel-blockquote-border: #3b82f6;
+  --oow-info-panel-code-color: #f59e0b;
+  --oow-info-panel-code-bg: rgba(0, 0, 0, 0.2);
+  --oow-info-panel-link-color: #3b82f6;
+  --oow-info-panel-link-hover: #10b981;
+}
+

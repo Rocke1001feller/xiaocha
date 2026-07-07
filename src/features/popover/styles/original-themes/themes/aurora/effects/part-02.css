@@ -1,0 +1,34 @@
+/* === Aurora主题性能和体验优化 === */
+
+/* 性能优化 - GPU加速 */
+.oow-popover[data-theme="aurora"] .info-panel-content,
+.oow-popover[data-theme="aurora"] .etymology-panel {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* 移动端性能优化 */
+@media (max-width: 768px) {
+  .oow-popover[data-theme="aurora"] .info-panel-content *,
+  .oow-popover[data-theme="aurora"] .etymology-panel * {
+    animation-duration: 4s !important;
+  }
+
+  .oow-popover[data-theme="aurora"] .info-panel-content strong::after,
+  .oow-popover[data-theme="aurora"] .etymology-panel strong::after,
+  .oow-popover[data-theme="aurora"] .info-panel-content p::after,
+  .oow-popover[data-theme="aurora"] .etymology-panel p::after {
+    display: none;
+  }
+}
+
+/* 用户偏好减少动画 */
+@media (prefers-reduced-motion: reduce) {
+  .oow-popover[data-theme="aurora"] .info-panel-content *,
+  .oow-popover[data-theme="aurora"] .etymology-panel * {
+    animation: none !important;
+    background: transparent !important;
+  }
+}
+

@@ -1,0 +1,71 @@
+/*
+ * Origin of Words - Pro Theme (Free)
+ * 专业主题 - 免费高级主题
+ * 100% original style with ORIGINAL variable names
+ */
+
+/* Theme Variables - CRITICAL: Use original variable names */
+.oow-popover[data-theme="pro"] {
+  --panel-bg: #1f2937;
+  --text-color: #f9fafb;
+  --muted: #9ca3af;
+  --ring: #6b7280;
+  --accent-1: #3b82f6;
+  --accent-2: #10b981;
+  --accent-3: #f59e0b;
+  backdrop-filter: blur(10px);
+  background: var(--panel-bg) !important;
+  border: 1px solid rgba(107, 114, 128, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+  /* Unified Button Styles */
+  --oow-button-bg: var(--accent-1);
+  --oow-button-hover-bg: #2563eb;
+  --oow-button-color: white;
+  --oow-button-hover-color: white;
+  --oow-button-radius: 8px;
+  --oow-button-transition: all 0.3s ease;
+
+  /* Enhanced Markdown Highlight Styles */
+  --oow-highlight-heading-color: var(--text-color);
+  --oow-highlight-heading-font-weight: 600;
+  --oow-highlight-heading-margin-top: 1.3em;
+  --oow-highlight-heading-margin-bottom: 0.7em;
+  --oow-highlight-h1-font-size: 1.6em;
+  --oow-highlight-h2-font-size: 1.35em;
+  --oow-highlight-h3-font-size: 1.2em;
+  --oow-highlight-h4-font-size: 1.1em;
+  --oow-highlight-h5-font-size: 1em;
+  --oow-highlight-h6-font-size: 0.9em;
+  --oow-highlight-strong-color: var(--accent-2);
+  --oow-highlight-strong-font-weight: 700;
+  --oow-highlight-em-color: var(--accent-1);
+  --oow-highlight-em-font-style: italic;
+  --oow-highlight-code-color: var(--accent-3);
+  --oow-highlight-code-bg: rgba(0, 0, 0, 0.2);
+  --oow-highlight-code-border-color: var(--ring);
+  --oow-highlight-link-color: var(--accent-1);
+  --oow-highlight-link-decoration: underline;
+  --oow-highlight-link-decoration-thickness: 2px;
+  --oow-highlight-link-hover-color: var(--accent-2);
+  --oow-highlight-blockquote-margin: 1.3em 0;
+  --oow-highlight-blockquote-padding: 0.8em 1.2em;
+  --oow-highlight-blockquote-border-left: 4px solid var(--accent-1);
+  --oow-highlight-blockquote-color: var(--muted);
+  --oow-highlight-blockquote-bg: rgba(59, 130, 246, 0.1);
+  --oow-highlight-hr-height: 2px;
+  --oow-highlight-hr-bg: var(--accent-1);
+  --oow-highlight-hr-margin: 1.8em 0;
+  --oow-highlight-pre-padding: 1.2em;
+  --oow-highlight-pre-bg: rgba(0, 0, 0, 0.15);
+  --oow-highlight-pre-border-radius: 8px;
+  --oow-highlight-pre-font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  --oow-highlight-pre-font-size: 0.95em;
+  --oow-highlight-table-margin: 1.8em 0;
+  --oow-highlight-table-border: 2px solid var(--accent-1);
+  --oow-highlight-table-cell-padding: 0.6em 0.9em;
+  --oow-highlight-table-header-bg: rgba(59, 130, 246, 0.15);
+  --oow-highlight-table-header-color: var(--text-color);
+  --oow-highlight-table-header-font-weight: 700;
+}
+

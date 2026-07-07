@@ -1,0 +1,477 @@
+/* === Creative主题专属艺术化动效关键帧 === */
+
+/* 创意画笔描边 - 模拟画笔手绘效果 */
+@keyframes creative-brush-stroke {
+  0% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.3;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+/* 艺术调色板混合 - 模拟颜料混合效果 */
+@keyframes creative-color-mix {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    background-position: 25% 25%;
+    filter: hue-rotate(10deg);
+  }
+  50% {
+    background-position: 75% 75%;
+    filter: hue-rotate(-5deg);
+  }
+  75% {
+    background-position: 100% 50%;
+    filter: hue-rotate(8deg);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+}
+
+/* 创意波浪流动 - 模拟艺术创作灵感流动 */
+@keyframes creative-wave-flow {
+  0% {
+    background-position: 0% 0%;
+    transform: translateY(0) rotateZ(0deg);
+  }
+  33% {
+    background-position: 100% 100%;
+    transform: translateY(-2px) rotateZ(0.5deg);
+  }
+  66% {
+    background-position: 50% 50%;
+    transform: translateY(1px) rotateZ(-0.3deg);
+  }
+  100% {
+    background-position: 0% 0%;
+    transform: translateY(0) rotateZ(0deg);
+  }
+}
+
+/* 艺术渐变显现 - 模拟色彩逐渐渲染 */
+@keyframes creative-gradient-reveal {
+  0% {
+    background-size: 200% 200%;
+    background-position: 100% 50%;
+    opacity: 0;
+    transform: scale(0.95) translateY(5px);
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: 50% 0%;
+    opacity: 0.8;
+    transform: scale(1.02) translateY(-1px);
+  }
+  100% {
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 创意手写签名 - 模拟手写签名效果 */
+@keyframes creative-handwrite {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.2;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+/* 艺术灵感闪烁 - 模拟创意灵感迸发 */
+@keyframes creative-inspiration-sparkle {
+  0%, 100% {
+    text-shadow:
+      0 0 5px rgba(237, 137, 54, 0.2),
+      0 0 10px rgba(237, 137, 54, 0.1);
+    transform: scale(1);
+  }
+  25% {
+    text-shadow:
+      0 0 8px rgba(237, 137, 54, 0.4),
+      0 0 16px rgba(66, 153, 225, 0.2);
+    transform: scale(1.02);
+  }
+  50% {
+    text-shadow:
+      0 0 12px rgba(159, 122, 234, 0.3),
+      0 0 20px rgba(237, 137, 54, 0.2);
+    transform: scale(1.03);
+  }
+  75% {
+    text-shadow:
+      0 0 6px rgba(66, 153, 225, 0.3),
+      0 0 12px rgba(159, 122, 234, 0.2);
+    transform: scale(1.01);
+  }
+}
+
+/* 艺术渐变漂移 - 模拟色彩渐变流动 */
+@keyframes creative-gradient-drift {
+  0% {
+    background-position: 0% 50%;
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: brightness(1.1) saturate(1.2);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: brightness(1) saturate(1);
+  }
+}
+
+/* === Creative主题专属文字动效应用 === */
+
+/* 艺术画笔描边 - 标题手绘效果 */
+.oow-popover[data-theme="creative"] .info-panel-content h1,
+.oow-popover[data-theme="creative"] .info-panel-content h2,
+.oow-popover[data-theme="creative"] .info-panel-content h3,
+.oow-popover[data-theme="creative"] .info-panel-content h4,
+.oow-popover[data-theme="creative"] .info-panel-content h5,
+.oow-popover[data-theme="creative"] .info-panel-content h6,
+.oow-popover[data-theme="creative"] .etymology-panel h1,
+.oow-popover[data-theme="creative"] .etymology-panel h2,
+.oow-popover[data-theme="creative"] .etymology-panel h3,
+.oow-popover[data-theme="creative"] .etymology-panel h4,
+.oow-popover[data-theme="creative"] .etymology-panel h5,
+.oow-popover[data-theme="creative"] .etymology-panel h6 {
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: creative-gradient-reveal 2s ease-out forwards, creative-gradient-drift 4s ease-in-out infinite;
+  font-weight: 800;
+  position: relative;
+  transform: translateZ(0);
+}
+
+/* 艺术调色板混合 - 段落色彩流动 */
+.oow-popover[data-theme="creative"] .info-panel-content p,
+.oow-popover[data-theme="creative"] .etymology-panel p {
+  background: linear-gradient(90deg,
+    var(--text-color) 0%,
+    var(--accent-1) 25%,
+    var(--accent-2) 50%,
+    var(--accent-3) 75%,
+    var(--text-color) 100%);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: creative-color-mix 8s ease-in-out infinite;
+  font-weight: 500;
+  line-height: 1.7;
+  transform: translateZ(0);
+}
+
+/* 创意灵感闪烁 - 链接交互效果 */
+.oow-popover[data-theme="creative"] .info-panel-content a,
+.oow-popover[data-theme="creative"] .etymology-panel a {
+  color: var(--oow-info-panel-link-color);
+  text-decoration: none;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+  animation: creative-inspiration-sparkle 3s ease-in-out infinite;
+}
+
+.oow-popover[data-theme="creative"] .info-panel-content a::before,
+.oow-popover[data-theme="creative"] .etymology-panel a::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: creative-wave-flow 2s ease-in-out infinite;
+}
+
+.oow-popover[data-theme="creative"] .info-panel-content a:hover,
+.oow-popover[data-theme="creative"] .etymology-panel a:hover {
+  color: var(--oow-info-panel-link-hover);
+  transform: translateY(-2px);
+}
+
+.oow-popover[data-theme="creative"] .info-panel-content a:hover::before,
+.oow-popover[data-theme="creative"] .etymology-panel a:hover::before {
+  transform: scaleX(1);
+}
+
+/* 艺术手写效果 - 列表项创意编号 */
+.oow-popover[data-theme="creative"] .info-panel-content ul li,
+.oow-popover[data-theme="creative"] .info-panel-content ol li,
+.oow-popover[data-theme="creative"] .etymology-panel ul li,
+.oow-popover[data-theme="creative"] .etymology-panel ol li {
+  animation: creative-handwrite 1.5s ease-out forwards;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 0.8em;
+  transform: translateZ(0);
+}
+
+.oow-popover[data-theme="creative"] .info-panel-content ul li::before,
+.oow-popover[data-theme="creative"] .info-panel-content ol li::before,
+.oow-popover[data-theme="creative"] .etymology-panel ul li::before,
+.oow-popover[data-theme="creative"] .etymology-panel ol li::before {
+  content: counter(list-item);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75em;
+  font-weight: 700;
+  animation: creative-inspiration-sparkle 4s ease-in-out infinite;
+}
+
+/* 艺术强调效果 - 粗体文字 */
+.oow-popover[data-theme="creative"] .info-panel-content strong,
+.oow-popover[data-theme="creative"] .etymology-panel strong {
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  animation: creative-gradient-reveal 1.5s ease-out forwards;
+  position: relative;
+  transform: translateZ(0);
+}
+
+.oow-popover[data-theme="creative"] .info-panel-content strong::after,
+.oow-popover[data-theme="creative"] .etymology-panel strong::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius: 1px;
+  opacity: 0.6;
+  animation: creative-wave-flow 3s ease-in-out infinite;
+}
+
+/* 艺术斜体效果 - 斜体文字 */
+.oow-popover[data-theme="creative"] .info-panel-content em,
+.oow-popover[data-theme="creative"] .etymology-panel em {
+  color: var(--accent-3);
+  font-style: italic;
+  font-weight: 500;
+  animation: creative-wave-flow 4s ease-in-out infinite;
+  transform: translateZ(0);
+}
+
+/* 艺术代码块 - 创意代码展示 */
+.oow-popover[data-theme="creative"] .info-panel-content code,
+.oow-popover[data-theme="creative"] .etymology-panel code {
+  background: linear-gradient(135deg,
+    var(--oow-info-panel-code-bg) 0%,
+    rgba(237, 137, 54, 0.1) 50%,
+    var(--oow-info-panel-code-bg) 100%);
+  color: var(--oow-info-panel-code-color);
+  padding: 0.3em 0.6em;
+  border-radius: 8px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  animation: creative-gradient-reveal 1s ease-out forwards, creative-gradient-drift 5s ease-in-out infinite;
+  transform: translateZ(0);
+}
+
+.oow-popover[data-theme="creative"] .info-panel-content code::before,
+.oow-popover[data-theme="creative"] .etymology-panel code::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  border-radius: 10px;
+  z-index: -1;
+  animation: creative-gradient-drift 6s linear infinite;
+}
+
+/* 艺术引用块 - 创意引用设计 */
+.oow-popover[data-theme="creative"] .info-panel-content blockquote,
+.oow-popover[data-theme="creative"] .etymology-panel blockquote {
+  margin: var(--oow-highlight-blockquote-margin);
+  padding: var(--oow-highlight-blockquote-padding);
+  border-left: 5px solid var(--oow-info-panel-blockquote-border);
+  background:
+    linear-gradient(135deg, rgba(237, 137, 54, 0.05) 0%, rgba(66, 153, 225, 0.05) 100%),
+    var(--oow-info-panel-code-bg);
+  color: var(--oow-info-panel-blockquote-color);
+  border-radius: 0 12px 12px 0;
+  position: relative;
+  animation: creative-gradient-reveal 1.5s ease-out forwards;
+  transform: translateZ(0);
+}
+
+.oow-popover[data-theme="creative"] .info-panel-content blockquote::before,
+.oow-popover[data-theme="creative"] .etymology-panel blockquote::before {
+  content: '🎨';
+  position: absolute;
+  top: -15px;
+  left: 15px;
+  font-size: 2em;
+  opacity: 0.6;
+  animation: creative-inspiration-sparkle 4s ease-in-out infinite;
+}
+
+/* 艺术分隔线 - 创意分隔效果 */
+.oow-popover[data-theme="creative"] .info-panel-content hr,
+.oow-popover[data-theme="creative"] .etymology-panel hr {
+  border: none;
+  height: 3px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--accent-1) 20%,
+    var(--accent-2) 50%,
+    var(--accent-3) 80%,
+    transparent 100%);
+  border-radius: 2px;
+  margin: 2.5em 0;
+  animation: creative-gradient-drift 3s ease-in-out infinite;
+  position: relative;
+}
+
+.oow-popover[data-theme="creative"] .info-panel-content hr::after,
+.oow-popover[data-theme="creative"] .etymology-panel hr::after {
+  content: '✨';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 0 10px;
+  font-size: 0.9em;
+  animation: creative-inspiration-sparkle 2s ease-in-out infinite;
+}
+
+/* 艺术预格式化文本 - 创意代码展示 */
+.oow-popover[data-theme="creative"] .info-panel-content pre,
+.oow-popover[data-theme="creative"] .etymology-panel pre {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(237, 137, 54, 0.02) 10px,
+      rgba(237, 137, 54, 0.02) 20px
+    ),
+    var(--oow-highlight-pre-bg);
+  border: 2px solid var(--accent-1);
+  border-radius: 12px;
+  padding: var(--oow-highlight-pre-padding);
+  overflow-x: auto;
+  font-family: var(--oow-highlight-pre-font-family);
+  font-size: var(--oow-highlight-pre-font-size);
+  color: var(--text-color);
+  position: relative;
+  animation: creative-gradient-reveal 1.5s ease-out forwards;
+  transform: translateZ(0);
+}
+
+.oow-popover[data-theme="creative"] .info-panel-content pre::before,
+.oow-popover[data-theme="creative"] .etymology-panel pre::before {
+  content: '🎯';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.2em;
+  opacity: 0.5;
+  animation: creative-inspiration-sparkle 3s ease-in-out infinite;
+}
+
+/* 艺术表格 - 创意表格设计 */
+.oow-popover[data-theme="creative"] .info-panel-content table,
+.oow-popover[data-theme="creative"] .etymology-panel table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--oow-highlight-table-margin);
+  border: 2px solid var(--accent-1);
+  border-radius: 12px;
+  overflow: hidden;
+  animation: creative-gradient-reveal 1.5s ease-out forwards;
+  transform: translateZ(0);
+}
+
+.oow-popover[data-theme="creative"] .info-panel-content table th,
+.oow-popover[data-theme="creative"] .etymology-panel table th {
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  color: white;
+  font-weight: var(--oow-highlight-table-header-font-weight);
+  padding: var(--oow-highlight-table-cell-padding);
+  text-align: left;
+  animation: creative-gradient-drift 4s ease-in-out infinite;
+}
+
+.oow-popover[data-theme="creative"] .info-panel-content table td,
+.oow-popover[data-theme="creative"] .etymology-panel table td {
+  padding: var(--oow-highlight-table-cell-padding);
+  border-bottom: 1px solid rgba(237, 137, 54, 0.1);
+  color: var(--text-color);
+  animation: creative-handwrite 1s ease-out forwards;
+}
+
+.oow-popover[data-theme="creative"] .info-panel-content table tr:hover td,
+.oow-popover[data-theme="creative"] .etymology-panel table tr:hover td {
+  background: linear-gradient(90deg, rgba(237, 137, 54, 0.1) 0%, rgba(66, 153, 225, 0.1) 100%);
+  animation: creative-wave-flow 1s ease-in-out infinite;
+}
+
+/* 性能优化 - GPU加速 */
+@media (min-width: 768px) {
+  .oow-popover[data-theme="creative"] .info-panel-content *,
+  .oow-popover[data-theme="creative"] .etymology-panel * {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+  }
+}
+
+/* 减少动效 - 无障碍支持 */
+@media (prefers-reduced-motion: reduce) {
+  .oow-popover[data-theme="creative"] .info-panel-content *,
+  .oow-popover[data-theme="creative"] .etymology-panel * {
+    animation: none !important;
+    background: none !important;
+    -webkit-text-fill-color: var(--text-color) !important;
+  }
+}

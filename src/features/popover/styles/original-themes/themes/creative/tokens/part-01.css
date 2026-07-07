@@ -1,0 +1,92 @@
+/*
+ * Origin of Words - Creative Theme (Free)
+ * 创意主题 - 免费创意主题
+ * 100% original style with ORIGINAL variable names
+ */
+
+/* Theme Variables - CRITICAL: Use original variable names */
+.oow-popover[data-theme="creative"] {
+  --panel-bg: #ffffff;
+  --text-color: #2d3748;
+  --muted: #718096;
+  --ring: #ed8936;
+  --accent-1: #ed8936;
+  --accent-2: #4299e1;
+  --accent-3: #9f7aea;
+  background: linear-gradient(135deg, #ffffff, #f7fafc) !important;
+  border: 2px solid var(--accent-1);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+
+  /* Unified Button Styles */
+  --oow-button-bg: var(--accent-1);
+  --oow-button-hover-bg: #dd6b20;
+  --oow-button-color: white;
+  --oow-button-hover-color: white;
+  --oow-button-radius: 8px;
+  --oow-button-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Enhanced Markdown Highlight Styles */
+  --oow-highlight-heading-color: var(--text-color);
+  --oow-highlight-heading-font-weight: 700;
+  --oow-highlight-heading-margin-top: 1.4em;
+  --oow-highlight-heading-margin-bottom: 0.8em;
+  --oow-highlight-h1-font-size: 1.7em;
+  --oow-highlight-h2-font-size: 1.4em;
+  --oow-highlight-h3-font-size: 1.25em;
+  --oow-highlight-h4-font-size: 1.15em;
+  --oow-highlight-h5-font-size: 1.05em;
+  --oow-highlight-h6-font-size: 0.95em;
+  --oow-highlight-strong-color: var(--accent-2);
+  --oow-highlight-strong-font-weight: 700;
+  --oow-highlight-em-color: var(--accent-3);
+  --oow-highlight-em-font-style: italic;
+  --oow-highlight-code-color: #e53e3e;
+  --oow-highlight-code-bg: rgba(255, 255, 255, 0.8);
+  --oow-highlight-code-border-color: var(--ring);
+  --oow-highlight-link-color: var(--accent-1);
+  --oow-highlight-link-decoration: underline;
+  --oow-highlight-link-decoration-thickness: 2px;
+  --oow-highlight-link-hover-color: var(--accent-2);
+  --oow-highlight-blockquote-margin: 1.4em 0;
+  --oow-highlight-blockquote-padding: 1em 1.5em;
+  --oow-highlight-blockquote-border-left: 5px solid var(--accent-1);
+  --oow-highlight-blockquote-color: var(--muted);
+  --oow-highlight-blockquote-bg: rgba(237, 137, 54, 0.1);
+  --oow-highlight-hr-height: 3px;
+  --oow-highlight-hr-bg: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  --oow-highlight-hr-margin: 2em 0;
+  --oow-highlight-pre-padding: 1.5em;
+  --oow-highlight-pre-bg: rgba(255, 255, 255, 0.9);
+  --oow-highlight-pre-border-radius: 10px;
+  --oow-highlight-pre-font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  --oow-highlight-pre-font-size: 1em;
+  --oow-highlight-table-margin: 2em 0;
+  --oow-highlight-table-border: 2px solid var(--accent-1);
+  --oow-highlight-table-cell-padding: 0.7em 1em;
+  --oow-highlight-table-header-bg: rgba(237, 137, 54, 0.15);
+  --oow-highlight-table-header-color: var(--text-color);
+  --oow-highlight-table-header-font-weight: 700;
+}
+
+/* Creative wave background effect */
+.oow-popover[data-theme="creative"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(237, 137, 54, 0.1) 0px, transparent 50px),
+    radial-gradient(circle at 80% 70%, rgba(66, 153, 225, 0.1) 0px, transparent 50px),
+    radial-gradient(circle at 50% 20%, rgba(159, 122, 234, 0.1) 0px, transparent 50px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.oow-popover[data-theme="creative"] > * {
+  position: relative;
+  z-index: 1;
+}
+

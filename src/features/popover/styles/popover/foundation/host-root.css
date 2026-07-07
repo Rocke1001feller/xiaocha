@@ -1,0 +1,12 @@
+:host {
+  all: initial;
+}
+
+.scanex-root {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  pointer-events: none;
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+  color: var(--scanex-text);
+}

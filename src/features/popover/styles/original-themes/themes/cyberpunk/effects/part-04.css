@@ -1,0 +1,170 @@
+/* === Cyberpunk主题专属文字动效关键帧 === */
+
+/* 故障艺术效果 - 模拟数字信号失真 */
+@keyframes cyberpunk-glitch {
+  0%, 100% {
+    transform: translate(0, 0);
+    filter: hue-rotate(0deg);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(-2px, 2px);
+    filter: hue-rotate(90deg) saturate(2);
+    opacity: 0.8;
+  }
+  40% {
+    transform: translate(-2px, -2px);
+    filter: hue-rotate(180deg) saturate(1.5);
+    opacity: 0.9;
+  }
+  60% {
+    transform: translate(2px, 2px);
+    filter: hue-rotate(270deg) saturate(2.5);
+    opacity: 0.85;
+  }
+  80% {
+    transform: translate(2px, -2px);
+    filter: hue-rotate(360deg) saturate(1.8);
+    opacity: 0.95;
+  }
+}
+
+/* 扫描线效果 - 模拟HUD扫描 */
+@keyframes cyberpunk-hud-scan {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    opacity: 0;
+  }
+  50% {
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    opacity: 1;
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+  }
+}
+
+/* 霓虹灯管闪烁 - 模拟城市霓虹 */
+@keyframes cyberpunk-neon-flicker {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  }
+  10% {
+    opacity: 0.8;
+    text-shadow: 0 0 5px currentColor;
+  }
+  15% {
+    opacity: 1;
+    text-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
+  }
+  20% {
+    opacity: 0.9;
+    text-shadow: 0 0 8px currentColor;
+  }
+  80% {
+    opacity: 0.95;
+    text-shadow: 0 0 12px currentColor;
+  }
+}
+
+/* 数据流动画 - 模拟数字传输 */
+@keyframes cyberpunk-data-flow {
+  0% {
+    background-position: 0% 50%;
+    transform: translateX(-100%);
+  }
+  100% {
+    background-position: 100% 50%;
+    transform: translateX(100%);
+  }
+}
+
+/* 全息投影效果 - 模拟未来投影 */
+@keyframes cyberpunk-hologram {
+  0%, 100% {
+    opacity: 0.9;
+    transform: translateZ(0) scale(1);
+    filter: brightness(1);
+  }
+  25% {
+    opacity: 0.85;
+    transform: translateZ(0) scale(1.02);
+    filter: brightness(1.1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: translateZ(0) scale(0.98);
+    filter: brightness(0.9);
+  }
+  75% {
+    opacity: 0.88;
+    transform: translateZ(0) scale(1.01);
+    filter: brightness(1.05);
+  }
+}
+
+/* 数字噪点效果 - 模拟信号干扰 */
+@keyframes cyberpunk-digital-noise {
+  0%, 100% {
+    filter: contrast(1) brightness(1);
+    transform: translate(0, 0);
+  }
+  25% {
+    filter: contrast(1.2) brightness(0.8);
+    transform: translate(1px, -1px);
+  }
+  50% {
+    filter: contrast(0.9) brightness(1.1);
+    transform: translate(-1px, 1px);
+  }
+  75% {
+    filter: contrast(1.1) brightness(0.9);
+    transform: translate(1px, 1px);
+  }
+}
+
+/* 终端光标闪烁 */
+@keyframes cyberpunk-cursor {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* 电子流动画 - 模拟电流通过 */
+@keyframes cyberpunk-electric-flow {
+  0% {
+    background-position: 0% 0%;
+    box-shadow: inset 0 0 20px rgba(67, 97, 238, 0.2);
+  }
+  50% {
+    background-position: 100% 0%;
+    box-shadow: inset 0 0 30px rgba(247, 37, 133, 0.4);
+  }
+  100% {
+    background-position: 200% 0%;
+    box-shadow: inset 0 0 20px rgba(67, 97, 238, 0.2);
+  }
+}
+
+/* 二进制码雨效果 */
+@keyframes cyberpunk-matrix-rain {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    background-position: 0% 100%;
+    opacity: 0;
+  }
+}

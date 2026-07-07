@@ -1,0 +1,53 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies
+node_modules
+
+# Build outputs
+.output
+/dist/
+/website/dist/
+dist/*.zip
+stats.html
+stats-*.json
+
+# WXT generated files
+.wxt
+.wxt/types/paths.d.ts
+web-ext.config.ts
+
+# Wrangler / Cloudflare local state
+.wrangler
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS files
+.DS_Store
+
+# Project-specific transient artifacts
+.playwright-mcp/
+.uv_cache/
+.uv_python/
+
+# Claude Code session artifacts
+.claude
