@@ -1,6 +1,11 @@
+import { createSpeakButton } from '../sections/TtsSpeakButtons';
+
 export type OriginalPopoverMarkupRefs = {
   popover: HTMLDivElement;
   header: HTMLDivElement;
+  errorBanner: HTMLDivElement;
+  errorMessage: HTMLSpanElement;
+  errorReload: HTMLButtonElement;
   title: HTMLSpanElement;
   sectionTitle: HTMLSpanElement;
   phonetic: HTMLSpanElement;
@@ -10,8 +15,13 @@ export type OriginalPopoverMarkupRefs = {
   definitionsList: HTMLUListElement;
   translationText: HTMLDivElement;
   contextualText: HTMLDivElement;
+  selectionSpeak: HTMLButtonElement;
+  translationSpeak: HTMLButtonElement;
+  contextualSpeak: HTMLButtonElement;
   themeButton: HTMLButtonElement;
   closeButton: HTMLButtonElement;
+  likeButton: HTMLButtonElement;
+  dislikeButton: HTMLButtonElement;
   themeLabel: HTMLSpanElement;
   exploration: HTMLDivElement;
 };
@@ -23,6 +33,9 @@ export function createOriginalPopoverMarkup(shadowRoot: ShadowRoot): OriginalPop
   return {
     popover,
     header: q(popover, '.modal-header'),
+    errorBanner: q(popover, '[data-role="error-banner"]'),
+    errorMessage: q(popover, '[data-role="error-message"]'),
+    errorReload: q(popover, '[data-role="error-reload"]'),
     title: q(popover, '.header-title'),
     sectionTitle: q(popover, '.section-title'),
     phonetic: q(popover, '.section-phonetic'),
@@ -32,8 +45,13 @@ export function createOriginalPopoverMarkup(shadowRoot: ShadowRoot): OriginalPop
     definitionsList: q(popover, '.defs-list'),
     translationText: q(popover, '.translation .text'),
     contextualText: q(popover, '.contextual-analysis .text'),
+    selectionSpeak: q(popover, '[data-speak-owner="selection"]'),
+    translationSpeak: q(popover, '[data-speak-owner="translation"]'),
+    contextualSpeak: q(popover, '[data-speak-owner="contextual"]'),
     themeButton: q(popover, '[data-action="theme"]'),
     closeButton: q(popover, '[data-action="close"]'),
+    likeButton: q(popover, '[data-action="like"]'),
+    dislikeButton: q(popover, '[data-action="dislike"]'),
     themeLabel: q(popover, '.footer-theme-label'),
     exploration: q(popover, '.pcss3t'),
   };
@@ -58,7 +76,7 @@ function buildPopover(): HTMLDivElement {
   const contentBody = document.createElement('div');
   contentBody.className = 'content-body';
   contentBody.append(buildLexicalSection(), buildExplorationSection());
-  popover.append(buildHeader(), contentBody, buildFooter());
+  popover.append(buildHeader(), buildErrorBanner(), contentBody, buildFooter());
   return popover;
 }
 
@@ -81,9 +99,39 @@ function buildHeader(): HTMLDivElement {
 
   const right = document.createElement('div');
   right.className = 'header-right';
-  right.append(createHeaderButton('theme-toggle', 'Toggle theme', '🎨', 'theme'), createHeaderButton('', 'Close', '✕', 'close'));
+  right.append(
+    createHeaderButton('theme-toggle', 'Toggle theme', '🎨', 'theme'),
+    createHeaderButton('like', 'Like and save card', '👍', 'like'),
+    createHeaderButton('dislike', 'Dislike and retry', '👎', 'dislike'),
+    createHeaderButton('', 'Close', '✕', 'close'),
+  );
   header.append(left, center, right);
   return header;
+}
+
+function buildErrorBanner(): HTMLDivElement {
+  const banner = document.createElement('div');
+  banner.className = 'error-banner';
+  banner.dataset.role = 'error-banner';
+  banner.style.cssText =
+    'display:none;align-items:center;gap:8px;padding:8px 12px;background:#fef2f2;border-bottom:1px solid #fecaca;color:#991b1b;font-size:12px;line-height:1.4;';
+
+  const icon = document.createElement('span');
+  icon.textContent = '⚠️';
+
+  const message = document.createElement('span');
+  message.dataset.role = 'error-message';
+  message.style.cssText = 'flex:1;';
+
+  const reload = document.createElement('button');
+  reload.dataset.role = 'error-reload';
+  reload.type = 'button';
+  reload.textContent = '刷新页面';
+  reload.style.cssText =
+    'padding:4px 10px;background:#dc2626;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:12px;';
+
+  banner.append(icon, message, reload);
+  return banner;
 }
 
 function buildLexicalSection(): HTMLDivElement {
@@ -106,7 +154,7 @@ function buildLexicalSection(): HTMLDivElement {
   toggle.className = 'section-toggle-btn';
   toggle.setAttribute('aria-label', 'Toggle section');
   toggle.innerHTML = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  headerRight.appendChild(toggle);
+  headerRight.append(createSpeakButton('selection', '朗读选中文本'), toggle);
   sectionHeader.append(headerLeft, headerRight);
 
   const content = document.createElement('div');
@@ -131,7 +179,7 @@ function buildLexicalSection(): HTMLDivElement {
     eq.appendChild(bar);
   }
   loader.appendChild(eq);
-  contextBox.append(loader, buildTextBlock('translation'), buildTextBlock('contextual-analysis'));
+  contextBox.append(loader, buildTextBlock('translation', 'translation', '朗读翻译'), buildTextBlock('contextual-analysis', 'contextual', '朗读语境分析'));
   panel.append(defsList, contextBox);
   content.appendChild(panel);
   section.append(sectionHeader, content);
@@ -158,12 +206,15 @@ function buildFooter(): HTMLDivElement {
   return footer;
 }
 
-function buildTextBlock(className: string) {
+function buildTextBlock(className: string, speakOwnerId?: string, speakAriaLabel?: string) {
   const block = document.createElement('div');
   block.className = className;
   const text = document.createElement('div');
   text.className = 'text';
   block.appendChild(text);
+  if (speakOwnerId) {
+    block.appendChild(createSpeakButton(speakOwnerId, speakAriaLabel ?? '朗读'));
+  }
   return block;
 }
 

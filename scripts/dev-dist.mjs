@@ -4,9 +4,11 @@ import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 import Reloader from 'advanced-extension-reloader-watch-2/es/reloader.js';
+import { resolveExtensionId } from './extension-id.mjs';
 
-const extensionId = 'edbfgkadfnglombglalkhhdgjemkfphb';
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const manifestPath = path.join(projectRoot, 'dist/chrome-mv3/manifest.json');
+const extensionId = resolveExtensionId(manifestPath);
 const watchTargets = [
 	'assets/**/*',
 	'entrypoints/**/*',
@@ -16,6 +18,8 @@ const watchTargets = [
 ];
 
 process.chdir(projectRoot);
+
+console.log(`[dev-dist] resolved extension id: ${extensionId}`);
 
 const reloader = new Reloader({ port: 6220, watch_dir: 'dist/chrome-mv3' });
 reloader.watch();
@@ -46,7 +50,7 @@ const runBuild = (reason) => {
 				play_notifications: true,
 				always_open_popup: true,
 				always_open_popup_paths: ['popup'],
-				manifest_path: 'dist/chrome-mv3/manifest.json',
+				manifest_path: manifestPath,
 			});
 			console.log('[dev-dist] reload signal sent');
 		} else {

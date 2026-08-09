@@ -1,5 +1,9 @@
-import type { ExplainSelection, ExplainTaskState } from '../../../../src/llm/types';
+import type { ExplainSelection, ExplainTaskResult, ExplainTaskState } from '../../../../src/llm/types';
 import type { TaskId } from '../../../shared/task-ids';
+import {
+  EXTENSION_CONTEXT_INVALIDATED_MESSAGE,
+  isExtensionContextValid,
+} from '../../../shared/extension-context';
 import {
   POPOVER_THEMES,
   type PopoverTaskDescriptor,
@@ -8,9 +12,11 @@ import {
   type PopoverThemeId,
   toExplainSelection,
 } from '../events/PopoverEvents';
+import type { ICardLifecycleService } from '../../card/interfaces/ICardLifecycleService';
+import type { CardId } from '../../card/types';
 import type { IPopoverRepository } from '../interfaces/IPopoverRepository';
 import { createDefaultPopoverTasks } from '../utils/popover-tasks';
-import { Observable } from '../utils/Observable';
+import { Observable } from '../../../shared/Observable';
 
 const EMPTY_TASK_STATE: ExplainTaskState = {
   status: 'idle',
@@ -66,6 +72,12 @@ export class PopoverViewModel {
 
   readonly lexicalCollapsed = new Observable(false);
 
+  readonly isSaving = new Observable(false);
+
+  readonly isRetrying = new Observable(false);
+
+  readonly savedCardId = new Observable<CardId | null>(null);
+
   readonly providerLabel = new Observable<string | null>(null);
 
   readonly lexicalState = new Observable<ExplainTaskState>({ ...EMPTY_TASK_STATE });
@@ -76,12 +88,17 @@ export class PopoverViewModel {
 
   private readonly repository: IPopoverRepository;
 
+  private readonly cardLifecycleService?: ICardLifecycleService;
+
   private readonly requestIds = new Map<TaskId, string>();
 
   private readonly requestedTaskIds = new Set<TaskId>();
 
-  constructor(repository: IPopoverRepository) {
+  private readonly completedResults = new Map<TaskId, ExplainTaskResult<TaskId>>();
+
+  constructor(repository: IPopoverRepository, cardLifecycleService?: ICardLifecycleService) {
     this.repository = repository;
+    this.cardLifecycleService = cardLifecycleService;
   }
 
   openSelection(selection: PopoverSelectionData) {
@@ -92,6 +109,8 @@ export class PopoverViewModel {
     void this.cancelActiveRequests();
     this.isOpen.value = false;
     this.selection.value = null;
+    this.savedCardId.value = null;
+    this.completedResults.clear();
   }
 
   cycleTheme() {
@@ -116,6 +135,65 @@ export class PopoverViewModel {
     }
   }
 
+  async like() {
+    if (!this.selection.value || this.savedCardId.value || !this.cardLifecycleService) {
+      return;
+    }
+
+    this.isSaving.value = true;
+    this.errorMessage.value = null;
+
+    try {
+      const taskResults: Partial<Record<TaskId, ExplainTaskResult<TaskId>>> = {};
+      for (const [taskId, result] of this.completedResults) {
+        taskResults[taskId] = result;
+      }
+
+      const card = await this.cardLifecycleService.saveFromPopover(this.selection.value, taskResults);
+      this.savedCardId.value = card.id;
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Failed to save card.';
+      this.errorMessage.value = errorMessage;
+    } finally {
+      this.isSaving.value = false;
+    }
+  }
+
+  async dislike(taskId: TaskId) {
+    await this.retryTask(taskId);
+  }
+
+  async retryTask(taskId: TaskId) {
+    if (!this.selection.value) {
+      return;
+    }
+
+    this.isRetrying.value = true;
+    this.errorMessage.value = null;
+
+    const activeRequestId = this.requestIds.get(taskId);
+    if (activeRequestId) {
+      this.requestIds.delete(taskId);
+      try {
+        await this.repository.cancelTask(activeRequestId);
+      } catch {
+        // Ignore cancellation errors.
+      }
+    }
+
+    this.requestedTaskIds.delete(taskId);
+    this.completedResults.delete(taskId);
+    this.setTaskState(taskId, () => ({ ...EMPTY_TASK_STATE }));
+
+    try {
+      await this.startTask(taskId, toExplainSelection(this.selection.value));
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Retry failed.';
+      this.errorMessage.value = errorMessage;
+    } finally {
+      this.isRetrying.value = false;
+    }
+  }
   getLexicalTask() {
     return this.tasks.value.find((task) => task.kind === 'lexical') ?? null;
   }
@@ -163,6 +241,7 @@ export class PopoverViewModel {
         return;
       }
       case 'completed': {
+        this.completedResults.set(event.task, event.result);
         this.providerLabel.value = event.result.providerLabel;
         this.setTaskState(event.task, () => ({
           status: 'success',
@@ -197,6 +276,9 @@ export class PopoverViewModel {
     this.tasks.clear();
     this.selectedTab.clear();
     this.lexicalCollapsed.clear();
+    this.isSaving.clear();
+    this.isRetrying.clear();
+    this.savedCardId.clear();
     this.providerLabel.clear();
     this.lexicalState.clear();
     this.taskStates.clear();
@@ -220,6 +302,8 @@ export class PopoverViewModel {
     this.lexicalState.value = { ...EMPTY_TASK_STATE };
     this.taskStates.value = createTabTaskStates(tasks);
     this.requestedTaskIds.clear();
+    this.completedResults.clear();
+    this.savedCardId.value = null;
     this.isOpen.value = true;
 
     const explainSelection = toExplainSelection(selection);
@@ -244,7 +328,28 @@ export class PopoverViewModel {
       ...EMPTY_TASK_STATE,
       status: 'loading',
     }));
-    await this.repository.startTask(requestId, task, selection);
+    this.errorMessage.value = null;
+
+    if (!isExtensionContextValid()) {
+      this.handleStartTaskFailure(task, EXTENSION_CONTEXT_INVALIDATED_MESSAGE);
+      return;
+    }
+
+    try {
+      await this.repository.startTask(requestId, task, selection);
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'The explanation request failed.';
+      this.handleStartTaskFailure(task, errorMessage);
+    }
+  }
+
+  private handleStartTaskFailure(task: TaskId, errorMessage: string) {
+    this.errorMessage.value = errorMessage;
+    this.setTaskState(task, () => ({
+      ...EMPTY_TASK_STATE,
+      status: 'error',
+      errorMessage,
+    }));
   }
 
   private async cancelActiveRequests() {

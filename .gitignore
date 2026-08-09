@@ -20,7 +20,6 @@ stats-*.json
 
 # WXT generated files
 .wxt
-.wxt/types/paths.d.ts
 web-ext.config.ts
 
 # Wrangler / Cloudflare local state

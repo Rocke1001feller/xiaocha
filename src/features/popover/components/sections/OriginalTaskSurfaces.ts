@@ -4,11 +4,13 @@ import type { PopoverTaskDescriptor } from '../../events/PopoverEvents';
 import { createJsonRuntime, renderJsonState } from './JsonSection';
 import { createMarkdownRuntime, renderMarkdownState, resetMarkdown } from './MarkdownSection';
 import { getLegacySurfaceContract, sanitizeTaskId } from './OriginalTaskSurfaceContract';
+import { createSpeakButton, updateTaskSpeakButton } from './TtsSpeakButtons';
 
 export type OriginalTaskPanelRuntime = {
   descriptor: PopoverTaskDescriptor;
   radio: HTMLInputElement;
   panel: HTMLLIElement;
+  speak: HTMLButtonElement;
   render: (state: ExplainTaskState) => void;
   dispose: () => void;
 };
@@ -65,6 +67,9 @@ export function createOriginalTaskRuntimes(
     let render: (state: ExplainTaskState) => void;
     let dispose: () => void;
 
+    const speak = createSpeakButton(`task:${task.id}`, '朗读');
+    speak.disabled = true;
+
     if (task.kind === 'markdown') {
       const content = document.createElement('div');
       content.className = surfaceContract.contentClassName;
@@ -79,9 +84,9 @@ export function createOriginalTaskRuntimes(
       });
       render = (state) => { renderMarkdownState(runtime, state); };
       dispose = () => { resetMarkdown(runtime); };
-      panel.append(loading, error, content);
+      panel.append(speak, loading, error, content);
       panelItem.appendChild(panel);
-      runtimes.set(task.id, { descriptor: task, radio, panel: panelItem, render, dispose });
+      runtimes.set(task.id, { descriptor: task, radio, panel: panelItem, speak, render, dispose });
       explorationRoot.append(radio, label);
       list.appendChild(panelItem);
       return;
@@ -105,9 +110,9 @@ export function createOriginalTaskRuntimes(
       error.textContent = '';
       error.style.display = 'none';
     };
-    panel.append(loading, error, content);
+    panel.append(speak, loading, error, content);
     panelItem.appendChild(panel);
-    runtimes.set(task.id, { descriptor: task, radio, panel: panelItem, render, dispose });
+    runtimes.set(task.id, { descriptor: task, radio, panel: panelItem, speak, render, dispose });
     explorationRoot.append(radio, label);
     list.appendChild(panelItem);
   });
@@ -129,7 +134,9 @@ export function renderOriginalTaskStates(
   getTaskState: (taskId: TaskId) => ExplainTaskState,
 ) {
   for (const runtime of taskRuntimes) {
-    runtime.render(getTaskState(runtime.descriptor.id));
+    const state = getTaskState(runtime.descriptor.id);
+    updateTaskSpeakButton(runtime.speak, state);
+    runtime.render(state);
   }
 }
 

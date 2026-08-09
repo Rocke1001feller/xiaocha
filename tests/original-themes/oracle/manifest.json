@@ -51,58 +51,58 @@
     "themes/aurora/effects/part-02.css",
     "themes/aurora/trigger/part-01.css"
   ],
-  "totalLines": 9602,
+  "totalLines": 9671,
   "totalSlices": 25,
   "maxLinesPerSlice": 400,
-  "fullSha256": "6bbaa2c78166776b3babceb45bcd6f6e5a0d8006336f15fb2666aa21832256c1",
+  "fullSha256": "335656ad81157010ae2db67b1ae58b9dcb230200973343f03bae59c313e6e4a3",
   "themeSections": [
     {
       "id": "basic",
       "label": "Basic",
-      "startLine": 4432,
-      "endLine": 4892,
+      "startLine": 4501,
+      "endLine": 4961,
       "lineCount": 461
     },
     {
       "id": "pro",
       "label": "Pro",
-      "startLine": 4893,
-      "endLine": 5479,
+      "startLine": 4962,
+      "endLine": 5548,
       "lineCount": 587
     },
     {
       "id": "creative",
       "label": "Creative",
-      "startLine": 5480,
-      "endLine": 6135,
+      "startLine": 5549,
+      "endLine": 6204,
       "lineCount": 656
     },
     {
       "id": "galaxy",
       "label": "Galaxy",
-      "startLine": 6136,
-      "endLine": 7043,
+      "startLine": 6205,
+      "endLine": 7112,
       "lineCount": 908
     },
     {
       "id": "neon",
       "label": "Neon",
-      "startLine": 7044,
-      "endLine": 7737,
+      "startLine": 7113,
+      "endLine": 7806,
       "lineCount": 694
     },
     {
       "id": "cyberpunk",
       "label": "Cyberpunk",
-      "startLine": 7738,
-      "endLine": 8786,
+      "startLine": 7807,
+      "endLine": 8855,
       "lineCount": 1049
     },
     {
       "id": "aurora",
       "label": "Aurora",
-      "startLine": 8787,
-      "endLine": 9602,
+      "startLine": 8856,
+      "endLine": 9671,
       "lineCount": 816
     }
   ],
@@ -148,308 +148,312 @@
       "line": 4011
     },
     {
+      "name": "oow-tts-speak-pulse",
+      "line": 4475
+    },
+    {
       "name": "basic-fade-in",
-      "line": 4570
+      "line": 4639
     },
     {
       "name": "basic-slide-in",
-      "line": 4582
+      "line": 4651
     },
     {
       "name": "basic-emphasis",
-      "line": 4594
+      "line": 4663
     },
     {
       "name": "basic-gradient-shift",
-      "line": 4604
+      "line": 4673
     },
     {
       "name": "basic-underline-grow",
-      "line": 4617
+      "line": 4686
     },
     {
       "name": "basic-pulse",
-      "line": 4632
+      "line": 4701
     },
     {
       "name": "basic-blink",
-      "line": 4642
+      "line": 4711
     },
     {
       "name": "basic-transition",
-      "line": 4652
+      "line": 4721
     },
     {
       "name": "pro-fade-in-up",
-      "line": 5042
-    },
-    {
-      "name": "pro-slide-in-right",
-      "line": 5061
-    },
-    {
-      "name": "pro-precision-ruler",
-      "line": 5079
-    },
-    {
-      "name": "pro-progress-bar",
-      "line": 5095
-    },
-    {
-      "name": "pro-data-flow",
       "line": 5111
     },
     {
+      "name": "pro-slide-in-right",
+      "line": 5130
+    },
+    {
+      "name": "pro-precision-ruler",
+      "line": 5148
+    },
+    {
+      "name": "pro-progress-bar",
+      "line": 5164
+    },
+    {
+      "name": "pro-data-flow",
+      "line": 5180
+    },
+    {
       "name": "pro-emphasis-pulse",
-      "line": 5127
+      "line": 5196
     },
     {
       "name": "pro-typewriter",
-      "line": 5139
+      "line": 5208
     },
     {
       "name": "pro-metallic-sweep",
-      "line": 5158
+      "line": 5227
     },
     {
       "name": "creative-brush-stroke",
-      "line": 5662
+      "line": 5731
     },
     {
       "name": "creative-color-mix",
-      "line": 5680
+      "line": 5749
     },
     {
       "name": "creative-wave-flow",
-      "line": 5704
+      "line": 5773
     },
     {
       "name": "creative-gradient-reveal",
-      "line": 5724
+      "line": 5793
     },
     {
       "name": "creative-handwrite",
-      "line": 5746
+      "line": 5815
     },
     {
       "name": "creative-inspiration-sparkle",
-      "line": 5764
+      "line": 5833
     },
     {
       "name": "creative-gradient-drift",
-      "line": 5792
+      "line": 5861
     },
     {
       "name": "galaxy-stars",
-      "line": 6235
+      "line": 6304
     },
     {
       "name": "galaxy-twinkle",
-      "line": 6244
+      "line": 6313
     },
     {
       "name": "galaxy-title-glow",
-      "line": 6276
+      "line": 6345
     },
     {
       "name": "galaxy-logo-pulse",
-      "line": 6296
+      "line": 6365
     },
     {
       "name": "galaxy-scan",
-      "line": 6315
+      "line": 6384
     },
     {
       "name": "galaxy-bar-pulse",
-      "line": 6353
+      "line": 6422
     },
     {
       "name": "galaxy-spin",
-      "line": 6933
+      "line": 7002
     },
     {
       "name": "galaxy-activated-pulse",
-      "line": 6939
+      "line": 7008
     },
     {
       "name": "galaxy-fadeInUp",
-      "line": 6951
+      "line": 7020
     },
     {
       "name": "galaxy-twinkle",
-      "line": 6963
+      "line": 7032
     },
     {
       "name": "galaxy-glow",
-      "line": 6983
+      "line": 7052
     },
     {
       "name": "galaxy-starflow",
-      "line": 6993
+      "line": 7062
     },
     {
       "name": "galaxy-typewriter",
-      "line": 7006
+      "line": 7075
     },
     {
       "name": "galaxy-border-flow",
-      "line": 7021
+      "line": 7090
     },
     {
       "name": "neon-flicker",
-      "line": 7130
+      "line": 7199
     },
     {
       "name": "neon-pulse",
-      "line": 7139
+      "line": 7208
     },
     {
       "name": "neon-logo-pulse",
-      "line": 7159
+      "line": 7228
     },
     {
       "name": "neon-scan",
-      "line": 7179
+      "line": 7248
     },
     {
       "name": "neon-bar-pulse",
-      "line": 7218
+      "line": 7287
     },
     {
       "name": "neon-tube-flicker",
-      "line": 7543
-    },
-    {
-      "name": "neon-text-illuminate",
-      "line": 7575
-    },
-    {
-      "name": "neon-glitch-effect",
       "line": 7612
     },
     {
+      "name": "neon-text-illuminate",
+      "line": 7644
+    },
+    {
+      "name": "neon-glitch-effect",
+      "line": 7681
+    },
+    {
       "name": "neon-pulse-scan",
-      "line": 7641
+      "line": 7710
     },
     {
       "name": "neon-digital-rain",
-      "line": 7651
+      "line": 7720
     },
     {
       "name": "neon-halo-expand",
-      "line": 7669
+      "line": 7738
     },
     {
       "name": "neon-standby-pulse",
-      "line": 7727
+      "line": 7796
     },
     {
       "name": "cyberpunk-grid",
-      "line": 7830
+      "line": 7899
     },
     {
       "name": "cyberpunk-pulse",
-      "line": 7839
+      "line": 7908
     },
     {
       "name": "cyberpunk-glow",
-      "line": 7863
+      "line": 7932
     },
     {
       "name": "cyberpunk-logo-pulse",
-      "line": 7883
+      "line": 7952
     },
     {
       "name": "cyberpunk-text-scan",
-      "line": 7904
+      "line": 7973
     },
     {
       "name": "cyberpunk-bar-pulse",
-      "line": 7943
+      "line": 8012
     },
     {
       "name": "cyberpunk-scan",
-      "line": 8605
+      "line": 8674
     },
     {
       "name": "cyberpunk-glitch",
-      "line": 8619
-    },
-    {
-      "name": "cyberpunk-hud-scan",
-      "line": 8648
-    },
-    {
-      "name": "cyberpunk-neon-flicker",
-      "line": 8664
-    },
-    {
-      "name": "cyberpunk-data-flow",
       "line": 8688
     },
     {
+      "name": "cyberpunk-hud-scan",
+      "line": 8717
+    },
+    {
+      "name": "cyberpunk-neon-flicker",
+      "line": 8733
+    },
+    {
+      "name": "cyberpunk-data-flow",
+      "line": 8757
+    },
+    {
       "name": "cyberpunk-hologram",
-      "line": 8700
+      "line": 8769
     },
     {
       "name": "cyberpunk-digital-noise",
-      "line": 8724
+      "line": 8793
     },
     {
       "name": "cyberpunk-cursor",
-      "line": 8744
+      "line": 8813
     },
     {
       "name": "cyberpunk-electric-flow",
-      "line": 8754
+      "line": 8823
     },
     {
       "name": "cyberpunk-matrix-rain",
-      "line": 8770
+      "line": 8839
     },
     {
       "name": "aurora-wave",
-      "line": 8882
+      "line": 8951
     },
     {
       "name": "aurora-glow",
-      "line": 8914
+      "line": 8983
     },
     {
       "name": "aurora-flow",
-      "line": 8936
+      "line": 9005
     },
     {
       "name": "aurora-ripple",
-      "line": 8960
+      "line": 9029
     },
     {
       "name": "aurora-breathe",
-      "line": 8979
+      "line": 9048
     },
     {
       "name": "aurora-shimmer",
-      "line": 8999
+      "line": 9068
     },
     {
       "name": "aurora-gradient-shift",
-      "line": 9023
-    },
-    {
-      "name": "aurora-light-band",
-      "line": 9057
-    },
-    {
-      "name": "aurora-trail",
-      "line": 9075
-    },
-    {
-      "name": "aurora-pulse",
       "line": 9092
     },
     {
+      "name": "aurora-light-band",
+      "line": 9126
+    },
+    {
+      "name": "aurora-trail",
+      "line": 9144
+    },
+    {
+      "name": "aurora-pulse",
+      "line": 9161
+    },
+    {
       "name": "aurora-button-pulse",
-      "line": 9595
+      "line": 9664
     }
   ],
   "slices": [
@@ -535,98 +539,98 @@
       "startLine": 4401,
       "endLine": 4800,
       "lineCount": 400,
-      "sha256": "12e6420446c57585f0d917b34119a9a59476a0bf6befb271ca582a19a90b5e5c"
+      "sha256": "29fe5d721245aad4809a13f813f0cb3bfb78e92de257b362ba6e300abb4ea01e"
     },
     {
       "file": "slice-13.css",
       "startLine": 4801,
       "endLine": 5200,
       "lineCount": 400,
-      "sha256": "8e1a977cb1518bb4c9f9dc4c8c6e8db095b797cb6dfc9e3196858161b6e51b1c"
+      "sha256": "10a68fc168766ca37623e70430f7872ecf4a55b0accb740447d4d01eec97971a"
     },
     {
       "file": "slice-14.css",
       "startLine": 5201,
       "endLine": 5600,
       "lineCount": 400,
-      "sha256": "b261384ac88c187818d6970cc65c90fbf06b6db9c19c3ec4e52598f829cec81e"
+      "sha256": "dbc5c248e51a7553c570f66b34146ccd40b4aa5a08473de57dd4cc80520dc1a7"
     },
     {
       "file": "slice-15.css",
       "startLine": 5601,
       "endLine": 6000,
       "lineCount": 400,
-      "sha256": "e92f06386b0448a7d79ef609c7600f4b86eab61379fec9e7df29134347cb9093"
+      "sha256": "07c7c6ee50bf990d267d9dd21b4b610f7ce2e1b459acefca68a9a239fd13bc56"
     },
     {
       "file": "slice-16.css",
       "startLine": 6001,
       "endLine": 6400,
       "lineCount": 400,
-      "sha256": "07a901186d14434abe9fc365870a9a9445492ed82cfcaa57d6a21800f17bbc17"
+      "sha256": "203f36b2a15c8c4c91020674112ccb4f55098ce5b9c234b0ee2222f57646d43a"
     },
     {
       "file": "slice-17.css",
       "startLine": 6401,
       "endLine": 6800,
       "lineCount": 400,
-      "sha256": "ef9f2126ed6a3c1a6722c6be6dd0d7b32e99da3d6132c907d757c64cc7697737"
+      "sha256": "f47c4d3b751c29d80338e744c0c10368b4d4509d5b88739ba44da71b4bc42f7d"
     },
     {
       "file": "slice-18.css",
       "startLine": 6801,
       "endLine": 7200,
       "lineCount": 400,
-      "sha256": "56c1f4e30807157ebec7db012a0d037c1bedc12806ebc8b86e0540cfbb1d7936"
+      "sha256": "c5983673b4ae6e94a671785499d65982889397657f1457bc572761985746c7c9"
     },
     {
       "file": "slice-19.css",
       "startLine": 7201,
       "endLine": 7600,
       "lineCount": 400,
-      "sha256": "9fe583b3cad169ecbeb8cd3c72f910d7f7ff1cc2913450bf65e0977123ad1a32"
+      "sha256": "169e123833ae65b00132b288c24aa24bcffc7ecface727d82643ab753790238b"
     },
     {
       "file": "slice-20.css",
       "startLine": 7601,
       "endLine": 8000,
       "lineCount": 400,
-      "sha256": "d068219e71039658ca097dffe0e0c498fd1adb1253cc506eda296065445b1c4f"
+      "sha256": "93f089f440402dce4283c36484603fa9f64129627f2a9c9f4cf0b2051d1edc06"
     },
     {
       "file": "slice-21.css",
       "startLine": 8001,
       "endLine": 8400,
       "lineCount": 400,
-      "sha256": "659115b0f00e624b5bc0b3dd698236d272159e4bab1977030ae05614aacd84b3"
+      "sha256": "58c3d409004683892d48aebb8e194c909cbab7ea36d6a0dc4b0c5ba9fef338aa"
     },
     {
       "file": "slice-22.css",
       "startLine": 8401,
       "endLine": 8800,
       "lineCount": 400,
-      "sha256": "4e1efdddca8956734961d9353f0f8277389b169fbdcc5905c98c495249196e38"
+      "sha256": "7395863872a6a37d543446eb5154692bdb9957d5ce35276cb8a237e0683ead7a"
     },
     {
       "file": "slice-23.css",
       "startLine": 8801,
       "endLine": 9200,
       "lineCount": 400,
-      "sha256": "133eb77971aaf429998e7f36801bafcd252c8e593f25879b0b08b1dcf02156ba"
+      "sha256": "4fca13bb9c0547df20e9ca1ef54ab68f98395aab3c1edb81f6ecd304d5ecb62f"
     },
     {
       "file": "slice-24.css",
       "startLine": 9201,
       "endLine": 9600,
       "lineCount": 400,
-      "sha256": "18f84e66c738c51639c88a369f75c55004031195e8c64ffe4affdcb49745e65b"
+      "sha256": "f23ddf4da4386217417be5dc24ca15e2c138407c77bf64b14eae7053c72b0d04"
     },
     {
       "file": "slice-25.css",
       "startLine": 9601,
-      "endLine": 9602,
-      "lineCount": 2,
-      "sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+      "endLine": 9671,
+      "lineCount": 71,
+      "sha256": "1b84d823bfd6da37a53f2d774d99dcd19e2cebf6143af2392d00b718c9e63df1"
     }
   ]
 }

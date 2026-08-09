@@ -1,8 +1,19 @@
+import { createDefaultCardLifecycleService } from '../card';
+import { createTtsService } from '../tts';
+import { ContentScriptContext } from 'wxt/utils/content-script-context';
 import { isPopoverStreamEvent, POPOVER_THEMES, toViewportRect, type PopoverSelectionData, type PopoverThemeId } from './events/PopoverEvents';
 import { RuntimePopoverRepository } from './repositories/RuntimePopoverRepository';
 import { PopoverViewModel } from './viewmodels/PopoverViewModel';
 import { OriginalPopoverView } from './components/OriginalPopoverView';
 import { buildNeighborContext } from './context/buildNeighborContext';
+import type { SpeakControl, SpeakPlaybackState } from './components/sections/TtsSpeakButtons';
+
+/* TTS 门面签名（与 src/features/tts 的 createTtsService() 对齐） */
+type TtsService = {
+  speak: (ownerId: string, text: string, lang: 'zh' | 'en') => Promise<void>;
+  stop: () => void;
+  subscribe: (listener: (state: SpeakPlaybackState) => void) => () => void;
+};
 
 /* Theme → wavy underline color (accent-1 from each theme) */
 const THEME_UNDERLINE_COLORS: Record<PopoverThemeId, string> = {
@@ -16,7 +27,7 @@ const THEME_UNDERLINE_COLORS: Record<PopoverThemeId, string> = {
 };
 
 export class PopoverFeature {
-  private readonly viewModel = new PopoverViewModel(new RuntimePopoverRepository());
+  private readonly viewModel = new PopoverViewModel(new RuntimePopoverRepository(), createDefaultCardLifecycleService());
 
   private readonly view = new OriginalPopoverView(this.viewModel);
 
@@ -26,7 +37,51 @@ export class PopoverFeature {
   private highlightRange: Range | null = null;
   private highlightStyle: HTMLStyleElement | null = null;
 
-  start() {
+  private ctx: ContentScriptContext | null = null;
+
+  private removeInvalidatedListener: (() => void) | null = null;
+
+  private themeUnsubscribe: (() => void) | null = null;
+
+  /* TTS 服务懒创建单例：状态经 speakStateListeners 扇出给视图 */
+  private ttsService: TtsService | null = null;
+
+  private ttsUnsubscribe: (() => void) | null = null;
+
+  private readonly speakStateListeners = new Set<(state: SpeakPlaybackState) => void>();
+
+  private readonly speakControl: SpeakControl = {
+    speak: (request) => {
+      void this.getTtsService()
+        .speak(request.ownerId, request.text, request.lang)
+        .catch(() => this.ttsService?.stop());
+    },
+    stop: () => {
+      this.ttsService?.stop();
+    },
+    subscribe: (listener) => {
+      this.speakStateListeners.add(listener);
+      return () => {
+        this.speakStateListeners.delete(listener);
+      };
+    },
+  };
+
+  private getTtsService(): TtsService {
+    if (!this.ttsService) {
+      this.ttsService = createTtsService();
+      this.ttsUnsubscribe = this.ttsService.subscribe((state) => {
+        for (const listener of this.speakStateListeners) {
+          listener(state);
+        }
+      });
+    }
+
+    return this.ttsService;
+  }
+
+  start(ctx: ContentScriptContext) {
+    this.ctx = ctx;
     this.view.setCallbacks({
       onTriggerActivate: () => {
         if (!this.pendingSelection) {
@@ -39,6 +94,7 @@ export class PopoverFeature {
       },
       onClose: () => {
         this.pendingSelection = null;
+        this.speakControl.stop();
         this.clearSelectionHighlight();
         this.clearBrowserSelection();
         this.viewModel.close();
@@ -52,17 +108,40 @@ export class PopoverFeature {
       onSelectTab: (tab) => {
         this.viewModel.selectTab(tab);
       },
+      onReloadPage: () => {
+        window.location.reload();
+      },
+      onLike: () => {
+        void this.viewModel.like();
+      },
+      onDislike: () => {
+        const tab = this.viewModel.selectedTab.value;
+        if (tab) {
+          void this.viewModel.dislike(tab);
+        }
+      },
+      onSpeak: this.speakControl,
     });
 
-    document.addEventListener('mouseup', this.handleMouseUp);
-    document.addEventListener('selectionchange', this.handleSelectionChange);
-    document.addEventListener('pointerdown', this.handlePointerDown);
-    window.addEventListener('scroll', this.handleViewportChange, true);
-    window.addEventListener('resize', this.handleViewportChange);
+    if (ctx.isInvalid) {
+      this.dispose();
+      return;
+    }
+
+    ctx.addEventListener(document, 'mouseup', this.handleMouseUp);
+    ctx.addEventListener(document, 'selectionchange', this.handleSelectionChange);
+    ctx.addEventListener(document, 'pointerdown', this.handlePointerDown);
+    ctx.addEventListener(window, 'scroll', this.handleViewportChange, true);
+    ctx.addEventListener(window, 'resize', this.handleViewportChange);
     browser.runtime.onMessage.addListener(this.handleRuntimeMessage);
 
+    this.removeInvalidatedListener = ctx.onInvalidated(() => {
+      browser.runtime.onMessage.removeListener(this.handleRuntimeMessage);
+      this.dispose();
+    });
+
     /* Update wavy underline color when theme changes */
-    this.viewModel.theme.subscribe((theme) => {
+    this.themeUnsubscribe = this.viewModel.theme.subscribe((theme) => {
       this.updateHighlightColor(theme);
     });
   }
@@ -116,7 +195,7 @@ export class PopoverFeature {
       return;
     }
 
-    window.setTimeout(() => {
+    this.ctx?.setTimeout(() => {
       const selectionData = this.readSelection();
       if (!selectionData) {
         if (!this.viewModel.isOpen.value) {
@@ -238,5 +317,22 @@ export class PopoverFeature {
 
   private clearBrowserSelection() {
     window.getSelection()?.removeAllRanges();
+  }
+
+  private dispose() {
+    this.themeUnsubscribe?.();
+    this.themeUnsubscribe = null;
+    this.ttsUnsubscribe?.();
+    this.ttsUnsubscribe = null;
+    this.ttsService?.stop();
+    this.ttsService = null;
+    this.speakStateListeners.clear();
+    this.view.destroy();
+    this.clearSelectionHighlight();
+    this.clearBrowserSelection();
+    this.viewModel.dispose();
+    this.removeInvalidatedListener?.();
+    this.removeInvalidatedListener = null;
+    this.ctx = null;
   }
 }

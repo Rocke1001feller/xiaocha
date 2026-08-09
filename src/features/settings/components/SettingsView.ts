@@ -4,11 +4,13 @@ import { ProviderPanelView } from './provider-editor/ProviderPanelView';
 import { AdvancedRuntimeView } from './snapshot-runtime/AdvancedRuntimeView';
 import { ThemeGalleryView } from './snapshot-runtime/ThemeGalleryView';
 import { TaskPanelView } from './task-editor/TaskPanelView';
+import { TtsSourcesPanelView } from './tts-sources/TtsSourcesPanelView';
 import { ADVANCED_PAGE_TEMPLATE } from './templates/advancedPageTemplate';
 import { OVERVIEW_PAGE_TEMPLATE } from './templates/overviewPageTemplate';
 import { PROMPTS_PAGE_TEMPLATE } from './templates/promptsPageTemplate';
 import { PROVIDERS_PAGE_TEMPLATE } from './templates/providersPageTemplate';
 import { THEMES_PAGE_TEMPLATE } from './templates/themesPageTemplate';
+import { TTS_PAGE_TEMPLATE } from './templates/ttsSourcesPageTemplate';
 import type { SettingsViewModel } from '../viewmodels/SettingsViewModel';
 
 export class SettingsView {
@@ -27,6 +29,8 @@ export class SettingsView {
   private providerPanelView!: ProviderPanelView;
 
   private taskPanelView!: TaskPanelView;
+
+  private ttsSourcesPanelView!: TtsSourcesPanelView;
 
   private themeGalleryView!: ThemeGalleryView;
 
@@ -54,14 +58,10 @@ export class SettingsView {
       <div class="app-shell">
         <aside class="sidebar">
           <div class="sidebar-top">
-            <div class="logo-orb">
-              <img src="/icon/display-96.png" alt="查单词，用小猹" />
+            <div class="brand-logo">
+              <img src="/icon/display-96.png" alt="小猹" />
             </div>
-            <div class="brand-lockup" aria-label="查单词，用小猹">
-              <span class="brand-scan">Scan</span>
-              <span class="brand-explain">Explain</span>
-            </div>
-            <span class="alpha-badge">4.1 Final</span>
+            <span class="brand-name" aria-label="小猹">小猹</span>
           </div>
 
           <div class="sidebar-scroll">
@@ -79,21 +79,25 @@ export class SettingsView {
                     <span class="material-symbols-outlined">cloud</span>
                     <span class="nav-label" data-copy="navProviders"></span>
                   </span>
-                  <span class="mini-badge">2</span>
                 </button>
                 <button class="nav-item" type="button" data-tab="prompts">
                   <span class="nav-main">
                     <span class="material-symbols-outlined">chat</span>
                     <span class="nav-label" data-copy="navPrompts"></span>
                   </span>
-                  <span class="mini-badge" id="nav-prompts-count">3</span>
+                  <span class="mini-badge" id="nav-prompts-count"></span>
+                </button>
+                <button class="nav-item" type="button" data-tab="tts">
+                  <span class="nav-main">
+                    <span class="material-symbols-outlined">record_voice_over</span>
+                    <span class="nav-label" data-copy="navTts"></span>
+                  </span>
                 </button>
                 <button class="nav-item" type="button" data-tab="themes">
                   <span class="nav-main">
                     <span class="material-symbols-outlined">palette</span>
                     <span class="nav-label" data-copy="navThemes"></span>
                   </span>
-                  <span class="mini-badge">7</span>
                 </button>
                 <button class="nav-item" type="button" data-tab="advanced">
                   <span class="nav-main">
@@ -103,35 +107,14 @@ export class SettingsView {
                 </button>
               </div>
             </section>
-
-            <section>
-              <h2 class="sidebar-group-title" data-copy="foundationsGroupTitle"></h2>
-              <div class="support-list">
-                <div class="support-link support-link-static">
-                  <span class="support-main">
-                    <span class="material-symbols-outlined">brush</span>
-                    <span class="support-label" data-copy="foundationBaseline"></span>
-                  </span>
-                  <span class="mini-token">UI</span>
-                </div>
-                <div class="support-link support-link-static">
-                  <span class="support-main">
-                    <span class="material-symbols-outlined">schema</span>
-                    <span class="support-label" data-copy="foundationSource"></span>
-                  </span>
-                  <span class="mini-token">Code</span>
-                </div>
-              </div>
-            </section>
           </div>
-
-          <div class="sidebar-footer" data-copy="sidebarFooter"></div>
         </aside>
 
         <main class="main-pane">
 ${OVERVIEW_PAGE_TEMPLATE}
 ${PROVIDERS_PAGE_TEMPLATE}
 ${PROMPTS_PAGE_TEMPLATE}
+${TTS_PAGE_TEMPLATE}
 ${THEMES_PAGE_TEMPLATE}
 ${ADVANCED_PAGE_TEMPLATE}
         </main>
@@ -144,6 +127,7 @@ ${ADVANCED_PAGE_TEMPLATE}
       overview: this.requireElement('#page-overview'),
       providers: this.requireElement('#page-providers'),
       prompts: this.requireElement('#page-prompts'),
+      tts: this.requireElement('#page-tts'),
       themes: this.requireElement('#page-themes'),
       advanced: this.requireElement('#page-advanced'),
     };
@@ -152,6 +136,7 @@ ${ADVANCED_PAGE_TEMPLATE}
       overview: this.requireElement('[data-tab="overview"]'),
       providers: this.requireElement('[data-tab="providers"]'),
       prompts: this.requireElement('[data-tab="prompts"]'),
+      tts: this.requireElement('[data-tab="tts"]'),
       themes: this.requireElement('[data-tab="themes"]'),
       advanced: this.requireElement('[data-tab="advanced"]'),
     } as Record<string, HTMLButtonElement>;
@@ -228,6 +213,30 @@ ${ADVANCED_PAGE_TEMPLATE}
       confirmAction: (message) => this.confirmAction(message),
     });
 
+    this.ttsSourcesPanelView = new TtsSourcesPanelView(this.viewModel, {
+      list: this.requireElement('#tts-source-list'),
+      editorTitle: this.requireElement('#tts-editor-title'),
+      editorSubtitle: this.requireElement('#tts-editor-subtitle'),
+      editorBadge: this.requireElement('#tts-editor-badge'),
+      configNote: this.requireElement('#tts-config-note'),
+      browserFields: this.requireElement('#tts-browser-fields'),
+      voiceZhSelect: this.requireElement('#tts-voice-zh'),
+      voiceEnSelect: this.requireElement('#tts-voice-en'),
+      azureFields: this.requireElement('#tts-azure-fields'),
+      azureApiKey: this.requireElement('#tts-azure-api-key'),
+      azureApiKeyHint: this.requireElement('#tts-azure-api-key-hint'),
+      azureRegion: this.requireElement('#tts-azure-region'),
+      azureVoiceZh: this.requireElement('#tts-azure-voice-zh'),
+      azureVoiceEn: this.requireElement('#tts-azure-voice-en'),
+      feedback: this.requireElement('#tts-feedback'),
+      setDefaultButton: this.requireElement('#tts-set-default-button'),
+      testButton: this.requireElement('#tts-test-button'),
+      saveButton: this.requireElement('#tts-save-button'),
+    }, {
+      listVoices: () => this.viewModel.ttsPreviewRuntime?.listVoices() ?? [],
+      watchVoices: (callback) => this.viewModel.ttsPreviewRuntime?.watchVoices(callback) ?? (() => {}),
+    });
+
     this.themeGalleryView = new ThemeGalleryView(this.viewModel, {
       preview: {
         left: this.requireElement('#theme-preview-left'),
@@ -252,6 +261,7 @@ ${ADVANCED_PAGE_TEMPLATE}
     this.overviewPanelView.bindEvents();
     this.providerPanelView.bindEvents();
     this.taskPanelView.bindEvents();
+    this.ttsSourcesPanelView.bindEvents();
   }
 
   private subscribeToViewModel() {
@@ -260,6 +270,8 @@ ${ADVANCED_PAGE_TEMPLATE}
       this.applyCopy(copy.settings);
       this.providerPanelView.renderEditor();
       this.taskPanelView.renderEditor();
+      this.ttsSourcesPanelView.renderList();
+      this.ttsSourcesPanelView.renderEditor();
       this.themeGalleryView.renderThemeGallery();
     }));
     this.unsubscribers.push(this.viewModel.displayLanguageOptions.subscribe((options) => this.overviewPanelView.renderDisplayLanguageOptions(options)));
@@ -304,6 +316,27 @@ ${ADVANCED_PAGE_TEMPLATE}
     this.unsubscribers.push(this.viewModel.taskEditor.isSavingTask.subscribe(() => this.taskPanelView.renderEditor()));
     this.unsubscribers.push(this.viewModel.taskEditor.taskFeedback.subscribe(() => this.taskPanelView.renderEditor()));
     this.unsubscribers.push(this.viewModel.taskDryRun.taskDryRunState.subscribe(() => this.taskPanelView.renderEditor()));
+    this.unsubscribers.push(this.viewModel.ttsSources.sources.subscribe(() => {
+      this.ttsSourcesPanelView.renderList();
+      this.ttsSourcesPanelView.renderEditor();
+    }));
+    this.unsubscribers.push(this.viewModel.ttsSources.selectedSourceId.subscribe(() => {
+      this.ttsSourcesPanelView.renderList();
+      this.ttsSourcesPanelView.renderEditor();
+    }));
+    this.unsubscribers.push(this.viewModel.ttsSources.defaultSourceId.subscribe(() => {
+      this.ttsSourcesPanelView.renderList();
+      this.ttsSourcesPanelView.renderEditor();
+    }));
+    this.unsubscribers.push(this.viewModel.ttsSources.draft.subscribe(() => this.ttsSourcesPanelView.renderEditor()));
+    this.unsubscribers.push(this.viewModel.ttsSources.isDirty.subscribe(() => this.ttsSourcesPanelView.renderEditor()));
+    this.unsubscribers.push(this.viewModel.ttsSources.isSaving.subscribe(() => this.ttsSourcesPanelView.renderEditor()));
+    this.unsubscribers.push(this.viewModel.ttsSources.isPreviewing.subscribe(() => {
+      this.ttsSourcesPanelView.renderList();
+      this.ttsSourcesPanelView.renderEditor();
+    }));
+    this.unsubscribers.push(this.viewModel.ttsSources.feedback.subscribe(() => this.ttsSourcesPanelView.renderEditor()));
+    this.unsubscribers.push(this.viewModel.ttsSources.azureApiKeyMasked.subscribe(() => this.ttsSourcesPanelView.renderEditor()));
     this.unsubscribers.push(this.viewModel.snapshotRuntime.themes.subscribe(() => {
       this.themeGalleryView.renderThemeGallery();
     }));

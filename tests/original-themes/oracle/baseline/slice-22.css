@@ -1,3 +1,72 @@
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow:
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor,
+    0 0 40px var(--accent-1, #f72585);
+  will-change: text-shadow, opacity;
+}
+
+/* 强调文本悬停增强霓虹效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content strong:hover,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel strong:hover {
+  animation-duration: 0.8s;
+  text-shadow:
+    0 0 15px currentColor,
+    0 0 30px currentColor,
+    0 0 45px currentColor,
+    0 0 60px var(--accent-1, #f72585),
+    0 0 80px var(--accent-2, #4361ee);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* 斜体文本霓虹管效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content em,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel em {
+  color: var(--accent-3, #4cc9f0);
+  font-style: italic;
+  animation: cyberpunk-neon-flicker 3s ease-in-out infinite;
+  animation-delay: 0.5s;
+  text-shadow:
+    0 0 8px currentColor,
+    0 0 16px currentColor,
+    0 0 24px var(--accent-3, #4cc9f0);
+  will-change: text-shadow, opacity;
+}
+
+/* 斜体文本悬停增强效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content em:hover,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel em:hover {
+  animation-duration: 1.2s;
+  text-shadow:
+    0 0 12px currentColor,
+    0 0 24px currentColor,
+    0 0 36px currentColor,
+    0 0 48px var(--accent-3, #4cc9f0);
+  animation: cyberpunk-glitch 0.2s ease-in-out infinite, cyberpunk-neon-flicker 1.2s ease-in-out infinite;
+}
+
+/* 代码块霓虹效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content code,
+.oow-popover[data-theme="cyberpunk"] .etymology-panel code {
+  color: var(--accent-3, #4cc9f0);
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--accent-3, #4cc9f0);
+  padding: 4px 8px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  animation: cyberpunk-neon-flicker 4s ease-in-out infinite;
+  text-shadow: 0 0 8px currentColor;
+  box-shadow:
+    0 0 10px rgba(76, 201, 240, 0.3),
+    inset 0 0 10px rgba(76, 201, 240, 0.1);
+  will-change: text-shadow, box-shadow;
+}
+
+/* 预格式化代码块终端效果 */
+.oow-popover[data-theme="cyberpunk"] .info-panel-content pre,
 .oow-popover[data-theme="cyberpunk"] .etymology-panel pre {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
   border: 2px solid var(--accent-2, #4361ee);
@@ -329,72 +398,3 @@
   25% {
     filter: contrast(1.2) brightness(0.8);
     transform: translate(1px, -1px);
-  }
-  50% {
-    filter: contrast(0.9) brightness(1.1);
-    transform: translate(-1px, 1px);
-  }
-  75% {
-    filter: contrast(1.1) brightness(0.9);
-    transform: translate(1px, 1px);
-  }
-}
-
-/* 终端光标闪烁 */
-@keyframes cyberpunk-cursor {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-/* 电子流动画 - 模拟电流通过 */
-@keyframes cyberpunk-electric-flow {
-  0% {
-    background-position: 0% 0%;
-    box-shadow: inset 0 0 20px rgba(67, 97, 238, 0.2);
-  }
-  50% {
-    background-position: 100% 0%;
-    box-shadow: inset 0 0 30px rgba(247, 37, 133, 0.4);
-  }
-  100% {
-    background-position: 200% 0%;
-    box-shadow: inset 0 0 20px rgba(67, 97, 238, 0.2);
-  }
-}
-
-/* 二进制码雨效果 */
-@keyframes cyberpunk-matrix-rain {
-  0% {
-    background-position: 0% 0%;
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.3;
-  }
-  90% {
-    opacity: 0.3;
-  }
-  100% {
-    background-position: 0% 100%;
-    opacity: 0;
-  }
-}
-/*
- * Origin of Words - Aurora Theme (Premium)
- * 极光主题 - 付费梦幻极光主题
- * 100% original style with ORIGINAL variable names
- */
-
-/* Theme Variables - CRITICAL: Use original variable names */
-.oow-popover[data-theme="aurora"] {
-  --panel-bg: #1a1a2e;
-  --text-color: #f0f8ff;
-  --muted: #d0e0ff;
-  --ring: #a78bfa; /* violet-400 */
-  --accent-1: #4ade80; /* green-400 */
-  --accent-2: #60a5fa; /* blue-400 */
-  --accent-3: #f472b6; /* pink-400 */

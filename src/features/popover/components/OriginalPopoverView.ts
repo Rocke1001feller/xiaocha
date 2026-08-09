@@ -5,6 +5,7 @@ import originalStyles from '../styles/original-themes';
 import type { PopoverViewModel } from '../viewmodels/PopoverViewModel';
 import { createOriginalPopoverMarkup } from './markup/original-popover-markup';
 import { createDragBehavior } from './sections/DragBehavior';
+import { bindPopoverSpeak, type SpeakControl } from './sections/TtsSpeakButtons';
 import { renderLexicalState as applyLexicalState, renderDefinition, replaceDefinitionList } from './sections/LexicalSection';
 import { renderStaticMarkdown } from './sections/MarkdownSection';
 import { positionPopover } from './sections/OriginalPopoverPositioning';
@@ -23,6 +24,10 @@ type PopoverCallbacks = {
   onCycleTheme: () => void;
   onToggleLexical: () => void;
   onSelectTab: (tab: TaskId) => void;
+  onReloadPage: () => void;
+  onLike: () => void;
+  onDislike: () => void;
+  onSpeak: SpeakControl;
 };
 export class OriginalPopoverView {
   private readonly host: HTMLDivElement;
@@ -36,7 +41,7 @@ export class OriginalPopoverView {
   private callbacks: PopoverCallbacks | null = null;
   private unsubscribers: Array<() => void> = [];
 
-  constructor(viewModel: PopoverViewModel) {
+  constructor(private readonly viewModel: PopoverViewModel) {
     this.host = document.createElement('div');
     this.host.id = 'scan-explain-popover-root';
     document.documentElement.appendChild(this.host);
@@ -62,7 +67,10 @@ export class OriginalPopoverView {
     this.bindStaticEvents();
     this.subscribeToViewModel(viewModel);
   }
-  setCallbacks(callbacks: PopoverCallbacks) { this.callbacks = callbacks; }
+  setCallbacks(callbacks: PopoverCallbacks) {
+    this.callbacks = callbacks;
+    this.unsubscribers.push(bindPopoverSpeak({ root: this.shadow, viewModel: this.viewModel, control: callbacks.onSpeak }).dispose);
+  }
   containsEvent(event: Event) {
     const path = event.composedPath();
     return path.includes(this.host) || (this.triggerHost ? path.includes(this.triggerHost) : false);
@@ -107,7 +115,10 @@ export class OriginalPopoverView {
   private bindStaticEvents() {
     this.refs.themeButton.addEventListener('click', () => { this.callbacks?.onCycleTheme(); });
     this.refs.closeButton.addEventListener('click', () => { this.callbacks?.onClose(); });
+    this.refs.likeButton.addEventListener('click', () => { this.callbacks?.onLike(); });
+    this.refs.dislikeButton.addEventListener('click', () => { this.callbacks?.onDislike(); });
     this.refs.lexicalToggle.addEventListener('click', () => { this.callbacks?.onToggleLexical(); });
+    this.refs.errorReload.addEventListener('click', () => { this.callbacks?.onReloadPage(); });
     this.refs.header.addEventListener('pointerdown', (event) => {
       if ((event.target as HTMLElement | null)?.closest('button')) return;
       this.drag.start(event);
@@ -141,6 +152,19 @@ export class OriginalPopoverView {
     this.unsubscribers.push(viewModel.taskStates.subscribe(() => {
       renderOriginalTaskStates(this.taskRuntimes.values(), (taskId) => viewModel.getTaskState(taskId));
     }));
+    this.unsubscribers.push(viewModel.errorMessage.subscribe((message) => {
+      this.updateErrorBanner(message);
+    }));
+    this.unsubscribers.push(viewModel.isSaving.subscribe((isSaving) => {
+      this.refs.likeButton.disabled = isSaving || viewModel.savedCardId.value != null;
+    }));
+    this.unsubscribers.push(viewModel.savedCardId.subscribe((cardId) => {
+      this.refs.likeButton.disabled = cardId != null;
+      this.refs.likeButton.textContent = cardId != null ? '✅' : '👍';
+    }));
+    this.unsubscribers.push(viewModel.isRetrying.subscribe((isRetrying) => {
+      this.refs.dislikeButton.disabled = isRetrying;
+    }));
   }
   private renderTaskSurfaces(viewModel: PopoverViewModel) {
     disposeOriginalTaskRuntimes(this.taskRuntimes);
@@ -166,5 +190,11 @@ export class OriginalPopoverView {
       },
       renderDefinitions: (definitions) => replaceDefinitionList(this.refs.definitionsList, definitions, renderDefinition),
     });
+  }
+
+  private updateErrorBanner(message: string | null) {
+    const hasMessage = message != null && message !== '';
+    this.refs.errorBanner.style.display = hasMessage ? 'flex' : 'none';
+    this.refs.errorMessage.textContent = message ?? '';
   }
 }

@@ -3,6 +3,7 @@
 @import "./provider-editor.css";
 @import "./task-editor.css";
 @import "./snapshot-runtime.css";
+@import "./tts-sources.css";
 
 *,
 *::before,
@@ -92,7 +93,6 @@ code {
 
 .sidebar,
 .nav-item,
-.support-link,
 .select-shell,
 .search-shell,
 .summary-card,
@@ -178,7 +178,6 @@ code {
   z-index: 1;
 }
 
-.summary-tags,
 .token-row,
 .pill-row,
 .list-tags,
@@ -189,15 +188,13 @@ code {
   gap: 10px;
 }
 
-.summary-tags,
 .token-row,
 .pill-row {
   margin-top: 18px;
 }
 
 .token,
-.pill-button,
-.summary-tag {
+.pill-button {
   display: inline-flex;
   align-items: center;
   gap: 8px;

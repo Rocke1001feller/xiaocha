@@ -31,5 +31,14 @@ export default defineConfig({
 	},
 	vite: () => ({
 		plugins: [tailwindcss()],
+		build: {
+			// Chrome >= 151 refuses to reuse chrome-extension:// resources across DOM
+			// worlds (CVE-2026-17728). Vite's injected modulepreload links on
+			// extension pages can therefore never be consumed: they trigger
+			// "cross-world extension resource mismatch" and "preloaded but not used"
+			// warnings, and every shared chunk gets fetched twice. Disable JS
+			// modulepreload injection; stylesheet links are still emitted.
+			modulePreload: false,
+		},
 	}),
 });

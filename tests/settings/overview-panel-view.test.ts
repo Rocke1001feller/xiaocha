@@ -21,7 +21,11 @@ import type {
   UpdateProviderInput,
 } from '../../src/features/provider-registry/events/ProviderRegistryEvents';
 import type { ResolvedUiDisplayLanguage, UiDisplayLanguagePreference } from '../../src/shared/ui-language';
+
+import { InMemorySettingsTtsRepository } from './helpers/inMemoryTtsRepository';
+
 import type {
+
   CreateCustomTaskInput,
   CustomTaskId,
   SystemTaskId,
@@ -167,7 +171,7 @@ async function mountOverview() {
   const settingsRepository = new StaticSettingsRepository();
   const providerRepository = new StaticSettingsProviderRepository();
   const taskRepository = new StaticSettingsTaskRepository();
-  const viewModel = new SettingsViewModel(settingsRepository, providerRepository, taskRepository, 'en-US');
+  const viewModel = new SettingsViewModel(settingsRepository, providerRepository, taskRepository, new InMemorySettingsTtsRepository(), 'en-US');
   const view = new SettingsView(document.getElementById('app') as HTMLDivElement, viewModel);
 
   await viewModel.initialize();

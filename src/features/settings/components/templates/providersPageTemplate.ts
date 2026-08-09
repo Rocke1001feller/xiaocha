@@ -14,7 +14,6 @@ export const PROVIDERS_PAGE_TEMPLATE = `
           <span class="accent-bar"></span>
           <h3 data-copy="providersTitle"></h3>
         </div>
-        <p class="section-note" data-copy="providersNote"></p>
 
         <div class="editor-layout">
           <div class="collection-pane">

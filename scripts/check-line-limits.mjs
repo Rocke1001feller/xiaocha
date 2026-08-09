@@ -9,6 +9,7 @@ const POPOVER_STYLES = join(ROOT, 'src/features/popover/styles');
 const PROVIDER_REGISTRY = join(ROOT, 'src/features/provider-registry');
 const SETTINGS = join(ROOT, 'src/features/settings');
 const TASK_REGISTRY = join(ROOT, 'src/features/task-registry');
+const TTS = join(ROOT, 'src/features/tts');
 
 const TARGETS = [
   { root: POPOVER, prefix: 'src/features/popover/components', extensions: new Set(['.ts']) },
@@ -16,14 +17,12 @@ const TARGETS = [
   { root: PROVIDER_REGISTRY, prefix: 'src/features/provider-registry', extensions: new Set(['.ts']) },
   { root: SETTINGS, prefix: 'src/features/settings', extensions: new Set(['.ts', '.css']) },
   { root: TASK_REGISTRY, prefix: 'src/features/task-registry', extensions: new Set(['.ts']) },
+  { root: TTS, prefix: 'src/features/tts', extensions: new Set(['.ts']) },
 ];
 
 const RULES = [
   { root: POPOVER, label: 'components/*.ts', limit: 200, match: (f) => /^[^/]+\.ts$/.test(f) },
   { root: POPOVER, label: 'components/sections/*.ts', limit: 150, match: (f) => /^sections\/[^/]+\.ts$/.test(f) },
-  { root: POPOVER_STYLES, label: 'styles/popover.ts', limit: 80, match: (f) => f === 'popover.ts' },
-  { root: POPOVER_STYLES, label: 'styles/popover.generated.ts', limit: 80, match: (f) => f === 'popover.generated.ts' },
-  { root: POPOVER_STYLES, label: 'styles/popover/**/*.css', limit: 150, match: (f) => /^popover\/.+\.css$/.test(f) },
   { root: PROVIDER_REGISTRY, label: 'services/ProviderRegistryService.ts (facade)', limit: 380, match: (f) => f === 'services/ProviderRegistryService.ts' },
   { root: PROVIDER_REGISTRY, label: 'services/ProviderRuntimeResolver.ts', limit: 140, match: (f) => f === 'services/ProviderRuntimeResolver.ts' },
   { root: PROVIDER_REGISTRY, label: 'services/provider-registry/*.ts', limit: 180, match: (f) => /^services\/provider-registry\/[^/]+\.ts$/.test(f) },
@@ -44,7 +43,6 @@ const RULES = [
   { root: SETTINGS, label: 'events/*.ts', limit: 420, match: (f) => /^events\/[^/]+\.ts$/.test(f) },
   { root: SETTINGS, label: 'repositories/*.ts', limit: 150, match: (f) => /^repositories\/[^/]+\.ts$/.test(f) },
   { root: SETTINGS, label: 'interfaces/*.ts', limit: 50, match: (f) => /^interfaces\/[^/]+\.ts$/.test(f) },
-  { root: SETTINGS, label: 'mocks/*.ts', limit: 60, match: (f) => /^mocks\/[^/]+\.ts$/.test(f) },
   { root: SETTINGS, label: 'styles/index.css', limit: 400, match: (f) => f === 'styles/index.css' },
   { root: SETTINGS, label: 'styles/shell.css', limit: 320, match: (f) => f === 'styles/shell.css' },
   { root: SETTINGS, label: 'styles/overview.css', limit: 120, match: (f) => f === 'styles/overview.css' },
@@ -57,6 +55,13 @@ const RULES = [
   { root: TASK_REGISTRY, label: 'services/task-registry/*.ts', limit: 180, match: (f) => /^services\/task-registry\/[^/]+\.ts$/.test(f) },
   { root: TASK_REGISTRY, label: 'interfaces/*.ts', limit: 50, match: (f) => /^interfaces\/[^/]+\.ts$/.test(f) },
   { root: TASK_REGISTRY, label: 'events/*.ts', limit: 420, match: (f) => /^events\/[^/]+\.ts$/.test(f) },
+  { root: TTS, label: 'index.ts', limit: 50, match: (f) => f === 'index.ts' },
+  { root: TTS, label: 'services/TtsRegistryService.ts (facade)', limit: 140, match: (f) => f === 'services/TtsRegistryService.ts' },
+  { root: TTS, label: 'services/TtsService.ts (facade)', limit: 240, match: (f) => f === 'services/TtsService.ts' },
+  { root: TTS, label: 'services/tts-registry/*.ts', limit: 120, match: (f) => /^services\/tts-registry\/[^/]+\.ts$/.test(f) },
+  { root: TTS, label: 'engines/*.ts', limit: 180, match: (f) => /^engines\/[^/]+\.ts$/.test(f) },
+  { root: TTS, label: 'utils/*.ts', limit: 120, match: (f) => /^utils\/[^/]+\.ts$/.test(f) },
+  { root: TTS, label: 'events/*.ts', limit: 160, match: (f) => /^events\/[^/]+\.ts$/.test(f) },
 ];
 
 function* walkFiles(dir, allowedExts, base = dir) {

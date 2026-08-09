@@ -6,9 +6,10 @@ import type {
 } from '../../provider-registry/events/ProviderRegistryEvents';
 import { POPOVER_THEMES, type PopoverThemeId } from '../../popover/events/PopoverEvents';
 import type { SystemTaskId, TaskId, TaskRegistryRecord } from '../../task-registry/events/TaskRegistryEvents';
+import type { SystemTtsSourceDefinition, TtsSourceId } from '../../tts/events/TtsEvents';
 import type { ResolvedUiDisplayLanguage } from '../../../shared/ui-language';
 
-export type SettingsPageTab = 'overview' | 'providers' | 'prompts' | 'themes' | 'advanced';
+export type SettingsPageTab = 'overview' | 'providers' | 'prompts' | 'tts' | 'themes' | 'advanced';
 
 export type SettingsMetric = {
   label: string;
@@ -62,6 +63,41 @@ export type SettingsThemeRecord = {
   panel: string;
   sample: string;
 };
+
+export type SettingsTtsSourceRecord = {
+  id: TtsSourceId;
+  isOnline: boolean;
+  requiresApiKey: boolean;
+  label: string;
+  summary: string;
+  tags: string[];
+  tone: 'green' | 'violet' | 'amber';
+  icon: string;
+};
+
+const TTS_SOURCE_META: Record<TtsSourceId, Pick<SettingsTtsSourceRecord, 'tone' | 'icon'>> = {
+  auto: { tone: 'green', icon: 'auto_awesome' },
+  'browser-speech': { tone: 'amber', icon: 'record_voice_over' },
+  'google-translate': { tone: 'violet', icon: 'cloud' },
+  'azure-speech': { tone: 'violet', icon: 'key' },
+};
+
+export function createSettingsTtsSourceRecord(
+  source: SystemTtsSourceDefinition,
+  localized: { label: string; summary: string },
+): SettingsTtsSourceRecord {
+  return {
+    ...TTS_SOURCE_META[source.id],
+    id: source.id,
+    isOnline: source.isOnline,
+    requiresApiKey: source.requiresApiKey,
+    label: localized.label,
+    summary: localized.summary,
+    tags: source.id === 'auto'
+      ? ['smart']
+      : [source.isOnline ? 'online' : 'offline', ...(source.requiresApiKey ? ['byok'] : [])],
+  };
+}
 
 export type SettingsSnapshot = {
   metrics: SettingsMetric[];
@@ -351,25 +387,22 @@ export function createSettingsSnapshot(
       {
         label: language === 'zh-CN' ? '服务商' : 'Providers',
         value: String(providers.length),
-        meta: language === 'zh-CN' ? '映射自 live provider registry。' : 'Mapped from the live provider registry.',
+        meta: language === 'zh-CN' ? '已配置的 AI 服务商。' : 'Your configured AI providers.',
       },
       {
         label: language === 'zh-CN' ? 'Prompt 任务' : 'Prompt Tasks',
         value: String(taskRecords.length),
-        meta:
-          language === 'zh-CN'
-            ? '来自 live task registry overlay。'
-            : 'Mapped from the live task registry overlay.',
+        meta: language === 'zh-CN' ? '内置的解释任务。' : 'Built-in explain tasks.',
       },
       {
         label: language === 'zh-CN' ? '主题数' : 'Themes',
         value: String(themes.length),
-        meta: language === 'zh-CN' ? '3 个 Free，4 个 Premium。' : '3 free and 4 premium presets.',
+        meta: language === 'zh-CN' ? '3 个免费，4 个高级。' : '3 free, 4 premium.',
       },
       {
         label: language === 'zh-CN' ? '默认超时' : 'Default Timeout',
         value: language === 'zh-CN' ? '30 秒' : '30s',
-        meta: language === 'zh-CN' ? '首块等待 2.5 秒，总体 30 秒。' : '2.5s first chunk, 30s overall.',
+        meta: language === 'zh-CN' ? '首块 2.5 秒，整体 30 秒。' : '2.5s first chunk, 30s overall.',
       },
     ],
     providers,

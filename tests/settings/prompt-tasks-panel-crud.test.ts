@@ -29,6 +29,8 @@ import type {
   UpdateProviderInput,
 } from '../../src/features/provider-registry/events/ProviderRegistryEvents';
 import type { ResolvedUiDisplayLanguage, UiDisplayLanguagePreference } from '../../src/shared/ui-language';
+
+import { InMemorySettingsTtsRepository } from './helpers/inMemoryTtsRepository';
 import type {
   CreateCustomTaskInput,
   CustomTaskId,
@@ -441,7 +443,7 @@ async function createMountedTasksView(initialTasks?: TaskRegistryRecord[]) {
     initialTasks ?? (Object.keys(TASKS) as SystemTaskId[]).map((taskId) => createTaskRecord(taskId)),
   );
   const settingsRepository = new InMemorySettingsRepository(providerRepository, taskRepository);
-  const viewModel = new SettingsViewModel(settingsRepository, providerRepository, taskRepository, 'en-US');
+  const viewModel = new SettingsViewModel(settingsRepository, providerRepository, taskRepository, new InMemorySettingsTtsRepository(), 'en-US');
   const container = document.getElementById('app') as HTMLDivElement;
   const view = new SettingsView(container, viewModel);
 

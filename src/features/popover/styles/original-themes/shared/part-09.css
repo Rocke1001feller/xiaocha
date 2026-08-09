@@ -429,3 +429,71 @@
 .collapsible-section.is-expanded .section-toggle-btn svg {
   transform: rotate(var(--oow-collapsible-section-expanded-toggle-rotation));
 }
+/* ── TTS 朗读按钮（仿 .section-toggle-btn / .action-btn，颜色随主题变量自适应） ── */
+.tts-speak-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--oow-collapsible-section-toggle-size, 24px);
+  height: var(--oow-collapsible-section-toggle-size, 24px);
+  padding: var(--oow-collapsible-section-toggle-padding, 0);
+  border: none;
+  border-radius: var(--oow-collapsible-section-toggle-border-radius, 6px);
+  background: var(--oow-collapsible-section-toggle-bg, transparent);
+  color: var(--oow-collapsible-section-toggle-color, var(--muted));
+  cursor: pointer;
+  transition: var(--oow-collapsible-section-toggle-transition, color 0.2s ease, background-color 0.2s ease);
+  flex: none;
+}
+
+.tts-speak-btn:hover:not(:disabled) {
+  color: var(--oow-collapsible-section-toggle-hover-color, var(--accent-1));
+  background: var(--oow-collapsible-section-toggle-hover-bg, transparent);
+}
+
+.tts-speak-btn:focus-visible {
+  outline: 2px solid var(--accent-1);
+  outline-offset: 1px;
+}
+
+.tts-speak-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.tts-speak-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* 播放态：呼吸脉冲 */
+.tts-speak-btn.is-speaking {
+  color: var(--accent-1);
+  animation: oow-tts-speak-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes oow-tts-speak-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.88); }
+}
+
+/* 翻译 / 语境块：文本与喇叭并排 */
+.translation,
+.contextual-analysis {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-1, 4px);
+}
+
+.translation .text,
+.contextual-analysis .text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 任务面板内容区前的工具条喇叭（z-index 防被主题定位标题遮挡，否则点击落空） */
+.tab-content .tts-speak-btn {
+  float: right;
+  position: relative; z-index: 1;
+  margin: 0 0 var(--spacing-1, 4px) var(--spacing-1, 4px);
+}

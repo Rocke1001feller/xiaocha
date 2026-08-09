@@ -1,5 +1,5 @@
-import { getAiOutputLanguagePreference, setAiOutputLanguagePreference } from '../../../storage/ai-output-language';
-import { getUiDisplayLanguagePreference, setUiDisplayLanguagePreference } from '../../../storage/ui-display-language';
+import { getAiOutputLanguagePreference, setAiOutputLanguagePreference } from '../../../shared/storage/ai-output-language';
+import { getUiDisplayLanguagePreference, setUiDisplayLanguagePreference } from '../../../shared/storage/ui-display-language';
 import type { AiOutputLanguagePreference } from '../../../shared/ai-output-language';
 import type { ResolvedUiDisplayLanguage, UiDisplayLanguagePreference } from '../../../shared/ui-language';
 import { createSettingsSnapshot } from '../events/SettingsEvents';

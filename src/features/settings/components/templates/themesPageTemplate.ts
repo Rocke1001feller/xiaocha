@@ -14,7 +14,6 @@ export const THEMES_PAGE_TEMPLATE = `
           <span class="accent-bar"></span>
           <h3 data-copy="themesTitle"></h3>
         </div>
-        <p class="section-note" data-copy="themesNote"></p>
 
         <div class="theme-preview-shell">
           <article class="preview-card left" id="theme-preview-left"></article>

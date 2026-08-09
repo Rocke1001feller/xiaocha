@@ -1,3 +1,72 @@
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px 5px rgba(16, 185, 129, 0.2);
+  }
+}
+
+/* 专业打字机效果 - 模拟专业文档输入 */
+@keyframes pro-typewriter {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    width: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+/* 商务光泽扫过 - 模拟金属质感光泽 */
+@keyframes pro-metallic-sweep {
+  0% {
+    background-position: -200% 0%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    background-position: 200% 0%;
+    opacity: 0;
+  }
+}
+
+/* === Pro主题专属专业商务动效应用 === */
+
+/* 专业淡入渐显 - 标题商务展示 */
+.oow-popover[data-theme="pro"] .info-panel-content h1,
+.oow-popover[data-theme="pro"] .info-panel-content h2,
+.oow-popover[data-theme="pro"] .info-panel-content h3,
+.oow-popover[data-theme="pro"] .info-panel-content h4,
+.oow-popover[data-theme="pro"] .info-panel-content h5,
+.oow-popover[data-theme="pro"] .info-panel-content h6,
+.oow-popover[data-theme="pro"] .etymology-panel h1,
+.oow-popover[data-theme="pro"] .etymology-panel h2,
+.oow-popover[data-theme="pro"] .etymology-panel h3,
+.oow-popover[data-theme="pro"] .etymology-panel h4,
+.oow-popover[data-theme="pro"] .etymology-panel h5,
+.oow-popover[data-theme="pro"] .etymology-panel h6 {
+  animation: pro-fade-in-up 0.8s ease-out forwards;
+  position: relative;
+  color: var(--oow-info-panel-heading-color);
+  font-weight: var(--oow-info-panel-heading-weight);
+  transform: translateZ(0);
+}
+
+.oow-popover[data-theme="pro"] .info-panel-content h1::after,
+.oow-popover[data-theme="pro"] .info-panel-content h2::after,
+.oow-popover[data-theme="pro"] .info-panel-content h3::after,
+.oow-popover[data-theme="pro"] .etymology-panel h1::after,
+.oow-popover[data-theme="pro"] .etymology-panel h2::after,
+.oow-popover[data-theme="pro"] .etymology-panel h3::after {
+  content: '';
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -329,72 +398,3 @@
   --oow-highlight-blockquote-margin: 1.4em 0;
   --oow-highlight-blockquote-padding: 1em 1.5em;
   --oow-highlight-blockquote-border-left: 5px solid var(--accent-1);
-  --oow-highlight-blockquote-color: var(--muted);
-  --oow-highlight-blockquote-bg: rgba(237, 137, 54, 0.1);
-  --oow-highlight-hr-height: 3px;
-  --oow-highlight-hr-bg: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
-  --oow-highlight-hr-margin: 2em 0;
-  --oow-highlight-pre-padding: 1.5em;
-  --oow-highlight-pre-bg: rgba(255, 255, 255, 0.9);
-  --oow-highlight-pre-border-radius: 10px;
-  --oow-highlight-pre-font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
-  --oow-highlight-pre-font-size: 1em;
-  --oow-highlight-table-margin: 2em 0;
-  --oow-highlight-table-border: 2px solid var(--accent-1);
-  --oow-highlight-table-cell-padding: 0.7em 1em;
-  --oow-highlight-table-header-bg: rgba(237, 137, 54, 0.15);
-  --oow-highlight-table-header-color: var(--text-color);
-  --oow-highlight-table-header-font-weight: 700;
-}
-
-/* Creative wave background effect */
-.oow-popover[data-theme="creative"]::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(237, 137, 54, 0.1) 0px, transparent 50px),
-    radial-gradient(circle at 80% 70%, rgba(66, 153, 225, 0.1) 0px, transparent 50px),
-    radial-gradient(circle at 50% 20%, rgba(159, 122, 234, 0.1) 0px, transparent 50px);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.oow-popover[data-theme="creative"] > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* === Trigger Button - Creative Theme === */
-.oow-selection-trigger-button[data-theme="creative"] {
-  background: #2d3748; /* Unified dark background for high contrast */
-  border: 2px solid transparent;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  color: white;
-  border-radius: 10px; /* Keep original default radius */
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.oow-selection-trigger-button[data-theme="creative"]:hover {
-  background: #2d3748; /* Keep background unified */
-  border-color: #718096; /* Use muted color for subtle hover feedback */
-  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.3);
-  transform: translateY(-3px) scale(1.08);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.oow-selection-trigger-button[data-theme="creative"].activated {
-  background: #2d3748; /* Keep background unified */
-  border-radius: 999px; /* Unique pill shape for activation */
-  border: 4px double #9f7aea; /* Unique, high-contrast purple double border */
-  box-shadow: 0 4px 20px rgba(159, 122, 234, 0.4); /* Matching purple glow */
-  color: white;
-  animation: none;
-  transform: none;
-}

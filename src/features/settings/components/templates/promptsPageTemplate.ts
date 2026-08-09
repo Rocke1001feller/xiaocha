@@ -14,7 +14,6 @@ export const PROMPTS_PAGE_TEMPLATE = `
           <span class="accent-bar"></span>
           <h3 data-copy="promptsTitle"></h3>
         </div>
-        <p class="section-note" data-copy="promptsNote"></p>
 
         <div class="editor-layout">
           <div class="collection-pane">

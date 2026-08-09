@@ -1,3 +1,72 @@
+
+.oow-popover[data-theme="basic"] .info-panel-content a:hover,
+.oow-popover[data-theme="basic"] .etymology-panel a:hover {
+  color: var(--oow-info-panel-link-hover);
+  animation: basic-emphasis 0.3s ease-in-out infinite;
+}
+
+.oow-popover[data-theme="basic"] .info-panel-content a:hover::before,
+.oow-popover[data-theme="basic"] .etymology-panel a:hover::before {
+  width: 100%;
+}
+
+/* 入门渐变 - 列表项基础展示 */
+.oow-popover[data-theme="basic"] .info-panel-content ul li,
+.oow-popover[data-theme="basic"] .info-panel-content ol li,
+.oow-popover[data-theme="basic"] .etymology-panel ul li,
+.oow-popover[data-theme="basic"] .etymology-panel ol li {
+  animation: basic-slide-in 0.6s ease-out forwards;
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 0.5em;
+  color: var(--oow-info-panel-list-color);
+  transform: translateZ(0);
+}
+
+.oow-popover[data-theme="basic"] .info-panel-content ul li::before,
+.oow-popover[data-theme="basic"] .info-panel-content ol li::before,
+.oow-popover[data-theme="basic"] .etymology-panel ul li::before,
+.oow-popover[data-theme="basic"] .etymology-panel ol li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent-1);
+  font-weight: 700;
+  animation: basic-blink 3s ease-in-out infinite;
+}
+
+/* 简洁强调 - 强调文字 */
+.oow-popover[data-theme="basic"] .info-panel-content strong,
+.oow-popover[data-theme="basic"] .etymology-panel strong {
+  color: var(--accent-2);
+  font-weight: 600;
+  animation: basic-emphasis 2s ease-in-out infinite;
+  transform: translateZ(0);
+}
+
+/* 简约斜体效果 - 斜体文字 */
+.oow-popover[data-theme="basic"] .info-panel-content em,
+.oow-popover[data-theme="basic"] .etymology-panel em {
+  color: var(--accent-1);
+  font-style: italic;
+  animation: basic-fade-in 0.4s ease-out forwards;
+  transform: translateZ(0);
+}
+
+/* 入门代码块 - 基础代码展示 */
+.oow-popover[data-theme="basic"] .info-panel-content code,
+.oow-popover[data-theme="basic"] .etymology-panel code {
+  background: var(--oow-info-panel-code-bg);
+  color: var(--oow-info-panel-code-color);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  animation: basic-fade-in 0.3s ease-out forwards;
+  transform: translateZ(0);
+}
+
+/* 简约引用块 - 基础引用设计 */
 .oow-popover[data-theme="basic"] .info-panel-content blockquote,
 .oow-popover[data-theme="basic"] .etymology-panel blockquote {
   margin: var(--oow-highlight-blockquote-margin);
@@ -329,72 +398,3 @@
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
   }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px 5px rgba(16, 185, 129, 0.2);
-  }
-}
-
-/* 专业打字机效果 - 模拟专业文档输入 */
-@keyframes pro-typewriter {
-  0% {
-    width: 0;
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    width: 100%;
-    opacity: 1;
-  }
-  100% {
-    width: 100%;
-    opacity: 1;
-  }
-}
-
-/* 商务光泽扫过 - 模拟金属质感光泽 */
-@keyframes pro-metallic-sweep {
-  0% {
-    background-position: -200% 0%;
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.8;
-  }
-  100% {
-    background-position: 200% 0%;
-    opacity: 0;
-  }
-}
-
-/* === Pro主题专属专业商务动效应用 === */
-
-/* 专业淡入渐显 - 标题商务展示 */
-.oow-popover[data-theme="pro"] .info-panel-content h1,
-.oow-popover[data-theme="pro"] .info-panel-content h2,
-.oow-popover[data-theme="pro"] .info-panel-content h3,
-.oow-popover[data-theme="pro"] .info-panel-content h4,
-.oow-popover[data-theme="pro"] .info-panel-content h5,
-.oow-popover[data-theme="pro"] .info-panel-content h6,
-.oow-popover[data-theme="pro"] .etymology-panel h1,
-.oow-popover[data-theme="pro"] .etymology-panel h2,
-.oow-popover[data-theme="pro"] .etymology-panel h3,
-.oow-popover[data-theme="pro"] .etymology-panel h4,
-.oow-popover[data-theme="pro"] .etymology-panel h5,
-.oow-popover[data-theme="pro"] .etymology-panel h6 {
-  animation: pro-fade-in-up 0.8s ease-out forwards;
-  position: relative;
-  color: var(--oow-info-panel-heading-color);
-  font-weight: var(--oow-info-panel-heading-weight);
-  transform: translateZ(0);
-}
-
-.oow-popover[data-theme="pro"] .info-panel-content h1::after,
-.oow-popover[data-theme="pro"] .info-panel-content h2::after,
-.oow-popover[data-theme="pro"] .info-panel-content h3::after,
-.oow-popover[data-theme="pro"] .etymology-panel h1::after,
-.oow-popover[data-theme="pro"] .etymology-panel h2::after,
-.oow-popover[data-theme="pro"] .etymology-panel h3::after {
-  content: '';

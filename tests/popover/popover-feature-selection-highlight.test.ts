@@ -2,6 +2,7 @@
 
 import { readFileSync } from 'node:fs';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { ContentScriptContext } from 'wxt/utils/content-script-context';
 
 vi.mock('../../src/features/popover/styles/original-themes', () => ({
   default: readFileSync(`${process.cwd()}/src/features/popover/styles/original-themes/order.txt`, 'utf8')
@@ -28,6 +29,18 @@ vi.mock('../../src/features/popover/repositories/RuntimePopoverRepository', () =
 }));
 
 import { PopoverFeature } from '../../src/features/popover/PopoverFeature';
+
+function createMockContentScriptContext(): ContentScriptContext {
+  return {
+    addEventListener: (target: EventTarget, type: string, handler: EventListener, options?: boolean | AddEventListenerOptions) => {
+      target.addEventListener(type, handler, options);
+    },
+    setTimeout: (handler: () => void, delay?: number) => window.setTimeout(handler, delay),
+    onInvalidated: () => () => {},
+    isValid: true,
+    isInvalid: false,
+  } as unknown as ContentScriptContext;
+}
 
 const highlightStore = new Map<string, unknown>();
 
@@ -95,6 +108,7 @@ beforeEach(() => {
       runtime: {
         onMessage: {
           addListener: vi.fn(),
+          removeListener: vi.fn(),
         },
         sendMessage: vi.fn(),
       },
@@ -163,7 +177,7 @@ describe('PopoverFeature selection affordance', () => {
     setTextSelection('Immediate underline follows', 'Immediate underline');
 
     const feature = new PopoverFeature();
-    feature.start();
+    feature.start(createMockContentScriptContext());
 
     document.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
     await vi.advanceTimersByTimeAsync(10);

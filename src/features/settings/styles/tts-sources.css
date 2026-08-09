@@ -1,0 +1,18 @@
+.tts-config-note {
+  margin: 0;
+}
+
+#tts-source-list .data-list-item {
+  align-items: center;
+}
+
+.tts-preview-button {
+  flex: 0 0 auto;
+  padding: 8px 14px;
+  font-size: 12px;
+}
+
+#tts-browser-fields select,
+#tts-azure-fields input {
+  width: 100%;
+}

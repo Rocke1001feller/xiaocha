@@ -1,3 +1,72 @@
+
+/* 表格数据录入效果 */
+.oow-popover[data-theme="galaxy"] .info-panel-content table,
+.oow-popover[data-theme="galaxy"] .etymology-panel table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid var(--ring);
+  border-radius: 8px;
+  overflow: hidden;
+  animation: galaxy-fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  will-change: opacity, transform;
+}
+
+/* 表格头部动画 */
+.oow-popover[data-theme="galaxy"] .info-panel-content table th,
+.oow-popover[data-theme="galaxy"] .etymology-panel table th {
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  color: white;
+  font-weight: 700;
+  padding: 12px 16px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  animation: galaxy-glow 4s ease-in-out infinite;
+}
+
+/* 表格单元格动画 */
+.oow-popover[data-theme="galaxy"] .info-panel-content table td,
+.oow-popover[data-theme="galaxy"] .etymology-panel table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(129, 140, 248, 0.2);
+  animation: galaxy-fadeInUp 0.5s ease-out forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  transition: all 0.3s ease;
+  will-change: opacity, background-color;
+}
+
+/* 表格单元格延迟显示 */
+.oow-popover[data-theme="galaxy"] .info-panel-content table tr:nth-child(1) td,
+.oow-popover[data-theme="galaxy"] .etymology-panel table tr:nth-child(1) td {
+  animation-delay: 0.2s;
+}
+
+.oow-popover[data-theme="galaxy"] .info-panel-content table tr:nth-child(2) td,
+.oow-popover[data-theme="galaxy"] .etymology-panel table tr:nth-child(2) td {
+  animation-delay: 0.4s;
+}
+
+.oow-popover[data-theme="galaxy"] .info-panel-content table tr:nth-child(3) td,
+.oow-popover[data-theme="galaxy"] .etymology-panel table tr:nth-child(3) td {
+  animation-delay: 0.6s;
+}
+
+.oow-popover[data-theme="galaxy"] .info-panel-content table tr:nth-child(n+4) td,
+.oow-popover[data-theme="galaxy"] .etymology-panel table tr:nth-child(n+4) td {
+  animation-delay: 0.8s;
+}
+
+/* 表格行悬停效果 */
+.oow-popover[data-theme="galaxy"] .info-panel-content table tr:hover td,
+.oow-popover[data-theme="galaxy"] .etymology-panel table tr:hover td {
+  background: rgba(192, 132, 252, 0.1);
+  text-shadow: 0 0 4px rgba(192, 132, 252, 0.3);
+}
+
+/* 图片淡入效果 */
+.oow-popover[data-theme="galaxy"] .info-panel-content img,
+.oow-popover[data-theme="galaxy"] .etymology-panel img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
@@ -329,72 +398,3 @@
 
 @keyframes neon-flicker {
   0%, 100% {
-    text-shadow: 0 0 12px rgba(255, 0, 110, 0.5), 0 0 20px rgba(255, 0, 110, 0.3);
-  }
-  50% {
-    text-shadow: 0 0 8px rgba(255, 0, 110, 0.3), 0 0 12px rgba(255, 0, 110, 0.2);
-  }
-}
-
-@keyframes neon-pulse {
-  0%, 100% {
-    text-shadow: 0 0 12px rgba(255, 0, 110, 0.5), 0 0 20px rgba(255, 0, 110, 0.3);
-  }
-  50% {
-    text-shadow: 0 0 18px rgba(255, 0, 110, 0.7), 0 0 28px rgba(255, 0, 110, 0.4), 0 0 35px rgba(0, 217, 255, 0.2);
-  }
-}
-
-.oow-popover[data-theme="neon"] .header-logo {
-  background: var(--ring);
-  border: 2px solid var(--accent-2);
-  color: #000;
-  box-shadow: 0 0 20px var(--ring), inset 0 0 10px rgba(0, 0, 0, 0.5);
-  font-weight: 900;
-  font-size: 1.1em;
-  border-radius: 6px;
-  animation: neon-logo-pulse 2s infinite;
-}
-
-@keyframes neon-logo-pulse {
-  0%, 100% {
-    box-shadow: 0 0 20px var(--ring), inset 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 30px var(--ring), 0 0 40px var(--accent-2), inset 0 0 15px rgba(0, 0, 0, 0.7);
-  }
-}
-
-.oow-popover[data-theme="neon"] .section-title {
-  color: var(--accent-2);
-  text-shadow: 0 0 12px rgba(0, 217, 255, 0.4);
-  font-weight: 700;
-  font-size: 1.1em;
-  letter-spacing: 1px;
-  background: linear-gradient(90deg, transparent 60%, rgba(0, 217, 255, 0.1) 60%);
-  background-size: 200% 100%;
-  animation: neon-scan 2.5s linear infinite;
-}
-
-@keyframes neon-scan {
-  0% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: -100% 0;
-  }
-}
-
-.oow-popover[data-theme="neon"] .def-item .pos {
-  color: var(--accent-1);
-  text-shadow: 0 0 10px var(--accent-1);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 0.9em;
-}
-
-.oow-popover[data-theme="neon"] .def-item .meaning {
-  color: var(--text-color);
-}
-

@@ -1,5 +1,5 @@
 import { getResolvedAiOutputLanguagePromptLabel } from '../shared/ai-output-language';
-import { getAiOutputLanguagePreference } from '../storage/ai-output-language';
+import { getAiOutputLanguagePreference } from '../shared/storage/ai-output-language';
 import {
   ProviderRequestError,
   streamProviderChatCompletion,

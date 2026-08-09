@@ -1,5 +1,9 @@
 import type { ExplainSelection } from '../../../../src/llm/types';
 import type { TaskId } from '../../../shared/task-ids';
+import {
+  EXTENSION_CONTEXT_INVALIDATED_MESSAGE,
+  isExtensionContextInvalidatedError,
+} from '../../../shared/extension-context';
 import { POPOVER_CANCEL_TASK, POPOVER_START_TASK } from '../events/PopoverEvents';
 import type { IPopoverRepository } from '../interfaces/IPopoverRepository';
 import { createRegistryServiceBundle } from '../../task-registry/services/createRegistryServiceBundle';
@@ -14,18 +18,32 @@ export class RuntimePopoverRepository implements IPopoverRepository {
   }
 
   async startTask(requestId: string, task: TaskId, selection: ExplainSelection): Promise<void> {
-    await browser.runtime.sendMessage({
-      kind: POPOVER_START_TASK,
-      requestId,
-      task,
-      selection,
-    });
+    try {
+      await browser.runtime.sendMessage({
+        kind: POPOVER_START_TASK,
+        requestId,
+        task,
+        selection,
+      });
+    } catch (error) {
+      if (isExtensionContextInvalidatedError(error)) {
+        throw new Error(EXTENSION_CONTEXT_INVALIDATED_MESSAGE);
+      }
+      throw error;
+    }
   }
 
   async cancelTask(requestId: string): Promise<void> {
-    await browser.runtime.sendMessage({
-      kind: POPOVER_CANCEL_TASK,
-      requestId,
-    });
+    try {
+      await browser.runtime.sendMessage({
+        kind: POPOVER_CANCEL_TASK,
+        requestId,
+      });
+    } catch (error) {
+      if (isExtensionContextInvalidatedError(error)) {
+        throw new Error(EXTENSION_CONTEXT_INVALIDATED_MESSAGE);
+      }
+      throw error;
+    }
   }
 }

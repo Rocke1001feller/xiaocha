@@ -31,6 +31,8 @@ import type {
   UpdateTaskInput,
 } from '../../src/features/task-registry/events/TaskRegistryEvents';
 
+import { InMemorySettingsTtsRepository } from './helpers/inMemoryTtsRepository';
+
 function cloneProviders(providers: SettingsProviderRecord[]): SettingsProviderRecord[] {
   return providers.map((provider) => ({
     ...provider,
@@ -359,7 +361,7 @@ async function createMountedProvidersView(initialProviders?: SettingsProviderRec
   );
   const settingsRepository = new InMemorySettingsRepository(providerRepository);
   const taskRepository = new NoopSettingsTaskRepository();
-  const viewModel = new SettingsViewModel(settingsRepository, providerRepository, taskRepository, 'en-US');
+  const viewModel = new SettingsViewModel(settingsRepository, providerRepository, taskRepository, new InMemorySettingsTtsRepository(), 'en-US');
   const container = document.getElementById('app') as HTMLDivElement;
   const view = new SettingsView(container, viewModel);
 

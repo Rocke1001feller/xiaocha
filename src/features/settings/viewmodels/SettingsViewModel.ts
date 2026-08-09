@@ -10,6 +10,8 @@ import type { SettingsPageTab } from '../events/SettingsEvents';
 import type { ISettingsProviderRepository } from '../interfaces/ISettingsProviderRepository';
 import type { ISettingsRepository } from '../interfaces/ISettingsRepository';
 import type { ISettingsTaskRepository } from '../interfaces/ISettingsTaskRepository';
+import type { ISettingsTtsRepository } from '../interfaces/ISettingsTtsRepository';
+import type { TtsPreviewRuntime } from '../components/tts-sources/ttsPreviewRuntime';
 import { LanguagePreferencesController } from './language-preferences/LanguagePreferencesController';
 import { ProviderEditorController } from './provider-editor/ProviderEditorController';
 import { getProviderEditorCopy } from './provider-editor/providerEditorCopy';
@@ -20,6 +22,8 @@ import { TaskDryRunController } from './task-dry-run/TaskDryRunController';
 import { TaskEditorController } from './task-editor/TaskEditorController';
 import { getTaskEditorCopy } from './task-editor/taskEditorCopy';
 import type { TaskEditorViewState } from './task-editor/taskEditorState';
+import { TtsSourcesController } from './tts-sources/TtsSourcesController';
+import { getTtsSourcesCopy } from './tts-sources/ttsSourcesCopy';
 export class SettingsViewModel {
   readonly isLoading = new Observable(true);
 
@@ -51,6 +55,10 @@ export class SettingsViewModel {
 
   readonly snapshotRuntime: SnapshotRuntimeController;
 
+  readonly ttsSources: TtsSourcesController;
+
+  readonly ttsPreviewRuntime: TtsPreviewRuntime | null;
+
   private readonly languagePreferencesController: LanguagePreferencesController<SettingsSelectionState>;
 
   private readonly shellCoordinator: SettingsShellCoordinator;
@@ -59,11 +67,19 @@ export class SettingsViewModel {
     repository: ISettingsRepository,
     providerRepository: ISettingsProviderRepository,
     taskRepository: ISettingsTaskRepository,
+    ttsRepository: ISettingsTtsRepository,
     navigatorLanguage = globalThis.navigator?.language ?? 'en',
+    options: { ttsPreviewRuntime?: TtsPreviewRuntime } = {},
   ) {
     this.snapshotRuntime = new SnapshotRuntimeController();
+
     this.providerEditor = new ProviderEditorController(providerRepository, {
       getCopy: () => getProviderEditorCopy(this.resolvedLanguage.value),
+    });
+    this.ttsPreviewRuntime = options.ttsPreviewRuntime ?? null;
+    this.ttsSources = new TtsSourcesController(ttsRepository, {
+      getCopy: () => getTtsSourcesCopy(this.resolvedLanguage.value),
+      preview: this.ttsPreviewRuntime?.preview,
     });
     this.taskEditor = new TaskEditorController(taskRepository, {
       getProviders: () => this.providerEditor.providers.value,
@@ -112,11 +128,14 @@ export class SettingsViewModel {
   }
 
   async initialize() {
+    this.ttsSources.initialize();
     await this.shellCoordinator.initialize();
   }
 
   dispose() {
     this.shellCoordinator.dispose();
+    this.ttsSources.dispose();
+    this.ttsPreviewRuntime?.stop();
   }
 
   setActiveTab(tab: SettingsPageTab) {

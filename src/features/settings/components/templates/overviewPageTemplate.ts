@@ -14,13 +14,6 @@ export const OVERVIEW_PAGE_TEMPLATE = `
           <div class="summary-copy">
             <h2 data-copy="summaryTitle"></h2>
             <p data-copy="summaryDescription"></p>
-            <div class="summary-tags">
-              <span class="summary-tag"><span class="material-symbols-outlined" style="font-size:16px">language</span><span data-copy="summaryTagLanguages"></span></span>
-              <span class="summary-tag"><span class="material-symbols-outlined" style="font-size:16px">cloud</span><span data-copy="summaryTagProviders"></span></span>
-              <span class="summary-tag"><span class="material-symbols-outlined" style="font-size:16px">chat</span><span data-copy="summaryTagPrompts"></span></span>
-              <span class="summary-tag"><span class="material-symbols-outlined" style="font-size:16px">palette</span><span data-copy="summaryTagThemes"></span></span>
-              <span class="summary-tag"><span class="material-symbols-outlined" style="font-size:16px">tune</span><span data-copy="summaryTagTimeouts"></span></span>
-            </div>
           </div>
           <div class="summary-metrics" id="metrics-grid"></div>
         </div>
@@ -68,21 +61,6 @@ export const OVERVIEW_PAGE_TEMPLATE = `
               <button class="pill-button" id="jump-themes-button" type="button" data-copy="openThemeGallery"></button>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="support-note">
-        <div class="support-block">
-          <strong data-copy="supportTruthTitle"></strong>
-          <p data-copy="supportTruthBody"></p>
-        </div>
-        <div class="support-block">
-          <strong data-copy="supportBorrowingTitle"></strong>
-          <p data-copy="supportBorrowingBody"></p>
-        </div>
-        <div class="support-block">
-          <strong data-copy="supportIntegrationTitle"></strong>
-          <p data-copy="supportIntegrationBody"></p>
         </div>
       </section>
     </div>

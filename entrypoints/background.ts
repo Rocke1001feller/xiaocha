@@ -7,9 +7,23 @@ import {
   type PopoverStreamEvent,
 } from '../src/features/popover/events/PopoverEvents';
 import { ProviderRuntimeResolver } from '../src/features/provider-registry/services/ProviderRuntimeResolver';
+import { synthesizeWithAzure } from '../src/features/tts/engines/azureTts';
+import { synthesizeWithGoogleTranslate } from '../src/features/tts/engines/googleTranslateTts';
+import {
+  isTtsSynthesizeRequestMessage,
+  type TtsSynthesizeRequestPayload,
+  type TtsSynthesizeResponse,
+} from '../src/features/tts/events/TtsEvents';
+import { TtsRegistryService } from '../src/features/tts/services/TtsRegistryService';
+import {
+  resolveAzureRegion,
+  resolveAzureVoiceName,
+  resolveTtsSourceId,
+} from '../src/features/tts/services/tts-registry/ttsRegistryModel';
 
 const activeRequests = new Map<string, AbortController>();
 const providerRuntimeResolver = new ProviderRuntimeResolver();
+const ttsRegistryService = new TtsRegistryService();
 
 type PopoverMessageSender = {
   tab?: {
@@ -28,6 +42,10 @@ export default defineBackground(() => {
       activeRequests.get(message.requestId)?.abort();
       activeRequests.delete(message.requestId);
       return Promise.resolve();
+    }
+
+    if (isTtsSynthesizeRequestMessage(message)) {
+      return keepServiceWorkerAlive(handleTtsSynthesize(message.payload));
     }
 
     return undefined;
@@ -127,6 +145,42 @@ async function handleStartTask(
     });
   } finally {
     activeRequests.delete(message.requestId);
+  }
+}
+
+async function handleTtsSynthesize(payload: TtsSynthesizeRequestPayload): Promise<TtsSynthesizeResponse> {
+  try {
+    const selection = await ttsRegistryService.getSelection();
+    const resolvedSourceId = resolveTtsSourceId(selection, navigator.onLine);
+
+    if (resolvedSourceId === 'browser-speech') {
+      // Web Speech API only exists page-side; the content script falls back on this error.
+      return { error: 'browser-speech-unavailable-in-background' };
+    }
+
+    if (resolvedSourceId === 'azure-speech') {
+      const [sourceConfig, azureApiKey] = await Promise.all([
+        ttsRegistryService.getSourceConfig('azure-speech'),
+        ttsRegistryService.getAzureApiKey(),
+      ]);
+
+      if (!azureApiKey) {
+        return { error: 'Azure Speech API key is not configured.' };
+      }
+
+      return await synthesizeWithAzure(payload.text, payload.lang, {
+        apiKey: azureApiKey,
+        region: resolveAzureRegion(sourceConfig),
+        voiceZh: payload.voice ?? resolveAzureVoiceName(sourceConfig, 'zh'),
+        voiceEn: payload.voice ?? resolveAzureVoiceName(sourceConfig, 'en'),
+      });
+    }
+
+    return await synthesizeWithGoogleTranslate(payload.text, payload.lang);
+  } catch (error) {
+    return {
+      error: error instanceof Error ? error.message : 'The TTS synthesis request failed.',
+    };
   }
 }
 

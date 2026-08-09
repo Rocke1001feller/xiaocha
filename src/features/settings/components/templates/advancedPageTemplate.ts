@@ -41,7 +41,6 @@ export const ADVANCED_PAGE_TEMPLATE = `
           <span class="accent-bar"></span>
           <h3 data-copy="executionSnapshotTitle"></h3>
         </div>
-        <p class="section-note" data-copy="executionSnapshotNote"></p>
 
         <div class="settings-grid">
           <div class="setting-row spread">
@@ -59,11 +58,6 @@ export const ADVANCED_PAGE_TEMPLATE = `
               <h4 data-copy="lazyTaskTitle"></h4>
               <p data-copy="lazyTaskDescription"></p>
             </div>
-            <label class="toggle" aria-label="Lazy load information task">
-              <input type="checkbox" checked disabled />
-              <span class="toggle-track"></span>
-              <span class="toggle-thumb"></span>
-            </label>
           </div>
         </div>
       </section>
